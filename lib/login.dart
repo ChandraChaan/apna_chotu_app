@@ -46,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 8),
               Text(
                 'Login access is available to customers who have registered.',
-                style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     color: Colors.white,
                     fontSize: 16,
                     fontWeight: FontWeight.w400),
@@ -56,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 16),
               Text(
                 'Enter registered mobile number',
-                style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     color: Colors.white,
                     fontSize: 16,
                     fontWeight: FontWeight.w400),
@@ -117,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   child: Text(
                     'Login via OTP',
-                    style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: Colors.white,
                         fontSize: 21,
                         fontWeight: FontWeight.w700),
