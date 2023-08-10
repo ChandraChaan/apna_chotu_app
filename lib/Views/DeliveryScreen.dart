@@ -19,7 +19,7 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
             color: Colors.purpleAccent,
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Text("your Favourite\nFood delivery\nPartner.",
@@ -27,7 +27,7 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
                         .textTheme
                         .bodyMedium
                         ?.copyWith(fontSize: 40, color: Colors.white)),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Text("The best service to fulfill you\nexpectations.",
@@ -35,15 +35,15 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
                         .textTheme
                         .bodyMedium
                         ?.copyWith(fontSize: 20, color: Colors.white)),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Container(
                   height: 365,
                   width: 340,
-                  child: Image.asset("Images/Delivery Vehicle.png"),
+                  child: Image.asset("assets/images/Delivery Vehicle.png"),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Column(
@@ -64,12 +64,12 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
                           child: Row(
                             // Add a Row to contain the CircleAvatar and Text
                             children: [
-                              CircleAvatar(
+                              const CircleAvatar(
                                 backgroundColor: Colors.black54,
                                 child: Icon(Icons.chevron_right),
-                              ),SizedBox(width: 40,),
+                              ),const SizedBox(width: 40,),
                               // Adding some spacing between the CircleAvatar and Text
-                              Text(
+                              const Text(
                                 "Get Started",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,

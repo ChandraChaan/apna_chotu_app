@@ -19,7 +19,7 @@ class _ScreenSecondState extends State<ScreenSecond> {
             color: Colors.purpleAccent,
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Text("Delivering\nlip-smacking food\nis our passion.",
@@ -27,7 +27,7 @@ class _ScreenSecondState extends State<ScreenSecond> {
                         .textTheme
                         .bodyMedium
                         ?.copyWith(fontSize: 40, color: Colors.white)),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Text("Time is precious, and we know that",
@@ -35,26 +35,26 @@ class _ScreenSecondState extends State<ScreenSecond> {
                         .textTheme
                         .bodyMedium
                         ?.copyWith(fontSize: 20, color: Colors.white)),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                Container(
+                SizedBox(
                   height: 365,
                   width: 340,
-                  child: Image.asset("Images/Cooking.png"),
+                  child: Image.asset("assets/images/Cooking.png"),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 TextButton(
                     onPressed: () {},
                     style: TextButton.styleFrom(
                         padding:
-                        EdgeInsets.symmetric(horizontal: 130, vertical: 16),
+                        const EdgeInsets.symmetric(horizontal: 130, vertical: 16),
                         backgroundColor: Colors.deepOrange,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(40))),
-                    child: Text(
+                    child: const Text(
                       "Next",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,

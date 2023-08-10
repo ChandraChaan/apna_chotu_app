@@ -38,6 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+
               Text(
                 'Apna Chotu Customer Login',
                 style: Theme.of(context).textTheme.displaySmall?.copyWith(
@@ -95,10 +96,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: TextFormField(
                         controller: phoneNumberController,
                         keyboardType: TextInputType.phone,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: 'Enter your phone number',
                           border: InputBorder.none,
-                          contentPadding: const EdgeInsets.all(12),
+                          contentPadding: EdgeInsets.all(12),
                         ),
                       ),
                     ),

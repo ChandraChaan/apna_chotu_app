@@ -17,9 +17,10 @@ class _HomePagesState extends State<HomePages> {
             height: double.infinity,
             width: double.infinity,
             color: Colors.purpleAccent,
+
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Text("Final Best Delivery\nServices All Around\nYour City",
@@ -27,7 +28,7 @@ class _HomePagesState extends State<HomePages> {
                         .textTheme
                         .bodyMedium
                         ?.copyWith(fontSize: 40, color: Colors.white)),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Text("Affordable delivery options available\nfor you",
@@ -35,26 +36,26 @@ class _HomePagesState extends State<HomePages> {
                         .textTheme
                         .bodyMedium
                         ?.copyWith(fontSize: 20, color: Colors.white)),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                Container(
+                SizedBox(
                   height: 365,
                   width: 340,
-                  child: Image.asset("Images/food.png"),
+                  child: Image.asset("assets/images/food.png"),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 TextButton(
                     onPressed: () {},
                     style: TextButton.styleFrom(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 130, vertical: 16),
+                            const EdgeInsets.symmetric(horizontal: 130, vertical: 16),
                         backgroundColor: Colors.deepOrange,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(40))),
-                    child: Text(
+                    child: const Text(
                       "Next",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
