@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HomePages extends StatefulWidget {
-  const HomePages({super.key});
+class IntroScreens extends StatefulWidget {
+  const IntroScreens({super.key});
 
   @override
-  State<HomePages> createState() => _HomePagesState();
+  State<IntroScreens> createState() => _IntroScreensState();
 }
 
-class _HomePagesState extends State<HomePages> {
+class _IntroScreensState extends State<IntroScreens> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -17,7 +17,6 @@ class _HomePagesState extends State<HomePages> {
             height: double.infinity,
             width: double.infinity,
             color: Colors.purpleAccent,
-
             child: Column(
               children: [
                 const SizedBox(

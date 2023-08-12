@@ -41,7 +41,7 @@ class _ScreenSecondState extends State<ScreenSecond> {
                 SizedBox(
                   height: 365,
                   width: 340,
-                  child: Image.asset("assets/images/Cooking.png"),
+                  child: Image.asset("assets/images/cooking.png"),
                 ),
                 const SizedBox(
                   height: 40,

@@ -41,7 +41,7 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
                 Container(
                   height: 365,
                   width: 340,
-                  child: Image.asset("assets/images/Delivery Vehicle.png"),
+                  child: Image.asset("assets/images/delivery_vehicle.png"),
                 ),
                 const SizedBox(
                   height: 40,
