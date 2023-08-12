@@ -38,7 +38,7 @@ class _CookScreenState extends State<CookScreen> {
                 SizedBox(
                   height: 370,
                   width: 350,
-                  child: Image.asset("assets/images/Cooking.png"),
+                  child: Image.asset("assets/images/cooking.png"),
                 ),
                 const SizedBox(
                   height: 40,

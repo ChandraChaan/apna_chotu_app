@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'views/home_screen.dart';
+import 'views/intro_screen.dart';
 
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const HomePages(),
+      home: IntroductionScreenPage(),
     );
   }
 }
