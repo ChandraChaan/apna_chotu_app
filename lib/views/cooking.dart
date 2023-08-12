@@ -1,56 +1,58 @@
+import 'package:apna_chotu_app/views/common/linear_background.dart';
+import 'package:apna_chotu_app/views/delivery.dart';
 import 'package:flutter/material.dart';
 
-class ScreenSecond extends StatefulWidget {
-  const ScreenSecond({super.key});
+class CookScreen extends StatefulWidget {
+  const CookScreen({super.key});
 
   @override
-  State<ScreenSecond> createState() => _ScreenSecondState();
+  State<CookScreen> createState() => _CookScreenState();
 }
 
-class _ScreenSecondState extends State<ScreenSecond> {
+class _CookScreenState extends State<CookScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Stack(children: [
-          Container(
+        body: LinearBackground(
+          child: Container(
             height: double.infinity,
             width: double.infinity,
-            color: Colors.purpleAccent,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 15,
-                ),
                 Text("Delivering\nlip-smacking food\nis our passion.",
                     style: Theme.of(context)
                         .textTheme
                         .bodyMedium
                         ?.copyWith(fontSize: 40, color: Colors.white)),
                 const SizedBox(
-                  height: 20,
+                  height: 16,
                 ),
-                Text("Time is precious, and we know that",
+                Text("Time is precious, and we know that\n  ",
                     style: Theme.of(context)
                         .textTheme
                         .bodyMedium
-                        ?.copyWith(fontSize: 20, color: Colors.white)),
-                const SizedBox(
-                  height: 20,
-                ),
+                        ?.copyWith(fontSize: 16, color: Colors.white)),
                 SizedBox(
-                  height: 365,
-                  width: 340,
-                  child: Image.asset("assets/images/cooking.png"),
+                  height: 370,
+                  width: 350,
+                  child: Image.asset("assets/images/Cooking.png"),
                 ),
                 const SizedBox(
                   height: 40,
                 ),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const DeliveryScreen()));
+                    },
                     style: TextButton.styleFrom(
-                        padding:
-                        const EdgeInsets.symmetric(horizontal: 130, vertical: 16),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 130, vertical: 16),
                         backgroundColor: Colors.deepOrange,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(40))),
@@ -60,11 +62,11 @@ class _ScreenSecondState extends State<ScreenSecond> {
                           fontWeight: FontWeight.bold,
                           fontSize: 30,
                           color: Colors.white),
-                    ))
+                    )),
               ],
             ),
           ),
-        ]),
+        ),
       ),
     );
   }
