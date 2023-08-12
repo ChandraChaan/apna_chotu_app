@@ -1,6 +1,6 @@
+import 'package:apna_chotu_app/views/HomeScreen.dart';
 import 'package:flutter/material.dart';
 
-import 'Views/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const LoginScreen(),
+      home: const HomePages(),
     );
   }
 }

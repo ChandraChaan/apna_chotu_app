@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class LinearBackground extends StatelessWidget {
 final Widget child;
+final bool noPadding;
 
-  const LinearBackground({super.key, required this.child});
+  const LinearBackground({super.key, required this.child,this.noPadding=false});
 
 
   @override
@@ -27,7 +28,7 @@ final Widget child;
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding:noPadding? EdgeInsets.all(1.0):EdgeInsets.all(20.0),
           child: child,
         ),
       ),
