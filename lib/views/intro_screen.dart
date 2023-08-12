@@ -153,40 +153,36 @@ class IntroScreenWidget extends StatelessWidget {
     return Scaffold(
       body: LinearBackground(
         child: SafeArea(
-          child: SizedBox(
-            height: double.infinity,
-            width: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  introScreen.title,
-                  style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 40),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                Text(
-                  introScreen.description,
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400),
-                ),
-                SizedBox(
-                  height: 370,
-                  width: 350,
-                  child: Image.asset(introScreen.image),
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-              ],
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                introScreen.title,
+                style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 40),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              Text(
+                introScreen.description,
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400),
+              ),
+              SizedBox(
+                height: 370,
+                width: 350,
+                child: Image.asset(introScreen.image),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+            ],
           ),
         ),
       ),
