@@ -1,3 +1,4 @@
+import 'package:apna_chotu_app/views/common/rounded_button.dart';
 import 'package:apna_chotu_app/views/login.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
@@ -14,21 +15,19 @@ class _IntroductionScreenPageState extends State<IntroductionScreenPage> {
   int _currentPageIndex = 0;
   final List<IntroScreen> introScreens = [
     IntroScreen(
-      title: "Find the Perfect Truck",
-      description:
-      "Browse through a wide range of trucks and find the one that suits your requirements. Filter by size, capacity, and other specifications to ensure a perfect match.",
+      title: "Find Best Delivery Services All Around Your City",
+      description: "Affordable delivery options available for you.",
       image: 'assets/images/food.png',
     ),
     IntroScreen(
-      title: "Track Your Shipment",
-      description:
-      "Stay updated throughout the journey. Track your shipment in real-time and receive notifications at every step of the process.",
-      image: 'assets/images/food.png',
+      title: "Delivering lip-smacking food is our passion.",
+      description: "Time is precious, and we know that.",
+      image: 'assets/images/cooking.png',
     ),
     IntroScreen(
-      title: "Effortless Delivery",
-      description: "Sit back and relax while we handle the delivery for you.",
-      image: 'assets/images/food.png',
+      title: "Your Favorite Food delivery Partner",
+      description: "The best service to fulfill your expectations.",
+      image: 'assets/images/delivery_vehicle.png',
     ),
   ];
 
@@ -44,8 +43,7 @@ class _IntroductionScreenPageState extends State<IntroductionScreenPage> {
         duration: const Duration(milliseconds: 500),
         curve: Curves.ease,
       );
-    }
-    else {
+    } else {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const LoginScreen()),
@@ -71,24 +69,40 @@ class _IntroductionScreenPageState extends State<IntroductionScreenPage> {
           Positioned(
             left: 0,
             right: 0,
-            bottom: 110,
-            child: TextButton(
+            bottom: 80,
+            child: Center(
+              child: RoundedButton(
+                padding:
+                    _currentPageIndex == introScreens.length - 1 ? 3 : null,
+                width: MediaQuery.of(context).size.width / 1.2,
+                name: 'Next',
                 onPressed: _onNextButtonTap,
-                style: TextButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 130, vertical: 16),
-                    backgroundColor: Colors.deepOrange,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40))),
-                child: Text(
-                  _currentPageIndex == introScreens.length - 1
-                      ? 'Sign In'
-                      : 'Next',
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                      color: Colors.white),
-                )
+                child:  _currentPageIndex == introScreens.length - 1
+                    ?
+                    Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const SizedBox(width: 3,),
+                    const CircleAvatar(
+                      backgroundColor: Colors.black54,
+                      child: Icon(Icons.chevron_right),
+                    ),
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          "Get Started",
+                          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                              color: Colors.white,
+                              fontSize: 21,
+                              fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 58,)
+                  ],
+                ) : null,
+              ),
             ),
           ),
           Positioned(
@@ -101,12 +115,12 @@ class _IntroductionScreenPageState extends State<IntroductionScreenPage> {
                 position: _currentPageIndex.toDouble(),
                 decorator: DotsDecorator(
                   size: const Size.square(9.0),
-                  activeSize: const Size(18.0, 9.0),
+                  activeSize: const Size(30.0, 9.0),
                   activeShape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5.0)),
-                  activeColor: Colors.green,
+                  activeColor: const Color(0xFFFF6724),
                   spacing: const EdgeInsets.symmetric(horizontal: 4),
-                  color: Colors.green,
+                  color: Colors.white,
                 ),
               ),
             ),

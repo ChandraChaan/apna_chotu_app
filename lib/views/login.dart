@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'common/linear_background.dart';
+import 'common/rounded_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -20,8 +21,8 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return LinearBackground(
         child: SafeArea(
-          child: Column(
-      children: [
+      child: Column(
+        children: [
           Expanded(
             child: SingleChildScrollView(
               child: Column(
@@ -128,23 +129,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ],
                   const SizedBox(height: 16),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 50,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        shape: const StadiumBorder(),
-                        backgroundColor: const Color(0xFFFF6724),
-                      ),
-                      child: Text(
-                        signup ? 'Register' : 'Login via OTP',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            color: Colors.white,
-                            fontSize: 21,
-                            fontWeight: FontWeight.w700),
-                      ),
-                    ),
+                  RoundedButton(
+                    name: signup ? 'Register' : 'Login via OTP',
                   ),
                   const SizedBox(height: 20),
                 ],
@@ -156,8 +142,8 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-               Text(
-                signup ? 'Already have an account? ':'Not have an account? ',
+              Text(
+                signup ? 'Already have an account? ' : 'Not have an account? ',
                 style: const TextStyle(
                   color: Colors.white,
                 ),
@@ -178,8 +164,8 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ],
           ),
-      ],
-    ),
-        ));
+        ],
+      ),
+    ));
   }
 }
