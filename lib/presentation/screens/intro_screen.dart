@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import '../common/linear_background.dart';
-import '../common/rounded_button.dart';
+import '../../utils/linear_background.dart';
+import '../../utils/rounded_button.dart';
 import 'auth_screen.dart';
 
 class IntroductionScreen extends StatefulWidget {

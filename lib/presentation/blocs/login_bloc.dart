@@ -3,6 +3,7 @@ import 'package:bloc/bloc.dart';
 
 import '../../data/model/user_model.dart';
 import '../../data/repository/user_repository.dart';
+import '../cubits/login_cubit.dart';
 
 // Events
 abstract class LoginEvent {}
@@ -14,9 +15,6 @@ class AttemptLoginEvent extends LoginEvent {
   AttemptLoginEvent({required this.username, required this.password});
 }
 
-// States
-enum LoginState { initial, loading, success, error }
-
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final UserRepository userRepository;
 
@@ -26,7 +24,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   Stream<LoginState> mapEventToState(LoginEvent event) async* {
     if (event is AttemptLoginEvent) {
       yield LoginState.loading;
-
       try {
         final UserModel user = await userRepository.loginUser(event.username, event.password);
         yield LoginState.success;
