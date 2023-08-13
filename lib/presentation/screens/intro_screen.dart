@@ -1,16 +1,17 @@
-import 'package:apna_chotu_app/views/common/rounded_button.dart';
-import 'package:apna_chotu_app/views/login.dart';
 import 'package:flutter/material.dart';
-import 'package:introduction_screen/introduction_screen.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'common/linear_background.dart';
+import '../common/linear_background.dart';
+import '../common/rounded_button.dart';
+import 'auth_screen.dart';
 
-class IntroductionScreenPage extends StatefulWidget {
+class IntroductionScreen extends StatefulWidget {
+  const IntroductionScreen({super.key});
+
   @override
-  _IntroductionScreenPageState createState() => _IntroductionScreenPageState();
+  _IntroductionScreenState createState() => _IntroductionScreenState();
 }
 
-class _IntroductionScreenPageState extends State<IntroductionScreenPage> {
+class _IntroductionScreenState extends State<IntroductionScreen> {
   final PageController _pageController = PageController(initialPage: 0);
   int _currentPageIndex = 0;
   final List<IntroScreen> introScreens = [
@@ -46,7 +47,7 @@ class _IntroductionScreenPageState extends State<IntroductionScreenPage> {
     } else {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const LoginScreen()),
+        MaterialPageRoute(builder: (context) => const AuthScreen()),
       );
     }
   }

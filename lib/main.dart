@@ -1,14 +1,17 @@
+import 'package:apna_chotu_app/presentation/blocs/login_bloc.dart';
+import 'package:apna_chotu_app/presentation/screens/intro_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'views/intro_screen.dart';
-
+import 'data/repository/user_repository.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+   MyApp({Key? key}) : super(key: key);
+  final UserRepository userRepository = UserRepository();
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: IntroductionScreenPage(),
+      home: BlocProvider(
+          create: (context) => LoginBloc(userRepository: userRepository),
+          child: const IntroductionScreen()),
     );
   }
 }

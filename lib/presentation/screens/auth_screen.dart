@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'common/linear_background.dart';
-import 'common/rounded_button.dart';
+import '../common/linear_background.dart';
+import '../common/rounded_button.dart';
+import '../cubits/login_cubit.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class AuthScreen extends StatefulWidget {
+  const AuthScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<AuthScreen> createState() => _AuthScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _AuthScreenState extends State<AuthScreen> {
   bool signup = false;
   List<String> countryCodes = ['+1', '+44', '+91', '+86'];
   String selectedCountryCode = '+91';
@@ -130,9 +132,26 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                   const SizedBox(height: 16),
                   RoundedButton(
+                    onPressed: (){
+                      final loginCubit = context.read<LoginCubit>();
+                      loginCubit.attemptLogin(phoneNumberController.text, emailController.text);
+                    },
                     name: signup ? 'Register' : 'Login via OTP',
                   ),
                   const SizedBox(height: 20),
+                  BlocBuilder<LoginCubit, LoginState>(
+                    builder: (context, state) {
+                      if (state == LoginState.loading) {
+                        return const CircularProgressIndicator();
+                      } else if (state == LoginState.success) {
+                        return const Text('Login Successful!');
+                      } else if (state == LoginState.error) {
+                        return const Text('Login Failed!');
+                      } else {
+                        return const SizedBox.shrink();
+                      }
+                    },
+                  ),
                 ],
               ),
             ),
