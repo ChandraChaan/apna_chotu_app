@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../data/repository/user_repository.dart';
 import '../../utils/linear_background.dart';
 import '../../utils/rounded_button.dart';
+import '../cubits/login_cubit.dart';
 import 'auth_screen.dart';
 
 class IntroductionScreen extends StatefulWidget {
@@ -13,6 +16,8 @@ class IntroductionScreen extends StatefulWidget {
 
 class _IntroductionScreenState extends State<IntroductionScreen> {
   final PageController _pageController = PageController(initialPage: 0);
+  final UserRepository userRepository = UserRepository();
+
   int _currentPageIndex = 0;
   final List<IntroScreen> introScreens = [
     IntroScreen(
@@ -47,7 +52,10 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
     } else {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const AuthScreen()),
+        MaterialPageRoute(builder: (context) => BlocProvider(
+          create: (context) => LoginCubit(),
+          child: const AuthScreen(),
+        )),
       );
     }
   }

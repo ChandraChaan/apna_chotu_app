@@ -25,7 +25,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     if (event is AttemptLoginEvent) {
       yield LoginState.loading;
       try {
-        final UserModel user = await userRepository.loginUser(event.username, event.password);
+        final AuthModel user = await userRepository.loginUser(event.username, event.password);
         yield LoginState.success;
       } catch (error) {
         yield LoginState.error;

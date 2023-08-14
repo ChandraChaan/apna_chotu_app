@@ -1,4 +1,5 @@
 import 'package:apna_chotu_app/presentation/blocs/login_bloc.dart';
+import 'package:apna_chotu_app/presentation/cubits/login_cubit.dart';
 import 'package:apna_chotu_app/presentation/screens/intro_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
       ),
       home: BlocProvider(
-          create: (context) => LoginBloc(userRepository: userRepository),
+          create: (context) => LoginCubit(),
           child: const IntroductionScreen()),
     );
   }

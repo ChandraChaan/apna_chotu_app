@@ -10,9 +10,10 @@ class Constants {
   static const defaultFont = 'Roboto';
 
   // API URLs
-  static const baseUrl = 'https://api.example.com';
+  static const baseUrl = 'https://openteqdev.com/Apnachotu_dev/api/user';
   static const loginUrl = '$baseUrl/login';
-  static const signupUrl = '$baseUrl/signup';
+  static const verifyOtp = '$baseUrl/verify_otp';
+  static const signupUrl = '$baseUrl/register';
 
   // Other Constants
   static const apiKey = 'api_key';
