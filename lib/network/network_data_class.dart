@@ -1,12 +1,17 @@
-
 import 'package:dio/dio.dart';
 
 class NetworkDataClass {
   String baseUrl, extendedUrl, requestType;
-  bool isCookie,needCookies;
+  bool isCookie, needCookies;
   var param;
-  Options options;
+  Options? options;
 
-  NetworkDataClass({this.baseUrl,this.extendedUrl,this.isCookie = false,this.param,this.requestType,this.options, this.needCookies = true});
-
+  NetworkDataClass(
+      {required this.baseUrl,
+      required this.extendedUrl,
+      this.isCookie = false,
+      this.param,
+      required this.requestType,
+      this.options,
+      this.needCookies = true});
 }

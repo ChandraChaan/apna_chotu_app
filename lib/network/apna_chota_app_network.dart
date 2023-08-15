@@ -10,7 +10,7 @@ import 'network_data_class.dart';
 import 'network_strings.dart';
 
 final loadingNetwork = LoadingNetwork();
-final Dio _dio = new Dio();
+final Dio _dio = Dio();
 
 class LoadingNetwork {
   Future<dynamic> getAPIResponse(dynamic dynamicData) async {
@@ -32,13 +32,13 @@ class LoadingNetwork {
       if (await checkInternetConnectivity()) {
         _dio.options.baseUrl = networkDataClass.baseUrl;
 
-        Response response;
+        Response? response;
 
         switch (networkDataClass.requestType) {
           case NetworkString.requestPost:
-            Logger.writeLog('params:' + networkDataClass.param);
-            Logger.writeLog('baseUrl:' + networkDataClass.baseUrl);
-            Logger.writeLog('extendedUrl:' + networkDataClass.extendedUrl);
+            Logger.writeLog('params:${networkDataClass.param}');
+            Logger.writeLog('baseUrl:${networkDataClass.baseUrl}');
+            Logger.writeLog('extendedUrl:${networkDataClass.extendedUrl}');
 // print(networkDataClass.param.toString());
             response = await _dio.post(networkDataClass.extendedUrl,
                 data: networkDataClass.param,
@@ -56,8 +56,8 @@ class LoadingNetwork {
 
             break;
           case NetworkString.requestGet:
-            Logger.writeLog('baseUrl:' + networkDataClass.baseUrl);
-            Logger.writeLog('extendedUrl:' + networkDataClass.extendedUrl);
+            Logger.writeLog('baseUrl:${networkDataClass.baseUrl}');
+            Logger.writeLog('extendedUrl:${networkDataClass.extendedUrl}');
 
             response = await _dio.get(
               networkDataClass.extendedUrl,
@@ -74,22 +74,23 @@ class LoadingNetwork {
         }
 
         // Logger.logLongString(response.toString());
-        Logger.logLongString(response.data.toString());
-        return dynamicData.fromJson(response.data);
+        Logger.logLongString(response?.data.toString() ?? ' response was null');
+        return dynamicData.fromJson(response?.data);
       } else {
         return dynamicData.withError('you have internet issue');
       }
     } on DioError catch (error) {
-      Logger.logLongString('errorOth: ' + error.toString());
+      Logger.logLongString('errorOth: $error');
 
       var errorResponse = ErrorHandling.responseError(error);
 
       Logger.logLongString(errorResponse.toString());
 
-      if (errorResponse is String)
+      if (errorResponse is String) {
         return dynamicData.withError(errorResponse);
-      else
+      } else {
         return dynamicData.fromJsonError(errorResponse);
+      }
     }
   }
 

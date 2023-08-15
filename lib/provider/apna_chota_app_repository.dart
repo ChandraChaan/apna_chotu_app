@@ -4,7 +4,7 @@ import 'apna_chota_app_adapter.dart';
 import 'apna_chota_app_provider.dart';
 
 class ApnaChotuAppRepository implements IApnaChotuAppRepository {
-  ApnaChotuAppRepository({this.provider});
+  ApnaChotuAppRepository({required this.provider});
   final IApnaChotuAppProvider provider;
 
   @override

@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 
 import '../Common/helper.dart';
-import '../Domain/DataClass/auth_model.dart';
 import '../Network/network_data_class.dart';
 import '../Network/network_strings.dart';
+import '../domain/data_class/auth_model.dart';
 
 class AuthParam {
   final String phone;

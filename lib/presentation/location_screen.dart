@@ -1,4 +1,4 @@
-import 'package:apna_chotu_app/presentation/screens/select_location.dart';
+import 'package:apna_chotu_app/presentation/select_location.dart';
 import 'package:flutter/material.dart';
 
 class LocationScreen extends StatefulWidget {
