@@ -1,11 +1,9 @@
 import 'package:apna_chotu_app/Config/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import '../utils/linear_background.dart';
 import '../utils/rounded_button.dart';
-import 'auth_screen.dart';
 
 class IntroductionScreen extends StatefulWidget {
   const IntroductionScreen({super.key});

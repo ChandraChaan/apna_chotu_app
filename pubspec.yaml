@@ -40,15 +40,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   http:
   dots_indicator:
-  flutter_bloc: ^8.0.1
   get: ^4.3.8
   get_storage: ^2.0.3
   dio: ^4.0.0
   connectivity: ^3.0.6
   url_launcher:
   cached_network_image: ^3.2.0
-  carousel_slider: ^4.0.0
-  drag_and_drop_gridview:
 
 dev_dependencies:
   flutter_test:

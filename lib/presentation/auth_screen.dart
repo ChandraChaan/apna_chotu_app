@@ -1,4 +1,6 @@
+import 'package:apna_chotu_app/Application/controller/auth_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../utils/linear_background.dart';
 import '../utils/rounded_button.dart';
 
@@ -10,6 +12,8 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
+  final AuthController authController = Get.find();
+
   bool signup = false;
   List<String> countryCodes = ['+1', '+44', '+91', '+86'];
   String selectedCountryCode = '+91';
@@ -42,19 +46,6 @@ class _AuthScreenState extends State<AuthScreen> {
                         fontWeight: FontWeight.w400),
                   ),
                   const SizedBox(height: 16),
-                  // BlocBuilder<LoginCubit, LoginState>(
-                  //   builder: (context, state) {
-                  //     if (state == LoginState.loading) {
-                  //       return const CircularProgressIndicator();
-                  //     } else if (state == LoginState.success) {
-                  //       return const Text('Login Successful!');
-                  //     } else if (state == LoginState.error) {
-                  //       return const Text('Login Failed!');
-                  //     } else {
-                  //       return const SizedBox.shrink();
-                  //     }
-                  //   },
-                  // ),
                   Center(
                       child: SizedBox(
                           height: 250,
@@ -144,10 +135,19 @@ class _AuthScreenState extends State<AuthScreen> {
                   const SizedBox(height: 16),
                   RoundedButton(
                     onPressed: () {
-                      // _registrationCubit.registerUser(
-                      //   phoneNumberController.text,
-                      //   emailController.text,
-                      // );
+                      if (phoneNumberController.text.trim().isNotEmpty) {
+                        authController.callAPI(
+                            phone: phoneNumberController.text,
+                            email: emailController.text);
+                      } else {
+                        Get.defaultDialog(
+                          confirmTextColor: Colors.white,
+                            title: 'Please enter phone number',
+                            middleText: '',
+                            onConfirm: () {
+                              Get.back();
+                            });
+                      }
                     },
                     name: signup ? 'Register' : 'Login via OTP',
                   ),

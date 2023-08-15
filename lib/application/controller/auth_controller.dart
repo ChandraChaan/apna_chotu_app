@@ -35,9 +35,8 @@ class AuthController extends GetxController {
 
   callAPI({required String phone, String? email}) {
     Loader.show();
-    apnaChotuRepository
-        .dynamic(AuthParam(phone: phone, email: email))
-        .then((data) {
+    apnaChotuRepository.dynamic(AuthParam(phone: phone, email: email)).then(
+        (data) {
       Get.back();
       // userNameValue = data.results['first_name'].toString() +
       //     (data.results['last_name'].toString() == "null"
@@ -45,12 +44,20 @@ class AuthController extends GetxController {
       //         : data.results['last_name'].toString());
       //
       // LocalDb.write('userid', '${data.results['data']['id'].toString()}');
-      Get.toNamed(Routes.intro);
+
+      /*Get.toNamed(Routes.intro);*/
+      Get.defaultDialog(
+          confirmTextColor: Colors.white,
+          title: 'your login in !',
+          middleText: '',
+          onConfirm: () {
+            Get.back();
+          });
     }, onError: (err) {
       Get.back();
       Get.snackbar(
-        "Check Credential\'s once",
-        " and try again",
+        "Try again",
+        "",
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.red,
       );

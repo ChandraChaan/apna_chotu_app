@@ -9,10 +9,10 @@ import 'Logger.dart';
 import 'network_data_class.dart';
 import 'network_strings.dart';
 
-final loadingNetwork = LoadingNetwork();
+final apnaChotaAppNetwork = ApnaChotaAppNetwork();
 final Dio _dio = Dio();
 
-class LoadingNetwork {
+class ApnaChotaAppNetwork {
   Future<dynamic> getAPIResponse(dynamic dynamicData) async {
     print('network layer arrived');
     // NetworkDataClass networkDataClass = dynamicData.getParam();

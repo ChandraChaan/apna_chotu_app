@@ -20,7 +20,7 @@ class AuthParam {
   NetworkDataClass getParam() {
     return NetworkDataClass(
         baseUrl: Helpers.baseUrl,
-        extendedUrl: email != null ? Helpers.login : Helpers.signup,
+        extendedUrl: /*(email != null || email!.isNotEmpty) ? Helpers.signup :*/ Helpers.login,
 
         options: Options(
           headers: {"content-type": "application/json"},

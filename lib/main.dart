@@ -7,20 +7,20 @@ import 'Network/logger.dart';
 import 'lang/translation_service.dart';
 
 
-// class MyHttpOverrides extends HttpOverrides {
-//   @override
-//   HttpClient createHttpClient(SecurityContext context) {
-//     HttpClient httpClient = super.createHttpClient(context)
-//       ..badCertificateCallback = (X509Certificate cert, String host, int port) {
-//         return true;
-//       };
-//     return httpClient;
-//   }
-// }
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    HttpClient httpClient = super.createHttpClient(context)
+      ..badCertificateCallback = (X509Certificate cert, String host, int port) {
+        return true;
+      };
+    return httpClient;
+  }
+}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // HttpOverrides.global = MyHttpOverrides();
+  HttpOverrides.global = MyHttpOverrides();
   await GetStorage.init();
   runApp(const ApnaChotuApp());
 }
