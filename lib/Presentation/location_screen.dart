@@ -13,11 +13,12 @@ class _LocationScreenState extends State<LocationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey.shade300,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
         leading: IconButton(
-          icon: Icon(Icons.chevron_left, color: Colors.black, size: 45),
+          icon: const Icon(Icons.chevron_left, color: Colors.black, size: 45),
           onPressed: () {
-            Navigator.of(context).pop();
+            // Navigator.of(context).pop();
           },
         ),
       ),
@@ -41,29 +42,34 @@ class _LocationScreenState extends State<LocationScreen> {
                   ?.copyWith(fontSize: 16, fontWeight: FontWeight.w400),
             ),
           ),
-          Stack(children: [
-            Center(child: Image.asset("assets/images/Isolation_Mode.png")),
-            Positioned.fill(
-                child: Align(
-                    alignment: Alignment.center,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 440),
-                      child: Column(
-                        children: [
-                          GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (cntext) =>
-                                            CurrentLocation()));
-                              },
-                              child: Image.asset(
-                                  "assets/images/use_location.png")),
-                        ],
-                      ),
-                    )))
-          ])
+          Container(
+            // height: MediaQuery.of(context).size.height/1,
+
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/Isolation_Mode.png",),
+                fit: BoxFit.cover,
+
+              ),
+
+            ),
+
+            child: Padding(
+              padding: const EdgeInsets.only(top: 440),
+              child: Column(
+                children: [
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (cntext) => const CurrentLocation()));
+                      },
+                      child: Image.asset("assets/images/use_location.png")),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );

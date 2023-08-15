@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../data/repository/user_repository.dart';
-import '../../utils/linear_background.dart';
-import '../../utils/rounded_button.dart';
-import '../cubits/login_cubit.dart';
+import '../data/repository/user_repository.dart';
+import '../utils/linear_background.dart';
+import '../utils/rounded_button.dart';
+import 'cubits/login_cubit.dart';
 import 'auth_screen.dart';
 
 class IntroductionScreen extends StatefulWidget {

@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../data/repository/user_repository.dart';
-import '../../utils/linear_background.dart';
-import '../../utils/rounded_button.dart';
-import '../blocs/login_bloc.dart';
-import '../cubits/login_cubit.dart';
+import '../utils/linear_background.dart';
+import '../utils/rounded_button.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -19,8 +15,6 @@ class _AuthScreenState extends State<AuthScreen> {
   String selectedCountryCode = '+91';
   TextEditingController phoneNumberController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  final UserRepository userRepository = UserRepository();
-  final LoginCubit _registrationCubit = LoginCubit();
 
   @override
   Widget build(BuildContext context) {
@@ -150,10 +144,10 @@ class _AuthScreenState extends State<AuthScreen> {
                   const SizedBox(height: 16),
                   RoundedButton(
                     onPressed: () {
-                      _registrationCubit.registerUser(
-                        phoneNumberController.text,
-                        emailController.text,
-                      );
+                      // _registrationCubit.registerUser(
+                      //   phoneNumberController.text,
+                      //   emailController.text,
+                      // );
                     },
                     name: signup ? 'Register' : 'Login via OTP',
                   ),
@@ -196,7 +190,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
   @override
   void dispose() {
-    _registrationCubit.close();
+    // _registrationCubit.close();
     super.dispose();
   }
 }
