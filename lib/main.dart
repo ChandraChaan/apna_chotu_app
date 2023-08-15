@@ -1,32 +1,44 @@
-import 'package:apna_chotu_app/presentation/cubits/login_cubit.dart';
-import 'package:apna_chotu_app/presentation/screens/location_screen.dart';
-import 'package:apna_chotu_app/presentation/screens/otp_screen.dart';
-import 'package:apna_chotu_app/presentation/screens/select_location.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'dart:io';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'Config/app_pages.dart';
+import 'Network/logger.dart';
+import 'lang/translation_service.dart';
 
-import 'data/repository/user_repository.dart';
 
-void main() {
-  runApp(MyApp());
+// class MyHttpOverrides extends HttpOverrides {
+//   @override
+//   HttpClient createHttpClient(SecurityContext context) {
+//     HttpClient httpClient = super.createHttpClient(context)
+//       ..badCertificateCallback = (X509Certificate cert, String host, int port) {
+//         return true;
+//       };
+//     return httpClient;
+//   }
+// }
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // HttpOverrides.global = MyHttpOverrides();
+  await GetStorage.init();
+  runApp(const ApnaChotuApp());
 }
 
-class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
-  final UserRepository userRepository = UserRepository();
+class ApnaChotuApp extends StatelessWidget {
+  const ApnaChotuApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Apna Chotu app',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      home: BlocProvider(
-          create: (context) => LoginCubit(),
-          child:  const CurrentLocation()),
+      logWriterCallback: Logger.write,
+      getPages: AppPages.routes,
+      initialRoute: AppPages.INITIAL,
+      locale: const Locale('en', 'US'),
+      fallbackLocale: TranslationService.fallbackLocale,
+      translations: TranslationService(),
     );
   }
 }
-
