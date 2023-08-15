@@ -1,10 +1,10 @@
+import 'package:apna_chotu_app/Config/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../data/repository/user_repository.dart';
+import 'package:get/get.dart';
 import '../utils/linear_background.dart';
 import '../utils/rounded_button.dart';
-import 'cubits/login_cubit.dart';
 import 'auth_screen.dart';
 
 class IntroductionScreen extends StatefulWidget {
@@ -16,7 +16,6 @@ class IntroductionScreen extends StatefulWidget {
 
 class _IntroductionScreenState extends State<IntroductionScreen> {
   final PageController _pageController = PageController(initialPage: 0);
-  final UserRepository userRepository = UserRepository();
 
   int _currentPageIndex = 0;
   final List<IntroScreen> introScreens = [
@@ -50,13 +49,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
         curve: Curves.ease,
       );
     } else {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => BlocProvider(
-          create: (context) => LoginCubit(),
-          child: const AuthScreen(),
-        )),
-      );
+      Get.toNamed(Routes.auth);
     }
   }
 
@@ -86,31 +79,38 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                 width: MediaQuery.of(context).size.width / 1.2,
                 name: 'Next',
                 onPressed: _onNextButtonTap,
-                child:  _currentPageIndex == introScreens.length - 1
-                    ?
-                    Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const SizedBox(width: 3,),
-                    const CircleAvatar(
-                      backgroundColor: Colors.black54,
-                      child: Icon(Icons.chevron_right),
-                    ),
-                    Expanded(
-                      child: Center(
-                        child: Text(
-                          "Get Started",
-                          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              color: Colors.white,
-                              fontSize: 21,
-                              fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 58,)
-                  ],
-                ) : null,
+                child: _currentPageIndex == introScreens.length - 1
+                    ? Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const SizedBox(
+                            width: 3,
+                          ),
+                          const CircleAvatar(
+                            backgroundColor: Colors.black54,
+                            child: Icon(Icons.chevron_right),
+                          ),
+                          Expanded(
+                            child: Center(
+                              child: Text(
+                                "Get Started",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium
+                                    ?.copyWith(
+                                        color: Colors.white,
+                                        fontSize: 21,
+                                        fontWeight: FontWeight.w700),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 58,
+                          )
+                        ],
+                      )
+                    : null,
               ),
             ),
           ),
@@ -121,7 +121,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
             child: Center(
               child: DotsIndicator(
                 dotsCount: introScreens.length,
-                position: _currentPageIndex.toDouble(),
+                position: _currentPageIndex,
                 decorator: DotsDecorator(
                   size: const Size.square(9.0),
                   activeSize: const Size(30.0, 9.0),

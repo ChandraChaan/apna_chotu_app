@@ -35,10 +35,18 @@ class ApnaChotuApp extends StatelessWidget {
       title: 'Apna Chotu app',
       logWriterCallback: Logger.write,
       getPages: AppPages.routes,
-      initialRoute: AppPages.INITIAL,
+      initialRoute: AppPages.initial,
       locale: const Locale('en', 'US'),
       fallbackLocale: TranslationService.fallbackLocale,
       translations: TranslationService(),
+      theme: ThemeData(
+        typography: Typography.material2018(
+          englishLike: Typography.englishLike2018,
+          dense: Typography.dense2018,
+          tall: Typography.tall2018,
+        ),
+        primaryColor: Colors.green
+      ),
     );
   }
 }

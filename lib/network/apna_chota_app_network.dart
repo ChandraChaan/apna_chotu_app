@@ -4,10 +4,10 @@ import 'dart:io';
 import 'package:connectivity/connectivity.dart';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
-import 'ErrorHandlingResppnse.dart';
+import 'error_handling_response.dart';
 import 'Logger.dart';
-import 'NetworkDataClass.dart';
-import 'NetworkStrings.dart';
+import 'network_data_class.dart';
+import 'network_strings.dart';
 
 final loadingNetwork = LoadingNetwork();
 final Dio _dio = new Dio();

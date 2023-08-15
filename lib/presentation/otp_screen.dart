@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../data/repository/user_repository.dart';
 import '../utils/linear_background.dart';
 import '../utils/rounded_button.dart';
-import 'blocs/login_bloc.dart';
-import 'cubits/login_cubit.dart';
 
 class OTPScreen extends StatefulWidget {
   const OTPScreen({super.key});

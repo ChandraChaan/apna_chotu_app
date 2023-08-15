@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 class NetimageWidget extends StatelessWidget {
   final String img;
-  final BoxFit Fit;
+  final BoxFit? Fit;
 
-  NetimageWidget({this.img, this.Fit});
+  NetimageWidget({required this.img, this.Fit});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class NetimageWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildNetworkImage(String url, {BoxFit fit}) {
+  Widget _buildNetworkImage(String url, {BoxFit? fit}) {
     return CachedNetworkImage(
       imageUrl: url,
       fit: fit,

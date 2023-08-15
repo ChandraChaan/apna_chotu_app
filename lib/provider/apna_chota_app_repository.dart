@@ -1,11 +1,11 @@
 
 
-import 'LoadingAdapter.dart';
-import 'LoadingProvider.dart';
+import 'apna_chota_app_adapter.dart';
+import 'apna_chota_app_provider.dart';
 
-class LoadingRepository implements ILoadingRepository {
-  LoadingRepository({this.provider});
-  final ILoadingProvider provider;
+class ApnaChotuAppRepository implements IApnaChotuAppRepository {
+  ApnaChotuAppRepository({this.provider});
+  final IApnaChotuAppProvider provider;
 
   @override
   dynamic(dynamic) async {

@@ -4,12 +4,12 @@ import 'package:get/get.dart';
 
 class Loader {
   static show({
-    BuildContext context,
+    BuildContext? context,
   }) {
     AlertDialog alert = AlertDialog(
       backgroundColor: Colors.transparent,
       elevation: 0,
-      content: new Row(
+      content: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
@@ -17,9 +17,9 @@ class Loader {
               width: 100.0,
               decoration: BoxDecoration(
                   color: Colors.black.withOpacity(0.2),
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
+                  borderRadius: const BorderRadius.all(Radius.circular(20))),
               alignment: Alignment.center,
-              child: CupertinoActivityIndicator(
+              child: const CupertinoActivityIndicator(
                 radius: 20,
               ))
         ],
@@ -27,7 +27,7 @@ class Loader {
     );
     showDialog(
       barrierDismissible: false,
-      context: context ?? Get.context,
+      context: context ?? Get.context!,
       barrierColor: Colors.transparent,
       builder: (BuildContext context) {
         return alert;
