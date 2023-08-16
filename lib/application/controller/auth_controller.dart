@@ -14,7 +14,6 @@ class AuthController extends GetxController {
   final IApnaChotuAppRepository apnaChotuRepository;
   String userNameValue = '';
   String profilePic = '';
-  String role = '';
   final LocalDb = GetStorage();
 
   @override
