@@ -1,8 +1,11 @@
 import 'package:apna_chotu_app/Application/controller/auth_controller.dart';
+import 'package:apna_chotu_app/Common/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../utils/linear_background.dart';
 import '../utils/rounded_button.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -19,6 +22,79 @@ class _AuthScreenState extends State<AuthScreen> {
   String selectedCountryCode = '+91';
   TextEditingController phoneNumberController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+
+  String decodedOTP = "";
+  bool isLoading = false; // Added for loader control
+
+  Future<void> fetchUserData() async {
+    setState(() {
+      isLoading = true; // Show loader when API call starts
+    });
+
+    print("Fetching user data...");
+
+    try {
+      final response = await http.post(
+        Uri.parse('${Helpers.baseUrl}${Helpers.login}'),
+        body: {"mobile": phoneNumberController.text},
+      );
+
+      if (response.statusCode == 200) {
+        print("API response received with status code 200");
+
+        Map<String, dynamic> responseData = json.decode(response.body);
+        String otp = responseData['otp'];
+
+        setState(() {
+          decodedOTP = decodeBase64OTP(otp);
+          isLoading = false; // Hide loader after API call completes
+        });
+
+        Get.defaultDialog(
+          confirmTextColor: Colors.white,
+          title: 'Done',
+          middleText: '',
+          onConfirm: () {
+            Get.back();
+          },
+        );
+
+        print("Decoded OTP: $decodedOTP");
+      } else {
+        print("Failed to fetch data. Status code: ${response.statusCode}");
+        setState(() {
+          isLoading = false; // Hide loader if API call fails
+        });
+
+        Get.defaultDialog(
+          confirmTextColor: Colors.white,
+          title: 'Error',
+          middleText: '',
+          onConfirm: () {
+            Get.back();
+          },
+        );
+
+        throw Exception('Failed to load data');
+      }
+    } catch (e) {
+      print("An error occurred: $e");
+      Get.defaultDialog(
+        confirmTextColor: Colors.white,
+        title: 'Big Error',
+        middleText: '',
+        onConfirm: () {
+          Get.back();
+        },
+      );
+    }
+  }
+
+  String decodeBase64OTP(String base64OTP) {
+    List<int> decodedBytes = base64.decode(base64OTP);
+    print("Decoding base64 OTP: $base64OTP");
+    return utf8.decode(decodedBytes);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -136,12 +212,13 @@ class _AuthScreenState extends State<AuthScreen> {
                   RoundedButton(
                     onPressed: () {
                       if (phoneNumberController.text.trim().isNotEmpty) {
-                        authController.callAPI(
-                            phone: phoneNumberController.text,
-                            email: emailController.text);
+                        fetchUserData();
+                        // authController.callAPI(
+                        //     phone: phoneNumberController.text,
+                        //     email: emailController.text);
                       } else {
                         Get.defaultDialog(
-                          confirmTextColor: Colors.white,
+                            confirmTextColor: Colors.white,
                             title: 'Please enter phone number',
                             middleText: '',
                             onConfirm: () {
