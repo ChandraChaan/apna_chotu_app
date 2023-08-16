@@ -19,10 +19,10 @@ class _CurrentLocationState extends State<CurrentLocation> {
             const SizedBox(
               height: 10,
             ),
-            const SizedBox(
+             SizedBox(
               height: 50,
               child: Row(
-                children: [
+                children: const [
                   Icon(Icons.chevron_left, size: 25),
                   Text(
                     'Select a Location',
@@ -85,9 +85,9 @@ class _CurrentLocationState extends State<CurrentLocation> {
               ),
             ),
             const Divider(thickness: 1),
-            const Column(
+             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: const [
                 Padding(
                   padding: EdgeInsets.only(left: 13),
                   child: Text(
@@ -109,9 +109,9 @@ class _CurrentLocationState extends State<CurrentLocation> {
               ],
             ),
             const Divider(thickness: 1),
-            const Column(
+             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: const [
                 Padding(
                   padding: EdgeInsets.only(left: 13),
                   child: Text(
