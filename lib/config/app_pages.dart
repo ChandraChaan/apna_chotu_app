@@ -1,3 +1,4 @@
+import 'package:apna_chotu_app/presentation/otp_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../Application/Binding/main_binding.dart';
@@ -22,5 +23,6 @@ class AppPages {
         name: Routes.currentLocation,
         page: () => const CurrentLocation(),
         binding: MainBinding()),
+
   ];
 }

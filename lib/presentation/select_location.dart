@@ -15,26 +15,39 @@ class _CurrentLocationState extends State<CurrentLocation> {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          children: [SizedBox(height: 10,),
-            SizedBox(height: 50,
+          children: [
+            const SizedBox(
+              height: 10,
+            ),
+            const SizedBox(
+              height: 50,
               child: Row(
                 children: [
-                Icon(Icons.chevron_left),
-                Text('Select')
-              ],),
+                  Icon(Icons.chevron_left, size: 25),
+                  Text(
+                    'Select a Location',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
             ),
             Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                color: Colors.grey[300],
-              ),
+              padding: const EdgeInsets.all(10),
               child: TextField(
                 decoration: InputDecoration(
                   hintText: 'Search',
-                  border: InputBorder.none,
-                  prefixIcon: const Icon(Icons.search),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  prefixIcon: const Icon(
+                    Icons.search,
+                    size: 30,
+                  ),
                   suffixIcon: IconButton(
-                    icon: const Icon(Icons.mic),
+                    icon: const Icon(
+                      Icons.mic,
+                      size: 30,
+                      color: Colors.deepOrange,
+                    ),
                     onPressed: () {
                       // Perform voice search action
                     },
@@ -48,57 +61,75 @@ class _CurrentLocationState extends State<CurrentLocation> {
               minLeadingWidth: 0,
               leading: Icon(
                 Icons.near_me,
-                color: Colors.red,
+                color: Colors.deepOrange,
               ),
               title: Text(
                 'Use My Current Location',
-                style: TextStyle(color: Colors.red, fontSize: 12),
+                style: TextStyle(color: Colors.deepOrange, fontSize: 12),
               ),
               subtitle: Text('Rahimpur, Dattatreya Nagar, Hyderabad'),
             )),
-             const Divider(thickness: 1),
-             ListTile(
+            const Divider(thickness: 1),
+            ListTile(
               minLeadingWidth: 2,
-              onTap: (){
+              onTap: () {
                 Get.toNamed(Routes.auth);
               },
-              leading: Icon(
+              leading: const Icon(
                 Icons.add_sharp,
-                color: Colors.red,
+                color: Colors.deepOrange,
               ),
-              title: Text(
+              title: const Text(
                 'Add New Address',
-                style: TextStyle(color: Colors.red),
+                style: TextStyle(color: Colors.deepOrange),
               ),
             ),
             const Divider(thickness: 1),
             const Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
                   padding: EdgeInsets.only(left: 13),
                   child: Text(
                     'Nearby Location',
-                    style: TextStyle(color: Colors.red),
+                    style: TextStyle(color: Colors.deepOrange),
                   ),
                 ),
                 ListTile(
                   minLeadingWidth: 0,
-                  leading: Icon(
-                    Icons.location_on,
-                    color: Colors.red,
-                  ),
-                  title: Text(
-                    'Petals Accessories',
-                    style: TextStyle(color: Colors.red),
-                  ),
+                  leading: Icon(Icons.location_on, color: Colors.deepOrange),
+                  title: Padding(
+                    padding: EdgeInsets.only(top: 13),
+                    child: Text(
+                      'Petals Accessories',
+                    ),),
                   subtitle: Text(
                       'Karwan Road, Rahimpura, Dattatreya Nagar, Hyderabad'),
                 ),
-                Divider(thickness: 1),
               ],
-            )
+            ),
+            const Divider(thickness: 1),
+            const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 13),
+                  child: Text(
+                    'Recent Location',
+                    style: TextStyle(color: Colors.deepOrange),
+                  ),
+                ),
+                ListTile(
+                  minLeadingWidth: 0,
+                  leading: Icon(Icons.location_on, color: Colors.deepOrange),
+                  title: Text(
+                    'Hakimpura',
+                  ),
+                  subtitle: Text('Rahimpura, Dattatreya Nagar, Hyderabad'),
+                ),
+                Divider(thickness: 1)
+              ],
+            ),
           ],
         ),
       ),

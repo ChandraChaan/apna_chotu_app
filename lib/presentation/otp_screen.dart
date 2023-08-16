@@ -89,9 +89,9 @@ class _OTPScreenState extends State<OTPScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'Not have an account? ',
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: Colors.white,
                     ),
                   ),
@@ -99,9 +99,9 @@ class _OTPScreenState extends State<OTPScreen> {
                     onTap: () {
                      
                     },
-                    child: Text(
+                    child: const Text(
                       'Create Now',
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.white,
                         decoration: TextDecoration.underline,
                       ),
