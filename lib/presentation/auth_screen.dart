@@ -2,6 +2,7 @@ import 'package:apna_chotu_app/Application/controller/auth_controller.dart';
 import 'package:apna_chotu_app/Common/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../Config/app_pages.dart';
 import '../utils/linear_background.dart';
 import '../utils/rounded_button.dart';
 import 'dart:convert';
@@ -35,8 +36,12 @@ class _AuthScreenState extends State<AuthScreen> {
 
     try {
       final response = await http.post(
-        Uri.parse('${Helpers.baseUrl}${signup?Helpers.signup:Helpers.login}'),
-        body: {"mobile": phoneNumberController.text, "email":emailController.text},
+        Uri.parse(
+            '${Helpers.baseUrl}${signup ? Helpers.signup : Helpers.login}'),
+        body: {
+          "mobile": phoneNumberController.text,
+          "email": emailController.text
+        },
       );
 
       if (response.statusCode == 200) {
@@ -46,20 +51,22 @@ class _AuthScreenState extends State<AuthScreen> {
         String otp = responseData['otp'];
         String msg = responseData['message'];
 
-
         setState(() {
           decodedOTP = decodeBase64OTP(otp);
-          isLoading = false; // Hide loader after API call completes
+          isLoading = false;
         });
-
-        Get.defaultDialog(
-          confirmTextColor: Colors.white,
-          title: msg,
-          middleText: '',
-          onConfirm: () {
-            Get.back();
-          },
-        );
+        if (signup) {
+          Get.defaultDialog(
+            confirmTextColor: Colors.white,
+            title: msg,
+            middleText: '',
+            onConfirm: () {
+              Get.back();
+            },
+          );
+        } else {
+          Get.toNamed(Routes.currentLocation);
+        }
 
         print("Decoded OTP: $decodedOTP");
       } else {
@@ -210,26 +217,34 @@ class _AuthScreenState extends State<AuthScreen> {
                       ),
                     ),
                   ],
-                  const SizedBox(height: 16),
-                  RoundedButton(
-                    onPressed: () {
-                      if (phoneNumberController.text.trim().isNotEmpty) {
-                        fetchUserData();
-                        // authController.callAPI(
-                        //     phone: phoneNumberController.text,
-                        //     email: emailController.text);
-                      } else {
-                        Get.defaultDialog(
-                            confirmTextColor: Colors.white,
-                            title: 'Please enter phone number',
-                            middleText: '',
-                            onConfirm: () {
-                              Get.back();
-                            });
-                      }
-                    },
-                    name: signup ? 'Register' : 'Login via OTP',
-                  ),
+                  SizedBox(height: isLoading ? 32 : 16),
+                  isLoading
+                      ? const Center(
+                          child: SizedBox(
+                              height: 30,
+                              width: 30,
+                              child: CircularProgressIndicator(
+                                color: Colors.orange,
+                              )))
+                      : RoundedButton(
+                          onPressed: () {
+                            if (phoneNumberController.text.trim().isNotEmpty) {
+                              fetchUserData();
+                              // authController.callAPI(
+                              //     phone: phoneNumberController.text,
+                              //     email: emailController.text);
+                            } else {
+                              Get.defaultDialog(
+                                  confirmTextColor: Colors.white,
+                                  title: 'Please enter phone number',
+                                  middleText: '',
+                                  onConfirm: () {
+                                    Get.back();
+                                  });
+                            }
+                          },
+                          name: signup ? 'Register' : 'Login via OTP',
+                        ),
                   const SizedBox(height: 20),
                 ],
               ),
