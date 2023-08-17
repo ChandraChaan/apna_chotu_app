@@ -9,7 +9,7 @@ import '../presentation/select_location.dart';
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.currentLocation;
+  static const initial = Routes.auth;
   static final routes = [
     GetPage(
         name: Routes.intro,
@@ -22,6 +22,10 @@ class AppPages {
     GetPage(
         name: Routes.currentLocation,
         page: () => const CurrentLocation(),
+        binding: MainBinding()),
+    GetPage(
+        name: Routes.otpScreen,
+        page: () =>  const OTPScreen(),
         binding: MainBinding()),
 
   ];
