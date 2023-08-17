@@ -1,5 +1,6 @@
 import 'package:apna_chotu_app/Application/controller/auth_controller.dart';
 import 'package:apna_chotu_app/Common/helper.dart';
+import 'package:apna_chotu_app/Config/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../utils/linear_background.dart';
@@ -20,7 +21,7 @@ class _AuthScreenState extends State<AuthScreen> {
   bool signup = false;
   List<String> countryCodes = ['+1', '+44', '+91', '+86'];
   String selectedCountryCode = '+91';
-  TextEditingController phoneNumberController = TextEditingController();
+  TextEditingController phoneNumberController = TextEditingController(text: '9666033750');
   TextEditingController emailController = TextEditingController();
 
   String decodedOTP = "";
@@ -44,20 +45,14 @@ class _AuthScreenState extends State<AuthScreen> {
 
         Map<String, dynamic> responseData = json.decode(response.body);
         String otp = responseData['otp'];
+        String msg = responseData['message'];
 
         setState(() {
           decodedOTP = decodeBase64OTP(otp);
           isLoading = false; // Hide loader after API call completes
         });
 
-        Get.defaultDialog(
-          confirmTextColor: Colors.white,
-          title: 'Done',
-          middleText: '',
-          onConfirm: () {
-            Get.back();
-          },
-        );
+        Get.toNamed(Routes.currentLocation);
 
         print("Decoded OTP: $decodedOTP");
       } else {
@@ -100,169 +95,169 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget build(BuildContext context) {
     return LinearBackground(
         child: SafeArea(
-      child: Column(
-        children: [
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Apna Chotu Customer Login',
-                    style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                        color: Colors.white, fontWeight: FontWeight.w400),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Login access is available to customers who have registered.',
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400),
-                  ),
-                  const SizedBox(height: 16),
-                  Center(
-                      child: SizedBox(
-                          height: 250,
-                          width: 250,
-                          child: Image.asset('assets/images/fingerprint.png'))),
-                  const SizedBox(height: 16),
-                  Text(
-                    'Enter registered mobile number',
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400),
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
+          child: Column(
+            children: [
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        padding: const EdgeInsets.symmetric(horizontal: 12),
-                        child: DropdownButton<String>(
-                          value: selectedCountryCode,
-                          onChanged: (newValue) {
-                            setState(() {
-                              selectedCountryCode = newValue!;
-                            });
-                          },
-                          items: countryCodes.map((code) {
-                            return DropdownMenuItem<String>(
-                              value: code,
-                              child: Text(code),
-                            );
-                          }).toList(),
-                          underline: Container(
-                            height: 0,
-                          ),
-                        ),
+                      Text(
+                        'Apna Chotu Customer Login',
+                        style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                            color: Colors.white, fontWeight: FontWeight.w400),
                       ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: Container(
+                      const SizedBox(height: 8),
+                      Text(
+                        'Login access is available to customers who have registered.',
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400),
+                      ),
+                      const SizedBox(height: 16),
+                      Center(
+                          child: SizedBox(
+                              height: 250,
+                              width: 250,
+                              child: Image.asset('assets/images/fingerprint.png'))),
+                      const SizedBox(height: 16),
+                      Text(
+                        'Enter registered mobile number',
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400),
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            padding: const EdgeInsets.symmetric(horizontal: 12),
+                            child: DropdownButton<String>(
+                              value: selectedCountryCode,
+                              onChanged: (newValue) {
+                                setState(() {
+                                  selectedCountryCode = newValue!;
+                                });
+                              },
+                              items: countryCodes.map((code) {
+                                return DropdownMenuItem<String>(
+                                  value: code,
+                                  child: Text(code),
+                                );
+                              }).toList(),
+                              underline: Container(
+                                height: 0,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: TextFormField(
+                                controller: phoneNumberController,
+                                keyboardType: TextInputType.phone,
+                                decoration: const InputDecoration(
+                                  hintText: 'Enter your phone number',
+                                  border: InputBorder.none,
+                                  contentPadding: EdgeInsets.all(12),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      if (signup) ...[
+                        const SizedBox(height: 16),
+                        Text(
+                          'Email ID',
+                          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400),
+                        ),
+                        const SizedBox(height: 8),
+                        Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: TextFormField(
-                            controller: phoneNumberController,
-                            keyboardType: TextInputType.phone,
+                            controller: emailController,
+                            keyboardType: TextInputType.emailAddress,
                             decoration: const InputDecoration(
-                              hintText: 'Enter your phone number',
+                              hintText: 'Enter your Email address',
                               border: InputBorder.none,
                               contentPadding: EdgeInsets.all(12),
                             ),
                           ),
                         ),
+                      ],
+                      const SizedBox(height: 16),
+                      RoundedButton(
+                        onPressed: () {
+                          if (phoneNumberController.text.trim().isNotEmpty) {
+                            fetchUserData();
+                            // authController.callAPI(
+                            //     phone: phoneNumberController.text,
+                            //     email: emailController.text);
+                          } else {
+                            Get.defaultDialog(
+                                confirmTextColor: Colors.white,
+                                title: 'Please enter phone number',
+                                middleText: '',
+                                onConfirm: () {
+                                  Get.back();
+                                });
+                          }
+                        },
+                        name: signup ? 'Register' : 'Login via OTP',
                       ),
+                      const SizedBox(height: 20),
                     ],
                   ),
-                  if (signup) ...[
-                    const SizedBox(height: 16),
-                    Text(
-                      'Email ID',
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400),
+                ),
+              ),
+              // const SizedBox(height: 5),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    signup ? 'Already have an account? ' : 'Not have an account? ',
+                    style: const TextStyle(
+                      color: Colors.white,
                     ),
-                    const SizedBox(height: 8),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: TextFormField(
-                        controller: emailController,
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: const InputDecoration(
-                          hintText: 'Enter your Email address',
-                          border: InputBorder.none,
-                          contentPadding: EdgeInsets.all(12),
-                        ),
-                      ),
-                    ),
-                  ],
-                  const SizedBox(height: 16),
-                  RoundedButton(
-                    onPressed: () {
-                      if (phoneNumberController.text.trim().isNotEmpty) {
-                        fetchUserData();
-                        // authController.callAPI(
-                        //     phone: phoneNumberController.text,
-                        //     email: emailController.text);
-                      } else {
-                        Get.defaultDialog(
-                            confirmTextColor: Colors.white,
-                            title: 'Please enter phone number',
-                            middleText: '',
-                            onConfirm: () {
-                              Get.back();
-                            });
-                      }
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        signup = !signup;
+                      });
                     },
-                    name: signup ? 'Register' : 'Login via OTP',
+                    child: Text(
+                      signup ? 'Login' : 'Create Now',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
                   ),
-                  const SizedBox(height: 20),
                 ],
-              ),
-            ),
-          ),
-          // const SizedBox(height: 5),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                signup ? 'Already have an account? ' : 'Not have an account? ',
-                style: const TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    signup = !signup;
-                  });
-                },
-                child: Text(
-                  signup ? 'Login' : 'Create Now',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
               ),
             ],
           ),
-        ],
-      ),
-    ));
+        ));
   }
 
   @override
