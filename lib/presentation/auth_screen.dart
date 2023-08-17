@@ -35,8 +35,8 @@ class _AuthScreenState extends State<AuthScreen> {
 
     try {
       final response = await http.post(
-        Uri.parse('${Helpers.baseUrl}${Helpers.login}'),
-        body: {"mobile": phoneNumberController.text},
+        Uri.parse('${Helpers.baseUrl}${signup?Helpers.signup:Helpers.login}'),
+        body: {"mobile": phoneNumberController.text, "email":emailController.text},
       );
 
       if (response.statusCode == 200) {
@@ -44,6 +44,8 @@ class _AuthScreenState extends State<AuthScreen> {
 
         Map<String, dynamic> responseData = json.decode(response.body);
         String otp = responseData['otp'];
+        String msg = responseData['message'];
+
 
         setState(() {
           decodedOTP = decodeBase64OTP(otp);
@@ -52,7 +54,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
         Get.defaultDialog(
           confirmTextColor: Colors.white,
-          title: 'Done',
+          title: msg,
           middleText: '',
           onConfirm: () {
             Get.back();
