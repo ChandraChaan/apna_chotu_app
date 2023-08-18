@@ -274,7 +274,20 @@ class _OTPScreenState extends State<OTPScreen> {
                   const SizedBox(height: 10),
                   RoundedButton(
                     onPressed: () {
-                      sendingOtp();
+                      if (OtpOne.text.isNotEmpty &&
+                          OtpTwo.text.isNotEmpty &&
+                          OtpThree.text.isNotEmpty &&
+                          OtpFour.text.isNotEmpty)
+                        sendingOtp();
+                      else
+                        Get.defaultDialog(
+                          confirmTextColor: Colors.white,
+                          title: '',
+                          middleText: 'Please Enter OTP',
+                          onConfirm: () {
+                            Get.back();
+                          },
+                        );
                     },
                     name: 'Submit',
                   ),
