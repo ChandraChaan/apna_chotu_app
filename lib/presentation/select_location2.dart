@@ -58,7 +58,9 @@ class _CurrentLocationState extends State<CurrentLocation> {
             const Divider(thickness: 1),
             ListTile(
               minLeadingWidth: 0,
-              onTap: () {},
+              onTap: () {
+                Get.toNamed(Routes.mapScreen);
+              },
               leading: const Icon(
                 Icons.near_me,
                 color: Colors.deepOrange,

@@ -13,7 +13,7 @@ import '../presentation/select_location2.dart';
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.otpScreen;
+  static const initial = Routes.intro;
   static final routes = [
     GetPage(
         name: Routes.intro,
