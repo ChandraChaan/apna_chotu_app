@@ -16,7 +16,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
       body: SafeArea(
         child: Column(
           children: [
-             SizedBox(
+            const SizedBox(
               height: 40,
               child: Row(
                 children: [
@@ -52,11 +52,12 @@ class _CurrentLocationState extends State<CurrentLocation> {
                   contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
                 ),
               ),
-            ),const Divider(thickness: 1),
-                  ListTile(
+            ),
+            const Divider(thickness: 1),
+            ListTile(
               minLeadingWidth: 0,
-                    onTap: (){},
-                    leading: const Icon(
+              onTap: () {},
+              leading: const Icon(
                 Icons.near_me,
                 color: Colors.deepOrange,
               ),
@@ -66,7 +67,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
               ),
               subtitle: const Text('Rahimpur, Dattatreya Nagar, Hyderabad'),
             ),
-             const Divider(thickness: 1),
+            const Divider(thickness: 1),
             ListTile(
               minLeadingWidth: 0,
               onTap: () {
@@ -82,7 +83,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
               ),
             ),
             const Divider(thickness: 1),
-             Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
@@ -107,7 +108,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
               ],
             ),
             const Divider(thickness: 1),
-             Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class NewAddressScreen extends StatefulWidget {
   const NewAddressScreen({super.key});
@@ -19,20 +20,25 @@ class _NewAddressScreenState extends State<NewAddressScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           Padding(
-            padding: EdgeInsets.only(left: 13, top: 30),
-            child: Row(
-              children: [
-                Icon(
+          Row(
+            children: [
+              IconButton(
+                icon: const Icon(
                   Icons.chevron_left,
                   size: 25,
                 ),
-                Text(
-                  'Add New Address',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
+                padding: const EdgeInsets.all(0),
+                splashRadius: 0.2,
+                onPressed: () {
+                  //back screen
+                  Get.back();
+                },
+              ),
+              const Text(
+                'Add New Address',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ],
           ),
           const Padding(
             padding: EdgeInsets.only(left: 18, top: 15),
