@@ -1,9 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.apna.apna_chotu_app">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="apna_chotu_app"
         android:name="${applicationName}"
-        android:icon="@mipmap/launcher_icon">
+        android:icon="@mipmap/apna_chotu">
        <meta-data android:name="com.google.android.geo.API_KEY"
            android:value="AIzaSyBl0Pm1-cZM3-IdYhEkmEQ2A4XxSJpIRdQ"/>
         <activity
