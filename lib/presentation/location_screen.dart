@@ -18,6 +18,8 @@ class MapScreen extends StatelessWidget {
       tilt: 59.440717697143555,
       zoom: 19.151926040649414);
 
+  MapScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
