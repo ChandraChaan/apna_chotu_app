@@ -241,7 +241,7 @@ class _OTPScreenState extends State<OTPScreen> {
                           child: Text(
                             'Resend OTP in $_remainingTime seconds',
                             style: const TextStyle(
-                              fontSize: 14.0,
+                              fontSize: 16.0,
                               color: Colors.white,
                             ),
                           ),
