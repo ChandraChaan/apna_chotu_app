@@ -1,4 +1,4 @@
-import 'package:apna_chotu_app/presentation/select_location.dart';
+import 'package:apna_chotu_app/presentation/select_location2.dart';
 import 'package:flutter/material.dart';
 
 class LocationScreen extends StatefulWidget {
@@ -42,31 +42,33 @@ class _LocationScreenState extends State<LocationScreen> {
                   ?.copyWith(fontSize: 16, fontWeight: FontWeight.w400),
             ),
           ),
-          Container(
-            // height: MediaQuery.of(context).size.height/1,
+          Expanded(
+            child: Container(
+              // height: MediaQuery.of(context).size.height/1,
 
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/Isolation_Mode.png",),
-                fit: BoxFit.cover,
-
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    "assets/images/Isolation_Mode.png",
+                  ),
+                ),
               ),
 
-            ),
-
-            child: Padding(
-              padding: const EdgeInsets.only(top: 440),
-              child: Column(
-                children: [
-                  GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (cntext) => const CurrentLocation()));
-                      },
-                      child: Image.asset("assets/images/use_location.png")),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.only(top: 440),
+                child: Column(
+                  children: [
+                    GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (cntext) =>
+                                      const CurrentLocation()));
+                        },
+                        child: Image.asset("assets/images/use_location.png")),
+                  ],
+                ),
               ),
             ),
           ),

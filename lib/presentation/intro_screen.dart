@@ -25,7 +25,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
     IntroScreen(
       title: "Delivering lip-smacking food is our passion.",
       description: "Time is precious, and we know that.",
-      image: 'assets/images/cooking.png',
+      image: 'assets/images/cook.gif',
     ),
     IntroScreen(
       title: "Your Favorite Food delivery Partner",

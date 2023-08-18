@@ -17,12 +17,9 @@ class _CurrentLocationState extends State<CurrentLocation> {
         child: Column(
           children: [
             const SizedBox(
-              height: 10,
-            ),
-             SizedBox(
-              height: 50,
+              height: 40,
               child: Row(
-                children: const [
+                children: [
                   Icon(Icons.chevron_left, size: 25),
                   Text(
                     'Select a Location',
@@ -55,25 +52,25 @@ class _CurrentLocationState extends State<CurrentLocation> {
                   contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
                 ),
               ),
-            ),
-            const Center(
-                child: ListTile(
+            ),const Divider(thickness: 1),
+                  ListTile(
               minLeadingWidth: 0,
-              leading: Icon(
+                    onTap: (){},
+                    leading: const Icon(
                 Icons.near_me,
                 color: Colors.deepOrange,
               ),
-              title: Text(
+              title: const Text(
                 'Use My Current Location',
                 style: TextStyle(color: Colors.deepOrange, fontSize: 12),
               ),
-              subtitle: Text('Rahimpur, Dattatreya Nagar, Hyderabad'),
-            )),
-            const Divider(thickness: 1),
+              subtitle: const Text('Rahimpur, Dattatreya Nagar, Hyderabad'),
+            ),
+             const Divider(thickness: 1),
             ListTile(
-              minLeadingWidth: 2,
+              minLeadingWidth: 0,
               onTap: () {
-                Get.toNamed(Routes.auth);
+                Get.toNamed(Routes.newAddressScreen);
               },
               leading: const Icon(
                 Icons.add_sharp,
@@ -85,9 +82,9 @@ class _CurrentLocationState extends State<CurrentLocation> {
               ),
             ),
             const Divider(thickness: 1),
-             Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Padding(
                   padding: EdgeInsets.only(left: 13),
                   child: Text(
@@ -102,16 +99,17 @@ class _CurrentLocationState extends State<CurrentLocation> {
                     padding: EdgeInsets.only(top: 13),
                     child: Text(
                       'Petals Accessories',
-                    ),),
+                    ),
+                  ),
                   subtitle: Text(
                       'Karwan Road, Rahimpura, Dattatreya Nagar, Hyderabad'),
                 ),
               ],
             ),
             const Divider(thickness: 1),
-             Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Padding(
                   padding: EdgeInsets.only(left: 13),
                   child: Text(

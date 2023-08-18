@@ -41,6 +41,8 @@ class _AuthScreenState extends State<AuthScreen> {
         body: {
           "mobile": phoneNumberController.text,
           "email": emailController.text
+          // "mobile": "9666033750",
+          // "emain": "sathyayadav27@gmail.com"
         },
       );
 
@@ -48,11 +50,16 @@ class _AuthScreenState extends State<AuthScreen> {
         print("API response received with status code 200");
 
         Map<String, dynamic> responseData = json.decode(response.body);
-        String otp = responseData['otp'];
+        if(signup == false) {
+          String otp = responseData['otp'];
+          decodedOTP = decodeBase64OTP(otp);
+
+        }
         String msg = responseData['message'];
 
         setState(() {
-          decodedOTP = decodeBase64OTP(otp);
+          // if(signup == false)
+          //   decodedOTP = decodeBase64OTP(otp);
           isLoading = false;
         });
         if (signup) {
@@ -65,7 +72,7 @@ class _AuthScreenState extends State<AuthScreen> {
             },
           );
         } else {
-          Get.toNamed(Routes.currentLocation);
+          Get.toNamed(Routes.otpScreen);
         }
 
         print("Decoded OTP: $decodedOTP");
@@ -87,6 +94,9 @@ class _AuthScreenState extends State<AuthScreen> {
         throw Exception('Failed to load data');
       }
     } catch (e) {
+      setState(() {
+        isLoading = false;
+      });
       print("An error occurred: $e");
       Get.defaultDialog(
         confirmTextColor: Colors.white,

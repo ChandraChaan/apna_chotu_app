@@ -46,6 +46,8 @@ dependencies:
   connectivity: ^3.0.6
   url_launcher:
   cached_network_image: ^3.2.0
+  otp_timer_button: ^1.1.0
+
 
 dev_dependencies:
   flutter_test:

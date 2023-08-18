@@ -5,5 +5,8 @@ abstract class Routes {
   static const auth = '/auth';
   static const currentLocation = '/currentLocation';
   static const otpScreen = '/otpScreen';
+  static const locationScreen = '/locationScreen';
+  static const newAddressScreen = '/newAddressScreen';
+  static const othersAddress = '/othersAddress';
 
 }
