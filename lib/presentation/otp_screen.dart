@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,7 +7,6 @@ import '../Common/helper.dart';
 import '../utils/linear_background.dart';
 import '../utils/rounded_button.dart';
 import 'package:http/http.dart' as http;
-import 'package:otp_timer_button/otp_timer_button.dart';
 
 class OTPScreen extends StatefulWidget {
   const OTPScreen({super.key});
@@ -16,8 +16,49 @@ class OTPScreen extends StatefulWidget {
 }
 
 class _OTPScreenState extends State<OTPScreen> {
-  OtpTimerButtonController controller = OtpTimerButtonController();
+  // OtpTimerButtonController controller = OtpTimerButtonController();
+  final OtpOne = TextEditingController();
+  final OtpTwo = TextEditingController();
+  final OtpThree = TextEditingController();
+  final OtpFour = TextEditingController();
+
+  int _remainingTime = 30;
+  bool _isTimerActive = false;
+
+  @override
+  void initState() {
+    setState(() {
+      phone = Get.arguments ?? phone;
+    });
+    super.initState();
+  }
+
+  void _startTimer() {
+    if (!_isTimerActive) {
+      setState(() {
+        _isTimerActive = true;
+        _remainingTime = 30;
+      });
+      _startCountdown();
+    }
+  }
+
+  void _startCountdown() {
+    const oneSec = Duration(seconds: 1);
+    Timer.periodic(oneSec, (Timer timer) {
+      setState(() {
+        if (_remainingTime < 1) {
+          _isTimerActive = false;
+          timer.cancel();
+        } else {
+          _remainingTime = _remainingTime - 1;
+        }
+      });
+    });
+  }
+
   bool isLoading = false;
+  String phone = '1234567890';
 
   Future<void> sendingOtp() async {
     setState(() {
@@ -30,10 +71,8 @@ class _OTPScreenState extends State<OTPScreen> {
       final response = await http.post(
         Uri.parse('${Helpers.baseUrl}${Helpers.signup}'),
         body: {
-          // "mobile": phoneNumberController.text,
-          // "email": emailController.text
-          "mobile": "9666033750",
-          "otp": "1111"
+          "mobile": "$phone",
+          "otp": "${OtpOne.text + OtpTwo.text + OtpThree.text + OtpFour.text}"
         },
       );
 
@@ -44,8 +83,6 @@ class _OTPScreenState extends State<OTPScreen> {
         String msg = responseData['message'];
 
         setState(() {
-          // if(signup == false)
-          //   decodedOTP = decodeBase64OTP(otp);
           isLoading = false;
         });
         Get.defaultDialog(
@@ -115,7 +152,7 @@ class _OTPScreenState extends State<OTPScreen> {
                         fontWeight: FontWeight.w400),
                   ),
                   Text(
-                    '+91-8121213346',
+                    '+91-$phone',
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -131,61 +168,109 @@ class _OTPScreenState extends State<OTPScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      for (int a = 0; a < 4; a++) ...[
-                        Container(
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10)),
-                          padding: const EdgeInsets.symmetric(horizontal: 12),
-                          child: const SizedBox(
-                            height: 50,
-                            width: 30,
-                            child: TextField(
-                              decoration:
-                                  InputDecoration(border: InputBorder.none),
-                            ),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10)),
+                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                        child: SizedBox(
+                          height: 50,
+                          width: 30,
+                          child: TextField(
+                            controller: OtpOne,
+                            decoration:
+                                InputDecoration(border: InputBorder.none),
                           ),
                         ),
-                        const SizedBox(width: 20),
-                      ],
+                      ),
+                      const SizedBox(width: 20),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10)),
+                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                        child: SizedBox(
+                          height: 50,
+                          width: 30,
+                          child: TextField(
+                            controller: OtpTwo,
+                            decoration:
+                                InputDecoration(border: InputBorder.none),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10)),
+                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                        child: SizedBox(
+                          height: 50,
+                          width: 30,
+                          child: TextField(
+                            controller: OtpThree,
+                            decoration:
+                                InputDecoration(border: InputBorder.none),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10)),
+                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                        child: SizedBox(
+                          height: 50,
+                          width: 30,
+                          child: TextField(
+                            controller: OtpFour,
+                            decoration:
+                                InputDecoration(border: InputBorder.none),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
                     ],
                   ),
-                  // Center(
-                  //   child: OTPtimer(
-                  //     backgroundColor: Colors.white,
-                  //     onPressed: () {},
-                  //     controller: controller,
-                  //     text: Text(''),
-                  //     duration: Duration.secondsPerMinute,
-                  //     textColor: Colors.white,
-                  //   ),
-                  // ),
                   SizedBox(height: 40),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Do not send OTP? ',
-                        style: TextStyle(
-                          color: Colors.white,
+                  _isTimerActive
+                      ? Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            'Resend OTP in $_remainingTime seconds',
+                            style: const TextStyle(
+                              fontSize: 14.0,
+                              color: Colors.white,
+                            ),
+                          ),
+                        )
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const Text(
+                              'Didn\’t Receive? ',
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                _startTimer();
+                              },
+                              child: const Text(
+                                'Send OTP',
+                                style: TextStyle(
+                                    color: Colors.red,
+                                    decoration: TextDecoration.underline,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {});
-                        },
-                        child: const Text(
-                          'Send OTP',
-                          style: TextStyle(
-                              color: Colors.red,
-                              decoration: TextDecoration.underline,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ],
-                  ),
                   const SizedBox(height: 10),
                   RoundedButton(
                     onPressed: () {

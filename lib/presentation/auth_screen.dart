@@ -50,10 +50,9 @@ class _AuthScreenState extends State<AuthScreen> {
         print("API response received with status code 200");
 
         Map<String, dynamic> responseData = json.decode(response.body);
-        if(signup == false) {
+        if (signup == false) {
           String otp = responseData['otp'];
           decodedOTP = decodeBase64OTP(otp);
-
         }
         String msg = responseData['message'];
 
@@ -72,7 +71,8 @@ class _AuthScreenState extends State<AuthScreen> {
             },
           );
         } else {
-          Get.toNamed(Routes.otpScreen);
+          Get.toNamed(Routes.otpScreen,
+              arguments: ['${phoneNumberController.text}']);
         }
 
         print("Decoded OTP: $decodedOTP");
