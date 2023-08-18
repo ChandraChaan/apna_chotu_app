@@ -2,6 +2,8 @@ import 'package:apna_chotu_app/Config/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../utils/rounded_button.dart';
+
 class CurrentLocation extends StatefulWidget {
   const CurrentLocation({super.key});
 
@@ -129,6 +131,24 @@ class _CurrentLocationState extends State<CurrentLocation> {
                 Divider(thickness: 1)
               ],
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            RoundedButton(
+              height: 40,
+              width: MediaQuery.of(context).size.width / 1.1,
+              onPressed: () {
+                // dialog
+                Get.defaultDialog(
+                    confirmTextColor: Colors.white,
+                    title: 'Please enter Details',
+                    middleText: '',
+                    onConfirm: () {
+                      Get.back();
+                    });
+              },
+              name: 'Save Address',
+            )
           ],
         ),
       ),

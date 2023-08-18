@@ -47,6 +47,7 @@ dependencies:
   url_launcher:
   cached_network_image: ^3.2.0
   otp_timer_button: ^1.1.0
+  google_maps_flutter: ^2.4.0
 
 
 dev_dependencies:

@@ -7,12 +7,13 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import '../Application/Binding/main_binding.dart';
 import '../Presentation/auth_screen.dart';
 import '../Presentation/intro_screen.dart';
+import '../presentation/location_screen.dart';
 import '../presentation/select_location2.dart';
 
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.currentLocation;
+  static const initial = Routes.mapScreen;
   static final routes = [
     GetPage(
         name: Routes.intro,
@@ -42,6 +43,10 @@ class AppPages {
     GetPage(
         name: Routes.othersAddress,
         page: () =>  const OthersAddress(),
+        binding: MainBinding()),
+    GetPage(
+        name: Routes.mapScreen,
+        page: () =>  MapScreen(),
         binding: MainBinding()),
 
   ];
