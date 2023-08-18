@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../Common/helper.dart';
+import '../Config/app_pages.dart';
 import '../utils/linear_background.dart';
 import '../utils/rounded_button.dart';
 import 'package:http/http.dart' as http;
@@ -85,14 +86,15 @@ class _OTPScreenState extends State<OTPScreen> {
         setState(() {
           isLoading = false;
         });
-        Get.defaultDialog(
-          confirmTextColor: Colors.white,
-          title: msg,
-          middleText: '',
-          onConfirm: () {
-            Get.back();
-          },
-        );
+        Get.toNamed(Routes.locationScreen);
+        // Get.defaultDialog(
+        //   confirmTextColor: Colors.white,
+        //   title: msg,
+        //   middleText: '',
+        //   onConfirm: () {
+        //     Get.back();
+        //   },
+        // );
       } else {
         print("Failed to fetch data. Status code: ${response.statusCode}");
         setState(() {
