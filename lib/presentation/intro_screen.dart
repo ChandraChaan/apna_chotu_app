@@ -19,16 +19,16 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
   final List<IntroScreen> introScreens = [
     IntroScreen(
       title: "Find Best Delivery Services All Around Your City",
-      description: "Affordable delivery options available for you.",
-      image: 'assets/images/food.png',
+      description: "Affordable delivery options available\nfor you.",
+      image: 'assets/images/food.gif',
     ),
     IntroScreen(
-      title: "Delivering lip-smacking food is our passion.",
+      title: "Delivering\nlip-smacking food\nis our passion.",
       description: "Time is precious, and we know that.",
       image: 'assets/images/cook.gif',
     ),
     IntroScreen(
-      title: "Your Favorite Food delivery Partner",
+      title: "Your Favorite\nFood delivery\nPartner",
       description: "The best service to fulfill your expectations.",
       image: 'assets/images/delivery_vehicle.png',
     ),

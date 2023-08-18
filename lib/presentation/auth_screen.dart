@@ -134,7 +134,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Login access is available to customers who have registered.',
+                    'Login access is available to customer who have registered.',
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: Colors.white,
                         fontSize: 16,

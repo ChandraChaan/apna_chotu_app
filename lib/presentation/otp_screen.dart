@@ -140,6 +140,10 @@ class _OTPScreenState extends State<OTPScreen> {
                           child: const SizedBox(
                             height: 50,
                             width: 30,
+                            child: TextField(
+                              decoration:
+                                  InputDecoration(border: InputBorder.none),
+                            ),
                           ),
                         ),
                         const SizedBox(width: 20),
