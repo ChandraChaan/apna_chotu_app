@@ -16,7 +16,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
       body: SafeArea(
         child: Column(
           children: [
-            const SizedBox(
+             SizedBox(
               height: 40,
               child: Row(
                 children: [
@@ -82,7 +82,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
               ),
             ),
             const Divider(thickness: 1),
-            const Column(
+             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
@@ -107,7 +107,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
               ],
             ),
             const Divider(thickness: 1),
-            const Column(
+             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
