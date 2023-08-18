@@ -86,15 +86,18 @@ class _OTPScreenState extends State<OTPScreen> {
         setState(() {
           isLoading = false;
         });
-        Get.toNamed(Routes.locationScreen);
-        // Get.defaultDialog(
-        //   confirmTextColor: Colors.white,
-        //   title: msg,
-        //   middleText: '',
-        //   onConfirm: () {
-        //     Get.back();
-        //   },
-        // );
+        if (responseData['status'].toString() == '1') {
+          Get.toNamed(Routes.locationScreen);
+        } else {
+          Get.defaultDialog(
+            confirmTextColor: Colors.white,
+            title: msg,
+            middleText: '',
+            onConfirm: () {
+              Get.back();
+            },
+          );
+        }
       } else {
         print("Failed to fetch data. Status code: ${response.statusCode}");
         setState(() {
