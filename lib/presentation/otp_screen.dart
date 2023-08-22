@@ -70,7 +70,7 @@ class _OTPScreenState extends State<OTPScreen> {
 
     try {
       final response = await http.post(
-        Uri.parse('${Helpers.baseUrl}${Helpers.signup}'),
+        Uri.parse('${Helpers.baseUrl}${Helpers.verifyOtp}'),
         body: {
           "mobile": "$phone",
           "otp": "${OtpOne.text + OtpTwo.text + OtpThree.text + OtpFour.text}"

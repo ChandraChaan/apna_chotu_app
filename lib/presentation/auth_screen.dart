@@ -72,7 +72,7 @@ class _AuthScreenState extends State<AuthScreen> {
           );
         } else {
           Get.toNamed(Routes.otpScreen,
-              arguments: ['${phoneNumberController.text}']);
+              arguments: '${phoneNumberController.text}');
         }
 
         print("Decoded OTP: $decodedOTP");
