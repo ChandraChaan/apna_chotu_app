@@ -22,7 +22,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
               height: 40,
               child: Row(
                 children: [
-                  Icon(Icons.chevron_left, size: 25),
+                  Icon(Icons.chevron_left, size: 28),
                   Text(
                     'Select a Location',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),

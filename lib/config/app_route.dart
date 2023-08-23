@@ -9,5 +9,7 @@ abstract class Routes {
   static const newAddressScreen = '/newAddressScreen';
   static const othersAddress = '/othersAddress';
   static const mapScreen = '/mapScreen';
+  static const changeLocationScreen = '/changeLocationScreen';
+  static const dashBoardScreen = '/dashBoardScreen';
 
 }

@@ -148,12 +148,12 @@ class _OTPScreenState extends State<OTPScreen> {
                     style: Theme.of(context).textTheme.displaySmall?.copyWith(
                         color: Colors.white, fontWeight: FontWeight.w400),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 9),
                   Text(
-                    'We will send you a one time password on this Mobile Number.',
+                    'We will send you a one time password on this Mobile Number',
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: Colors.white,
-                        fontSize: 19,
+                        fontSize: 20,
                         fontWeight: FontWeight.w400),
                   ),
                   Text(

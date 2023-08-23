@@ -34,12 +34,12 @@ class _LocationScreenState extends State<LocationScreen> {
           ),
           Center(
             child: Text(
-              "Choose your location to start find restaurants\naround you.",
+              "Choose your location to start find restaurants around you.",
               textAlign: TextAlign.center,
               style: Theme.of(context)
                   .textTheme
                   .bodyMedium
-                  ?.copyWith(fontSize: 16, fontWeight: FontWeight.w400),
+                  ?.copyWith(fontSize: 18, fontWeight: FontWeight.w400),
             ),
           ),
           Expanded(
