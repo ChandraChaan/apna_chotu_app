@@ -1,7 +1,7 @@
 import 'package:apna_chotu_app/presentation/add_newaddress3.dart';
 import 'package:apna_chotu_app/presentation/add_newaddress4.dart';
 import 'package:apna_chotu_app/presentation/change_location.dart';
-import 'package:apna_chotu_app/presentation/dashboards/dash_board.dart';
+import 'package:apna_chotu_app/presentation/dashboard/dash_board.dart';
 import 'package:apna_chotu_app/presentation/location_screen1.dart';
 import 'package:apna_chotu_app/presentation/otp_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';

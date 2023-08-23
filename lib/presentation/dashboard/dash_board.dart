@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import 'food_screen.dart';
+
 class DashBoardScreen extends StatefulWidget {
   const DashBoardScreen({Key? key}) : super(key: key);
 
@@ -12,11 +14,11 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    Page1(), // Your first tab's content
-    Page2(), // Your second tab's content
-    Page3(), // Your third tab's content
-    Page4(), // Your fourth tab's content
-    Page5(), // Your fifth tab's content
+    FoodScreen(),
+    Page2(),
+    Page3(),
+    Page4(),
+    Page5(),
   ];
 
   @override
@@ -27,6 +29,8 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
       ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        unselectedItemColor: Colors.grey,
+        selectedItemColor: Colors.blue,
         currentIndex: _selectedIndex,
         onTap: _onTabTapped,
         items: [

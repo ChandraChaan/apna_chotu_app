@@ -149,7 +149,6 @@ class _NewAddressScreenState extends State<NewAddressScreen> {
                   hintText: 'Nearby Landmark (Optional)'),
             ),
           ),
-
         ],
       ),
     ));
