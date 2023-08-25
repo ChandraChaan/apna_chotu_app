@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class OthersAddress extends StatefulWidget {
   const OthersAddress({super.key});
@@ -19,13 +20,16 @@ class OthersAddressState extends State<OthersAddress> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             Padding(
+            Padding(
               padding: EdgeInsets.only(left: 13, top: 30),
               child: Row(
                 children: [
-                  Icon(
-                    Icons.chevron_left,
-                    size: 25,
+                  IconButton(
+                    icon: Icon(Icons.chevron_left, size: 25),
+                    splashRadius: 0.2,
+                    onPressed: () {
+                      Get.back();
+                    },
                   ),
                   Text(
                     'Add New Address',

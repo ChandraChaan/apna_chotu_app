@@ -2,6 +2,8 @@ import 'package:apna_chotu_app/presentation/add_newaddress3.dart';
 import 'package:apna_chotu_app/presentation/add_newaddress4.dart';
 import 'package:apna_chotu_app/presentation/change_location.dart';
 import 'package:apna_chotu_app/presentation/dashboard/dash_board.dart';
+import 'package:apna_chotu_app/presentation/dashboard/food_screen.dart';
+import 'package:apna_chotu_app/presentation/dashboard/resturant_screen.dart';
 import 'package:apna_chotu_app/presentation/location_screen1.dart';
 import 'package:apna_chotu_app/presentation/otp_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -15,7 +17,7 @@ import '../presentation/select_location2.dart';
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.intro;
+  static const initial = Routes.foodScreen;
   static final routes = [
     GetPage(
         name: Routes.intro,
@@ -57,6 +59,14 @@ class AppPages {
     GetPage(
         name: Routes.dashBoardScreen,
         page: () =>  DashBoardScreen(),
+        binding: MainBinding()),
+    GetPage(
+        name: Routes.foodScreen,
+        page: () =>  FoodScreen(),
+        binding: MainBinding()),
+    GetPage(
+        name: Routes.dashBoardListScreen,
+        page: () =>  DashboardListScreen(),
         binding: MainBinding()),
 
   ];

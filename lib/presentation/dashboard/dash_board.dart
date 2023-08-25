@@ -24,22 +24,20 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Dashboard'),
-      ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        unselectedItemColor: Colors.grey,
-        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.black,
+        selectedItemColor: Colors.deepOrange,
+        showUnselectedLabels: true,
         currentIndex: _selectedIndex,
         onTap: _onTabTapped,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            label: 'Food',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.fastfood),
             label: 'Search',
           ),
           BottomNavigationBarItem(
@@ -47,12 +45,12 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
             label: 'Profile',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Icon(Icons.shopping_cart),
+            label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: 'Notifications',
+            icon: Icon(Icons.settings),
+            label: 'Settings',
           ),
         ],
       ),

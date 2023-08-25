@@ -183,8 +183,12 @@ class IntroScreenWidget extends StatelessWidget {
                     fontWeight: FontWeight.w400),
               ),
               SizedBox(
-                height: 370,
-                width: 350,
+                  height: introScreen.image.contains('delivery_vehicle.png')
+                      ? 1
+                      : 1),
+              SizedBox(
+                height: MediaQuery.of(context).size.height/1.8,
+                width: double.infinity,
                 child: introScreen.image.contains('delivery_vehicle.png')
                     ? Stack(
                         children: [
@@ -192,22 +196,23 @@ class IntroScreenWidget extends StatelessWidget {
                             bottom: 0,
                             left: 0,
                             right: 0,
-                            child: SizedBox(height:290,child: Image.asset(introScreen.image)),
+                            child: SizedBox(
+                                height: 280,
+                                child: Image.asset(introScreen.image)),
                           ),
                           Positioned(
-                            top: 10,
+                            top: 0,
                             right: 150,
                             child: SizedBox(
-                              height: 70,
-                              child:
-                                  Image.asset('assets/images/burger.png'),
+                              height: 90,
+                              child: Image.asset('assets/images/burger.png'),
                             ),
                           ),
                           Positioned(
-                            top: 40,
-                            right: 0,
+                            top: 50,
+                            right: 15,
                             child: SizedBox(
-                              height: 70,
+                              height: 90,
                               child:
                                   Image.asset('assets/images/french_fries.png'),
                             ),
@@ -216,17 +221,16 @@ class IntroScreenWidget extends StatelessWidget {
                             top: 70,
                             left: 0,
                             child: SizedBox(
-                              height: 70,
-                              child:
-                                  Image.asset('assets/images/french_fries.png'),
+                              height: 90,
+                              child: Image.asset('assets/images/taco.png'),
                             ),
                           ),
                         ],
                       )
                     : Image.asset(introScreen.image),
               ),
-              const SizedBox(
-                height: 40,
+               SizedBox(
+                height: introScreen.image.contains('delivery_vehicle.png')?10:40,
               ),
             ],
           ),

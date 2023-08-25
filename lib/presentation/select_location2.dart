@@ -18,14 +18,18 @@ class _CurrentLocationState extends State<CurrentLocation> {
       body: SafeArea(
         child: Column(
           children: [
-            const SizedBox(
+             SizedBox(
               height: 40,
               child: Row(
                 children: [
-                  Icon(Icons.chevron_left, size: 28),
+                  IconButton(
+                      onPressed: (){
+                        Get.back();
+                      },
+                      icon: Icon(Icons.chevron_left,size: 28,)),
                   Text(
                     'Select a Location',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   )
                 ],
               ),
@@ -145,9 +149,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
                     confirmTextColor: Colors.white,
                     title: 'Please enter Details',
                     middleText: '',
-                    onConfirm: () {
-                      Get.back();
-                    });
+                    onConfirm: () {});
               },
               name: 'Save Address',
             )
