@@ -13,5 +13,6 @@ abstract class Routes {
   static const dashBoardScreen = '/dashBoardScreen';
   static const foodScreen = '/foodScreen';
   static const dashBoardListScreen = '/dashBoardListScreen';
+  static const scrollDirections = '/scrollDirections';
 
 }

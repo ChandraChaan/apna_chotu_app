@@ -91,23 +91,19 @@ class FoodScreen extends StatelessWidget {
                           const EdgeInsets.symmetric(horizontal: 16.0),
                     ),
                   ),
-                ),
-                Container(
+                ),Container(
                   height: 140,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Colors.grey[600],
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     image: DecorationImage(
                       image: AssetImage("assets/images/group_11.png"),
                       fit: BoxFit.cover,
                     ),
                   ),
-                  //child: Center(child: Text('Testing')),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+
+                SizedBox(height: 20),
                 GridView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),

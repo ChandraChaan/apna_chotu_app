@@ -87,7 +87,7 @@ class _OTPScreenState extends State<OTPScreen> {
           isLoading = false;
         });
         if (responseData['status'].toString() == '1') {
-          Get.toNamed(Routes.locationScreen);
+          Get.toNamed(Routes.dashBoardScreen);
         } else {
           Get.defaultDialog(
             confirmTextColor: Colors.white,
@@ -181,10 +181,18 @@ class _OTPScreenState extends State<OTPScreen> {
                         child: SizedBox(
                           height: 50,
                           width: 30,
-                          child: TextField(
-                            controller: OtpOne,
-                            decoration:
-                                InputDecoration(border: InputBorder.none),
+                          child: Center(
+                            child: TextField(
+                              textAlign: TextAlign.center,
+                              onChanged: (value) {
+                                if (value.length == 1) {
+                                  FocusScope.of(context).nextFocus();
+                                }
+                              },
+                              controller: OtpOne,
+                              decoration:
+                                  InputDecoration(border: InputBorder.none),
+                            ),
                           ),
                         ),
                       ),
@@ -198,6 +206,12 @@ class _OTPScreenState extends State<OTPScreen> {
                           height: 50,
                           width: 30,
                           child: TextField(
+                            textAlign: TextAlign.center,
+                            onChanged: (value) {
+                              if (value.length == 1) {
+                                FocusScope.of(context).nextFocus();
+                              }
+                            },
                             controller: OtpTwo,
                             decoration:
                                 InputDecoration(border: InputBorder.none),
@@ -213,7 +227,12 @@ class _OTPScreenState extends State<OTPScreen> {
                         child: SizedBox(
                           height: 50,
                           width: 30,
-                          child: TextField(
+                          child: TextField(textAlign: TextAlign.center,
+                            onChanged: (value) {
+                              if (value.length == 1) {
+                                FocusScope.of(context).nextFocus();
+                              }
+                            },
                             controller: OtpThree,
                             decoration:
                                 InputDecoration(border: InputBorder.none),
@@ -230,6 +249,12 @@ class _OTPScreenState extends State<OTPScreen> {
                           height: 50,
                           width: 30,
                           child: TextField(
+                            textAlign: TextAlign.center,
+                            onChanged: (value) {
+                              if (value.length == 1) {
+                                FocusScope.of(context).nextFocus();
+                              }
+                            },
                             controller: OtpFour,
                             decoration:
                                 InputDecoration(border: InputBorder.none),

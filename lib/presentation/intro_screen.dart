@@ -20,7 +20,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
   final List<IntroScreen> introScreens = [
     IntroScreen(
       title: "Find Best Delivery Services All Around Your City",
-      description: "Affordable delivery options available\nfor you.",
+      description: "Affordable delivery options available for you.",
       image: 'assets/images/food.gif',
     ),
     IntroScreen(
@@ -179,7 +179,7 @@ class IntroScreenWidget extends StatelessWidget {
                 introScreen.description,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     color: Colors.white,
-                    fontSize: 16,
+                    fontSize: 22,
                     fontWeight: FontWeight.w400),
               ),
               SizedBox(
