@@ -2,6 +2,7 @@ import 'package:apna_chotu_app/Config/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class FoodScreen extends StatelessWidget {
   List<Map<String, dynamic>> servicesItems = [
@@ -91,17 +92,19 @@ class FoodScreen extends StatelessWidget {
                           const EdgeInsets.symmetric(horizontal: 16.0),
                     ),
                   ),
-                ),Container(
-                  height: 140,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    image: DecorationImage(
-                      image: AssetImage("assets/images/group_11.png"),
-                      fit: BoxFit.cover,
-                    ),
+
+                // ),Container(
+                //   height: 140,
+                //   width: double.infinity,
+                //   decoration: BoxDecoration(
+                //     borderRadius: BorderRadius.all(Radius.circular(20)),
+                //     image: DecorationImage(
+                //       image: AssetImage("assets/images/group_11.png"),
+                //       fit: BoxFit.cover,
+                //     ),
+                //   ),
+                //
                   ),
-                ),
 
                 SizedBox(height: 20),
                 GridView.builder(
