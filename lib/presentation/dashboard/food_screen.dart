@@ -25,47 +25,107 @@ class FoodScreen extends StatelessWidget {
           child: SafeArea(
             child: Column(
               children: [
-                Row(
-                  children: [
-                    Icon(
-                      Icons.location_on,
-                      size: 38,
-                      color: Colors.deepOrange,
+                // List tile have more....
+                ListTile(
+                  minLeadingWidth: 0,
+                  minVerticalPadding: 0,
+                  horizontalTitleGap: 10,
+                  contentPadding: const EdgeInsets.all(0),
+                  leading: Icon(
+                    Icons.location_on,
+                    size: 38,
+                    color: Colors.deepOrange,
+                  ),
+                  title: SizedBox(
+                    width: 100,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Hakimpura',
+                          style: TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.bold),
+                        ),
+                        IconButton(
+                            onPressed: () {
+                              Get.toNamed(Routes.currentLocation);
+                            },
+                            icon: Icon(Icons.expand_more))
+                      ],
                     ),
-                    Text(
-                      'Hakimpura',
-                      style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text(
+                    'Rahimpura, Dattatreya Nagar, Hyderabad',
+                    style: TextStyle(fontSize: 14),
+                  ),
+                  trailing: SizedBox(
+                    width: 100,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.notifications),
+                        CircleAvatar(
+                          backgroundImage:
+                              AssetImage('assets/images/profile_picture.png'),
+                          radius: 23,
+                        ),
+                      ],
                     ),
-                    IconButton(
-                        onPressed: () {
-                          Get.toNamed(Routes.currentLocation);
-                          //NavigationBar
-                        },
-                        icon: Icon(
-                          Icons.expand_more,
-                          size: 25,
-                        ))
-                  ],
+                  ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 37),
-                      child: Text(
-                        'Rahimpura, Dattatreya Nagar, Hyderabad',
-                        style: TextStyle(fontSize: 14),
-                      ),
-                    ),
-                    Icon(Icons.notifications),
-                    CircleAvatar(
-                      backgroundImage:
-                          AssetImage('assets/images/profile_picture.png'),
-                      radius: 23,
-                    )
-                  ],
-                ),
+                // Container(
+                //   height: 30,
+                //   // color: Colors.red,
+                //   child: Row(
+                //     children: [
+                //       Icon(
+                //         Icons.location_on,
+                //         // size: 38,
+                //         color: Colors.deepOrange,
+                //       ),
+                //       Text(
+                //         'Hakimpura',
+                //         style:
+                //             TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                //       ),
+                //       IconButton(
+                //           padding:const EdgeInsets.all(0),
+                //           onPressed: () {
+                //             Get.toNamed(Routes.currentLocation);
+                //             //NavigationBar
+                //           },
+                //           icon: Icon(
+                //             Icons.expand_more,
+                //             // size: 25,
+                //           ))
+                //     ],
+                //   ),
+                // ),
+                // Container(
+                //   height: 30,
+                //   // color: Colors.green,
+                //   child: Row(
+                //
+                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //     children: [
+                //       Padding(
+                //         padding: const EdgeInsets.only(left: 37),
+                //         child: Text(
+                //           'Rahimpura, Dattatreya Nagar, Hyderabad',
+                //           style: TextStyle(fontSize: 14),
+                //         ),
+                //       ),
+                //       Icon(Icons.notifications),
+                //       CircleAvatar(
+                //         backgroundImage:
+                //             AssetImage('assets/images/profile_picture.png'),
+                //         radius: 23,
+                //       )
+                //     ],
+                //   ),
+                // ),
                 Container(
                   padding: const EdgeInsets.all(10),
                   child: TextField(
@@ -91,7 +151,8 @@ class FoodScreen extends StatelessWidget {
                           const EdgeInsets.symmetric(horizontal: 16.0),
                     ),
                   ),
-                ),Container(
+                ),
+                Container(
                   height: 140,
                   width: double.infinity,
                   decoration: BoxDecoration(
