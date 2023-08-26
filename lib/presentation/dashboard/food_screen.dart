@@ -75,57 +75,6 @@ class FoodScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                // Container(
-                //   height: 30,
-                //   // color: Colors.red,
-                //   child: Row(
-                //     children: [
-                //       Icon(
-                //         Icons.location_on,
-                //         // size: 38,
-                //         color: Colors.deepOrange,
-                //       ),
-                //       Text(
-                //         'Hakimpura',
-                //         style:
-                //             TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                //       ),
-                //       IconButton(
-                //           padding:const EdgeInsets.all(0),
-                //           onPressed: () {
-                //             Get.toNamed(Routes.currentLocation);
-                //             //NavigationBar
-                //           },
-                //           icon: Icon(
-                //             Icons.expand_more,
-                //             // size: 25,
-                //           ))
-                //     ],
-                //   ),
-                // ),
-                // Container(
-                //   height: 30,
-                //   // color: Colors.green,
-                //   child: Row(
-                //
-                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //     children: [
-                //       Padding(
-                //         padding: const EdgeInsets.only(left: 37),
-                //         child: Text(
-                //           'Rahimpura, Dattatreya Nagar, Hyderabad',
-                //           style: TextStyle(fontSize: 14),
-                //         ),
-                //       ),
-                //       Icon(Icons.notifications),
-                //       CircleAvatar(
-                //         backgroundImage:
-                //             AssetImage('assets/images/profile_picture.png'),
-                //         radius: 23,
-                //       )
-                //     ],
-                //   ),
-                // ),
                 Container(
                   padding: const EdgeInsets.all(10),
                   child: TextField(

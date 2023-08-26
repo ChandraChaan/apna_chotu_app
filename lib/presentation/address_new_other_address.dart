@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../utils/rounded_button.dart';
+
 class OthersAddress extends StatefulWidget {
   const OthersAddress({super.key});
 
@@ -14,30 +16,24 @@ class OthersAddressState extends State<OthersAddress> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+            appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          icon: const Icon(Icons.chevron_left, color: Colors.black, size: 45),
+          onPressed: () {
+            Get.back();
+          },
+        ),
+              title: Text('Add New Address',style: TextStyle(color: Colors.black),)
+      ),
         body: SafeArea(
-      child: SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: EdgeInsets.only(left: 13, top: 30),
-              child: Row(
-                children: [
-                  IconButton(
-                    icon: Icon(Icons.chevron_left, size: 25),
-                    splashRadius: 0.2,
-                    onPressed: () {
-                      Get.back();
-                    },
-                  ),
-                  Text(
-                    'Add New Address',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            ),
             const Padding(
               padding: EdgeInsets.only(left: 18, top: 15),
               child: Text(
@@ -56,6 +52,8 @@ class OthersAddressState extends State<OthersAddress> {
                     onChanged: (value) {
                       setState(() {
                         _value = value!;
+                        // print(_value);
+                        // print('this is updated value');
                       });
                     }),
                 const Text('Myself', style: TextStyle(fontSize: 15)),
@@ -65,54 +63,63 @@ class OthersAddressState extends State<OthersAddress> {
                     onChanged: (value) {
                       setState(() {
                         _value = value!;
+                        // print(_value);
+                        // print('this is updated value');
                       });
                     }),
                 const Text('Others', style: TextStyle(fontSize: 15)),
               ],
             ),
             Container(
-              padding: const EdgeInsets.all(10),
-              child: TextField(
+              //padding: const EdgeInsets.all(10),
+              child: _value == 2? TextField(
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     hintText: 'Name'),
-              ),
-            ),
+              ):null,
+            ),SizedBox(height: _value ==3?1: 10,),
             Container(
-              padding: const EdgeInsets.all(10),
-              child: TextField(
+              //padding: const EdgeInsets.all(10),
+              child: _value == 2? TextField(
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     hintText: '+91  Mobile Number'),
-              ),
-            ),
+              ):null,
+            ),SizedBox(height: _value == 4?1: 10,),
             Container(
-              padding: const EdgeInsets.all(10),
+              //padding: const EdgeInsets.all(10),
               child: TextField(
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     hintText: 'Complete Address*'),
               ),
-            ),
+            ),SizedBox(height: 10,),
             Container(
-                padding: const EdgeInsets.all(10),
+               // padding: const EdgeInsets.all(10),
                 child: TextField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
                       hintText: 'Floor (Optional)'),
-                )),
+                )),SizedBox(height: 10,),
             Container(
-                padding: const EdgeInsets.all(10),
+                //padding: const EdgeInsets.all(10),
                 child: TextField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
                       hintText: 'Nearby Landmark (Optional)'),
-                )),
+                )),SizedBox(height: 20),
+            Center(
+              child: RoundedButton(
+                // width: MediaQuery.of(context).size.width/1.2,
+                onPressed: () {},
+                name: 'Save Address',
+              ),
+            ),
           ],
         ),
       ),
