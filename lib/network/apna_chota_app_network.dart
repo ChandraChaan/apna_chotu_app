@@ -2,8 +2,9 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:connectivity/connectivity.dart';
-import 'package:dio/adapter.dart';
+// import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
+import 'package:dio/io.dart';
 import 'error_handling_response.dart';
 import 'Logger.dart';
 import 'network_data_class.dart';
@@ -26,8 +27,8 @@ class ApnaChotaAppNetwork {
     try {
       print('network layer');
 
-      _dio.options.connectTimeout = 5000000;
-      _dio.options.receiveTimeout = 5000000;
+      _dio.options.connectTimeout = 5000000 as Duration?;
+      _dio.options.receiveTimeout = 5000000 as Duration?;
 
       if (await checkInternetConnectivity()) {
         _dio.options.baseUrl = networkDataClass.baseUrl;

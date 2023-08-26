@@ -14,53 +14,80 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   final Completer<GoogleMapController> _controller =
-      Completer<GoogleMapController>();
+  Completer<GoogleMapController>();
 
   String address = '';
-  double latitude = 37.43296265331129;
-  double longitude = -122.08832357078792;
+  double latitude = 17.3850;
+  double longitude = 78.4867;
 
+  // Define the initial camera position for the map
   CameraPosition kGooglePlex = CameraPosition(
     target: LatLng(37.43296265331129, -122.08832357078792),
     zoom: 14.4746,
   );
 
-  Future<void> getUserLocation() async {
-    // Request location permissions if not granted
-    LocationPermission permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-    }
-
-    if (permission == LocationPermission.denied) {
-      // Handle case when user denies location access
-      return;
-    }
-
-    // Get the user's current location
-    Position position = await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.high,
-    );
-    latitude = position.latitude;
-    longitude = position.longitude;
-
-    // Create a new CameraPosition with the updated location
-    CameraPosition newPosition = await CameraPosition(
+  // Function to set a new camera position
+  newPosition() async {
+    final GoogleMapController controller = await _controller.future;
+    CameraPosition newPosition = CameraPosition(
+      bearing: 192.8334901395799,
       target: LatLng(latitude, longitude),
-      zoom: 14.4746,
+      tilt: 59.440717697143555,
+      zoom: 19.151926040649414,
     );
-
-    setState(() {
-      kGooglePlex = newPosition; // Update the camera position
-    });
-
-    // Get the address based on the new location
-    final addressLoc = await getAddress(latitude, longitude);
-    setState(() {
-      address = addressLoc; // Update the address
-    });
+    // Future.delayed(const Duration(seconds: 2), () async {
+      await controller.animateCamera(CameraUpdate.newCameraPosition(newPosition));
+      setState(() {});
+    // });
   }
 
+  // Function to get the user's location
+  Future<void> _getLocation() async {
+    try {
+      // Check for location permission
+      LocationPermission permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied) {
+        permission = await Geolocator.requestPermission();
+      }
+
+      if (permission == LocationPermission.whileInUse ||
+          permission == LocationPermission.always) {
+        // Get current location
+        Position position = await Geolocator.getCurrentPosition(
+          desiredAccuracy: LocationAccuracy.high,
+        );
+
+        setState(() {
+          latitude = position.latitude;
+          longitude = position.longitude;
+        });
+
+        // Set a new camera position based on the user's location
+        newPosition();
+
+        // Get the address based on the user's location
+        final addressLoc = await getAddress(latitude, longitude);
+        setState(() {
+          address = addressLoc; // Update the address
+        });
+      } else {
+        // Handle when permission is denied
+        setState(() {
+          latitude = latitude;
+          longitude = longitude;
+        });
+      }
+    } catch (e) {
+      print(e);
+      // Handle any errors that occur during location retrieval
+      setState(() {
+        latitude = latitude;
+        longitude = longitude;
+      });
+    }
+  }
+
+  // Function to get the address based on latitude and longitude
   Future<String> getAddress(double latitude, double longitude) async {
     final url =
         'https://nominatim.openstreetmap.org/reverse?format=json&lat=$latitude&lon=$longitude';
@@ -79,27 +106,39 @@ class _MapScreenState extends State<MapScreen> {
   @override
   void initState() {
     super.initState();
-    _initLocation();
-  }
-
-  Future<void> _initLocation() async {
-    try {
-      await getUserLocation();
-    } catch (e) {
-      print('Error fetching location: $e');
-      // Handle the error here, e.g., show an error message to the user.
-    }
+    _getLocation();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GoogleMap(
-        mapType: MapType.satellite,
-        initialCameraPosition: kGooglePlex,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-        },
+      body: Stack(
+        children: [
+          GoogleMap(
+            mapType: MapType.satellite,
+            initialCameraPosition: kGooglePlex,
+            onMapCreated: (GoogleMapController controller) {
+              _controller.complete(controller);
+            },
+          ),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: Container(
+              height: 200,
+              padding: EdgeInsets.all(16.0),
+              color: Colors.white,
+              child: Text(
+                'Address: $address',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
