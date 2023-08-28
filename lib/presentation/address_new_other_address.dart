@@ -48,8 +48,8 @@ class OthersAddressState extends State<OthersAddress> {
     // Prepare the request body
     var body = {
       'user_id': '1',
-      'lat': latitude,
-      'lng': longitude,
+      'lat': latitude.toString(),
+      'lng': longitude.toString(),
       'address': addressController.text,
       'locality': locality,
       'address_type': _addressValue == 1 ? 'HOME' : 'HOTEL',
