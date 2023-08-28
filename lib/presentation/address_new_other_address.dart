@@ -19,28 +19,35 @@ class OthersAddressState extends State<OthersAddress> {
   int _addressValue = 1;
   TextEditingController addressController = TextEditingController(text: 'helo');
 
+  final Map<String, dynamic> arguments = Get.arguments;
+
+  // Extract specific arguments
+  double latitude = Get.arguments['latitude'];
+  double longitude = Get.arguments['longitude'];
+  String address = Get.arguments['address'];
+  String landmark = Get.arguments['landmark'];
+  String locality = Get.arguments['locality'];
+
   @override
   void initState() {
-    print('the arguments was ${Get.arguments.toString()}');
-    addressController.text =
-        '3rd Floor, Pentagon 4, Margaretta, Harada, Pune, Maharashtra 411028';
+    addressController.text = address;
     setState(() {});
     super.initState();
   }
 
-
   void addAddress() async {
     // Define the API endpoint URL
-    var url = Uri.parse('https://openteqdev.com/Apnachotu_dev/api/user/add_address');
+    var url =
+        Uri.parse('https://openteqdev.com/Apnachotu_dev/api/user/add_address');
 
     // Prepare the request body
     var body = {
       'user_id': '1',
-      'lat': '17.34324',
-      'lng': '78.54543',
-      'address': 'Gafoor n agar, Madhapur, Hyderabad',
-      'locality': 'Madhapur',
-      'address_type': 'HOME',
+      'lat': latitude,
+      'lng': longitude,
+      'address': addressController.text,
+      'locality': locality,
+      'address_type': _addressValue == 1 ? 'HOME' : 'HOTEL',
       'landmark': 'NCC',
     };
 
@@ -60,11 +67,10 @@ class OthersAddressState extends State<OthersAddress> {
       }
     } else {
       // Handle errors here, such as network issues or server errors
-      print('Failed to make the API request. Status code: ${response.statusCode}');
+      print(
+          'Failed to make the API request. Status code: ${response.statusCode}');
     }
   }
-
-
 
   @override
   Widget build(BuildContext context) {
