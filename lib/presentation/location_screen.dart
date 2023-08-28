@@ -15,7 +15,7 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   final Completer<GoogleMapController> _controller =
-  Completer<GoogleMapController>();
+      Completer<GoogleMapController>();
 
   String address = '';
   double latitude = 17.3850;
@@ -37,8 +37,8 @@ class _MapScreenState extends State<MapScreen> {
       zoom: 19.151926040649414,
     );
     // Future.delayed(const Duration(seconds: 2), () async {
-      await controller.animateCamera(CameraUpdate.newCameraPosition(newPosition));
-      setState(() {});
+    await controller.animateCamera(CameraUpdate.newCameraPosition(newPosition));
+    setState(() {});
     // });
   }
 
@@ -122,18 +122,29 @@ class _MapScreenState extends State<MapScreen> {
               _controller.complete(controller);
             },
           ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
+          SafeArea(
             child: Container(
-              height: 70,
-              padding: EdgeInsets.all(16.0),
-              color: Colors.white,
-              child: RoundedButton(
-                onPressed: () {}, name: 'enter details',
-            ),)
-          ) ],
+                child: Row(
+              children: [
+                Icon(Icons.arrow_back),
+                Text('Choose delivery location')
+              ],
+            )),
+          ),
+          Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: Container(
+                height: 90,
+                padding: EdgeInsets.all(16.0),
+                color: Colors.white,
+                child: RoundedButton(
+                  onPressed: () {},
+                  name: 'Enter complete address',
+                ),
+              ))
+        ],
       ),
     );
   }

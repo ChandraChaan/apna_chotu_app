@@ -39,7 +39,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
             icon: Image.asset('assets/images/group_3183.png'),
           ),
           BottomNavigationBarItem(
-            label: 'Icon',
+            label: '',
             icon: Container(
               child: Image.asset('assets/images/main_logo.png'),
             ),
