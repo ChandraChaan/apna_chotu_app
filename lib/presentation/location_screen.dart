@@ -103,7 +103,7 @@ class _MapScreenState extends State<MapScreen> {
 
     if (response.statusCode == 200) {
       final decodedData = json.decode(response.body);
-       locality = decodedData['address']['locality'] ?? '';
+       locality = decodedData['address']['locality'] ?? 'Madhapur';
        streetName = decodedData['address']['road'] ?? '';
 setState(() {
 
