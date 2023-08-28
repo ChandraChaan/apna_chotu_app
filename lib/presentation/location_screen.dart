@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -126,19 +127,13 @@ class _MapScreenState extends State<MapScreen> {
             right: 0,
             bottom: 0,
             child: Container(
-              height: 200,
+              height: 70,
               padding: EdgeInsets.all(16.0),
               color: Colors.white,
-              child: Text(
-                'Address: $address',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          )
-        ],
+              child: RoundedButton(
+                onPressed: () {}, name: 'enter details',
+            ),)
+          ) ],
       ),
     );
   }

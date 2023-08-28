@@ -166,8 +166,8 @@ class _OTPScreenState extends State<OTPScreen> {
                   const SizedBox(height: 44),
                   Center(
                       child: SizedBox(
-                          height: 250,
-                          width: 250,
+                          height: 320,
+                          width: 320,
                           child: Image.asset('assets/images/otp.png'))),
                   const SizedBox(height: 30),
                   Row(

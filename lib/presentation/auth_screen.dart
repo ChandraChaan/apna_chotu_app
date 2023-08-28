@@ -140,13 +140,13 @@ class _AuthScreenState extends State<AuthScreen> {
                         fontSize: 20,
                         fontWeight: FontWeight.w400),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 70),
                   Center(
                       child: SizedBox(
-                          height: 250,
-                          width: 250,
+                          height: 265,
+                          width: 265,
                           child: Image.asset('assets/images/fingerprint.png'))),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 35),
                   Text(
                     'Enter registered mobile number',
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(

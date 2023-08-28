@@ -187,7 +187,7 @@ class IntroScreenWidget extends StatelessWidget {
                       ? 1
                       : 1),
               SizedBox(
-                height: MediaQuery.of(context).size.height/1.8,
+                height: MediaQuery.of(context).size.height/1.9,
                 width: double.infinity,
                 child: introScreen.image.contains('delivery_vehicle.png')
                     ? Stack(
@@ -197,31 +197,31 @@ class IntroScreenWidget extends StatelessWidget {
                             left: 0,
                             right: 0,
                             child: SizedBox(
-                                height: 280,
+                                height: 360,
                                 child: Image.asset(introScreen.image)),
                           ),
                           Positioned(
                             top: 0,
                             right: 150,
                             child: SizedBox(
-                              height: 90,
+                              height: 120,
                               child: Image.asset('assets/images/burger.png'),
                             ),
                           ),
                           Positioned(
                             top: 50,
-                            right: 15,
+                            right: 10,
                             child: SizedBox(
-                              height: 90,
+                              height: 120,
                               child:
                                   Image.asset('assets/images/french_fries.png'),
                             ),
                           ),
                           Positioned(
-                            top: 70,
+                            top: 80,
                             left: 0,
                             child: SizedBox(
-                              height: 90,
+                              height: 120,
                               child: Image.asset('assets/images/taco.png'),
                             ),
                           ),

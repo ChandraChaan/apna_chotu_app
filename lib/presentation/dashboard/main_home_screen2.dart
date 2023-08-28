@@ -1,7 +1,9 @@
 import 'package:apna_chotu_app/Config/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class FoodScreen extends StatelessWidget {
   List<Map<String, dynamic>> servicesItems = [
@@ -15,6 +17,8 @@ class FoodScreen extends StatelessWidget {
     {"image": "assets/images/misc_services.png", "name": "Misc Services"},
     {"image": "assets/images/more.png", "name": "More"},
   ];
+  int counts = 3;
+  final List<String> img = ['image = 1', 'images = 2', 'images = 3'];
 
   @override
   Widget build(BuildContext context) {
@@ -101,18 +105,58 @@ class FoodScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  height: 140,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    image: DecorationImage(
-                      image: AssetImage("assets/images/group_11.png"),
-                      fit: BoxFit.cover,
+                Column(
+                  children: [
+                    CarouselSlider(
+                      items: img.map((image) {
+                        return Builder(
+                          builder: (BuildContext context) {
+                            return Container(
+                              height: 150,
+                              width: MediaQuery.of(context).size.width, // Remove the width here
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage('assets/images/group_11.png'), // Use the provided 'image' variable
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      }).toList(),
+                      options: CarouselOptions(
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            counts = index; // Make sure 'currentimages' is defined and updated properly
+                          });
+                        },
+                      ),
                     ),
-                  ),
+                    DotsIndicator(
+                      dotsCount: img.length,
+                      position: 0, // Use the same variable for position as used in onPageChanged
+                      decorator: DotsDecorator(
+                        size: const Size.square(8.0),
+                        activeSize: const Size(20.0, 8.0),
+                        activeShape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
 
+                // Container(
+                //   height: 150,
+                //   width: double.infinity,
+                //   decoration: BoxDecoration(
+                //     borderRadius: BorderRadius.all(Radius.circular(20)),
+                //     image: DecorationImage(
+                //       image: AssetImage("assets/images/group_11.png"),
+                //       fit: BoxFit.cover,
+                //     ),
+                //   ),
+                // ),
                 SizedBox(height: 20),
                 GridView.builder(
                   shrinkWrap: true,
@@ -234,4 +278,6 @@ class FoodScreen extends StatelessWidget {
       ),
     );
   }
+
+  void setState(Null Function() param0) {}
 }
