@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import 'package:http/http.dart' as http;
 
+import '../Config/app_pages.dart';
 import '../utils/rounded_button.dart';
 
 class OthersAddress extends StatefulWidget {
@@ -66,6 +67,7 @@ class OthersAddressState extends State<OthersAddress> {
 
       // Check the status in the response
       if (data['status'] == 1) {
+        Get.toNamed(Routes.dashBoardScreen);
         print('Address Inserted Successfully');
       } else {
         print('Failed to insert address: ${data['message']}');
@@ -237,6 +239,7 @@ class OthersAddressState extends State<OthersAddress> {
                   child: RoundedButton(
                     // width: MediaQuery.of(context).size.width/1.2,
                     onPressed: () {
+                      if(addressController.text.isNotEmpty)
                       addAddress();
                     },
                     name: 'Save Address',

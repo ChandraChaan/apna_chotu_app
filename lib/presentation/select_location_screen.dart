@@ -1,6 +1,8 @@
 import 'package:apna_chotu_app/Config/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 import '../utils/rounded_button.dart';
 
@@ -12,21 +14,57 @@ class CurrentLocation extends StatefulWidget {
 }
 
 class _CurrentLocationState extends State<CurrentLocation> {
+  List<dynamic> addressList = [];
+
+  void fetchAddress() async {
+    final url = 'https://openteqdev.com/Apnachotu_dev/api/user/fecth_address';
+
+    final body = {'user_id': '1'};
+
+    final response = await http.post(
+      Uri.parse(url),
+      body: body,
+    );
+
+    if (response.statusCode == 200) {
+      final jsonResponse = json.decode(response.body);
+      // Now you can access the data in jsonResponse as needed.
+      // For example, to access the "address" list:
+
+      setState(() {
+        addressList = jsonResponse['address'];
+      });
+    } else {
+      // Handle error here, e.g., print an error message.
+      print('Failed to fetch data. Status code: ${response.statusCode}');
+    }
+  }
+
+  @override
+  void initState() {
+    fetchAddress();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             SizedBox(
+            SizedBox(
               height: 40,
               child: Row(
                 children: [
                   IconButton(
-                      onPressed: (){
+                      onPressed: () {
                         Get.back();
                       },
-                      icon: Icon(Icons.chevron_left,size: 28,)),
+                      icon: Icon(
+                        Icons.chevron_left,
+                        size: 28,
+                      )),
                   Text(
                     'Select a Location',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -73,7 +111,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
                 'Use My Current Location',
                 style: TextStyle(color: Colors.deepOrange, fontSize: 12),
               ),
-              subtitle: const Text('Rahimpur, Dattatreya Nagar, Hyderabad'),
+              // subtitle: const Text('Rahimpur, Dattatreya Nagar, Hyderabad'),
             ),
             const Divider(thickness: 1),
             ListTile(
@@ -91,68 +129,53 @@ class _CurrentLocationState extends State<CurrentLocation> {
               ),
             ),
             const Divider(thickness: 1),
-            const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 13),
-                  child: Text(
-                    'Nearby Location',
-                    style: TextStyle(color: Colors.deepOrange),
-                  ),
+            // const Column(
+            //   crossAxisAlignment: CrossAxisAlignment.start,
+            //   children: [
+            //     Padding(
+            //       padding: EdgeInsets.only(left: 13),
+            //       child: Text(
+            //         'Nearby Location',
+            //         style: TextStyle(color: Colors.deepOrange),
+            //       ),
+            //     ),
+            //     ListTile(
+            //       minLeadingWidth: 0,
+            //       leading: Icon(Icons.location_on, color: Colors.deepOrange),
+            //       title: Padding(
+            //         padding: EdgeInsets.only(top: 13),
+            //         child: Text(
+            //           'Petals Accessories',
+            //         ),
+            //       ),
+            //       subtitle: Text(
+            //           'Karwan Road, Rahimpura, Dattatreya Nagar, Hyderabad'),
+            //     ),
+            //   ],
+            // ),
+            // const Divider(thickness: 1),
+            if (addressList.isNotEmpty)
+              Padding(
+                padding: EdgeInsets.only(left: 13),
+                child: Text(
+                  'Recent Location',
+                  style: TextStyle(color: Colors.deepOrange),
                 ),
-                ListTile(
-                  minLeadingWidth: 0,
-                  leading: Icon(Icons.location_on, color: Colors.deepOrange),
-                  title: Padding(
-                    padding: EdgeInsets.only(top: 13),
-                    child: Text(
-                      'Petals Accessories',
-                    ),
-                  ),
-                  subtitle: Text(
-                      'Karwan Road, Rahimpura, Dattatreya Nagar, Hyderabad'),
+              ),
+            for (int a = 0; a < addressList.length; a++)
+              ListTile(
+                minLeadingWidth: 0,
+                leading: Icon(Icons.location_on, color: Colors.deepOrange),
+                title: Text(
+                  addressList[a]['locality'],
                 ),
-              ],
-            ),
-            const Divider(thickness: 1),
-            const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 13),
-                  child: Text(
-                    'Recent Location',
-                    style: TextStyle(color: Colors.deepOrange),
-                  ),
-                ),
-                ListTile(
-                  minLeadingWidth: 0,
-                  leading: Icon(Icons.location_on, color: Colors.deepOrange),
-                  title: Text(
-                    'Hakimpura',
-                  ),
-                  subtitle: Text('Rahimpura, Dattatreya Nagar, Hyderabad'),
-                ),
-                Divider(thickness: 1)
-              ],
-            ),
+                subtitle: Text(addressList[a]['address_name']),
+              ),
+            if (addressList.isNotEmpty)
+            Divider(thickness: 1),
             const SizedBox(
               height: 20,
             ),
-            RoundedButton(
-              height: 40,
-              width: MediaQuery.of(context).size.width / 1.1,
-              onPressed: () {
-                // dialog
-                Get.defaultDialog(
-                    confirmTextColor: Colors.white,
-                    title: 'Please enter Details',
-                    middleText: '',
-                    onConfirm: () {});
-              },
-              name: 'Save Address',
-            )
           ],
         ),
       ),

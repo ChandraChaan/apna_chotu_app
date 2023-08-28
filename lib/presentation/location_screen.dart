@@ -75,8 +75,6 @@ class _MapScreenState extends State<MapScreen> {
 
         // Set a new camera position based on the user's location
         newPosition();
-
-
       } else {
         // Handle when permission is denied
         setState(() {
@@ -103,11 +101,9 @@ class _MapScreenState extends State<MapScreen> {
 
     if (response.statusCode == 200) {
       final decodedData = json.decode(response.body);
-       locality = decodedData['address']['locality'] ?? 'Madhapur';
-       streetName = decodedData['address']['road'] ?? '';
-setState(() {
-
-});
+      locality = decodedData['address']['locality'] ?? 'Madhapur';
+      streetName = decodedData['address']['road'] ?? '';
+      setState(() {});
       final address = decodedData['display_name'];
       return address;
     }
@@ -153,16 +149,21 @@ setState(() {
                 padding: EdgeInsets.all(16.0),
                 color: Colors.white,
                 child: RoundedButton(
-                  onPressed: address.isNotEmpty ? () {
-                    Get.toNamed(Routes.othersAddress, arguments: {
-                      'latitude': latitude,
-                      'longitude': longitude,
-                      'address': address,
-                      'locality': locality,
-                      'street': streetName,
-                    },);
-                    print('the address was $address');
-                  } : null,
+                  onPressed: address.isNotEmpty
+                      ? () {
+                          Get.toNamed(
+                            Routes.othersAddress,
+                            arguments: {
+                              'latitude': latitude,
+                              'longitude': longitude,
+                              'address': address,
+                              'locality': locality,
+                              'street': streetName,
+                            },
+                          );
+                          print('the address was $address');
+                        }
+                      : null,
                   name: 'Enter complete address',
                 ),
               ))
