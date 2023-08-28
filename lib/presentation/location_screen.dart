@@ -101,10 +101,23 @@ class _MapScreenState extends State<MapScreen> {
 
     if (response.statusCode == 200) {
       final decodedData = json.decode(response.body);
-      locality = decodedData['address']['locality'] ?? 'Madhapur';
+
+      locality = decodedData['address']['locality'] ?? '';
       streetName = decodedData['address']['road'] ?? '';
-      setState(() {});
+
       final address = decodedData['display_name'];
+      if (locality.isEmpty) {
+        List<String> parts = address.split(',');
+
+        if (parts.length >= 2) {
+          String desiredPart = parts[1].trim();
+          List<String> words = desiredPart.split(' ');
+          if (words.isNotEmpty) {
+            locality = words[0];
+          }
+        }
+      }
+      setState(() {});
       return address;
     }
 

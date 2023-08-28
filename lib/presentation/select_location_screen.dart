@@ -117,7 +117,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
             ListTile(
               minLeadingWidth: 0,
               onTap: () {
-                //Get.toNamed(Routes.newAddressScreen);
+                Get.toNamed(Routes.mapScreen);
               },
               leading: const Icon(
                 Icons.add_sharp,
@@ -171,8 +171,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
                 ),
                 subtitle: Text(addressList[a]['address_name']),
               ),
-            if (addressList.isNotEmpty)
-            Divider(thickness: 1),
+            if (addressList.isNotEmpty) Divider(thickness: 1),
             const SizedBox(
               height: 20,
             ),
