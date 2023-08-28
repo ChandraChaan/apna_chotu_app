@@ -9,6 +9,18 @@ class DashboardListScreen extends StatefulWidget {
 }
 
 class _DashboardListScreenState extends State<DashboardListScreen> {
+  List<Map<String, dynamic>> servicesItems = [
+    {"image": "assets/images/plate_1.png", "name": "Food"},
+    {"image": "assets/images/service.png", "name": "Services"},
+    {"image": "assets/images/cart.png", "name": "Groceries"},
+    {"image": "assets/images/medicine.png", "name": "Medicine"},
+    {"image": "assets/images/vegetables.png", "name": "Vegetables"},
+    {"image": "assets/images/taxi.png", "name": "Taxi Services"},
+    {"image": "assets/images/meat.png", "name": "Meat"},
+    {"image": "assets/images/misc_services.png", "name": "Misc Services"},
+    {"image": "assets/images/more.png", "name": "More"},
+  ];
+  //chips buttons, filter icons, gridview
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,7 +134,7 @@ class _DashboardListScreenState extends State<DashboardListScreen> {
                     Text(
                       'Restaurents near you',
                       style:
-                          TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                     ),
                     Container(
                       height: 25,
@@ -146,164 +158,29 @@ class _DashboardListScreenState extends State<DashboardListScreen> {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: 190,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(15)),
-                          image: DecorationImage(
-                              image: AssetImage('assets/images/group_3146.png'),
-                              fit: BoxFit.fill),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      child: Container(
-                        height: 190,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(15)),
-                          image: DecorationImage(
-                              image: AssetImage('assets/images/group_3152.png'),
-                              fit: BoxFit.fill),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+              GridView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: servicesItems.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    childAspectRatio: 1.5,
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10.0,
+                    mainAxisSpacing: 10.0),
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                     height: 190,
+                     decoration: BoxDecoration(
+                       borderRadius: BorderRadius.all(Radius.circular(15)),
+                       image: DecorationImage(
+                           image: AssetImage('assets/images/group_3146.png'),
+                           fit: BoxFit.fill),
+                     ),
+                   );
+                },
               ),
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: 190,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(15)),
-                          image: DecorationImage(
-                              image: AssetImage('assets/images/group_3156.png'),
-                              fit: BoxFit.fill),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      child: Container(
-                        height: 190,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(15)),
-                          image: DecorationImage(
-                              image: AssetImage('assets/images/group_3154.png'),
-                              fit: BoxFit.fill),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: 190,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(15)),
-                          image: DecorationImage(
-                              image: AssetImage('assets/images/group_3155.png'),
-                              fit: BoxFit.fill),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      child: Container(
-                        height: 190,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(15)),
-                          image: DecorationImage(
-                              image: AssetImage('assets/images/group_3153.png'),
-                              fit: BoxFit.fill),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: 190,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(15)),
-                            image: DecorationImage(
-                                image:
-                                    AssetImage('assets/images/group_3157.png'),
-                                fit: BoxFit.fill)),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      child: Container(
-                        height: 190,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(15)),
-                          image: DecorationImage(
-                              image: AssetImage('assets/images/group_3158.png'),
-                              fit: BoxFit.fill),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10, right: 60),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Text('Todays Promo Codes', style: TextStyle(fontSize: 23)),
-                    Container(
-                      height: 25,
-                      width: 80,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.deepOrange),
-                      child: Center(
-                        child: Text(
-                          'Show all',
-                          style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+
+
               Container(
                 height: 250,
                 decoration: BoxDecoration(
