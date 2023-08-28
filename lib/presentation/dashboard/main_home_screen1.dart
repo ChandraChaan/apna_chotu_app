@@ -33,24 +33,24 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
         onTap: _onTabTapped,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Food',
+              label: 'Food', icon: Image.asset('assets/images/vector.png')),
+          BottomNavigationBarItem(
+            label: 'Grocery',
+            icon: Image.asset('assets/images/group_3183.png'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.fastfood),
-            label: 'Search',
+            label: 'Icon',
+            icon: Container(
+              child: Image.asset('assets/images/main_logo.png'),
+            ),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
             label: 'Cart',
+            icon: Icon(Icons.shopping_cart),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
             label: 'Settings',
+            icon: Icon(Icons.settings),
           ),
         ],
       ),
