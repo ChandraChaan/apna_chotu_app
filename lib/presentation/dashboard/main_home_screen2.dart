@@ -47,7 +47,7 @@ class FoodScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          'Hakimpura',
+                          'Madapur',
                           style: TextStyle(
                               fontSize: 25, fontWeight: FontWeight.bold),
                         ),
@@ -105,58 +105,29 @@ class FoodScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Column(
-                  children: [
-                    CarouselSlider(
-                      items: img.map((image) {
-                        return Builder(
-                          builder: (BuildContext context) {
-                            return Container(
-                              height: 150,
-                              width: MediaQuery.of(context).size.width, // Remove the width here
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage('assets/images/group_11.png'), // Use the provided 'image' variable
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            );
-                          },
-                        );
-                      }).toList(),
-                      options: CarouselOptions(
-                        onPageChanged: (index, reason) {
-                          setState(() {
-                            counts = index; // Make sure 'currentimages' is defined and updated properly
-                          });
-                        },
-                      ),
-                    ),
-                    DotsIndicator(
-                      dotsCount: img.length,
-                      position: 0, // Use the same variable for position as used in onPageChanged
-                      decorator: DotsDecorator(
-                        size: const Size.square(8.0),
-                        activeSize: const Size(20.0, 8.0),
-                        activeShape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                CarouselSlider(
+                    items: [
+                      Image.asset('assets/images/best_selling.png'),
+                      Image.asset('assets/images/best_selling.png'),
+                      Image.asset('assets/images/best_selling.png')
+                    ],
+                    options: CarouselOptions(
+                      height: 150,
+                      aspectRatio: 16 / 9,
+                      viewportFraction: 0.8,
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      autoPlay: true,
+                      autoPlayInterval: Duration(seconds: 3),
+                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enlargeCenterPage: true,
+                      enlargeFactor: 0.3,
+                      onPageChanged: (num, str) {},
+                      scrollDirection: Axis.horizontal,
 
-                // Container(
-                //   height: 150,
-                //   width: double.infinity,
-                //   decoration: BoxDecoration(
-                //     borderRadius: BorderRadius.all(Radius.circular(20)),
-                //     image: DecorationImage(
-                //       image: AssetImage("assets/images/group_11.png"),
-                //       fit: BoxFit.cover,
-                //     ),
-                //   ),
-                // ),
+                    )),
                 SizedBox(height: 20),
                 GridView.builder(
                   shrinkWrap: true,
