@@ -12,7 +12,14 @@ class OthersAddress extends StatefulWidget {
 
 class OthersAddressState extends State<OthersAddress> {
   int _value = 1;
-
+  TextEditingController addressController = TextEditingController(text: 'helo');
+@override
+  void initState() {
+  print('the arguments was ${Get.arguments.toString()}');
+  addressController.text = 'HAHAHAHHAHAH';
+  setState(() {});
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,6 +98,7 @@ class OthersAddressState extends State<OthersAddress> {
             Container(
               //padding: const EdgeInsets.all(10),
               child: TextField(
+                controller: addressController,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),

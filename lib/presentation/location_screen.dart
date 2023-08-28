@@ -2,9 +2,12 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import '../Config/app_pages.dart';
 
 class MapScreen extends StatefulWidget {
   MapScreen({super.key});
@@ -40,6 +43,11 @@ class _MapScreenState extends State<MapScreen> {
     await controller.animateCamera(CameraUpdate.newCameraPosition(newPosition));
     setState(() {});
     // });
+    // Get the address based on the user's location
+    final addressLoc = await getAddress(latitude, longitude);
+    setState(() {
+      address = addressLoc; // Update the address
+    });
   }
 
   // Function to get the user's location
@@ -66,11 +74,7 @@ class _MapScreenState extends State<MapScreen> {
         // Set a new camera position based on the user's location
         newPosition();
 
-        // Get the address based on the user's location
-        final addressLoc = await getAddress(latitude, longitude);
-        setState(() {
-          address = addressLoc; // Update the address
-        });
+
       } else {
         // Handle when permission is denied
         setState(() {
@@ -113,6 +117,17 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.deepOrange,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Get.back();
+          },
+        ),
+        title: Text('Choose delivery location'),
+      ),
       body: Stack(
         children: [
           GoogleMap(
@@ -121,15 +136,6 @@ class _MapScreenState extends State<MapScreen> {
             onMapCreated: (GoogleMapController controller) {
               _controller.complete(controller);
             },
-          ),
-          SafeArea(
-            child: Container(
-                child: Row(
-              children: [
-                Icon(Icons.arrow_back),
-                Text('Choose delivery location')
-              ],
-            )),
           ),
           Positioned(
               left: 0,
@@ -140,7 +146,10 @@ class _MapScreenState extends State<MapScreen> {
                 padding: EdgeInsets.all(16.0),
                 color: Colors.white,
                 child: RoundedButton(
-                  onPressed: () {},
+                  onPressed: address.isNotEmpty ? () {
+                    Get.toNamed(Routes.othersAddress, arguments: '$address');
+                    print('the address was $address');
+                  } : null,
                   name: 'Enter complete address',
                 ),
               ))
