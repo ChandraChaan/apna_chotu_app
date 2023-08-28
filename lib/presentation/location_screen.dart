@@ -21,6 +21,8 @@ class _MapScreenState extends State<MapScreen> {
       Completer<GoogleMapController>();
 
   String address = '';
+  String locality = '';
+  String streetName = '';
   double latitude = 17.3850;
   double longitude = 78.4867;
 
@@ -101,6 +103,11 @@ class _MapScreenState extends State<MapScreen> {
 
     if (response.statusCode == 200) {
       final decodedData = json.decode(response.body);
+       locality = decodedData['address']['locality'] ?? '';
+       streetName = decodedData['address']['road'] ?? '';
+setState(() {
+
+});
       final address = decodedData['display_name'];
       return address;
     }
@@ -147,7 +154,13 @@ class _MapScreenState extends State<MapScreen> {
                 color: Colors.white,
                 child: RoundedButton(
                   onPressed: address.isNotEmpty ? () {
-                    Get.toNamed(Routes.othersAddress, arguments: '$address');
+                    Get.toNamed(Routes.othersAddress, arguments: {
+                      'latitude': latitude,
+                      'longitude': longitude,
+                      'address': address,
+                      'locality': locality,
+                      'street': streetName,
+                    },);
                     print('the address was $address');
                   } : null,
                   name: 'Enter complete address',
