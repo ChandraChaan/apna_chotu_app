@@ -17,20 +17,25 @@ class OthersAddress extends StatefulWidget {
 class OthersAddressState extends State<OthersAddress> {
   int _value = 1;
   int _addressValue = 1;
-  TextEditingController addressController = TextEditingController(text: 'helo');
-
-  final Map<String, dynamic> arguments = Get.arguments;
+  TextEditingController addressController = TextEditingController();
 
   // Extract specific arguments
-  double latitude = Get.arguments['latitude'];
-  double longitude = Get.arguments['longitude'];
-  String address = Get.arguments['address'];
-  String landmark = Get.arguments['landmark'];
-  String locality = Get.arguments['locality'];
+  double? latitude;
+  double? longitude;
+  String? address;
+  String? landmark;
+  String? locality;
 
   @override
   void initState() {
-    addressController.text = address;
+    final arguments = Get.arguments;
+    if (arguments != null) {
+      latitude = arguments['latitude'] ?? 0;
+      longitude = arguments['longitude'] ?? 0;
+      addressController.text = arguments['address'] ?? '';
+      landmark = arguments['landmark'] ?? '';
+      locality = arguments['locality'] ?? '';
+    }
     setState(() {});
     super.initState();
   }
