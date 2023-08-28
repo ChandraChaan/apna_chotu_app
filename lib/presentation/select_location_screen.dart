@@ -50,132 +50,136 @@ class _CurrentLocationState extends State<CurrentLocation> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 40,
-              child: Row(
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(
-                        Icons.chevron_left,
-                        size: 28,
-                      )),
-                  Text(
-                    'Select a Location',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.all(10),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Search',
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  prefixIcon: const Icon(
-                    Icons.search,
-                    size: 30,
-                  ),
-                  suffixIcon: IconButton(
-                    icon: const Icon(
-                      Icons.mic,
-                      size: 30,
-                      color: Colors.deepOrange,
-                    ),
-                    onPressed: () {
-                      // Perform voice search action
-                    },
-                  ),
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 40,
+                child: Row(
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        icon: Icon(
+                          Icons.chevron_left,
+                          size: 28,
+                        )),
+                    Text(
+                      'Select a Location',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    )
+                  ],
                 ),
               ),
-            ),
-            const Divider(thickness: 1),
-            ListTile(
-              minLeadingWidth: 0,
-              onTap: () {
-                Get.toNamed(Routes.mapScreen);
-              },
-              leading: const Icon(
-                Icons.near_me,
-                color: Colors.deepOrange,
+              Container(
+                padding: const EdgeInsets.all(10),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Search',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    prefixIcon: const Icon(
+                      Icons.search,
+                      size: 30,
+                    ),
+                    suffixIcon: IconButton(
+                      icon: const Icon(
+                        Icons.mic,
+                        size: 30,
+                        color: Colors.deepOrange,
+                      ),
+                      onPressed: () {
+                        // Perform voice search action
+                      },
+                    ),
+                    contentPadding:
+                        const EdgeInsets.symmetric(horizontal: 16.0),
+                  ),
+                ),
               ),
-              title: const Text(
-                'Use My Current Location',
-                style: TextStyle(color: Colors.deepOrange, fontSize: 12),
+              const Divider(thickness: 1),
+              ListTile(
+                minLeadingWidth: 0,
+                onTap: () {
+                  Get.toNamed(Routes.mapScreen);
+                },
+                leading: const Icon(
+                  Icons.near_me,
+                  color: Colors.deepOrange,
+                ),
+                title: const Text(
+                  'Use My Current Location',
+                  style: TextStyle(color: Colors.deepOrange, fontSize: 12),
+                ),
+                // subtitle: const Text('Rahimpur, Dattatreya Nagar, Hyderabad'),
               ),
-              // subtitle: const Text('Rahimpur, Dattatreya Nagar, Hyderabad'),
-            ),
-            const Divider(thickness: 1),
-            ListTile(
-              minLeadingWidth: 0,
-              onTap: () {
-                Get.toNamed(Routes.mapScreen);
-              },
-              leading: const Icon(
-                Icons.add_sharp,
-                color: Colors.deepOrange,
-              ),
-              title: const Text(
-                'Add New Address',
-                style: TextStyle(color: Colors.deepOrange),
-              ),
-            ),
-            const Divider(thickness: 1),
-            // const Column(
-            //   crossAxisAlignment: CrossAxisAlignment.start,
-            //   children: [
-            //     Padding(
-            //       padding: EdgeInsets.only(left: 13),
-            //       child: Text(
-            //         'Nearby Location',
-            //         style: TextStyle(color: Colors.deepOrange),
-            //       ),
-            //     ),
-            //     ListTile(
-            //       minLeadingWidth: 0,
-            //       leading: Icon(Icons.location_on, color: Colors.deepOrange),
-            //       title: Padding(
-            //         padding: EdgeInsets.only(top: 13),
-            //         child: Text(
-            //           'Petals Accessories',
-            //         ),
-            //       ),
-            //       subtitle: Text(
-            //           'Karwan Road, Rahimpura, Dattatreya Nagar, Hyderabad'),
-            //     ),
-            //   ],
-            // ),
-            // const Divider(thickness: 1),
-            if (addressList.isNotEmpty)
-              Padding(
-                padding: EdgeInsets.only(left: 13),
-                child: Text(
-                  'Recent Location',
+              const Divider(thickness: 1),
+              ListTile(
+                minLeadingWidth: 0,
+                onTap: () {
+                  Get.toNamed(Routes.mapScreen);
+                },
+                leading: const Icon(
+                  Icons.add_sharp,
+                  color: Colors.deepOrange,
+                ),
+                title: const Text(
+                  'Add New Address',
                   style: TextStyle(color: Colors.deepOrange),
                 ),
               ),
-            for (int a = 0; a < addressList.length; a++)
-              ListTile(
-                minLeadingWidth: 0,
-                leading: Icon(Icons.location_on, color: Colors.deepOrange),
-                title: Text(
-                  addressList[a]['locality'],
+              const Divider(thickness: 1),
+              // const Column(
+              //   crossAxisAlignment: CrossAxisAlignment.start,
+              //   children: [
+              //     Padding(
+              //       padding: EdgeInsets.only(left: 13),
+              //       child: Text(
+              //         'Nearby Location',
+              //         style: TextStyle(color: Colors.deepOrange),
+              //       ),
+              //     ),
+              //     ListTile(
+              //       minLeadingWidth: 0,
+              //       leading: Icon(Icons.location_on, color: Colors.deepOrange),
+              //       title: Padding(
+              //         padding: EdgeInsets.only(top: 13),
+              //         child: Text(
+              //           'Petals Accessories',
+              //         ),
+              //       ),
+              //       subtitle: Text(
+              //           'Karwan Road, Rahimpura, Dattatreya Nagar, Hyderabad'),
+              //     ),
+              //   ],
+              // ),
+              // const Divider(thickness: 1),
+              if (addressList.isNotEmpty)
+                Padding(
+                  padding: EdgeInsets.only(left: 13),
+                  child: Text(
+                    'Recent Location',
+                    style: TextStyle(color: Colors.deepOrange),
+                  ),
                 ),
-                subtitle: Text(addressList[a]['address_name']),
+              for (int a = 0; a < addressList.length; a++)
+                ListTile(
+                  minLeadingWidth: 0,
+                  leading: Icon(Icons.location_on, color: Colors.deepOrange),
+                  title: Text(
+                    addressList[a]['locality'],
+                  ),
+                  subtitle: Text(addressList[a]['address_name']),
+                ),
+              if (addressList.isNotEmpty) Divider(thickness: 1),
+              const SizedBox(
+                height: 20,
               ),
-            if (addressList.isNotEmpty) Divider(thickness: 1),
-            const SizedBox(
-              height: 20,
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
