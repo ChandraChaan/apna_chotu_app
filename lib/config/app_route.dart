@@ -7,10 +7,11 @@ abstract class Routes {
   static const otpScreen = '/otpScreen';
   static const othersAddress = '/othersAddress';
   static const mapScreen = '/mapScreen';
-  static const changeLocationScreen = '/changeLocationScreen';
   static const dashBoardScreen = '/dashBoardScreen';
   static const foodScreen = '/foodScreen';
   static const dashBoardListScreen = '/dashBoardListScreen';
   static const nonVegMenu = '/nonVegMenu';
+  static const vegMenu = '/vegMenu';
+  static const nonVegCloseSoon = '/nonVegCloseSoon';
 
 }

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../Config/app_pages.dart';
-import 'dashboard/main_home_screen1.dart';
-import 'dashboard/main_home_screen2.dart';
+import '../../Config/app_pages.dart';
+import '../dashboard/main_home_screen1.dart';
+import '../dashboard/main_home_screen2.dart';
 
 class NonVegMenu extends StatefulWidget {
   const NonVegMenu({super.key});
@@ -87,9 +87,9 @@ class _NonVegMenuState extends State<NonVegMenu> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('Delicious',
-                        style: TextStyle(color: Colors.white,fontSize: 60)),
-                    Text('Delicious',
-                        style: TextStyle(color: Colors.white,)),
+                        style: TextStyle(color: Colors.white,fontSize: 25)),
+                    Text('Indian Couisine',
+                        style: TextStyle(color: Colors.white,fontSize: 32)),
                   ],
                 ),
               ),

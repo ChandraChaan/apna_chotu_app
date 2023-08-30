@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import '../utils/rounded_button.dart';
+import '../../utils/rounded_button.dart';
 
 class CurrentLocation extends StatefulWidget {
   const CurrentLocation({super.key});

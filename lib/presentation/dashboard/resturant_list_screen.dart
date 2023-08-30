@@ -12,7 +12,9 @@ class DashboardListScreen extends StatefulWidget {
 
 class _DashboardListScreenState extends State<DashboardListScreen> {
   List<Map<String, dynamic>> restaurantFood = [
-    {"image": "assets/images/group_12.png", "name": "group"}
+    {"image":"assets/images/image_22.png","name":"img"},
+    {"image":"assets/images/group_3146.png","name":"img"}
+
 
   ];
   //int counts = 3;
@@ -154,7 +156,7 @@ class _DashboardListScreenState extends State<DashboardListScreen> {
                       ),
                     );
                   },
-                )
+                ),
               ],
             ),
           ),

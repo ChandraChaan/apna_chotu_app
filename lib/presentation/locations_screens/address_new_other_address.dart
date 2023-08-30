@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 
 import 'package:http/http.dart' as http;
 
-import '../Config/app_pages.dart';
-import '../utils/rounded_button.dart';
+import '../../Config/app_pages.dart';
+import '../../utils/rounded_button.dart';
 
 class OthersAddress extends StatefulWidget {
   const OthersAddress({super.key});
