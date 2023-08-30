@@ -1,12 +1,10 @@
 import 'package:apna_chotu_app/presentation/dashboard/main_home_screen1.dart';
 import 'package:apna_chotu_app/presentation/dashboard/main_home_screen2.dart';
 import 'package:apna_chotu_app/presentation/dashboard/resturant_list_screen.dart';
-import 'package:apna_chotu_app/presentation/extra/no%20_use_delete.dart';
 import 'package:apna_chotu_app/presentation/locations_screens/address_new_other_address.dart';
 import 'package:apna_chotu_app/presentation/restuarant/non_veg_closesoon.dart';
 import 'package:apna_chotu_app/presentation/restuarant/non_veg_menu.dart';
 import 'package:apna_chotu_app/presentation/otp_screen.dart';
-import 'package:apna_chotu_app/presentation/restuarant/restuarant_details.dart';
 import 'package:apna_chotu_app/presentation/restuarant/veg_menu.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -19,7 +17,7 @@ import '../presentation/locations_screens/select_location_screen.dart';
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.restaurantDetails;
+  static const initial = Routes.mapScreen;
   static final routes = [
     GetPage(
         name: Routes.intro,
@@ -67,10 +65,5 @@ class AppPages {
         name: Routes.nonVegCloseSoon,
         page: () => NonVegCloseSoon(),
         binding: MainBinding()),
-    GetPage(
-        name: Routes.restaurantDetails,
-        page: () => RestaurantDetails(),
-        binding: MainBinding()),
-
   ];
 }

@@ -34,11 +34,11 @@ class _MapScreenState extends State<MapScreen> {
     zoom: 14.4746,
   );
 
-  Future<void> _newPosition() async {
+  Future<void> _newPosition(double lat, double lng) async {
     final GoogleMapController controller = await _controller.future;
     final CameraPosition newPosition = CameraPosition(
       bearing: 192.8334901395799,
-      target: LatLng(latitude, longitude),
+      target: LatLng(lat, lng),
       tilt: 59.440717697143555,
       zoom: 19.151926040649414,
     );
@@ -49,7 +49,7 @@ class _MapScreenState extends State<MapScreen> {
       address = 'Fetching address...';
     });
 
-    final addressLoc = await _getAddress(latitude, longitude);
+    final addressLoc = await _getAddress(lat, lng);
     setState(() {
       address = addressLoc;
     });
@@ -82,7 +82,7 @@ class _MapScreenState extends State<MapScreen> {
           ),
         );
 
-        _newPosition();
+        _newPosition(latitude, longitude);
       } else {
         setState(() {
           address = 'Location permission denied';
@@ -148,6 +148,19 @@ class _MapScreenState extends State<MapScreen> {
     }
   }
 
+  // Update marker and location when the camera moves
+  void _updateMarkerAndLocation(CameraPosition cam) {
+    final newLatitude = cam.target.latitude;
+    final newLongitude = cam.target.longitude;
+
+    setState(() {
+      latitude = newLatitude;
+      longitude = newLongitude;
+    });
+
+    _newPosition(newLatitude, newLongitude);
+  }
+
   @override
   void initState() {
     super.initState();
@@ -171,6 +184,7 @@ class _MapScreenState extends State<MapScreen> {
       body: Stack(
         children: [
           GoogleMap(
+            myLocationEnabled: true,
             compassEnabled: false,
             mapType: MapType.normal,
             initialCameraPosition: initialCameraPosition,
@@ -178,6 +192,31 @@ class _MapScreenState extends State<MapScreen> {
               _controller.complete(controller);
             },
             markers: markers,
+            onTap: (LatLng position) {
+              setState(() {
+                // Clear existing markers
+                markers.clear();
+
+                // Add a new draggable marker
+                markers.add(Marker(
+                  markerId: MarkerId('user_location'),
+                  position: position,
+                  draggable: true,
+                  onDragEnd: (newPosition) async {
+                    print('Marker dragged to: $newPosition');
+                    // Update latitude and longitude with the new position
+                    setState(() {
+                      latitude = newPosition.latitude;
+                      longitude = newPosition.longitude;
+                    });
+                    final addressLoc = await _getAddress(latitude, longitude);
+                    setState(() {
+                      address = addressLoc;
+                    });
+                  },
+                ));
+              });
+            },
           ),
           Positioned(
             left: 0,
