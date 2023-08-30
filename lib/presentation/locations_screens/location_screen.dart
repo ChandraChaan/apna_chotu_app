@@ -152,32 +152,37 @@ class _MapScreenState extends State<MapScreen> {
       body: Stack(
         children: [
           GoogleMap(
-            compassEnabled:false,
+            compassEnabled: false,
             mapType: MapType.normal,
             initialCameraPosition: initialCameraPosition,
             onMapCreated: (GoogleMapController controller) {
               _controller.complete(controller);
             },
-            markers: markers, // Display the markers on the map
+            markers: markers,
           ),
           Positioned(
             left: 0,
             right: 0,
-            top: 0,
-            child: Container(
-              width: 100,
-              padding: const EdgeInsets.all(10),
-              color: Colors.white,
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Search for area, street name',
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  prefixIcon: const Icon(
-                    Icons.search,
-                    size: 30,
+            top: 20,
+            child: Center(
+              child: Container(
+                width: MediaQuery.of(context).size.width / 1.1,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Search for area, street name',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    prefixIcon: const Icon(
+                      Icons.search,
+                      size: 30,
+                    ),
+                    contentPadding:
+                        const EdgeInsets.symmetric(horizontal: 16.0),
                   ),
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
                 ),
               ),
             ),
@@ -187,27 +192,19 @@ class _MapScreenState extends State<MapScreen> {
             right: 0,
             bottom: 160,
             child: Center(
-              // Center the button horizontally
-              child: GestureDetector(
-                onTap: _getLocation,
-                child: Container(
-                  width: 200, // Set a fixed width
-                  height: 50, // Set a fixed height
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(25),
-                    border: Border.all(
-                      color: Colors.deepOrange,
+              child: SizedBox(
+                width: 230,
+                height: 45,
+                child: ElevatedButton(
+                  onPressed: _getLocation,
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    onPrimary: Colors.deepOrange,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25.0),
+                      side: BorderSide(color: Colors.deepOrange),
                     ),
-                    // Add rounded corners
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 2,
-                        blurRadius: 5,
-                        offset: Offset(0, 2),
-                      ),
-                    ],
+                    elevation: 5.0,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -217,7 +214,7 @@ class _MapScreenState extends State<MapScreen> {
                       Text(
                         'Use Current Location',
                         style: TextStyle(
-                          color: Colors.deepOrange, // Text color
+                          color: Colors.deepOrange,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
