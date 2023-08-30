@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import '../Common/helper.dart';
 import '../Config/app_pages.dart';
 import '../utils/linear_background.dart';
@@ -22,7 +23,7 @@ class _OTPScreenState extends State<OTPScreen> {
   final OtpTwo = TextEditingController();
   final OtpThree = TextEditingController();
   final OtpFour = TextEditingController();
-
+  final LocalDb = GetStorage();
   int _remainingTime = 30;
   bool _isTimerActive = false;
 
@@ -87,6 +88,7 @@ class _OTPScreenState extends State<OTPScreen> {
           isLoading = false;
         });
         if (responseData['status'].toString() == '1') {
+          LocalDb.write('userid', '${responseData['user_data']['id']}');
           Get.toNamed(Routes.dashBoardScreen);
         } else {
           Get.defaultDialog(

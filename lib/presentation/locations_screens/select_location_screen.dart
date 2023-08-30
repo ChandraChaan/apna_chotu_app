@@ -1,6 +1,7 @@
 import 'package:apna_chotu_app/Config/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -16,10 +17,11 @@ class CurrentLocation extends StatefulWidget {
 class _CurrentLocationState extends State<CurrentLocation> {
   List<dynamic> addressList = [];
 
+  final LocalDb = GetStorage();
   void fetchAddress() async {
     final url = 'https://openteqdev.com/Apnachotu_dev/api/user/fecth_address';
 
-    final body = {'user_id': '1'};
+    final body = {'user_id': '${LocalDb.read('userid')}'};
 
     final response = await http.post(
       Uri.parse(url),

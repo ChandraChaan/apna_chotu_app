@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import '../../Config/app_pages.dart';
 import '../../utils/rounded_button.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart'; // Import the flutter_typeahead package
 
 class MapScreen extends StatefulWidget {
   const MapScreen({Key? key}) : super(key: key);
@@ -25,8 +26,8 @@ class _MapScreenState extends State<MapScreen> {
   String streetName = '';
   double latitude = 17.3850;
   double longitude = 78.4867;
-  double selectedLatitude = 0.0; // Initialize to some default value
-  double selectedLongitude = 0.0; // Initialize to some default value
+  double selectedLatitude = 0.0;
+  double selectedLongitude = 0.0;
 
   static const CameraPosition initialCameraPosition = CameraPosition(
     target: LatLng(37.43296265331129, -122.08832357078792),
@@ -45,7 +46,6 @@ class _MapScreenState extends State<MapScreen> {
     await controller.animateCamera(CameraUpdate.newCameraPosition(newPosition));
 
     setState(() {
-      // Set address here to trigger a rebuild
       address = 'Fetching address...';
     });
 
@@ -72,7 +72,6 @@ class _MapScreenState extends State<MapScreen> {
           longitude = position.longitude;
         });
 
-        // Add a marker for the user's live location
         markers.add(
           Marker(
             markerId: MarkerId('user_location'),
@@ -86,14 +85,12 @@ class _MapScreenState extends State<MapScreen> {
         _newPosition();
       } else {
         setState(() {
-          // Handle when permission is denied
           address = 'Location permission denied';
         });
       }
     } catch (e) {
       print(e);
       setState(() {
-        // Handle any errors that occur during location retrieval
         address = 'Error getting location';
       });
     }
@@ -127,6 +124,28 @@ class _MapScreenState extends State<MapScreen> {
     }
 
     return 'Address not found';
+  }
+
+  static Future<List<String>> fetchSuggestions(String pattern) async {
+    final String apiUrl =
+        'https://openteqdev.com/Apnachotu_dev/api/user/locations';
+
+    try {
+      final response = await http.get(Uri.parse(apiUrl));
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+
+        final suggestions = List<String>.from(data['locations']);
+
+        return suggestions;
+      } else {
+        throw Exception('Failed to load suggestions');
+      }
+    } catch (e) {
+      print('Error fetching suggestions: $e');
+      return [];
+    }
   }
 
   @override
@@ -171,18 +190,39 @@ class _MapScreenState extends State<MapScreen> {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(25),
                 ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Search for area, street name',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    prefixIcon: const Icon(
-                      Icons.search,
-                      size: 30,
+                child: TypeAheadField(
+                  // Use TypeAheadField for searching
+                  textFieldConfiguration: TextFieldConfiguration(
+                    decoration: InputDecoration(
+                      hintText: 'Search for area, street name',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      prefixIcon: const Icon(
+                        Icons.search,
+                        size: 30,
+                      ),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 16.0),
                     ),
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 16.0),
                   ),
+                  suggestionsCallback: (String pattern) async {
+                    return await fetchSuggestions(
+                        pattern); // Fetch suggestions based on user input
+                  },
+                  itemBuilder: (BuildContext context, suggestion) {
+                    return ListTile(
+                      title: Text(suggestion.toString()),
+                    );
+                  },
+                  onSuggestionSelected: (suggestion) {
+                    setState(() {
+                      selectedLatitude = 0.0; // Reset these values
+                      selectedLongitude = 0.0;
+                      address = ''; // Reset the address
+                    });
+
+                    // You can handle the selected suggestion here, as shown in the previous response
+                  },
                 ),
               ),
             ),
