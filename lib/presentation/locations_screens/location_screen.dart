@@ -5,8 +5,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter_search_bar/flutter_search_bar.dart';
-
 import '../../Config/app_pages.dart';
 import '../../utils/rounded_button.dart';
 

@@ -36,7 +36,6 @@ dependencies:
   flutter_polyline_points: ^2.0.0
   location:
   carousel_slider: ^4.2.1
-  flutter_search_bar:
 
 
 
