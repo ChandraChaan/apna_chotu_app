@@ -87,7 +87,9 @@ class OthersAddressState extends State<OthersAddress> {
             backgroundColor: Colors.transparent,
             leading: IconButton(
               icon:
-                  const Icon(Icons.chevron_left, color: Colors.black, size: 45),
+                  const Icon(
+                      Icons.chevron_left,
+                      color: Colors.black, size: 45),
               onPressed: () {
                 Get.back();
               },

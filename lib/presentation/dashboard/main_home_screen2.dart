@@ -17,8 +17,8 @@ class FoodScreen extends StatelessWidget {
     {"image": "assets/images/misc_services.png", "name": "Misc Services"},
     {"image": "assets/images/more.png", "name": "More"},
   ];
-  int counts = 3;
-  final List<String> img = ['image = 1', 'images = 2', 'images = 3'];
+  // int counts = 3;
+  // final List<String> img = ['image = 1', 'images = 2', 'images = 3'];
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class FoodScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          'Madapur',
+                          'Madhapur',
                           style: TextStyle(
                               fontSize: 25, fontWeight: FontWeight.bold),
                         ),
@@ -107,9 +107,9 @@ class FoodScreen extends StatelessWidget {
                 ),
                 CarouselSlider(
                     items: [
-                      Image.asset('assets/images/best_selling.png'),
-                      Image.asset('assets/images/best_selling.png'),
-                      Image.asset('assets/images/best_selling.png')
+                      Image.asset('assets/images/group_11.png'),
+                      Image.asset('assets/images/group_12.png'),
+                      Image.asset('assets/images/group_13.png')
                     ],
                     options: CarouselOptions(
                       height: 150,
@@ -126,7 +126,6 @@ class FoodScreen extends StatelessWidget {
                       enlargeFactor: 0.3,
                       onPageChanged: (num, str) {},
                       scrollDirection: Axis.horizontal,
-
                     )),
                 SizedBox(height: 20),
                 GridView.builder(
@@ -150,7 +149,7 @@ class FoodScreen extends StatelessWidget {
                                 child: Container(
                                     width: double.infinity,
                                     decoration: BoxDecoration(
-                                      color: Color(0xFFf5f5f5),
+                                      color: Color(0xFFF5F5F5).withOpacity(0.8),
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(20)),
                                     ),

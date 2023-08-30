@@ -112,7 +112,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
                 ),
                 title: const Text(
                   'Use My Current Location',
-                  style: TextStyle(color: Colors.deepOrange, fontSize: 12),
+                  style: TextStyle(color: Colors.deepOrange, fontSize: 14),
                 ),
                 // subtitle: const Text('Rahimpur, Dattatreya Nagar, Hyderabad'),
               ),

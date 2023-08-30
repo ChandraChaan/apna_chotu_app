@@ -147,7 +147,7 @@ class _MapScreenState extends State<MapScreen> {
       body: Stack(
         children: [
           GoogleMap(
-            mapType: MapType.satellite,
+            mapType: MapType.normal,
             initialCameraPosition: kGooglePlex,
             onMapCreated: (GoogleMapController controller) {
               _controller.complete(controller);
@@ -164,6 +164,7 @@ class _MapScreenState extends State<MapScreen> {
                 child: RoundedButton(
                   onPressed: address.isNotEmpty
                       ? () {
+
                           Get.toNamed(
                             Routes.othersAddress,
                             arguments: {
