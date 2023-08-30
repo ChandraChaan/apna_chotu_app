@@ -28,7 +28,7 @@ class _RestaurantDetailsState extends State<RestaurantDetails> {
                     topRight: Radius.circular(15),
                     topLeft: Radius.circular(15))),
             child: Padding(
-              padding: const EdgeInsets.only(top: 10,left: 10),
+              padding: const EdgeInsets.only(top: 10, left: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -75,13 +75,32 @@ class _RestaurantDetailsState extends State<RestaurantDetails> {
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                   ),
-                  CircleAvatar(
-                    child: Icon(
-                      Icons.location_on,
-                      color: Colors.deepOrange,
-                    ),
-                    backgroundColor: Color(0xFFFFE9DF),
-                  )
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        child: Icon(
+                          Icons.location_on,
+                          color: Colors.deepOrange,
+                        ),
+                        backgroundColor: Color(0xFFFFE9DF),
+                      ),
+                      SizedBox(width: 6),
+                      Text(
+                        '4 km',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(width: 40),
+                      CircleAvatar(
+                          backgroundColor: Color(0xFFFFE9DF),
+                          child:
+                              Icon(Icons.star_half, color: Colors.deepOrange)),
+                      SizedBox(width: 6),
+                      Text(
+                        '4.8 Rating',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
