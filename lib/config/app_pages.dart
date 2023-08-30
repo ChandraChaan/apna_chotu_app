@@ -17,7 +17,7 @@ import '../presentation/locations_screens/select_location_screen.dart';
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.intro;
+  static const initial = Routes.mapScreen;
   static final routes = [
     GetPage(
         name: Routes.intro,
