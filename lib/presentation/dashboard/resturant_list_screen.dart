@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DashboardListScreen extends StatefulWidget {
-
-
   //const DashboardListScreen({super.key});
 
   @override
@@ -12,47 +10,35 @@ class DashboardListScreen extends StatefulWidget {
 
 class _DashboardListScreenState extends State<DashboardListScreen> {
   List<Map<String, dynamic>> restaurantFood = [
-    {"image":"assets/images/image_22.png","name":"img"},
-    {"image":"assets/images/group_3146.png","name":"img"}
-
-
+    {"image": "assets/images/image_22.png", "name": "img"},
+    {"image": "assets/images/group_3146.png", "name": "img"}
   ];
+
   //int counts = 3;
 //  final List<String> img = ['image = 1', 'images = 2', 'images = 3'];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          leading: IconButton(
+            icon: const Icon(Icons.chevron_left, color: Colors.black, size: 45),
+            onPressed: () {
+              Get.back();
+            },
+          ),
+          title: Text(
+            'Add New Address',
+            style: TextStyle(color: Colors.black),
+          )),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
-                SizedBox(height: 20),
-                Row(children: [
-                  IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(Icons.chevron_left, size: 35)),
-                  Text('Hello, Vinay',
-                      style:
-                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold))
-                ]),
-                Padding(
-                    padding: const EdgeInsets.only(left: 38, right: 25),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('what do you want to eat?',
-                              style: TextStyle(fontSize: 18)),
-                          Icon(
-                            Icons.notifications_none,
-                            size: 30,
-                          )
-                        ])),
                 Container(
                     padding: const EdgeInsets.all(10),
                     child: TextField(
