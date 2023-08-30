@@ -98,7 +98,7 @@ class _MapScreenState extends State<MapScreen> {
 
   Future<String> _getAddress(double latitude, double longitude) async {
     final url =
-        'https://nominatim.openstreetmap.org/reverse?format=json&lat=$latitude&lon=$longitude';
+        'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$latitude&lon=$longitude';
 
     final response = await http.get(Uri.parse(url));
 

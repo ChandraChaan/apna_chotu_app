@@ -13,5 +13,7 @@ abstract class Routes {
   static const nonVegMenu = '/nonVegMenu';
   static const vegMenu = '/vegMenu';
   static const nonVegCloseSoon = '/nonVegCloseSoon';
+  static const addressNotFound = '/addressNotFound';
+  static const restaurantDetails = '/restaurantDetails';
 
 }
