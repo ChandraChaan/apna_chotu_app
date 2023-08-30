@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'package:http/http.dart' as http;
 
@@ -19,6 +20,7 @@ class OthersAddressState extends State<OthersAddress> {
   int _value = 1;
   int _addressValue = 1;
   TextEditingController addressController = TextEditingController();
+  final LocalDb = GetStorage();
 
   // Extract specific arguments
   double? latitude;
@@ -48,7 +50,7 @@ class OthersAddressState extends State<OthersAddress> {
 
     // Prepare the request body
     var body = {
-      'user_id': '1',
+      'user_id': '${LocalDb.read('userid')}',
       'lat': latitude.toString(),
       'lng': longitude.toString(),
       'address': addressController.text,
@@ -87,9 +89,7 @@ class OthersAddressState extends State<OthersAddress> {
             backgroundColor: Colors.transparent,
             leading: IconButton(
               icon:
-                  const Icon(
-                      Icons.chevron_left,
-                      color: Colors.black, size: 45),
+                  const Icon(Icons.chevron_left, color: Colors.black, size: 45),
               onPressed: () {
                 Get.back();
               },
@@ -241,8 +241,7 @@ class OthersAddressState extends State<OthersAddress> {
                   child: RoundedButton(
                     // width: MediaQuery.of(context).size.width/1.2,
                     onPressed: () {
-                      if(addressController.text.isNotEmpty)
-                      addAddress();
+                      if (addressController.text.isNotEmpty) addAddress();
                     },
                     name: 'Save Address',
                   ),

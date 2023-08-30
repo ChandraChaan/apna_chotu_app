@@ -204,7 +204,7 @@ class IntroScreenWidget extends StatelessWidget {
                             top: 0,
                             right: 150,
                             child: SizedBox(
-                              height: 120,
+                              height: 70,
                               child: Image.asset('assets/images/burger.png'),
                             ),
                           ),
@@ -212,7 +212,7 @@ class IntroScreenWidget extends StatelessWidget {
                             top: 50,
                             right: 10,
                             child: SizedBox(
-                              height: 120,
+                              height: 70,
                               child:
                                   Image.asset('assets/images/french_fries.png'),
                             ),
@@ -221,7 +221,7 @@ class IntroScreenWidget extends StatelessWidget {
                             top: 80,
                             left: 0,
                             child: SizedBox(
-                              height: 120,
+                              height: 70,
                               child: Image.asset('assets/images/taco.png'),
                             ),
                           ),
