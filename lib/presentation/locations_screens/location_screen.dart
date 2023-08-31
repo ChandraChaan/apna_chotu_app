@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
@@ -97,47 +98,67 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   Future<String> _getAddress(double latitude, double longitude) async {
-    final url =
-        'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$latitude&lon=$longitude';
+    try {
+      // Construct the URL for the Google Maps Places API
+      final apiKey =
+          'AIzaSyBl0Pm1-cZM3-IdYhEkmEQ2A4XxSJpIRdQ'; // Replace with your Google Maps API key
+      final url =
+          'https://maps.googleapis.com/maps/api/geocode/json?latlng=$latitude,$longitude&key=$apiKey';
 
-    final response = await http.get(Uri.parse(url));
+      // Send an HTTP GET request to the API
+      final response = await http.get(Uri.parse(url));
 
-    if (response.statusCode == 200) {
-      final decodedData = json.decode(response.body);
+      if (response.statusCode == 200) {
+        // Parse the JSON response
+        final decodedData = json.decode(response.body);
 
-      locality = decodedData['address']['locality'] ?? '';
-      streetName = decodedData['address']['road'] ?? '';
+        // Check if the response contains results
+        if (decodedData['results'] != null &&
+            decodedData['results'].isNotEmpty) {
+          // Extract the locality and street name from the response
+          final results = decodedData['results'][0];
 
-      final address = decodedData['display_name'];
-      if (locality.isEmpty) {
-        final parts = address.split(',');
+          for (final component in results['address_components']) {
+            final types = component['types'];
+            final name = component['short_name'];
 
-        if (parts.length >= 2) {
-          final desiredPart = parts[1].trim();
-          final words = desiredPart.split(' ');
-          if (words.isNotEmpty) {
-            locality = words[0];
+            if (types.contains('locality')) {
+              locality = name;
+            } else if (types.contains('route')) {
+              streetName = name;
+            }
           }
+
+          // Create the formatted address
+          final formattedAddress = results['formatted_address'];
+
+          // Return the formatted address
+          return formattedAddress;
         }
       }
-      return address;
+    } catch (e) {
+      print('Error: $e');
     }
 
+    // Return a default message if address retrieval fails
     return 'Address not found';
   }
 
-  static Future<List<String>> fetchSuggestions(String pattern) async {
+  Future<List<String>> fetchSuggestions(String pattern) async {
+    final apiKey = 'AIzaSyBl0Pm1-cZM3-IdYhEkmEQ2A4XxSJpIRdQ';
+
     final String apiUrl =
-        'https://openteqdev.com/Apnachotu_dev/api/user/locations';
+        'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$pattern&key=$apiKey';
 
     try {
       final response = await http.get(Uri.parse(apiUrl));
 
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
-
-        final suggestions = List<String>.from(data['locations']);
-
+        final predictions = data['predictions'] as List<dynamic>;
+        final suggestions = predictions
+            .map((prediction) => prediction['description'] as String)
+            .toList();
         return suggestions;
       } else {
         throw Exception('Failed to load suggestions');
@@ -148,23 +169,88 @@ class _MapScreenState extends State<MapScreen> {
     }
   }
 
-  // Update marker and location when the camera moves
-  void _updateMarkerAndLocation(CameraPosition cam) {
-    final newLatitude = cam.target.latitude;
-    final newLongitude = cam.target.longitude;
-
-    setState(() {
-      latitude = newLatitude;
-      longitude = newLongitude;
-    });
-
-    _newPosition(newLatitude, newLongitude);
-  }
-
   @override
   void initState() {
     super.initState();
     _getLocation();
+  }
+
+  updatedNewAddress(LatLng newPosition) async {
+    // Update latitude and longitude with the new position
+    setState(() {
+      latitude = newPosition.latitude;
+      longitude = newPosition.longitude;
+      // Set a loading state for the address
+      address = "Fetching address...";
+    });
+
+    // Get the updated address and update it in the UI
+    final addressLoc = await _getAddress(latitude, longitude);
+    setState(() {
+      address = addressLoc;
+    });
+  }
+
+  Future<LatLng?> getCoordinatesFromPlaceName(String placeName) async {
+    final places =
+        await GeocodingPlatform.instance.locationFromAddress(placeName);
+    if (places.isNotEmpty) {
+      final location = places.first;
+      return LatLng(location.latitude, location.longitude);
+    } else {
+      // Handle the case where the place name couldn't be resolved.
+      return null;
+    }
+  }
+
+  Future<void> updateMarkerAndAnimateCamera(String placeName) async {
+    final coordinates = await getCoordinatesFromPlaceName(placeName);
+    if (coordinates != null) {
+      final GoogleMapController controller = await _controller.future;
+
+      // Update the marker's position
+      setState(() {
+        markers.clear();
+        markers.add(
+          Marker(
+            markerId: MarkerId('user_location'),
+            position: coordinates,
+            draggable: true,
+            onDragEnd: (newPosition) {
+              print('Marker dragged to: $newPosition');
+              // Handle marker drag if needed
+            },
+          ),
+        );
+      });
+
+      // Animate the camera to the new marker's position
+      controller.animateCamera(
+        CameraUpdate.newLatLngZoom(
+            coordinates, 15.0), // You can adjust the zoom level
+      );
+    } else {
+      // Handle the case where the place name couldn't be resolved.
+      // Show an error message to the user.
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Error'),
+            content:
+                Text('Could not find coordinates for the provided place name.'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+    }
   }
 
   @override
@@ -184,7 +270,7 @@ class _MapScreenState extends State<MapScreen> {
       body: Stack(
         children: [
           GoogleMap(
-            myLocationEnabled: true,
+            myLocationEnabled: false,
             compassEnabled: false,
             mapType: MapType.normal,
             initialCameraPosition: initialCameraPosition,
@@ -202,19 +288,12 @@ class _MapScreenState extends State<MapScreen> {
                   markerId: MarkerId('user_location'),
                   position: position,
                   draggable: true,
-                  onDragEnd: (newPosition) async {
+                  onDragEnd: (newPosition) {
                     print('Marker dragged to: $newPosition');
-                    // Update latitude and longitude with the new position
-                    setState(() {
-                      latitude = newPosition.latitude;
-                      longitude = newPosition.longitude;
-                    });
-                    final addressLoc = await _getAddress(latitude, longitude);
-                    setState(() {
-                      address = addressLoc;
-                    });
+                    updatedNewAddress(position);
                   },
                 ));
+                updatedNewAddress(position);
               });
             },
           ),
@@ -227,7 +306,7 @@ class _MapScreenState extends State<MapScreen> {
                 width: MediaQuery.of(context).size.width / 1.1,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(15),
                 ),
                 child: TypeAheadField(
                   // Use TypeAheadField for searching
@@ -235,7 +314,8 @@ class _MapScreenState extends State<MapScreen> {
                     decoration: InputDecoration(
                       hintText: 'Search for area, street name',
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                       prefixIcon: const Icon(
                         Icons.search,
                         size: 30,
@@ -255,12 +335,10 @@ class _MapScreenState extends State<MapScreen> {
                   },
                   onSuggestionSelected: (suggestion) {
                     setState(() {
-                      selectedLatitude = 0.0; // Reset these values
-                      selectedLongitude = 0.0;
-                      address = ''; // Reset the address
+                      updateMarkerAndAnimateCamera(suggestion);
                     });
 
-                    // You can handle the selected suggestion here, as shown in the previous response
+                    // You can handle the selected suggestion here, for example, update state with the selected location details.
                   },
                 ),
               ),
