@@ -218,12 +218,13 @@ class _MapScreenState extends State<MapScreen> {
             draggable: true,
             onDragEnd: (newPosition) {
               print('Marker dragged to: $newPosition');
+              updatedNewAddress(newPosition);
               // Handle marker drag if needed
             },
           ),
         );
       });
-
+      updatedNewAddress(coordinates);
       // Animate the camera to the new marker's position
       controller.animateCamera(
         CameraUpdate.newLatLngZoom(
