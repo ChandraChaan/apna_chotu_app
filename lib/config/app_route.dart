@@ -15,5 +15,10 @@ abstract class Routes {
   static const nonVegCloseSoon = '/nonVegCloseSoon';
   static const addressNotFound = '/addressNotFound';
   static const restaurantDetails = '/restaurantDetails';
+  static const addNewCard = '/addNewCard';
+  static const orderSuccess = '/orderSuccess';
+  static const profileScreen = '/profileScreen';
+  static const orderHistoryScreen = '/orderHistoryScreen';
+  static const orderDetailsScreen = '/orderDetailsScreen';
 
 }

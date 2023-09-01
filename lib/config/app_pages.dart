@@ -2,6 +2,11 @@ import 'package:apna_chotu_app/presentation/dashboard/main_home_screen1.dart';
 import 'package:apna_chotu_app/presentation/dashboard/main_home_screen2.dart';
 import 'package:apna_chotu_app/presentation/dashboard/resturant_list_screen.dart';
 import 'package:apna_chotu_app/presentation/locations_screens/address_new_other_address.dart';
+import 'package:apna_chotu_app/presentation/order_history/order_details_screen.dart';
+import 'package:apna_chotu_app/presentation/order_history/order_history.dart';
+import 'package:apna_chotu_app/presentation/payment_method/add_new_card.dart';
+import 'package:apna_chotu_app/presentation/payment_method/order_success.dart';
+import 'package:apna_chotu_app/presentation/profile_screen/profile_screen.dart';
 import 'package:apna_chotu_app/presentation/restuarant/non_veg_closesoon.dart';
 import 'package:apna_chotu_app/presentation/restuarant/non_veg_menu.dart';
 import 'package:apna_chotu_app/presentation/otp_screen.dart';
@@ -18,7 +23,7 @@ import '../presentation/locations_screens/select_location_screen.dart';
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.restaurantDetails;
+  static const initial = Routes.intro;
   static final routes = [
     GetPage(
         name: Routes.intro,
@@ -69,6 +74,26 @@ class AppPages {
     GetPage(
         name: Routes.restaurantDetails,
         page: () => RestaurantDetails(),
+        binding: MainBinding()),
+    GetPage(
+        name: Routes.addNewCard,
+        page: () => AddNewCard(),
+        binding: MainBinding()),
+    GetPage(
+        name: Routes.orderSuccess,
+        page: () => OrderSuccess(),
+        binding: MainBinding()),
+    GetPage(
+        name: Routes.profileScreen,
+        page: () => ProfileScreen(),
+        binding: MainBinding()),
+    GetPage(
+        name: Routes.orderHistoryScreen,
+        page: () => OrderHistoryScreen(),
+        binding: MainBinding()),
+    GetPage(
+        name: Routes.orderDetailsScreen,
+        page: () => OrderDetailsScreen(),
         binding: MainBinding()),
   ];
 }

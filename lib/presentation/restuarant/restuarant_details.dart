@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class RestaurantDetails extends StatefulWidget {
   const RestaurantDetails({super.key});
@@ -11,6 +12,23 @@ class _RestaurantDetailsState extends State<RestaurantDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        title: Row(
+          children: [
+            IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: Icon(Icons.chevron_left),
+            ),
+            Text(
+              'T-Grill',
+              style: TextStyle(fontSize: 22),
+            ),
+          ],
+        ),
+      ),
       backgroundColor: Colors.transparent,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -49,7 +67,7 @@ class _RestaurantDetailsState extends State<RestaurantDetails> {
                     ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 10, top: 22),
+                    padding: const EdgeInsets.only(left: 8, top: 22),
                     child: Container(
                       height: 20,
                       width: 75,
@@ -75,6 +93,7 @@ class _RestaurantDetailsState extends State<RestaurantDetails> {
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                   ),
+                  SizedBox(height: 15),
                   Row(
                     children: [
                       CircleAvatar(
@@ -101,6 +120,11 @@ class _RestaurantDetailsState extends State<RestaurantDetails> {
                       ),
                     ],
                   ),
+                  SizedBox(height: 45),
+                  Text(
+                    'We are one of the best restaurant in the city of Hyderabad with year of experience We serve a lot of quality food cook directly directly professional chefs. Hope you like it!.',
+                    style: TextStyle(fontSize: 16),
+                  )
                 ],
               ),
             ),

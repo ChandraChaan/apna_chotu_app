@@ -15,6 +15,16 @@ class CurrentLocation extends StatefulWidget {
 }
 
 class _CurrentLocationState extends State<CurrentLocation> {
+
+  void editAddress(int index) {
+        // Handle edit action for the address at the given index
+        // You can navigate to an edit screen or perform other actions here
+        // Example: navigate to the edit screen with the selected address
+        Get.toNamed(Routes.othersAddress, arguments: addressList[index]);
+
+    // Define the edit address action here
+    // You can navigate to an edit address screen or perform other actions
+  }
   List<dynamic> addressList = [];
 
   final LocalDb = GetStorage();
@@ -174,7 +184,13 @@ class _CurrentLocationState extends State<CurrentLocation> {
                   title: Text(
                     addressList[a]['locality'],
                   ),
-                  subtitle: Text(addressList[a]['address_name']),
+                  subtitle: Text(addressList[a]['address_name']),trailing: InkWell(
+                  onTap: () => editAddress(a),
+                  child: Icon(
+                    Icons.edit,
+                    color: Colors.deepOrange,
+                  ),
+                ),
                 ),
               if (addressList.isNotEmpty) Divider(thickness: 1),
               const SizedBox(
