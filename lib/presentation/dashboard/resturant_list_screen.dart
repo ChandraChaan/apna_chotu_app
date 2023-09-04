@@ -11,7 +11,6 @@ class RestaurantListScreen extends StatefulWidget {
 class _RestaurantListScreenState extends State<RestaurantListScreen> {
   @override
   Widget build(BuildContext context) {
-    //var loadedProducts;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -24,35 +23,37 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                 Container(
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(6.0),
-                        child: Icon(
-                          Icons.arrow_back_ios,
-                          color: Colors.black,
-                          size: 25.0,
-                        ),
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      Row(
                         children: [
-                          Text(
-                            'Hello,Vinay',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            'What do you want to eat?',
-                            style: TextStyle(
+                          Padding(
+                            padding: const EdgeInsets.all(6.0),
+                            child: Icon(
+                              Icons.arrow_back_ios,
                               color: Colors.black,
-                              fontSize: 12,
+                              size: 25.0,
                             ),
                           ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Hello,Vinay',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                'What do you want to eat?',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                          ),
                         ],
-                      ),
-                      SizedBox(
-                        width: 170,
                       ),
                       Icon(
                         Icons.notifications_on_outlined,
@@ -180,7 +181,6 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                           ],
                         ),
                       ),
-
                       Container(
                         //child: Container(
                         height: 10,
@@ -249,260 +249,129 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                     ),
                   ],
                 ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: 190,
+                GridView.count(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 4.0,
+                    mainAxisSpacing: 8.0,
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    children: [
+                      for(int a=0; a<9; a++)
+                      Container(
+                        height: 200,
+                        width: 200,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
                               topRight: Radius.circular(15),
                               topLeft: Radius.circular(15),
                             ),
-                            color: Colors.grey),
+                            color: Colors.grey.shade200),
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Expanded(
+                                flex: 7,
                                 child: Container(
-                                  height: 120,
+                                  height: double.infinity,
                                   width: double.infinity,
                                   decoration: BoxDecoration(
+                                    color: Colors.red,
                                     borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(15),
                                       topRight: Radius.circular(15),
                                     ),
                                     image: DecorationImage(
-                                      image: AssetImage(
-                                          'assets/images/image_2.png'),
-                                    ),
+                                        image: AssetImage(
+                                          'assets/images/image_2.png',
+                                        ),
+                                        fit: BoxFit.fitWidth),
                                   ),
                                   child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
+                                    mainAxisAlignment: MainAxisAlignment.end,
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       Icon(
-                                        Icons.heart_broken,
+                                        Icons.favorite,
                                         color: Colors.deepOrange,
-                                        size: 20,
+                                        size: 25,
+                                      ),
+                                      SizedBox(
+                                        height: 5,
                                       ),
                                       Text(
                                         '10292',
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
+                                            fontSize: 9,
                                             color: Colors.white),
                                       )
                                     ],
                                   ),
                                 ),
                               ),
-                              Row(
-                                children: [
-                                  Text(
-                                    "Flechazo Madhapur",
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold),
+                              Expanded(
+                                flex: 4,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "Flechazo Madhapur",
+                                            style: TextStyle(
+                                                fontSize: 13,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          Container(
+                                            height: 15,
+                                            width: 45,
+                                            child: RoundedButton(
+                                              padding: 0,
+                                              name: 'New',
+                                              child: Text(
+                                                'New',
+                                                style: TextStyle(fontSize: 9),
+                                              ),
+                                              onPressed: () {},
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      Text(
+                                        "HUDA Techno Enclave, Madhapur",
+                                        style: TextStyle(
+                                            fontSize: 11,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Divider(thickness: 2),
+                                      Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text('15.5 Km, 1hour',
+                                              style: TextStyle(fontSize: 11)),
+                                          // SizedBox(width: 75),
+                                          Text(
+                                            '4.0',
+                                            style: TextStyle(fontSize: 11),
+                                          ),
+                                          Icon(
+                                            Icons.star,
+                                            color: Colors.deepOrange,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                    ],
                                   ),
-                                  SizedBox(width: 2),
-                                  Container(
-                                    height: 15,
-                                    width: 45,
-                                    child: RoundedButton(
-                                      name: 'New',
-                                      onPressed: () {},
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Text(
-                                "HUDA Techno Enclave, Madhapur",
-                                style: TextStyle(
-                                    fontSize: 11, fontWeight: FontWeight.bold),
-                              ),
-                              Divider(thickness: 2),
-                              Row(
-                                children: [
-                                  Text('15.5 Km, 1hour',
-                                      style: TextStyle(fontSize: 11)),
-                                  SizedBox(width: 75),
-                                  Text(
-                                    '4.0',
-                                    style: TextStyle(fontSize: 11),
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.deepOrange,
-                                    size: 15,
-                                  )
-                                ],
+                                ),
                               ),
                             ]),
                       ),
-                    ),
-                    SizedBox(
-                      width: 17,
-                    ),
-                    Expanded(
-                      child: Container(
-                        height: 220,
-                        width: 150,
-                        color: Colors.greenAccent,
-                        child: Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  height: 90,
-                                  width: 80,
-                                  child: Image.asset(
-                                    'assets/images/sand.png',
-                                  ),
-                                ),
-                                Text(
-                                  "Chese burgessr",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text(
-                                  "100 gr meat + onion + \ntomato + Lettuce chese",
-                                  style: TextStyle(
-                                    fontSize: 11,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.star,
-                                      color: Colors.orange,
-                                      size: 16,
-                                    ),
-                                    Text(
-                                      "4.5",
-                                      style: TextStyle(
-                                          fontSize: 12, color: Colors.black),
-                                    ),
-                                  ],
-                                ),
-                              ]),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(28.0),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 220,
-                        width: 150,
-                        color: Colors.greenAccent,
-                        child: Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  height: 90,
-                                  width: 80,
-                                  child: Image.asset(
-                                    'assets/images/sand.png',
-                                  ),
-                                ),
-                                Text(
-                                  "Chese burger",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text(
-                                  "100 gr meat + onion + \ntomato + Lettuce chese",
-                                  style: TextStyle(
-                                    fontSize: 11,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.star,
-                                      color: Colors.orange,
-                                      size: 16,
-                                    ),
-                                    Text(
-                                      "4.5",
-                                      style: TextStyle(
-                                          fontSize: 12, color: Colors.black),
-                                    ),
-                                  ],
-                                ),
-                              ]),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 17,
-                      ),
-                      Container(
-                        height: 220,
-                        width: 150,
-                        color: Colors.greenAccent,
-                        child: Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  height: 90,
-                                  width: 80,
-                                  child: Image.asset(
-                                    'assets/images/sand.png',
-                                  ),
-                                ),
-                                Text(
-                                  "Chese burger",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text(
-                                  "100 gr meat + onion + \ntomato + Lettuce chese",
-                                  style: TextStyle(
-                                    fontSize: 11,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.star,
-                                      color: Colors.orange,
-                                      size: 16,
-                                    ),
-                                    Text(
-                                      "4.5",
-                                      style: TextStyle(
-                                          fontSize: 12, color: Colors.black),
-                                    ),
-                                  ],
-                                ),
-                              ]),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                    ]),
               ],
             ),
           ),
