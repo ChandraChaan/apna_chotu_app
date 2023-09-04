@@ -210,6 +210,7 @@ class _OTPScreenState extends State<OTPScreen> {
                           width: 30,
                           child: TextField(
                             textAlign: TextAlign.center,
+                            keyboardType: TextInputType.number,
                             onChanged: (value) {
                               if (value.length == 1) {
                                 FocusScope.of(context).nextFocus();
@@ -232,6 +233,7 @@ class _OTPScreenState extends State<OTPScreen> {
                           width: 30,
                           child: TextField(
                             textAlign: TextAlign.center,
+                            keyboardType: TextInputType.number,
                             onChanged: (value) {
                               if (value.length == 1) {
                                 FocusScope.of(context).nextFocus();
@@ -254,6 +256,7 @@ class _OTPScreenState extends State<OTPScreen> {
                           width: 30,
                           child: TextField(
                             textAlign: TextAlign.center,
+                            keyboardType: TextInputType.number,
                             onChanged: (value) {
                               if (value.length == 1) {
                                 FocusScope.of(context).nextFocus();

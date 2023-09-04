@@ -1,34 +1,26 @@
-// // ... (existing imports and code)
-//
-// class _CurrentLocationState extends State<CurrentLocation> {
-//   // ... (existing variables and methods)
-//
-//   Widget buildEditButton(int index) {
-//     return IconButton(
-//       icon: Icon(Icons.edit, color: Colors.deepOrange),
-//       onPressed: () {
-//         // Handle edit action for the address at the given index
-//         // You can navigate to an edit screen or perform other actions here
-//         // Example: navigate to the edit screen with the selected address
-//         Get.toNamed(Routes.editAddressScreen, arguments: addressList[index]);
-//       },
-//     );
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       // ... (existing scaffold and widget hierarchy)
-//
-//     for (int a = 0; a < addressList.length; a++)
-//     ListTile(
-//       minLeadingWidth: 0,
-//       leading: Icon(Icons.location_on, color: Colors.deepOrange),
-//       title: Text(addressList[a]['locality']),
-//       subtitle: Text(addressList[a]['address_name']),
-//       trailing: buildEditButton(a), // Add Edit button here
-//     ),
-//     // ... (rest of the code)
-//     );
-//   }
-// }
+List<Map<String, dynamic>> orderHistory = [
+  {
+    'restaurantName': 'Grand Hotel',
+    'location': 'Koti',
+    'items': [
+      {'name': 'Chicken Jumbo Pack Biryani', 'quantity': 2},
+    ],
+    'date': 'June 20, 2023',
+    'status': 'Delivered',
+    'price': 1234,
+  },
+  {
+    'restaurantName': 'Shree Santosh Family Dhaba',
+    'location': 'madhapur',
+    'items': [
+      {'name': 'Butter Non', 'quantity': 4},
+      {'name': 'kadai panner', 'quantity': 1},
+      {'name': 'Panner Fried Rice', 'quantity': 2},
+      {'name': 'Baby Corn Majestic', 'quantity': 1},
+    ],
+    'date': 'June 02, 2023',
+    'status': 'Delivered',
+    'price': 960,
+  },
+  // Add more orders here...
+];

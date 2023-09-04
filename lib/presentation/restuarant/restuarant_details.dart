@@ -39,7 +39,6 @@ class _RestaurantDetailsState extends State<RestaurantDetails> {
             child: Image.asset('assets/images/rectangle_215.png'),
           ),
           Container(
-            height: 520,
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
