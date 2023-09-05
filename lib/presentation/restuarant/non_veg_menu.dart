@@ -108,7 +108,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
                     Text('Menu',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20)),
-                    SizedBox(width: 190),
+                    SizedBox(width: 175),
                     Container(
                       height: 28,
                       width: 60,
@@ -135,6 +135,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
                         ),
                       ),
                     ),
+                    SizedBox(width: 10),
                     Row(
                       children: [
                         Container(
@@ -162,20 +163,21 @@ class _NonVegMenuState extends State<NonVegMenu> {
                   ],
                 ),
               ),
-              Container(
-                height: 140,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(15),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 140,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                    color: Color(0xFFF5F5F5),
                   ),
-                ),
-                child: Column(
-                  children: [
+                  child: Column(children: [
                     Container(
-                      height: 140,
-                      color: Colors.red,
-                    )
-                  ],
+                      height: 139,
+                      child: Image.asset('assets/images/menu_biryani.png'),
+                    ),
+                    
+                  ],),
                 ),
               ),
             ],
