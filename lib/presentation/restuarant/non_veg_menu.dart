@@ -24,51 +24,40 @@ class _NonVegMenuState extends State<NonVegMenu> {
             children: [
               // List tile have more....
               ListTile(
-                  minLeadingWidth: 0,
-                  minVerticalPadding: 0,
-                  horizontalTitleGap: 10,
-                  contentPadding: const EdgeInsets.all(0),
-                  leading: IconButton(
-                    icon: Icon(
-                      Icons.chevron_left,
-                      color: Colors.black,
-                      size: 30,
-                    ),
-                    onPressed: () {
-                      Get.back();
-                    },
+                minLeadingWidth: 0,
+                minVerticalPadding: 0,
+                horizontalTitleGap: 10,
+                contentPadding: const EdgeInsets.all(0),
+                leading: IconButton(
+                  icon: Icon(
+                    Icons.chevron_left,
+                    color: Colors.black,
+                    size: 30,
                   ),
-                  title: SizedBox(
-                    width: 100,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Palamuru Grill',
-                          style: TextStyle(
-                              fontSize: 25, fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
+                  onPressed: () {
+                    Get.back();
+                  },
+                ),
+                title: SizedBox(
+                  width: 100,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Palamuru Grill',
+                        style: TextStyle(
+                            fontSize: 25, fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
-                  subtitle: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Opposite Meridian School,Ayyappa society, \nMadhapur,100 Feet Rd,Hyderabad, Telangana 500081',
-                          style: TextStyle(fontSize: 13),
-                        ),
-                        Container(
-                          height: 15,
-                          width: 15,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(25)),
-                          ),
-                          child: Icon(Icons.search),
-                        )
-                      ])),
+                ),
+                subtitle: Text(
+                  'Opposite Meridian School,Ayyappa society, \nMadhapur,100 Feet Rd,Hyderabad, Telangana 500081',
+                  style: TextStyle(fontSize: 13),
+                ),
+                trailing: Icon(Icons.search),
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
@@ -104,40 +93,43 @@ class _NonVegMenuState extends State<NonVegMenu> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text('Menu',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20)),
-                    SizedBox(width: 175),
-                    Container(
-                      height: 28,
-                      width: 60,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(15),
-                          ),
-                          border: Border.all(color: Colors.green),
-                          color: Colors.white),
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.adjust,
-                              color: Colors.green,
-                            ),
-                            Text(
-                              'Veg',
-                              style: TextStyle(
-                                  fontSize: 13, fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 10),
+                    // SizedBox(width: 175),
+
                     Row(
                       children: [
+                        Container(
+                          height: 28,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(15),
+                              ),
+                              border: Border.all(color: Colors.green),
+                              color: Colors.white),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.adjust,
+                                  color: Colors.green,
+                                ),
+                                Text(
+                                  'Veg',
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 10),
                         Container(
                           height: 28,
                           width: 90,
@@ -171,13 +163,14 @@ class _NonVegMenuState extends State<NonVegMenu> {
                     borderRadius: BorderRadius.all(Radius.circular(12)),
                     color: Color(0xFFF5F5F5),
                   ),
-                  child: Column(children: [
-                    Container(
-                      height: 139,
-                      child: Image.asset('assets/images/menu_biryani.png'),
-                    ),
-                    
-                  ],),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 139,
+                        child: Image.asset('assets/images/menu_biryani.png'),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
