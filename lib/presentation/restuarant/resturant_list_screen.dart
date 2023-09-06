@@ -1,6 +1,8 @@
 import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 
+import '../../utils/menu_tabs.dart';
+
 class RestaurantListScreen extends StatefulWidget {
   const RestaurantListScreen({Key? key}) : super(key: key);
 
@@ -124,122 +126,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                             // borderSide: BorderSide(color: Colors.grey, width: 2),
                           ))),
                 ),
-                DefaultTabController(
-                  length: 6,
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 70,
-                        color: Colors.white,
-                        padding:
-                            EdgeInsets.only(left: 10, bottom: 20, right: 10),
-                        child: TabBar(
-                          isScrollable: true,
-                          unselectedLabelColor: Colors.black,
-                          indicator: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            color: Colors.black,
-                          ),
-                          tabs: [
-                            Tab(
-                              child: Container(
-                                height: 70,
-                                padding: EdgeInsets.only(left: 20, right: 20),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/biryani.png'))),
-                              ),
-                            ),
-                            Tab(
-                              child: Container(
-                                height: 70,
-                                padding: EdgeInsets.only(left: 20, right: 10),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    border: Border.all(
-                                        color: Colors.black, width: 2)),
-                                child: Align(
-                                    alignment: Alignment.center,
-                                    child: Text('Level-1')),
-                              ),
-                            ),
-                            Tab(
-                              child: Container(
-                                height: 70,
-                                padding: EdgeInsets.only(left: 20, right: 20),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    border: Border.all(
-                                        color: Colors.black, width: 2)),
-                                child: Align(
-                                    alignment: Alignment.center,
-                                    child: Text('Level-2')),
-                              ),
-                            ),
-                            Tab(
-                              child: Container(
-                                height: 70,
-                                padding: EdgeInsets.only(left: 20, right: 20),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    border: Border.all(
-                                        color: Colors.black, width: 2)),
-                                child: Align(
-                                    alignment: Alignment.center,
-                                    child: Text('Level-3')),
-                              ),
-                            ),
-                            Tab(
-                              child: Container(
-                                height: 70,
-                                padding: EdgeInsets.only(left: 20, right: 20),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    border: Border.all(
-                                        color: Colors.black, width: 2)),
-                                child: Align(
-                                    alignment: Alignment.center,
-                                    child: Text('Level-4')),
-                              ),
-                            ),
-                            Tab(
-                              child: Container(
-                                height: 70,
-                                padding: EdgeInsets.only(left: 20, right: 20),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    border: Border.all(
-                                        color: Colors.black, width: 2)),
-                                child: Align(
-                                    alignment: Alignment.center,
-                                    child: Text('Level-5')),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        //child: Container(
-                        height: 10,
-                        //color: Colors.blue,
-                        child: TabBarView(
-                          children: [
-                            Text(''),
-                            Text(''),
-                            Text(''),
-                            Text(''),
-                            Text(''),
-                            Text(''),
-                          ],
-                        ),
-                      ),
-                      //),
-                      //Container(),
-                    ],
-                  ),
-                ),
+                MenuTabs(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
