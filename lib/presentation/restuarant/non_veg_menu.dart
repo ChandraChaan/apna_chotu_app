@@ -31,18 +31,22 @@ class _NonVegMenuState extends State<NonVegMenu> {
               // List tile have more....
               ListTile(
                 minLeadingWidth: 0,
-                minVerticalPadding: 0,
-                horizontalTitleGap: 10,
+                minVerticalPadding: 2,
+                horizontalTitleGap: 2,
                 contentPadding: const EdgeInsets.all(0),
-                leading: IconButton(
-                  icon: Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.black,
-                    size: 30,
-                  ),
-                  onPressed: () {
-                    Get.back();
-                  },
+                leading: Column(
+                  children: [
+                    IconButton(
+                      icon: Icon(
+                        Icons.arrow_back_ios,
+                        color: Colors.black,
+                        size: 30,
+                      ),
+                      onPressed: () {
+                        Get.back();
+                      },
+                    ),
+                  ],
                 ),
                 title: SizedBox(
                   width: 100,
@@ -62,18 +66,29 @@ class _NonVegMenuState extends State<NonVegMenu> {
                   'Opposite Meridian School,Ayyappa society, \nMadhapur,100 Feet Rd,Hyderabad, Telangana 500081',
                   style: TextStyle(fontSize: 13),
                 ),
-                trailing: Icon(Icons.search),
+                trailing: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(13),
+                          border: Border.all(color: Colors.grey)),
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.search),
+                      )),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
-                  height: 95,
+                  height: 93,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
+                      // background color
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: [Colors.orange, Colors.deepOrange],
+                      colors: [Color(0XFFFA6423), Color(0xFF9A2D08)],
                     ),
                   ),
                   child: Column(
@@ -182,9 +197,9 @@ class _NonVegMenuState extends State<NonVegMenu> {
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(6.0),
                     child: Container(
-                      height: 100,
+                      height: 110,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.grey.shade200,
@@ -203,7 +218,9 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                 flex: 4,
                                 child: Container(
                                   child: Image.asset(
-                                    'assets/images/biryani2.png',
+                                    non_veg
+                                        ? 'assets/images/biryani2.png'
+                                        : 'assets/images/gobi_biryani.png',
                                     fit: BoxFit
                                         .cover, // Use BoxFit.cover to maintain aspect ratio and cover the space
                                   ),
@@ -222,7 +239,9 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                     // Use spaceEvenly for consistent spacing
                                     children: [
                                       CommonText(
-                                        'Chicken Biryani',
+                                        non_veg
+                                            ? 'Chicken Biryani'
+                                            : 'Veg biryani',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: Colors.deepOrange,
@@ -232,7 +251,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                       CommonText(
                                         'Biryani served with 1 chicken piece chest or leg, mirchi ka salan and raita',
                                         style: TextStyle(fontSize: 12),
-                                      ),
+                                      ),SizedBox(height: 8),
                                       CommonText(
                                         index.isOdd ? 'Closes soon' : 'Open',
                                         style: TextStyle(
