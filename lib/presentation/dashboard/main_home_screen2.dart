@@ -138,28 +138,33 @@ class FoodScreen extends StatelessWidget {
                       crossAxisSpacing: 10.0,
                       mainAxisSpacing: 10.0),
                   itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xff8f8f8f).withOpacity(0.3),
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                        child: Column(
-                          children: [
-                            Expanded(
-                                child: Container(
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFF5F5F5).withOpacity(0.8),
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(20)),
-                                    ),
-                                    child: Image.asset(
-                                        servicesItems[index]['image']))),
-                            Container(
-                              child: Text(servicesItems[index]['name']),
-                            )
-                          ],
-                        ));
+                    return InkWell(onTap: (){
+                      if (index == 0);
+                      Get.toNamed(Routes.restaurantListScreen);
+                    },
+                      child: Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xff8f8f8f).withOpacity(0.3),
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                          ),
+                          child: Column(
+                            children: [
+                              Expanded(
+                                  child: Container(
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFF5F5F5).withOpacity(0.8),
+                                        borderRadius:
+                                            BorderRadius.all(Radius.circular(20)),
+                                      ),
+                                      child: Image.asset(
+                                          servicesItems[index]['image']))),
+                              Container(
+                                child: Text(servicesItems[index]['name']),
+                              )
+                            ],
+                          )),
+                    );
                   },
                 ),
                 SizedBox(
