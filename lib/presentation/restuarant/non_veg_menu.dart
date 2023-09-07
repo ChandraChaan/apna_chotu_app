@@ -33,7 +33,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
                 contentPadding: const EdgeInsets.all(0),
                 leading: IconButton(
                   icon: Icon(
-                    Icons.chevron_left,
+                    Icons.arrow_back_ios,
                     color: Colors.black,
                     size: 30,
                   ),
@@ -149,137 +149,138 @@ class _NonVegMenuState extends State<NonVegMenu> {
                 ),
               ),
               ListView.builder(
-                  itemCount: 15,
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (BuildContext context, int index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.grey.shade200,
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: InkWell(
-                            onTap: () {
-                              selected = index;
-                              setState(() {});
-                            },
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  flex: 4,
-                                  child: Container(
-                                    child: Image.asset(
-                                      'assets/images/biryani2.png',
-                                      fit: BoxFit
-                                          .cover, // Use BoxFit.cover to maintain aspect ratio and cover the space
-                                    ),
+                itemCount: 15,
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemBuilder: (BuildContext context, int index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      height: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.grey.shade200,
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: InkWell(
+                          onTap: () {
+                            selected = index;
+                            setState(() {});
+                          },
+                          child: Row(
+                            children: [
+                              Expanded(
+                                flex: 4,
+                                child: Container(
+                                  child: Image.asset(
+                                    'assets/images/biryani2.png',
+                                    fit: BoxFit
+                                        .cover, // Use BoxFit.cover to maintain aspect ratio and cover the space
                                   ),
                                 ),
-                                Expanded(
-                                  flex: 10,
-                                  child: Container(
-                                    padding: EdgeInsets.all(8),
-                                    // Add some padding for spacing
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      // Use spaceEvenly for consistent spacing
-                                      children: [
-                                        Text(
-                                          'Chicken Biryani',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.deepOrange,
-                                            fontSize: 16,
-                                          ),
+                              ),
+                              Expanded(
+                                flex: 10,
+                                child: Container(
+                                  padding: EdgeInsets.all(8),
+                                  // Add some padding for spacing
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    // Use spaceEvenly for consistent spacing
+                                    children: [
+                                      Text(
+                                        'Chicken Biryani',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.deepOrange,
+                                          fontSize: 16,
                                         ),
-                                        Text(
-                                          'Biryani served with 1 chicken piece chest or leg, mirchi ka salan and raita',
-                                          style: TextStyle(fontSize: 12),
-                                        ),
-                                        Text(
-                                          index.isOdd ? 'Closes soon' : 'Open',
-                                          style: TextStyle(
-                                            color: index.isOdd
-                                                ? Colors.red
-                                                : Colors.green,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              '\$180',
-                                              style: TextStyle(
-                                                // color: Colors.b,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 16,
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              width: 20,
-                                            ),
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  '4',
-                                                  style: TextStyle(
-                                                    fontSize: 14,
-                                                  ),
-                                                ),
-                                                Icon(
-                                                  Icons.star,
-                                                  size: 18,
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(
-                                              width: 20,
-                                            ),
-                                            Text(
-                                              '(122)',
-                                              style: TextStyle(
-                                                fontSize: 12,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 1,
-                                  child: Container(
-                                    color: selected == index
-                                        ? Colors.redAccent
-                                        : Colors.grey.shade200,
-                                    child: Center(
-                                      child: Icon(
-                                        Icons.add,
-                                        color: selected == index
-                                            ? Colors.white
-                                            : Colors.black,
                                       ),
+                                      Text(
+                                        'Biryani served with 1 chicken piece chest or leg, mirchi ka salan and raita',
+                                        style: TextStyle(fontSize: 12),
+                                      ),
+                                      Text(
+                                        index.isOdd ? 'Closes soon' : 'Open',
+                                        style: TextStyle(
+                                          color: index.isOdd
+                                              ? Colors.red
+                                              : Colors.green,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            '\$180',
+                                            style: TextStyle(
+                                              // color: Colors.b,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            width: 20,
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                '4',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                ),
+                                              ),
+                                              Icon(
+                                                Icons.star,
+                                                size: 18,
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            width: 20,
+                                          ),
+                                          Text(
+                                            '(122)',
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: Container(
+                                  color: selected == index
+                                      ? Colors.redAccent
+                                      : Colors.grey.shade200,
+                                  child: Center(
+                                    child: Icon(
+                                      Icons.add,
+                                      color: selected == index
+                                          ? Colors.white
+                                          : Colors.black,
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
-                    );
-                  }),
+                    ),
+                  );
+                },
+              ),
             ],
           ),
         ),
