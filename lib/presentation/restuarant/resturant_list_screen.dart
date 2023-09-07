@@ -1,3 +1,6 @@
+import 'package:apna_chotu_app/Config/app_pages.dart';
+import 'package:apna_chotu_app/presentation/restuarant/non_veg_menu.dart';
+import 'package:apna_chotu_app/presentation/restuarant/restuarant_details.dart';
 import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -91,10 +94,14 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.all(6.0),
-                            child: IconButton(onPressed: (){
-                              Get.back();
-                            },
-                              icon: Icon(Icons.arrow_back_ios,size: 25.0,),
+                            child: IconButton(
+                              onPressed: () {
+                                Get.back();
+                              },
+                              icon: Icon(
+                                Icons.arrow_back_ios,
+                                size: 25.0,
+                              ),
                             ),
                           ),
                           Column(
@@ -129,22 +136,22 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                   child: TextField(
                       // autocorrect: true,
                       decoration: InputDecoration(
-                          hintText: 'search"Biryani"',
-                          prefixIcon: Icon(
-                            Icons.search,
-                          ),
-                          suffixIcon: Icon(
-                            Icons.mic,
-                            color: Colors.deepOrange,
-                          ),
-                          hintStyle: TextStyle(color: Colors.grey),
-                          filled: true,
-                          // fillColor: Colors.white70,
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(12.0)),
-                            // borderSide: BorderSide(color: Colors.grey, width: 2),
-                          ),)),
+                    hintText: 'search"Biryani"',
+                    prefixIcon: Icon(
+                      Icons.search,
+                    ),
+                    suffixIcon: Icon(
+                      Icons.mic,
+                      color: Colors.deepOrange,
+                    ),
+                    hintStyle: TextStyle(color: Colors.grey),
+                    filled: true,
+                    // fillColor: Colors.white70,
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                      // borderSide: BorderSide(color: Colors.grey, width: 2),
+                    ),
+                  )),
                 ),
                 MenuTabs(),
                 Row(
@@ -220,125 +227,143 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                   physics: NeverScrollableScrollPhysics(),
                   children: [
                     for (int a = 0; a < listItems.length; a++)
-                      Container(
-                        height: 170,
-                        width: 130,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(15),
-                              topLeft: Radius.circular(15),
-                            ),
-                            color: Color(0xFFF5F5F5FF)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              flex: 7,
-                              child: Container(
-                                height: double.infinity,
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: Colors.red,
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(15),
-                                    topRight: Radius.circular(15),
+                      // InkWell(
+                      //   onTap: () {
+                      //     Navigator.push(
+                      //       context,
+                      //       MaterialPageRoute(
+                      //           builder: (context) => RestaurantListScreen()),
+                      //     );
+                      //   },
+                      // ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NonVegMenu()));
+                        },
+                        child: Container(
+                          height: 170,
+                          width: 130,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(15),
+                                topLeft: Radius.circular(15),
+                              ),
+                              color: Color(0xFFF5F5F5FF)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                flex: 7,
+                                child: Container(
+                                  height: double.infinity,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: Colors.red,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(15),
+                                      topRight: Radius.circular(15),
+                                    ),
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                          '${listItems[a]['image']}',
+                                        ),
+                                        fit: BoxFit.fitWidth),
                                   ),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        '${listItems[a]['image']}',
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Icon(
+                                        Icons.favorite,
+                                        color: Colors.deepOrange,
+                                        size: 25,
                                       ),
-                                      fit: BoxFit.fitWidth),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Icon(
-                                      Icons.favorite,
-                                      color: Colors.deepOrange,
-                                      size: 25,
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      '${listItems[a]['likes']}',
-                                      style: TextStyle(
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    )
-                                  ],
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                      Text(
+                                        '${listItems[a]['likes']}',
+                                        style: TextStyle(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            Expanded(
-                              flex: 4,
-                              child: Padding(
-                                padding: const EdgeInsets.all(2.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          '${listItems[a]['name']}',
-                                          style: TextStyle(
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Container(
-                                          height: 15,
-                                          width: 45,
-                                          child: RoundedButton(
-                                            padding: 0,
-                                            name: 'New',
-                                            child: Text(
-                                              'New',
-                                              style: TextStyle(fontSize: 9),
-                                            ),
-                                            onPressed: () {},
+                              Expanded(
+                                flex: 4,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            '${listItems[a]['name']}',
+                                            style: TextStyle(
+                                                fontSize: 13,
+                                                fontWeight: FontWeight.bold),
                                           ),
-                                        )
-                                      ],
-                                    ),
-                                    Text(
-                                      '${listItems[a]['subTitle']}',
-                                      style: TextStyle(
-                                          fontSize: 11,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Divider(thickness: 2),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text('${listItems[a]['km']}',
-                                            style: TextStyle(fontSize: 11)),
-                                        // SizedBox(width: 75),
-                                        Row(
-                                          children: [
-                                            Text(
-                                              '4.0',
-                                              style: TextStyle(fontSize: 11),
+                                          Container(
+                                            height: 15,
+                                            width: 45,
+                                            child: RoundedButton(
+                                              padding: 0,
+                                              name: 'New',
+                                              child: Text(
+                                                'New',
+                                                style: TextStyle(fontSize: 9),
+                                              ),
+                                              onPressed: () {},
                                             ),
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.deepOrange,
-                                              size: 15,
-                                            )
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                          )
+                                        ],
+                                      ),
+                                      Text(
+                                        '${listItems[a]['subTitle']}',
+                                        style: TextStyle(
+                                            fontSize: 11,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Divider(thickness: 2),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text('${listItems[a]['km']}',
+                                              style: TextStyle(fontSize: 11)),
+                                          // SizedBox(width: 75),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                '4.0',
+                                                style: TextStyle(fontSize: 11),
+                                              ),
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.deepOrange,
+                                                size: 15,
+                                              )
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                   ],
@@ -569,11 +594,13 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                       fontSize: 60,
                       color: Colors.deepOrange,
                       fontWeight: FontWeight.bold),
-                ),SizedBox(height: 7),
+                ),
+                SizedBox(height: 7),
                 Text(
                   'Always with you.',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-                ),SizedBox(height: 8),
+                ),
+                SizedBox(height: 8),
                 Row(
                   children: [
                     Text(
