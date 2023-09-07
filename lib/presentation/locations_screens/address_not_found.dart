@@ -1,6 +1,8 @@
 import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 
+import '../../common/app_text.dart';
+
 class AddressNotFound extends StatefulWidget {
   const AddressNotFound({super.key});
 
@@ -43,11 +45,11 @@ class _AddressNotFoundState extends State<AddressNotFound> {
                     padding: const EdgeInsets.only(left: 10, right: 10),
                     child: Column(
                       children: [
-                        Text('Apna Chotu service is not available in this city',
+                        CommonText('Apna Chotu service is not available in this city',
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 22)),
                         SizedBox(height: 6),
-                        Text(
+                        CommonText(
                           'But, When we are available in your city,we will notify you',
                           style: TextStyle(fontSize: 17),
                         ),

@@ -5,6 +5,8 @@ import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../common/app_text.dart';
+import '../../common/buttom_navigation_bar.dart';
 import '../../utils/menu_tabs.dart';
 
 class RestaurantListScreen extends StatefulWidget {
@@ -76,8 +78,8 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
+    return AppBottomNavigationBar(
+      child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: SingleChildScrollView(
           child: SafeArea(
@@ -108,12 +110,12 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
+                              CommonText(
                                 'Hello,Vinay',
                                 style: TextStyle(
                                     fontSize: 18, fontWeight: FontWeight.bold),
                               ),
-                              Text(
+                              CommonText(
                                 'What do you want to eat?',
                                 style: TextStyle(
                                   color: Colors.black,
@@ -161,7 +163,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text(
+                          child: CommonText(
                             'Restaurents near you',
                             style: TextStyle(
                                 color: Colors.black,
@@ -172,7 +174,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                         Padding(
                           padding: const EdgeInsets.all(6.0),
                           child: Container(
-                              width: 75,
+                              width: 65,
                               height: 25,
                               decoration: BoxDecoration(
                                 color: Colors.orange,
@@ -185,7 +187,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                 padding: 0,
                                 onPressed: () {},
                                 name: '',
-                                child: Text(
+                                child: CommonText(
                                   'Show All',
                                   style: TextStyle(fontSize: 13),
                                 ),
@@ -197,6 +199,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                     //   width: 30,
                     // ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(5.0),
@@ -208,7 +211,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                             ),
                           ),
                         ),
-                        Text(
+                        CommonText(
                           'Sort by',
                           style: TextStyle(
                             color: Colors.black,
@@ -285,7 +288,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                       SizedBox(
                                         height: 5,
                                       ),
-                                      Text(
+                                      CommonText(
                                         '${listItems[a]['likes']}',
                                         style: TextStyle(
                                             fontSize: 13,
@@ -308,7 +311,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text(
+                                          CommonText(
                                             '${listItems[a]['name']}',
                                             style: TextStyle(
                                                 fontSize: 13,
@@ -320,7 +323,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                             child: RoundedButton(
                                               padding: 0,
                                               name: 'New',
-                                              child: Text(
+                                              child: CommonText(
                                                 'New',
                                                 style: TextStyle(fontSize: 9),
                                               ),
@@ -329,7 +332,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                           )
                                         ],
                                       ),
-                                      Text(
+                                      CommonText(
                                         '${listItems[a]['subTitle']}',
                                         style: TextStyle(
                                             fontSize: 11,
@@ -340,12 +343,12 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text('${listItems[a]['km']}',
+                                          CommonText('${listItems[a]['km']}',
                                               style: TextStyle(fontSize: 11)),
                                           // SizedBox(width: 75),
                                           Row(
                                             children: [
-                                              Text(
+                                              CommonText(
                                                 '4.0',
                                                 style: TextStyle(fontSize: 11),
                                               ),
@@ -372,7 +375,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text(
+                      child: CommonText(
                         'Today’s Promo Codes',
                         style: TextStyle(
                             color: Colors.black,
@@ -395,7 +398,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                             padding: 0,
                             onPressed: () {},
                             name: '',
-                            child: Text(
+                            child: CommonText(
                               'Show All',
                               style: TextStyle(fontSize: 13),
                             ),
@@ -428,7 +431,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                   onPressed: () {},
                                   name: '',
                                   child: Center(
-                                    child: Text(
+                                    child: CommonText(
                                       'TJALM10292',
                                       style: TextStyle(
                                           fontSize: 11,
@@ -454,14 +457,14 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                       children: [
                                         Row(
                                           children: [
-                                            Text(
+                                            CommonText(
                                               'THE JOINT AL-MANDI',
                                               style: TextStyle(
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.bold),
                                             ),
                                             SizedBox(width: 65),
-                                            Text(
+                                            CommonText(
                                               'RS 299/-',
                                               style: TextStyle(
                                                   fontSize: 19,
@@ -472,12 +475,12 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                         ),
                                         Row(
                                           children: [
-                                            Text(
+                                            CommonText(
                                               'Arunodaya Housing Colony, Madhapur',
                                               style: TextStyle(fontSize: 10),
                                             ),
                                             SizedBox(width: 49),
-                                            Text(
+                                            CommonText(
                                               '499/-',
                                               style: TextStyle(
                                                   fontSize: 13,
@@ -517,7 +520,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                   onPressed: () {},
                                   name: '',
                                   child: Center(
-                                    child: Text(
+                                    child: CommonText(
                                       'TJALM10292',
                                       style: TextStyle(
                                           fontSize: 11,
@@ -543,14 +546,14 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                       children: [
                                         Row(
                                           children: [
-                                            Text(
+                                            CommonText(
                                               'THE JOINT AL-MANDI',
                                               style: TextStyle(
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.bold),
                                             ),
                                             SizedBox(width: 65),
-                                            Text(
+                                            CommonText(
                                               'RS 299/-',
                                               style: TextStyle(
                                                   fontSize: 19,
@@ -561,12 +564,12 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                         ),
                                         Row(
                                           children: [
-                                            Text(
+                                            CommonText(
                                               'Arunodaya Housing Colony, Madhapur',
                                               style: TextStyle(fontSize: 10),
                                             ),
                                             SizedBox(width: 49),
-                                            Text(
+                                            CommonText(
                                               '499/-',
                                               style: TextStyle(
                                                   fontSize: 13,
@@ -588,7 +591,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                   ),
                 ),
                 SizedBox(height: 25),
-                Text(
+                CommonText(
                   'Live\nLove\nLaugh',
                   style: TextStyle(
                       fontSize: 60,
@@ -596,14 +599,14 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                       fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 7),
-                Text(
+                CommonText(
                   'Always with you.',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                 ),
                 SizedBox(height: 8),
                 Row(
                   children: [
-                    Text(
+                    CommonText(
                       'Crafted with',
                       style: TextStyle(fontSize: 12),
                     ),
@@ -612,7 +615,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                       color: Colors.deepOrange,
                       size: 14,
                     ),
-                    Text(
+                    CommonText(
                       'in Sanga Reddy, Telangana, India.',
                       style: TextStyle(fontSize: 13),
                     )

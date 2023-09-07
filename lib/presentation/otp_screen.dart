@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import '../Common/helper.dart';
 import '../Config/app_pages.dart';
+import '../common/app_text.dart';
 import '../utils/linear_background.dart';
 import '../utils/rounded_button.dart';
 import 'package:http/http.dart' as http;
@@ -145,20 +146,20 @@ class _OTPScreenState extends State<OTPScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  CommonText(
                     'OTP Verification',
                     style: Theme.of(context).textTheme.displaySmall?.copyWith(
                         color: Colors.white, fontWeight: FontWeight.w400),
                   ),
                   const SizedBox(height: 9),
-                  Text(
+                  CommonText(
                     'We will send you a one time password on this Mobile Number',
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.w400),
                   ),
-                  Text(
+                  CommonText(
                     '+91-$phone',
                     style: TextStyle(
                         color: Colors.white,
@@ -275,7 +276,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   _isTimerActive
                       ? Align(
                           alignment: Alignment.center,
-                          child: Text(
+                          child: CommonText(
                             'Resend OTP in $_remainingTime seconds',
                             style: const TextStyle(
                               fontSize: 16.0,
@@ -287,7 +288,7 @@ class _OTPScreenState extends State<OTPScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            const Text(
+                            const CommonText(
                               'Didn\’t Receive? ',
                               style: TextStyle(
                                 color: Colors.white,
@@ -297,7 +298,7 @@ class _OTPScreenState extends State<OTPScreen> {
                               onTap: () {
                                 _startTimer();
                               },
-                              child: const Text(
+                              child: const CommonText(
                                 'Send OTP',
                                 style: TextStyle(
                                     color: Colors.red,

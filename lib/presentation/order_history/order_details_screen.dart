@@ -2,6 +2,8 @@ import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../common/app_text.dart';
+
 class OrderDetailsScreen extends StatefulWidget {
   const OrderDetailsScreen({super.key});
 
@@ -34,7 +36,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(
+                    CommonText(
                       'Order Details',
                       style: TextStyle(
                           fontSize: 25, fontWeight: FontWeight.bold),
@@ -46,7 +48,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 55),
-                    child: Text('#163728282738, Delivered, 1 Item, ₹ 1235'),
+                    child: CommonText('#163728282738, Delivered, 1 Item, ₹ 1235'),
                   ),
                 ],
               ),
@@ -55,7 +57,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 children: [
                   Icon(Icons.brightness_1_outlined, color: Colors.deepOrange),
                   SizedBox(width: 5),
-                  Text(
+                  CommonText(
                     'Grand Hotel',
                     style: TextStyle(
                         fontSize: 17,
@@ -66,14 +68,14 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 30),
-                child: Text('Opposite Big Bazaar, Abids Road, Hyderabad'),
+                child: CommonText('Opposite Big Bazaar, Abids Road, Hyderabad'),
               ),
               SizedBox(height: 22),
               Row(
                 children: [
                   Icon(Icons.brightness_1_outlined, color: Colors.deepOrange),
                   SizedBox(width: 5),
-                  Text(
+                  CommonText(
                     'Home',
                     style: TextStyle(
                         fontSize: 17,
@@ -84,59 +86,59 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 30),
-                child: Text('Rahimpura, Puranapul, Hyderabad'),
+                child: CommonText('Rahimpura, Puranapul, Hyderabad'),
               ),
               SizedBox(height: 17),
               Divider(thickness: 2),
               SizedBox(height: 17),
-              Text(
+              CommonText(
                 'Chicken Jumbo Pack Biryani (2)',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 17),
               Row(
                 children: [
-                  Text('item Total'),
+                  CommonText('item Total'),
                   SizedBox(width: 250),
                   Icon(Icons.currency_rupee, size: 18),
-                  Text('1234.00')
+                  CommonText('1234.00')
                 ],
               ),
               SizedBox(height: 17),
               Row(
                 children: [
-                  Text('Delivery Partner Fee'),
+                  CommonText('Delivery Partner Fee'),
                   SizedBox(width: 185),
                   Icon(Icons.currency_rupee, size: 18),
-                  Text('51.00')
+                  CommonText('51.00')
                 ],
               ),
               SizedBox(height: 17),
               Row(
                 children: [
-                  Text('Delivery Tip'),
+                  CommonText('Delivery Tip'),
                   SizedBox(width: 238),
                   Icon(Icons.currency_rupee, size: 18),
-                  Text('50.00')
+                  CommonText('50.00')
                 ],
               ),
               SizedBox(height: 17),
               Row(
                 children: [
-                  Text('Taxes'),
+                  CommonText('Taxes'),
                   SizedBox(width: 275),
                   Icon(Icons.currency_rupee, size: 18),
-                  Text('55.00')
+                  CommonText('55.00')
                 ],
               ),
               Divider(thickness: 2),
               SizedBox(height: 17),
               Row(
                 children: [
-                  Text('Paid via Credit Card'),
+                  CommonText('Paid via Credit Card'),
                   SizedBox(width: 184),
                   Icon(Icons.currency_rupee, size: 18),
-                  Text('1,391.00')
+                  CommonText('1,391.00')
                 ],
               ),
               SizedBox(height: 17),

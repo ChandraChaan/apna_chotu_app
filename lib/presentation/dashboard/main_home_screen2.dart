@@ -5,6 +5,8 @@ import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+import '../../common/app_text.dart';
+
 class FoodScreen extends StatelessWidget {
   List<Map<String, dynamic>> servicesItems = [
     {"image": "assets/images/plate_1.png", "name": "Food"},
@@ -17,6 +19,7 @@ class FoodScreen extends StatelessWidget {
     {"image": "assets/images/misc_services.png", "name": "Misc Services"},
     {"image": "assets/images/more.png", "name": "More"},
   ];
+
   // int counts = 3;
   // final List<String> img = ['image = 1', 'images = 2', 'images = 3'];
 
@@ -46,7 +49,7 @@ class FoodScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text(
+                        CommonText(
                           'Madhapur',
                           style: TextStyle(
                               fontSize: 25, fontWeight: FontWeight.bold),
@@ -59,7 +62,7 @@ class FoodScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  subtitle: Text(
+                  subtitle: CommonText(
                     'Rahimpura, Dattatreya Nagar, Hyderabad',
                     style: TextStyle(fontSize: 14),
                   ),
@@ -107,14 +110,23 @@ class FoodScreen extends StatelessWidget {
                 ),
                 CarouselSlider(
                     items: [
-                      Image.asset('assets/images/group_11.png'),
-                      Image.asset('assets/images/group_12.png'),
-                      Image.asset('assets/images/group_13.png')
+                      Image.asset(
+                        'assets/images/group_11.png',
+                        fit: BoxFit.fill,
+                      ),
+                      Image.asset(
+                        'assets/images/group_12.png',
+                        fit: BoxFit.fill,
+                      ),
+                      Image.asset(
+                        'assets/images/group_13.png',
+                        fit: BoxFit.fill,
+                      ),
                     ],
                     options: CarouselOptions(
-                      height: 150,
-                      aspectRatio: 16 / 9,
-                      viewportFraction: 0.8,
+                      height: 180,
+                      // aspectRatio: 16 / 6,
+                      viewportFraction: 0.9,
                       initialPage: 0,
                       enableInfiniteScroll: true,
                       reverse: false,
@@ -122,8 +134,8 @@ class FoodScreen extends StatelessWidget {
                       autoPlayInterval: Duration(seconds: 3),
                       autoPlayAnimationDuration: Duration(milliseconds: 800),
                       autoPlayCurve: Curves.fastOutSlowIn,
-                      enlargeCenterPage: true,
-                      enlargeFactor: 0.3,
+                      enlargeCenterPage: false,
+                      enlargeFactor: 0.8,
                       onPageChanged: (num, str) {},
                       scrollDirection: Axis.horizontal,
                     )),
@@ -138,10 +150,21 @@ class FoodScreen extends StatelessWidget {
                       crossAxisSpacing: 10.0,
                       mainAxisSpacing: 10.0),
                   itemBuilder: (BuildContext context, int index) {
-                    return InkWell(onTap: (){
-                      if (index == 0);
-                      Get.toNamed(Routes.restaurantListScreen);
-                    },
+                    return InkWell(
+                      onTap: () {
+                        if (index == 0)
+                          Get.toNamed(Routes.restaurantListScreen);
+                        else if(index ==1)
+                          Get.snackbar('Services are in progress', 'try again',
+                              snackPosition: SnackPosition.BOTTOM,
+                              colorText: Colors.white,
+                              backgroundColor: Colors.red);
+                        else
+                          Get.snackbar('Check with food only now', 'try again',
+                              snackPosition: SnackPosition.BOTTOM,
+                              colorText: Colors.white,
+                              backgroundColor: Colors.red);
+                      },
                       child: Container(
                           decoration: BoxDecoration(
                             color: Color(0xff8f8f8f).withOpacity(0.3),
@@ -153,14 +176,15 @@ class FoodScreen extends StatelessWidget {
                                   child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFFF5F5F5).withOpacity(0.8),
-                                        borderRadius:
-                                            BorderRadius.all(Radius.circular(20)),
+                                        color:
+                                            Color(0xFFF5F5F5).withOpacity(0.8),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(20)),
                                       ),
                                       child: Image.asset(
                                           servicesItems[index]['image']))),
                               Container(
-                                child: Text(servicesItems[index]['name']),
+                                child: CommonText(servicesItems[index]['name']),
                               )
                             ],
                           )),

@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../Config/app_pages.dart';
+import '../../common/app_text.dart';
+import '../../common/buttom_navigation_bar.dart';
 import '../dashboard/main_home_screen1.dart';
 import '../dashboard/main_home_screen2.dart';
 
@@ -17,11 +19,12 @@ class NonVegMenu extends StatefulWidget {
 
 class _NonVegMenuState extends State<NonVegMenu> {
   int selected = 1;
+  bool non_veg = false;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
+    return AppBottomNavigationBar(
+      child: SingleChildScrollView(
         child: SafeArea(
           child: Column(
             children: [
@@ -47,7 +50,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text(
+                      CommonText(
                         'Palamuru Grill',
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold),
@@ -55,7 +58,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
                     ],
                   ),
                 ),
-                subtitle: Text(
+                subtitle: CommonText(
                   'Opposite Meridian School,Ayyappa society, \nMadhapur,100 Feet Rd,Hyderabad, Telangana 500081',
                   style: TextStyle(fontSize: 13),
                 ),
@@ -66,14 +69,20 @@ class _NonVegMenuState extends State<NonVegMenu> {
                 child: Container(
                   height: 95,
                   width: double.infinity,
-                  color: Colors.deepOrange,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Colors.orange, Colors.deepOrange],
+                    ),
+                  ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Delicious',
+                      CommonText('Delicious',
                           style: TextStyle(color: Colors.white, fontSize: 25)),
-                      Text('Indian Couisine',
+                      CommonText('Indian Couisine',
                           style: TextStyle(color: Colors.white, fontSize: 32)),
                     ],
                   ),
@@ -88,59 +97,78 @@ class _NonVegMenuState extends State<NonVegMenu> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Menu',
+                    CommonText('Menu',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20)),
                     // SizedBox(width: 175),
 
                     Row(
                       children: [
-                        Container(
-                          height: 28,
-                          width: 60,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(15),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              non_veg = false;
+                            });
+                          },
+                          child: Container(
+                            height: 28,
+                            width: 60,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(15),
+                                ),
+                                border: Border.all(color: Colors.green),
+                                color: !non_veg
+                                    ? Colors.green.shade100
+                                    : Colors.white),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.adjust,
+                                    color: Colors.green,
+                                  ),
+                                  CommonText(
+                                    'Veg',
+                                    style: TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
                               ),
-                              border: Border.all(color: Colors.green),
-                              color: Colors.white),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.adjust,
-                                  color: Colors.green,
-                                ),
-                                Text(
-                                  'Veg',
-                                  style: TextStyle(
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
                             ),
                           ),
                         ),
                         SizedBox(width: 10),
-                        Container(
-                          height: 28,
-                          width: 90,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            border: Border.all(color: Colors.deepOrange),
-                          ),
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.adjust,
-                                color: Colors.deepOrange,
-                              ),
-                              Text(
-                                'Non Veg',
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              )
-                            ],
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              non_veg = true;
+                            });
+                          },
+                          child: Container(
+                            height: 28,
+                            width: 90,
+                            decoration: BoxDecoration(
+                              color: non_veg
+                                  ? Colors.deepOrange.shade100
+                                  : Colors.white,
+                              borderRadius: BorderRadius.circular(15),
+                              border: Border.all(color: Colors.deepOrange),
+                            ),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.adjust,
+                                  color: Colors.deepOrange,
+                                ),
+                                CommonText(
+                                  'Non Veg',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -165,8 +193,9 @@ class _NonVegMenuState extends State<NonVegMenu> {
                         borderRadius: BorderRadius.circular(10),
                         child: InkWell(
                           onTap: () {
-                            selected = index;
-                            setState(() {});
+                            setState(() {
+                              selected = index;
+                            });
                           },
                           child: Row(
                             children: [
@@ -192,7 +221,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                         MainAxisAlignment.spaceEvenly,
                                     // Use spaceEvenly for consistent spacing
                                     children: [
-                                      Text(
+                                      CommonText(
                                         'Chicken Biryani',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
@@ -200,11 +229,11 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                           fontSize: 16,
                                         ),
                                       ),
-                                      Text(
+                                      CommonText(
                                         'Biryani served with 1 chicken piece chest or leg, mirchi ka salan and raita',
                                         style: TextStyle(fontSize: 12),
                                       ),
-                                      Text(
+                                      CommonText(
                                         index.isOdd ? 'Closes soon' : 'Open',
                                         style: TextStyle(
                                           color: index.isOdd
@@ -217,7 +246,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
-                                          Text(
+                                          CommonText(
                                             '\$180',
                                             style: TextStyle(
                                               // color: Colors.b,
@@ -230,7 +259,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                           ),
                                           Row(
                                             children: [
-                                              Text(
+                                              CommonText(
                                                 '4',
                                                 style: TextStyle(
                                                   fontSize: 14,
@@ -245,7 +274,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                           SizedBox(
                                             width: 20,
                                           ),
-                                          Text(
+                                          CommonText(
                                             '(122)',
                                             style: TextStyle(
                                               fontSize: 12,
@@ -262,7 +291,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                 child: Container(
                                   color: selected == index
                                       ? Colors.redAccent
-                                      : Colors.grey.shade200,
+                                      : Colors.grey.shade300,
                                   child: Center(
                                     child: Icon(
                                       Icons.add,

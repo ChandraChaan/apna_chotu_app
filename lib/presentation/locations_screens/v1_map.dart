@@ -367,7 +367,7 @@
 // width: MediaQuery.of(context).size.width - 75.0,
 // child: Align(
 // alignment: Alignment.centerLeft,
-// child: Text(placeItem.description ?? ""),
+// child: CommonText(placeItem.description ?? ""),
 // ),
 // )
 // ],

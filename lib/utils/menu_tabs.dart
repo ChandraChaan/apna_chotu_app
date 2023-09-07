@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../common/app_text.dart';
+
 class MenuTabs extends StatelessWidget {
   const MenuTabs({super.key});
 
@@ -30,12 +32,12 @@ class MenuTabs extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    CommonText(
                       'Biriyani',
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
-                    Text(
+                    CommonText(
                       '1440 Places',
                       style: TextStyle(fontSize: 12),
                     ),
@@ -59,12 +61,12 @@ class MenuTabs extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    CommonText(
                       'Burger',
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
-                    Text(
+                    CommonText(
                       '720 Places',
                       style: TextStyle(fontSize: 12),
                     ),
@@ -87,12 +89,12 @@ class MenuTabs extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    CommonText(
                       'Pizza',
                       style:
                       TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
-                    Text(
+                    CommonText(
                       '340 Places',
                       style: TextStyle(fontSize: 12),
                     ),
@@ -115,12 +117,12 @@ class MenuTabs extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    CommonText(
                       'Sandwich',
                       style:
                       TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
-                    Text(
+                    CommonText(
                       '845 Places',
                       style: TextStyle(fontSize: 12),
                     ),

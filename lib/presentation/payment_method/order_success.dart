@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../common/app_text.dart';
+
 class OrderSuccess extends StatelessWidget {
   const OrderSuccess({super.key});
 
@@ -12,13 +14,13 @@ class OrderSuccess extends StatelessWidget {
           child: Column(
             children: [
               Center(
-                  child: Text('Thank you!',
+                  child: CommonText('Thank you!',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 36,
                           color: Colors.green))),
               SizedBox(height: 10),
-              Text('Your order is Successfully Confirmed',
+              CommonText('Your order is Successfully Confirmed',
                   style: TextStyle(
                       color: Colors.green,
                       fontSize: 18,
@@ -27,7 +29,7 @@ class OrderSuccess extends StatelessWidget {
               Container(
                   height: 210,
                   child: Image.asset('assets/images/group_3204.png')),
-              Text(
+              CommonText(
                 'Please check your booking status at your order page',style: TextStyle(fontSize: 15),
               )
             ],

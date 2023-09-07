@@ -3,6 +3,7 @@ import 'package:apna_chotu_app/Common/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../Config/app_pages.dart';
+import '../common/app_text.dart';
 import '../utils/linear_background.dart';
 import '../utils/rounded_button.dart';
 import 'dart:convert';
@@ -127,13 +128,13 @@ class _AuthScreenState extends State<AuthScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  CommonText(
                     'Apna Chotu Customer Login',
                     style: Theme.of(context).textTheme.displaySmall?.copyWith(
                         color: Colors.white, fontWeight: FontWeight.w400),
                   ),
                   const SizedBox(height: 8),
-                  Text(
+                  CommonText(
                     'Login access is available to customer who have registered.',
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: Colors.white,
@@ -147,7 +148,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           width: 265,
                           child: Image.asset('assets/images/fingerprint.png'))),
                   const SizedBox(height: 35),
-                  Text(
+                  CommonText(
                     'Enter registered mobile number',
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: Colors.white,
@@ -173,7 +174,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           items: countryCodes.map((code) {
                             return DropdownMenuItem<String>(
                               value: code,
-                              child: Text(code),
+                              child: CommonText(code),
                             );
                           }).toList(),
                           underline: Container(
@@ -203,7 +204,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   ),
                   if (signup) ...[
                     const SizedBox(height: 16),
-                    Text(
+                    CommonText(
                       'Email ID',
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                           color: Colors.white,
@@ -238,7 +239,9 @@ class _AuthScreenState extends State<AuthScreen> {
                               )))
                       : RoundedButton(
                           onPressed: () {
-                            if (phoneNumberController.text.trim().isNotEmpty) {
+                            if (phoneNumberController.text.trim().isNotEmpty &&
+                                phoneNumberController.text.trim().length ==
+                                    10) {
                               fetchUserData();
                               // authController.callAPI(
                               //     phone: phoneNumberController.text,
@@ -246,7 +249,8 @@ class _AuthScreenState extends State<AuthScreen> {
                             } else {
                               Get.defaultDialog(
                                   confirmTextColor: Colors.white,
-                                  title: 'Please enter phone number',
+                                  // modify error msg
+                                  title: 'Please correct enter phone number',
                                   middleText: '',
                                   onConfirm: () {
                                     Get.back();
@@ -265,7 +269,7 @@ class _AuthScreenState extends State<AuthScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
+              CommonText(
                 signup ? 'Already have an account? ' : 'Not have an account? ',
                 style: const TextStyle(
                   color: Colors.white,
@@ -277,7 +281,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     signup = !signup;
                   });
                 },
-                child: Text(
+                child: CommonText(
                   signup ? 'Login' : 'Create Now',
                   style: const TextStyle(
                     color: Colors.white,

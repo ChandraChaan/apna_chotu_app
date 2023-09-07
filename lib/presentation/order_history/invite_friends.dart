@@ -2,6 +2,8 @@ import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../common/app_text.dart';
+
 class InviteFriends extends StatelessWidget {
   const InviteFriends({super.key});
 
@@ -29,7 +31,7 @@ class InviteFriends extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(
+                    CommonText(
                       'Invite Friends',
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -39,7 +41,7 @@ class InviteFriends extends StatelessWidget {
               ),
               Divider(thickness: 2),
               SizedBox(height: 17),
-              Text(
+              CommonText(
                 'Let’s invite friends to try Apna Chotu',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -47,7 +49,7 @@ class InviteFriends extends StatelessWidget {
                     color: Colors.deepOrange),
               ),
               SizedBox(height: 5),
-              Text(
+              CommonText(
                 'So they can benefit by experiencing Apna Chotu and its perks, just like you!',
                 style: TextStyle(fontSize: 12),
               ),
@@ -63,7 +65,7 @@ class InviteFriends extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30),
-              Text(
+              CommonText(
                 'Hey have you tried Apna Chotu App? It really helps me save time and energy.',
                 style: TextStyle(fontSize: 12),
               )

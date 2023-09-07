@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:get/get.dart';
 import 'package:swipeable_button_view/swipeable_button_view.dart';
+import '../common/app_text.dart';
 import '../utils/linear_background.dart';
 import '../utils/rounded_button.dart';
 
@@ -92,7 +93,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                           ),
                           Expanded(
                             child: Center(
-                              child: Text(
+                              child: CommonText(
                                 "Get Started",
                                 style: Theme.of(context)
                                     .textTheme
@@ -165,7 +166,7 @@ class IntroScreenWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              CommonText(
                 introScreen.title,
                 style: Theme.of(context).textTheme.displaySmall?.copyWith(
                     color: Colors.white,
@@ -175,7 +176,7 @@ class IntroScreenWidget extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              Text(
+              CommonText(
                 introScreen.description,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     color: Colors.white,

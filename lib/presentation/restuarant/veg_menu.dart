@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../Config/app_pages.dart';
+import '../../common/app_text.dart';
 import '../dashboard/main_home_screen1.dart';
 import '../dashboard/main_home_screen2.dart';
 
@@ -16,13 +17,6 @@ class VegMenu extends StatefulWidget {
 class _VegMenuState extends State<VegMenu> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = [
-    FoodScreen(),
-    Page2(),
-    Page3(),
-    Page4(),
-    Page5(),
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +45,7 @@ class _VegMenuState extends State<VegMenu> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text(
+                      CommonText(
                         'Palamuru Grill',
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold),
@@ -63,7 +57,7 @@ class _VegMenuState extends State<VegMenu> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      CommonText(
                         'Opposite Meridian School,Ayyappa society, \nMadhapur,100 Feet Rd,Hyderabad, Telangana 500081',
                         style: TextStyle(fontSize: 13),
                       ),
@@ -86,9 +80,9 @@ class _VegMenuState extends State<VegMenu> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Delicious',
+                    CommonText('Delicious',
                         style: TextStyle(color: Colors.white,fontSize: 25)),
-                    Text('Indian Couisine',
+                    CommonText('Indian Couisine',
                         style: TextStyle(color: Colors.white,fontSize: 32)),
                   ],
                 ),
@@ -114,7 +108,7 @@ class _VegMenuState extends State<VegMenu> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text('Menu',
+                  CommonText('Menu',
                       style:
                       TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
                   SizedBox(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../common/app_text.dart';
+
 class RateYourMeal extends StatelessWidget {
   const RateYourMeal({super.key});
 
@@ -28,7 +30,7 @@ class RateYourMeal extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(
+                    CommonText(
                       'Rate Your Meal',
                       style:
                           TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
@@ -40,7 +42,7 @@ class RateYourMeal extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 55),
-                    child: Text('#163728282738, Delivered, 1 Item, ₹ 1235'),
+                    child: CommonText('#163728282738, Delivered, 1 Item, ₹ 1235'),
                   ),
                 ],
               ),
@@ -49,7 +51,7 @@ class RateYourMeal extends StatelessWidget {
               Column(
                 children: [
                   Center(
-                    child: Text(
+                    child: CommonText(
                       'Grand Hotel',
                       style: TextStyle(
                           fontSize: 17,
@@ -58,7 +60,7 @@ class RateYourMeal extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 17),
-                  Text(
+                  CommonText(
                     'Opposite Big Bazaar, Abids Road, Hyderabad',
                   ),
                   SizedBox(height: 21),

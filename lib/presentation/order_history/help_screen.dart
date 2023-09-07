@@ -2,6 +2,8 @@ import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../common/app_text.dart';
+
 class HelpScreen extends StatelessWidget {
   const HelpScreen({super.key});
 
@@ -29,7 +31,7 @@ class HelpScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(
+                    CommonText(
                       'Invite Friends',
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -43,14 +45,14 @@ class HelpScreen extends StatelessWidget {
                 children: [
                   TextButton(
                     onPressed: () {},
-                    child: Text(
+                    child: CommonText(
                       'Send a Query',
                       style: TextStyle(color: Colors.deepOrange, fontSize: 15),
                     ),
                   ),
                   TextButton(
                     onPressed: () {},
-                    child: Text(
+                    child: CommonText(
                       'Call to Customer Care',
                       style: TextStyle(fontSize: 15, color: Colors.black),
                     ),
@@ -114,7 +116,7 @@ class HelpScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 17),
                   Center(
-                    child: Text(
+                    child: CommonText(
                       '1800-1928 8392',
                       style:
                           TextStyle(fontSize: 26, fontWeight: FontWeight.bold),

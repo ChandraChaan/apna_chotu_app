@@ -35,8 +35,8 @@ const widget_gap_height_30 = 30.0;
 //const widget_gap_heig
 
 TextStyle UInormalStyle =
-    TextStyle(color: CentralizeColor.colorWhite, fontSize: 16, fontWeight: FontWeight.bold);
+    TextStyle(color: CommonColor.colorWhite, fontSize: 16, fontWeight: FontWeight.bold);
 TextStyle UIHeadingStyle =
-    TextStyle(color: CentralizeColor.colorWhite, fontSize: 24, fontWeight: FontWeight.bold);
+    TextStyle(color: CommonColor.colorWhite, fontSize: 24, fontWeight: FontWeight.bold);
 
 Widget kHorizontalSpace({width: 10.0}) => SizedBox(width: width);

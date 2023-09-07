@@ -5,6 +5,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import '../../common/app_text.dart';
 import '../../utils/rounded_button.dart';
 
 class CurrentLocation extends StatefulWidget {
@@ -78,7 +79,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
                           Icons.chevron_left,
                           size: 28,
                         )),
-                    Text(
+                    CommonText(
                       'Select a Location',
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -122,11 +123,11 @@ class _CurrentLocationState extends State<CurrentLocation> {
                   Icons.near_me,
                   color: Colors.deepOrange,
                 ),
-                title: const Text(
+                title: const CommonText(
                   'Use My Current Location',
                   style: TextStyle(color: Colors.deepOrange, fontSize: 14),
                 ),
-                // subtitle: const Text('Rahimpur, Dattatreya Nagar, Hyderabad'),
+                // subtitle: const CommonText('Rahimpur, Dattatreya Nagar, Hyderabad'),
               ),
               const Divider(thickness: 1),
               ListTile(
@@ -138,7 +139,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
                   Icons.add_sharp,
                   color: Colors.deepOrange,
                 ),
-                title: const Text(
+                title: const CommonText(
                   'Add New Address',
                   style: TextStyle(color: Colors.deepOrange),
                 ),
@@ -149,7 +150,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
               //   children: [
               //     Padding(
               //       padding: EdgeInsets.only(left: 13),
-              //       child: Text(
+              //       child: CommonText(
               //         'Nearby Location',
               //         style: TextStyle(color: Colors.deepOrange),
               //       ),
@@ -159,11 +160,11 @@ class _CurrentLocationState extends State<CurrentLocation> {
               //       leading: Icon(Icons.location_on, color: Colors.deepOrange),
               //       title: Padding(
               //         padding: EdgeInsets.only(top: 13),
-              //         child: Text(
+              //         child: CommonText(
               //           'Petals Accessories',
               //         ),
               //       ),
-              //       subtitle: Text(
+              //       subtitle: CommonText(
               //           'Karwan Road, Rahimpura, Dattatreya Nagar, Hyderabad'),
               //     ),
               //   ],
@@ -172,7 +173,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
               if (addressList.isNotEmpty)
                 Padding(
                   padding: EdgeInsets.only(left: 13),
-                  child: Text(
+                  child: CommonText(
                     'Recent Location',
                     style: TextStyle(color: Colors.deepOrange),
                   ),
@@ -181,10 +182,10 @@ class _CurrentLocationState extends State<CurrentLocation> {
                 ListTile(
                   minLeadingWidth: 0,
                   leading: Icon(Icons.location_on, color: Colors.deepOrange),
-                  title: Text(
+                  title: CommonText(
                     addressList[a]['locality'],
                   ),
-                  subtitle: Text(addressList[a]['address_name']),trailing: InkWell(
+                  subtitle: CommonText(addressList[a]['address_name']),trailing: InkWell(
                   onTap: () => editAddress(a),
                   child: Icon(
                     Icons.edit,

@@ -7,6 +7,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 
 import '../../Config/app_pages.dart';
+import '../../common/app_text.dart';
 import '../../utils/rounded_button.dart';
 
 class OthersAddress extends StatefulWidget {
@@ -94,7 +95,7 @@ class OthersAddressState extends State<OthersAddress> {
                 Get.back();
               },
             ),
-            title: Text(
+            title: CommonText(
               'Add New Address',
               style: TextStyle(color: Colors.black),
             )),
@@ -107,7 +108,7 @@ class OthersAddressState extends State<OthersAddress> {
               children: [
                 const Padding(
                   padding: EdgeInsets.only(left: 18, top: 15),
-                  child: Text(
+                  child: CommonText(
                     'Who are you ordering for?',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
@@ -127,7 +128,7 @@ class OthersAddressState extends State<OthersAddress> {
                             // print('this is updated value');
                           });
                         }),
-                    const Text('Myself', style: TextStyle(fontSize: 15)),
+                    const CommonText('Myself', style: TextStyle(fontSize: 15)),
                     Radio(
                         value: 2,
                         groupValue: _value,
@@ -138,13 +139,13 @@ class OthersAddressState extends State<OthersAddress> {
                             // print('this is updated value');
                           });
                         }),
-                    const Text('Others', style: TextStyle(fontSize: 15)),
+                    const CommonText('Others', style: TextStyle(fontSize: 15)),
                   ],
                 ),
                 if (_value == 2) ...[
                   const Padding(
                     padding: EdgeInsets.only(left: 18, top: 15),
-                    child: Text(
+                    child: CommonText(
                       'The address type was?',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -164,7 +165,7 @@ class OthersAddressState extends State<OthersAddress> {
                               // print('this is updated value');
                             });
                           }),
-                      const Text('Home', style: TextStyle(fontSize: 15)),
+                      const CommonText('Home', style: TextStyle(fontSize: 15)),
                       Radio(
                           value: 2,
                           groupValue: _addressValue,
@@ -175,7 +176,7 @@ class OthersAddressState extends State<OthersAddress> {
                               // print('this is updated value');
                             });
                           }),
-                      const Text('Hotel', style: TextStyle(fontSize: 15)),
+                      const CommonText('Hotel', style: TextStyle(fontSize: 15)),
                     ],
                   ),
                   Container(

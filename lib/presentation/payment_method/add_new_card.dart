@@ -1,6 +1,8 @@
 import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 
+import '../../common/app_text.dart';
+
 class AddNewCard extends StatefulWidget {
   const AddNewCard({super.key});
 
@@ -28,7 +30,7 @@ class _AddNewCardState extends State<AddNewCard> {
               padding: const EdgeInsets.only(top: 30),
               child: Column(
                 children: [
-                  Text(
+                  CommonText(
                     'Add New Card',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),

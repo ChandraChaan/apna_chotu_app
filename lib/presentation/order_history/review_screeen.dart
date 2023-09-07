@@ -2,6 +2,8 @@ import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../common/app_text.dart';
+
 class ReviewScreen extends StatelessWidget {
   const ReviewScreen({super.key});
 
@@ -28,7 +30,7 @@ class ReviewScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
+                  CommonText(
                     'Meal from Grand Hotel',
                     style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   ),
@@ -39,14 +41,14 @@ class ReviewScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 55),
-                  child: Text('#163728282738, Delivered, 1 Item, ₹ 1235'),
+                  child: CommonText('#163728282738, Delivered, 1 Item, ₹ 1235'),
                 ),
               ],
             ),
             Divider(thickness: 2),
             SizedBox(height: 17),
             Center(
-              child: Text(
+              child: CommonText(
                 'Average',
                 style: TextStyle(
                     fontSize: 17,
@@ -78,7 +80,7 @@ class ReviewScreen extends StatelessWidget {
             ),
             SizedBox(height: 22),
             Center(
-              child: Text(
+              child: CommonText(
                 'Please Add a Review',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../common/app_text.dart';
 import '../../utils/rounded_button.dart';
 
 class NonVegCloseSoon extends StatefulWidget {
@@ -28,7 +29,7 @@ class _NonVegCloseSoonState extends State<NonVegCloseSoon> {
                 )),
               ),
             ),
-            Text(
+            CommonText(
               '00:10:23',
               style: TextStyle(
                   fontSize: 36,
@@ -36,7 +37,7 @@ class _NonVegCloseSoonState extends State<NonVegCloseSoon> {
                   color: Colors.white),
             ),
             SizedBox(height: 4),
-            Text(
+            CommonText(
               "Restaurant Closing soon in 10mins",
               style: TextStyle(
                   color: Colors.deepOrange,
@@ -44,7 +45,7 @@ class _NonVegCloseSoonState extends State<NonVegCloseSoon> {
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 3),
-            Text(
+            CommonText(
               'Hurry up order before close',
               style: TextStyle(color: Colors.white),
             ),
@@ -60,7 +61,7 @@ class _NonVegCloseSoonState extends State<NonVegCloseSoon> {
             ),
             TextButton(
                 onPressed: () {},
-                child: Text(
+                child: CommonText(
                   'Cancel',
                   style: TextStyle(
                       color: Colors.deepOrange, fontWeight: FontWeight.bold),

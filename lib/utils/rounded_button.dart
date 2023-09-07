@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../common/app_text.dart';
+
 class RoundedButton extends StatelessWidget {
   final String name;
   final Function()? onPressed;
@@ -31,7 +33,7 @@ class RoundedButton extends StatelessWidget {
         ),
         // if child is null, then it take name for text
         child: child ??
-            Text(
+            CommonText(
               name,
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   color: Colors.white,

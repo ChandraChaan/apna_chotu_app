@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../common/app_text.dart';
+
 class OrderHistoryScreen extends StatefulWidget {
   const OrderHistoryScreen({super.key});
 
@@ -36,7 +38,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text(
+                        CommonText(
                           'Order Details',
                           style: TextStyle(
                               fontSize: 25, fontWeight: FontWeight.bold),
@@ -48,7 +50,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                 Divider(thickness: 2),
                 Row(
                   children: [
-                    Text(
+                    CommonText(
                       'Grand Hotel',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -60,27 +62,27 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       Icons.verified,
                       color: Colors.green,
                     ),
-                    Text('Delivered')
+                    CommonText('Delivered')
                   ],
                 ),
-                Text('Koti'),
+                CommonText('Koti'),
                 SizedBox(height: 15),
-                Text(
+                CommonText(
                   'Chicken Jumbo Pack Biryani(2)',
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 ),
-                Text('June 20,2023'),
+                CommonText('June 20,2023'),
                 SizedBox(height: 18),
                 Row(
                   children: [
                     Icon(Icons.currency_rupee, size: 18),
-                    Text(
+                    CommonText(
                       '1234',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     SizedBox(width: 130),
                     Icon(Icons.star, color: Colors.deepOrange),
-                    Text('Rate Order'),
+                    CommonText('Rate Order'),
                     SizedBox(width: 4),
                     Container(
                       height: 40,
@@ -96,7 +98,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    Text('Shree Santosh Family Dhaba',
+                    CommonText('Shree Santosh Family Dhaba',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.deepOrange,
@@ -106,14 +108,14 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       Icons.verified,
                       color: Colors.green,
                     ),
-                    Text('Delivered'),
+                    CommonText('Delivered'),
                   ],
                 ),
-                Text('madhapur'),
+                CommonText('madhapur'),
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    Text(
+                    CommonText(
                       'Butter Non (4), kadai panner(Full,1),',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
@@ -123,18 +125,18 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       width: 100,
                     ),
                     Icon(Icons.currency_rupee, size: 18),
-                    Text(
+                    CommonText(
                       '960',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
-                Text(
+                CommonText(
                   'Panner Fried Rice(Full,2, Baby Corn\nMajestic(Full,1)',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                 ),
                 SizedBox(height: 3),
-                Text('June 02,2023'),
+                CommonText('June 02,2023'),
                 SizedBox(height: 6),
                 Row(
                   children: [
@@ -142,10 +144,10 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       Icons.currency_rupee,
                       size: 18,
                     ),
-                    Text('1234'),
+                    CommonText('1234'),
                     SizedBox(width: 130),
                     Icon(Icons.star, color: Colors.deepOrange),
-                    Text('Rate Order'),
+                    CommonText('Rate Order'),
                     SizedBox(width: 4),
                     Container(
                       height: 40,
@@ -161,7 +163,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    Text('Cafe Bahar',
+                    CommonText('Cafe Bahar',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.deepOrange,
@@ -171,14 +173,14 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       Icons.verified,
                       color: Colors.green,
                     ),
-                    Text('Delivered'),
+                    CommonText('Delivered'),
                   ],
                 ),
-                Text('Himayath Nagar'),
+                CommonText('Himayath Nagar'),
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    Text(
+                    CommonText(
                       'Butter Naan(5), Chicken Curry (Full,1)',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
@@ -188,14 +190,14 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       width: 100,
                     ),
                     Icon(Icons.currency_rupee, size: 18),
-                    Text(
+                    CommonText(
                       '395',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
                 SizedBox(height: 3),
-                Text('June 02,2023'),
+                CommonText('June 02,2023'),
                 SizedBox(height: 6),
                 Row(
                   children: [
@@ -203,10 +205,10 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       Icons.currency_rupee,
                       size: 18,
                     ),
-                    Text('1234'),
+                    CommonText('1234'),
                     SizedBox(width: 130),
                     Icon(Icons.star, color: Colors.deepOrange),
-                    Text('Rate Order'),
+                    CommonText('Rate Order'),
                     SizedBox(width: 4),
                     Container(
                       height: 40,
@@ -222,7 +224,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    Text('Food Zone 2',
+                    CommonText('Food Zone 2',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.deepOrange,
@@ -232,14 +234,14 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       Icons.cancel,
                       color: Colors.deepOrange,
                     ),
-                    Text('Canceled'),
+                    CommonText('Canceled'),
                   ],
                 ),
-                Text('Hi-tech City'),
+                CommonText('Hi-tech City'),
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    Text(
+                    CommonText(
                       'Butter Naan(5), Chicken Curry(Full,1)',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
@@ -249,14 +251,14 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       width: 100,
                     ),
                     Icon(Icons.currency_rupee, size: 18),
-                    Text(
+                    CommonText(
                       '395',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
                 SizedBox(height: 3),
-                Text('June 02,2023'),
+                CommonText('June 02,2023'),
                 SizedBox(height: 6),
                 Row(
                   children: [
@@ -264,10 +266,10 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       Icons.currency_rupee,
                       size: 18,
                     ),
-                    Text('1234'),
+                    CommonText('1234'),
                     SizedBox(width: 130),
                     Icon(Icons.star, color: Colors.deepOrange),
-                    Text('Rate Order'),
+                    CommonText('Rate Order'),
                     SizedBox(width: 4),
                     Container(
                       height: 40,
@@ -283,7 +285,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    Text('Paradise Madhapur',
+                    CommonText('Paradise Madhapur',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.deepOrange,
@@ -293,14 +295,14 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       Icons.verified,
                       color: Colors.green,
                     ),
-                    Text('Delivered'),
+                    CommonText('Delivered'),
                   ],
                 ),
-                Text('madhapur'),
+                CommonText('madhapur'),
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    Text(
+                    CommonText(
                       'Chicken Biryani(Full 2)',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
@@ -309,7 +311,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                   ],
                 ),
                 SizedBox(height: 3),
-                Text('June 02,2023'),
+                CommonText('June 02,2023'),
                 SizedBox(height: 6),
                 Row(
                   children: [
@@ -317,10 +319,10 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       Icons.currency_rupee,
                       size: 18,
                     ),
-                    Text('1234'),
+                    CommonText('1234'),
                     SizedBox(width: 130),
                     Icon(Icons.star, color: Colors.deepOrange),
-                    Text('Rate Order'),
+                    CommonText('Rate Order'),
                     SizedBox(width: 4),
                     Container(
                       height: 40,
@@ -336,7 +338,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    Text('Food Zone 2',
+                    CommonText('Food Zone 2',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.deepOrange,
@@ -346,14 +348,14 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       Icons.cancel,
                       color: Colors.deepOrange,
                     ),
-                    Text('Canceled'),
+                    CommonText('Canceled'),
                   ],
                 ),
-                Text('Hi-tech City'),
+                CommonText('Hi-tech City'),
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    Text(
+                    CommonText(
                       'Butter Naan(5), Chicken Curry(Full,1)',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
@@ -363,14 +365,14 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       width: 100,
                     ),
                     Icon(Icons.currency_rupee, size: 18),
-                    Text(
+                    CommonText(
                       '395',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
                 SizedBox(height: 3),
-                Text('June 02,2023'),
+                CommonText('June 02,2023'),
                 SizedBox(height: 6),
                 Row(
                   children: [
@@ -378,10 +380,10 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       Icons.currency_rupee,
                       size: 18,
                     ),
-                    Text('1234'),
+                    CommonText('1234'),
                     SizedBox(width: 130),
                     Icon(Icons.star, color: Colors.deepOrange),
-                    Text('Rate Order'),
+                    CommonText('Rate Order'),
                     SizedBox(width: 4),
                     Container(
                       height: 40,
@@ -397,7 +399,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    Text('Food Zone 2',
+                    CommonText('Food Zone 2',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.deepOrange,
@@ -407,14 +409,14 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       Icons.cancel,
                       color: Colors.deepOrange,
                     ),
-                    Text('Canceled'),
+                    CommonText('Canceled'),
                   ],
                 ),
-                Text('Hi-tech City'),
+                CommonText('Hi-tech City'),
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    Text(
+                    CommonText(
                       'Butter Naan(5), Chicken Curry(Full,1)',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
@@ -423,7 +425,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                   ],
                 ),
                 SizedBox(height: 3),
-                Text('June 02,2023'),
+                CommonText('June 02,2023'),
                 SizedBox(height: 6),
                 Row(
                   children: [
@@ -431,10 +433,10 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       Icons.currency_rupee,
                       size: 18,
                     ),
-                    Text('1234'),
+                    CommonText('1234'),
                     SizedBox(width: 130),
                     Icon(Icons.star, color: Colors.deepOrange),
-                    Text('Rate Order'),
+                    CommonText('Rate Order'),
                     SizedBox(width: 4),
                     Container(
                       height: 40,
@@ -450,7 +452,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    Text('Absolute Barbecue',
+                    CommonText('Absolute Barbecue',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.deepOrange,
@@ -460,14 +462,14 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       Icons.cancel,
                       color: Colors.deepOrange,
                     ),
-                    Text('Cancelled'),
+                    CommonText('Cancelled'),
                   ],
                 ),
-                Text('Gachibowli'),
+                CommonText('Gachibowli'),
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    Text(
+                    CommonText(
                       'Chicken Wings(6), Chicken Curry(Full,1)',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
@@ -476,7 +478,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                   ],
                 ),
                 SizedBox(height: 3),
-                Text('June 02,2023'),
+                CommonText('June 02,2023'),
                 SizedBox(height: 6),
                 Row(
                   children: [
@@ -484,10 +486,10 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       Icons.currency_rupee,
                       size: 18,
                     ),
-                    Text('865'),
+                    CommonText('865'),
                     SizedBox(width: 130),
                     Icon(Icons.star, color: Colors.deepOrange),
-                    Text('Rate Order'),
+                    CommonText('Rate Order'),
                     SizedBox(width: 4),
                     Container(
                       height: 40,
@@ -504,7 +506,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    Text('Food Zone 2',
+                    CommonText('Food Zone 2',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.deepOrange,
@@ -514,14 +516,14 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       Icons.cancel,
                       color: Colors.deepOrange,
                     ),
-                    Text('Canceled'),
+                    CommonText('Canceled'),
                   ],
                 ),
-                Text('Hi-tech City'),
+                CommonText('Hi-tech City'),
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    Text(
+                    CommonText(
                       'Butter Naan(5), Chicken Curry(Full,1)',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
@@ -530,7 +532,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                   ],
                 ),
                 SizedBox(height: 3),
-                Text('June 02,2023'),
+                CommonText('June 02,2023'),
                 SizedBox(height: 6),
                 Row(
                   children: [
@@ -538,10 +540,10 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                       Icons.currency_rupee,
                       size: 18,
                     ),
-                    Text('395'),
+                    CommonText('395'),
                     SizedBox(width: 130),
                     Icon(Icons.star, color: Colors.deepOrange),
-                    Text('Rate Order'),
+                    CommonText('Rate Order'),
                     SizedBox(width: 4),
                     Container(
                       height: 40,

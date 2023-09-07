@@ -7,6 +7,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import '../../Config/app_pages.dart';
+import '../../common/app_text.dart';
 import '../../utils/rounded_button.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart'; // Import the flutter_typeahead package
 
@@ -237,15 +238,15 @@ class _MapScreenState extends State<MapScreen> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('Error'),
+            title: CommonText('Error'),
             content:
-                Text('Could not find coordinates for the provided place name.'),
+                CommonText('Could not find coordinates for the provided place name.'),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: Text('OK'),
+                child: CommonText('OK'),
               ),
             ],
           );
@@ -266,7 +267,7 @@ class _MapScreenState extends State<MapScreen> {
             Get.back();
           },
         ),
-        title: const Text('Choose delivery location'),
+        title: const CommonText('Choose delivery location'),
       ),
       body: Stack(
         children: [
@@ -331,7 +332,7 @@ class _MapScreenState extends State<MapScreen> {
                   },
                   itemBuilder: (BuildContext context, suggestion) {
                     return ListTile(
-                      title: Text(suggestion.toString()),
+                      title: CommonText(suggestion.toString()),
                     );
                   },
                   onSuggestionSelected: (suggestion) {
@@ -369,7 +370,7 @@ class _MapScreenState extends State<MapScreen> {
                     children: [
                       Icon(Icons.my_location, color: Colors.deepOrange),
                       SizedBox(width: 5),
-                      Text(
+                      CommonText(
                         'Use Current Location',
                         style: TextStyle(
                           color: Colors.deepOrange,
@@ -403,8 +404,8 @@ class _MapScreenState extends State<MapScreen> {
                       size: 35,
                       color: Colors.deepOrange,
                     ),
-                    title: Text(locality),
-                    subtitle: Text(
+                    title: CommonText(locality),
+                    subtitle: CommonText(
                       address,
                       maxLines: 1,
                     ),

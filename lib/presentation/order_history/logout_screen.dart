@@ -1,6 +1,8 @@
 import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 
+import '../../common/app_text.dart';
+
 class LogoutScreen extends StatelessWidget {
   const LogoutScreen({super.key});
 
@@ -25,7 +27,7 @@ class LogoutScreen extends StatelessWidget {
                   SizedBox(height: 17),
                   Image(image: AssetImage('assets/images/group_3286.png')),
                   SizedBox(height: 17),
-                  Text(
+                  CommonText(
                     'Comeback Soon!',
                     style: TextStyle(
                         fontSize: 15,
@@ -33,7 +35,7 @@ class LogoutScreen extends StatelessWidget {
                         color: Colors.deepOrange),
                   ),
                   Center(
-                    child: Text(
+                    child: CommonText(
                       'Are you sure you want to Logout?',
                       style: TextStyle(fontSize: 10),
                     ),
@@ -50,7 +52,7 @@ class LogoutScreen extends StatelessWidget {
                   SizedBox(height: 10),
                   TextButton(
                     onPressed: () {},
-                    child: Text(
+                    child: CommonText(
                       'Cancel',
                       style: TextStyle(color: Colors.deepOrange, fontSize: 14),
                     ),
