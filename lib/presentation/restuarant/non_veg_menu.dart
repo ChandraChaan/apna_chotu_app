@@ -32,7 +32,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
               ListTile(
                 minLeadingWidth: 0,
                 minVerticalPadding: 2,
-                horizontalTitleGap: 2,
+                horizontalTitleGap: 0,
                 contentPadding: const EdgeInsets.all(0),
                 leading: Column(
                   children: [
@@ -40,7 +40,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
                       icon: Icon(
                         Icons.arrow_back_ios,
                         color: Colors.black,
-                        size: 30,
+                        size: 25,
                       ),
                       onPressed: () {
                         Get.back();
@@ -57,7 +57,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
                       CommonText(
                         'Palamuru Grill',
                         style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
+                            fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),

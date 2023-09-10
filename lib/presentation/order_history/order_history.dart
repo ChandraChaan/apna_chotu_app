@@ -1,3 +1,4 @@
+import 'package:apna_chotu_app/common/buttom_navigation_bar.dart';
 import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,8 +16,8 @@ class OrderHistoryScreen extends StatefulWidget {
 class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
+    return AppBottomNavigationBar(
+      child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SingleChildScrollView(
@@ -26,24 +27,24 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                 ListTile(
                   minLeadingWidth: 0,
                   minVerticalPadding: 0,
-                  horizontalTitleGap: 10,
+                  horizontalTitleGap: -18,
                   contentPadding: const EdgeInsets.all(0),
                   leading: IconButton(
-                    onPressed: () {Get.back();},
-                    icon: Icon(Icons.chevron_left, size: 38),
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(
+                      Icons.arrow_back_ios,
+                      size: 28,
+                      color: Colors.black,
+                    ),
                   ),
                   title: SizedBox(
                     width: 100,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        CommonText(
-                          'Order Details',
-                          style: TextStyle(
-                              fontSize: 25, fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                    child: CommonText(
+                      'Order Details',
+                      style:
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),

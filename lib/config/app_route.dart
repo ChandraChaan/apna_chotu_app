@@ -25,5 +25,8 @@ abstract class Routes {
   static const inviteFriends = '/inviteFriends';
   static const helpScreen = '/helpScreen';
   static const logoutScreen = '/logoutScreen';
+  static const cartScreen = '/cartScreen';
+  static const editProfileScreen = '/editProfileScreen';
+  static const privacyPolicy = '/privacyPolicy';
 
 }
