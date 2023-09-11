@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  ProfileScreen({super.key});
+
+  final ExpansionTileController controller = ExpansionTileController();
 
   @override
   Widget build(BuildContext context) {
@@ -157,11 +159,59 @@ class ProfileScreen extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: 8),
-
                     ],
                   ),
                 ),
               ),
+              Column(
+                children: <Widget>[
+                  ExpansionTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Text('Profile'), Icon(Icons.edit)],
+                    ),
+                    children: <Widget>[
+                      Builder(
+                        builder: (BuildContext context) {
+                          return Container(
+                            padding: const EdgeInsets.all(24),
+                            alignment: Alignment.center,
+                            child: const Text('Name'),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                  ExpansionTile(
+                    title: Text('My Orders'),
+                    children: <Widget>[
+                      Builder(
+                        builder: (BuildContext context) {
+                          return Container(
+                            padding: const EdgeInsets.all(24),
+                            alignment: Alignment.center,
+                            child: const Text('Orders'),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                  ExpansionTile(
+                    title: Text('Refer and Earn'),
+                    children: <Widget>[
+                      Builder(
+                        builder: (BuildContext context) {
+                          return Container(
+                            padding: const EdgeInsets.all(24),
+                            alignment: Alignment.center,
+                            child: const Text('Refer'),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              )
             ],
           ),
         ),
