@@ -35,7 +35,7 @@ const widget_gap_height_30 = 30.0;
 //const widget_gap_heig
 
 TextStyle UInormalStyle =
-    TextStyle(color: CommonColor.colorWhite, fontSize: 16, fontWeight: FontWeight.bold);
+    TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
 TextStyle UIHeadingStyle =
     TextStyle(color: CommonColor.colorWhite, fontSize: 24, fontWeight: FontWeight.bold);
 

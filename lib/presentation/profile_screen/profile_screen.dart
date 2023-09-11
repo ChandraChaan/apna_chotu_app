@@ -157,14 +157,7 @@ class ProfileScreen extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: 8),
-                      Stack(
-                        children: [
-                          Container(
-                            height: 35,
-                            color: Colors.black,
-                          )
-                        ],
-                      )
+
                     ],
                   ),
                 ),

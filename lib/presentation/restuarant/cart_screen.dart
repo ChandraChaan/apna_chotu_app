@@ -3,8 +3,15 @@ import 'package:apna_chotu_app/common/container_lineargradient.dart';
 import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 
-class CartScreen extends StatelessWidget {
-  const CartScreen({super.key});
+import '../../utils/constant.dart';
+
+class CartScreen extends StatefulWidget {
+  @override
+  State<CartScreen> createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
+  int quantity = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +36,7 @@ class CartScreen extends StatelessWidget {
                 ),
                 title: CommonText(
                   'Checkout',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: UInormalStyle,
                 ),
                 subtitle: CommonText('2 items, Total: ₹ 225'),
               ),
@@ -93,46 +100,51 @@ class CartScreen extends StatelessWidget {
                 ),
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 30, left: 30),
-                    child: Container(
-                      height: 48,
-                      width: 48,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/images/biryani_3.png'),
-                            fit: BoxFit.fill),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  Column(
+                  Row(
                     children: [
-                      CommonText(
-                        'Chicken Biryani',
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.deepOrange),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30, left: 30),
+                        child: Container(
+                          height: 48,
+                          width: 48,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image:
+                                    AssetImage('assets/images/biryani_3.png'),
+                                fit: BoxFit.fill),
+                          ),
+                        ),
                       ),
-                      Row(
+                      SizedBox(width: 10),
+                      Column(
                         children: [
-                          Icon(
-                            Icons.currency_rupee,
-                            size: 14,
-                          ),
                           CommonText(
-                            '225',
+                            'Chicken Biryani',
                             style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.bold),
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.deepOrange),
                           ),
-                          SizedBox(width: 70),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.currency_rupee,
+                                size: 14,
+                              ),
+                              CommonText(
+                                '225',
+                                style: TextStyle(
+                                    fontSize: 14, fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(width: 70),
+                            ],
+                          )
                         ],
-                      )
+                      ),
                     ],
                   ),
-                  SizedBox(width: 65),
                   Container(
                     height: 40,
                     width: 120,
@@ -141,6 +153,28 @@ class CartScreen extends StatelessWidget {
                         Radius.circular(15),
                       ),
                       border: Border.all(color: Colors.deepOrange),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        IconButton(
+                          icon: Icon(Icons.remove),
+                          onPressed: () {
+                            setState(() {
+                              if (quantity > 1) quantity--;
+                            });
+                          },
+                        ),
+                        CommonText('$quantity'),
+                        IconButton(
+                          icon: Icon(Icons.add),
+                          onPressed: () {
+                            setState(() {
+                              quantity++;
+                            });
+                          },
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -175,46 +209,80 @@ class CartScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        Icon(Icons.circle),
-                        SizedBox(width: 7),
-                        CommonText(
-                          'Coupon Corner',
-                          style: TextStyle(
-                              fontSize: 12, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(width: 210),
-                        TextButton(
-                          onPressed: () {},
-                          child: CommonText(
-                            'Apply',
-                            style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.deepOrange),
+                    Expanded(
+                      flex: 4,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Icon(Icons.circle),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    SizedBox(
+                                      height: 1,
+                                    ),
+                                    CommonText(
+                                      'Coupon Corner',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        CommonText(
+                                          'Save 100 more on this order',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 12,
+                                              color: Colors.deepOrange),
+                                        ),
+                                        CommonText(
+                                          'Code: JUSTFORYOU',
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    CommonText(
-                      'Save 100 more on this order',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                          color: Colors.deepOrange),
-                    ),
-                    CommonText(
-                      'Code: JUSTFORYOU',
-                      style: TextStyle(
-                        fontSize: 12,
+                          TextButton(
+                            onPressed: () {},
+                            child: CommonText(
+                              'Apply',
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.deepOrange),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    Center(
-                      child: CommonText(
-                        'View All Coupons',
-                        style: TextStyle(
-                            fontSize: 11, fontWeight: FontWeight.bold),
+                    Expanded(
+                      flex: 1,
+                      child: Center(
+                        child: CommonText(
+                          'View All Coupons',
+                          style: TextStyle(
+                              fontSize: 11, fontWeight: FontWeight.bold),
+                        ),
                       ),
                     )
                   ],
@@ -310,12 +378,25 @@ class CartScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    CommonText('It means a lot that you are kind. Your delivery partner will receive your entire gratuity.')
+                    CommonText(
+                        'It means a lot that you are kind. Your delivery partner will receive your entire gratuity.')
                   ],
                 ),
               )
             ],
           ),
+        ),
+      ),
+      bottomSheet: Container(
+        height: 100,
+        // color: Colors.black,
+        child: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Center(
+              child: RoundedButton(
+            name: 'Proceed to Pay',
+            onPressed: () {},
+          )),
         ),
       ),
     );
