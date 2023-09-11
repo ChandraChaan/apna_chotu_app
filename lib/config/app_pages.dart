@@ -32,7 +32,7 @@ import '../presentation/locations_screens/select_location_screen.dart';
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.profileScreen;
+  static const initial = Routes.foodScreen;
   static final routes = [
     GetPage(
         name: Routes.intro,

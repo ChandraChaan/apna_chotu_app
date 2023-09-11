@@ -163,55 +163,55 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Column(
-                children: <Widget>[
-                  ExpansionTile(
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [Text('Profile'), Icon(Icons.edit)],
-                    ),
-                    children: <Widget>[
-                      Builder(
-                        builder: (BuildContext context) {
-                          return Container(
-                            padding: const EdgeInsets.all(24),
-                            alignment: Alignment.center,
-                            child: const Text('Name'),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                  ExpansionTile(
-                    title: Text('My Orders'),
-                    children: <Widget>[
-                      Builder(
-                        builder: (BuildContext context) {
-                          return Container(
-                            padding: const EdgeInsets.all(24),
-                            alignment: Alignment.center,
-                            child: const Text('Orders'),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                  ExpansionTile(
-                    title: Text('Refer and Earn'),
-                    children: <Widget>[
-                      Builder(
-                        builder: (BuildContext context) {
-                          return Container(
-                            padding: const EdgeInsets.all(24),
-                            alignment: Alignment.center,
-                            child: const Text('Refer'),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ],
-              )
+              // Column(
+              //   children: <Widget>[
+              //     ExpansionTile(
+              //       title: Row(
+              //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //         children: [Text('Profile'), Icon(Icons.edit)],
+              //       ),
+              //       children: <Widget>[
+              //         Builder(
+              //           builder: (BuildContext context) {
+              //             return Container(
+              //               padding: const EdgeInsets.all(24),
+              //               alignment: Alignment.center,
+              //               child: const Text('Name'),
+              //             );
+              //           },
+              //         ),
+              //       ],
+              //     ),
+              //     ExpansionTile(
+              //       title: Text('My Orders'),
+              //       children: <Widget>[
+              //         Builder(
+              //           builder: (BuildContext context) {
+              //             return Container(
+              //               padding: const EdgeInsets.all(24),
+              //               alignment: Alignment.center,
+              //               child: const Text('Orders'),
+              //             );
+              //           },
+              //         ),
+              //       ],
+              //     ),
+              //     ExpansionTile(
+              //       title: Text('Refer and Earn'),
+              //       children: <Widget>[
+              //         Builder(
+              //           builder: (BuildContext context) {
+              //             return Container(
+              //               padding: const EdgeInsets.all(24),
+              //               alignment: Alignment.center,
+              //               child: const Text('Refer'),
+              //             );
+              //           },
+              //         ),
+              //       ],
+              //     ),
+              //   ],
+              // )
             ],
           ),
         ),

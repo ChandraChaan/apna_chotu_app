@@ -1,4 +1,6 @@
 import 'package:apna_chotu_app/Config/app_pages.dart';
+import 'package:apna_chotu_app/utils/constant.dart';
+import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/rendering.dart';
@@ -154,7 +156,7 @@ class FoodScreen extends StatelessWidget {
                       onTap: () {
                         if (index == 0)
                           Get.toNamed(Routes.restaurantListScreen);
-                        else if(index ==1)
+                        else if (index == 1)
                           Get.snackbar('Services are in progress', 'try again',
                               snackPosition: SnackPosition.BOTTOM,
                               colorText: Colors.white,
@@ -166,31 +168,31 @@ class FoodScreen extends StatelessWidget {
                               backgroundColor: Colors.red);
                       },
                       child: Container(
-                          decoration: BoxDecoration(
-                            color: Color(0xff8f8f8f).withOpacity(0.3),
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                          ),
-                          child: Column(
-                            children: [
-                              Expanded(
-                                  child: Container(
-                                      width: double.infinity,
-                                      decoration: BoxDecoration(
-                                        color:
-                                            Color(0xFFF5F5F5).withOpacity(0.8),
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(20)),
-                                      ),
-                                      child: Image.asset(
-                                          servicesItems[index]['image']))),
-                              Container(
-                                child: CommonText(servicesItems[index]['name']),
-                              )
-                            ],
-                          )),
+                        decoration: BoxDecoration(
+                          color: Color(0xff8f8f8f).withOpacity(0.3),
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        child: Column(
+                          children: [
+                            Expanded(
+                                child: Container(
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFF5F5F5).withOpacity(0.8),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(20)),
+                                    ),
+                                    child: Image.asset(
+                                        servicesItems[index]['image']))),
+                            Container(
+                              child: CommonText(servicesItems[index]['name']),
+                            )
+                          ],
+                        ),
+                      ),
                     );
                   },
-                ),
+                ), //image first
                 SizedBox(
                   height: 12,
                 ),
@@ -200,23 +202,84 @@ class FoodScreen extends StatelessWidget {
                     color: Colors.grey[600],
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     image: DecorationImage(
-                      image: AssetImage("assets/images/Group_126.png"),
+                      image: AssetImage("assets/images/Group_7.png"),
                       fit: BoxFit.cover,
                     ),
                   ),
-                ),
+                ), //image second
                 SizedBox(
                   height: 10,
                 ),
-                Container(
-                  height: 160,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                    image: DecorationImage(
-                        image: AssetImage('assets/images/ride_now.png'),
-                        fit: BoxFit.fill),
-                  ),
-                ),
+                Stack(
+                  children: [
+                    Container(
+                      height: 160,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        image: DecorationImage(
+                            image:
+                                AssetImage('assets/images/rectangle_208.png'),
+                            fit: BoxFit.fill),
+                      ),
+                    ),
+                    Positioned(
+                      top: 20, // Adjust the top position as needed
+                      left: 20, // Adjust the left position as needed
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 70),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            CommonText(
+                              'Flat 25% OFF',
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
+                            CommonText(
+                              'for 1st 3 RIDES',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                  color: Colors.white),
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  height: 23,
+                                  width: 65,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(3),
+                                      color: Colors.deepOrange),
+                                  child: Center(
+                                    child: CommonText(
+                                      'RIDE NOW',
+                                      style: TextStyle(
+                                          fontSize: 9,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: CommonText(
+                                    '#FL25ACP',
+                                    style: TextStyle(
+                                        fontSize: 9,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ), //image third
                 SizedBox(height: 10),
                 SizedBox(
                   height: 150,
@@ -225,29 +288,139 @@ class FoodScreen extends StatelessWidget {
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.only(right: 10),
-                          child: Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(
+                          child: Stack(
+                            children: [
+                              Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/rectangle_209.png'),
+                                        fit: BoxFit.fill)),
+                              ),
+                              Positioned(
+                                top: 20, // Adjust the top position as needed
+                                left: 20, // Adjust the left position as needed
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 32),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      CommonText(
+                                        'Call for',
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white),
+                                      ),
+                                      CommonText(
+                                        'PETS',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 14,
+                                            color: Colors.white),
+                                      ),
+                                      CommonText(
+                                        'CONTROL',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 14,
+                                            color: Colors.white),
+                                      ),
+                                      Container(
+                                        height: 23,
+                                        width: 65,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(3),
+                                            color: Colors.deepOrange),
+                                        child: Center(
+                                          child: CommonText(
+                                            'BOOK NOW',
+                                            style: TextStyle(
+                                                fontSize: 9,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ), //image four
+                      Expanded(
+                        child: Stack(
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: Colors.red,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20)),
                                 image: DecorationImage(
                                     image: AssetImage(
-                                        'assets/images/book_now.png'),
-                                    fit: BoxFit.fill)),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            image: DecorationImage(
-                                image:
-                                    AssetImage('assets/images/group_3227.png'),
-                                fit: BoxFit.fill),
-                          ),
+                                        'assets/images/rectangle_210.png'),
+                                    fit: BoxFit.fill),
+                              ),
+                            ),
+                            Positioned(
+                              top: 20, // Adjust the top position as needed
+                              left: 20, // Adjust the left position as needed
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 32),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    CommonText(
+                                      'Flat 15%',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white),
+                                    ),
+                                    CommonText(
+                                      'OFF for',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 14,
+                                          color: Colors.white),
+                                    ),
+                                    CommonText(
+                                      '1st Booking',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 14,
+                                          color: Colors.white),
+                                    ),
+                                    Container(
+                                      height: 23,
+                                      width: 65,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(3),
+                                          color: Colors.deepOrange),
+                                      child: Center(
+                                        child: CommonText(
+                                          'BOOK NOW',
+                                          style: TextStyle(
+                                              fontSize: 9,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
@@ -256,15 +429,67 @@ class FoodScreen extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Container(
-                  height: 150,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                    image: DecorationImage(
-                        image: AssetImage('assets/images/gym.png'),
-                        fit: BoxFit.fill),
-                  ),
-                )
+                Stack(
+                  children: [
+                    Container(
+                      height: 150,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        image: DecorationImage(
+                            image:
+                                AssetImage('assets/images/rectangle_211.png'),
+                            fit: BoxFit.fill),
+                      ),
+                    ),
+                    Positioned(
+                      top: 20, // Adjust the top position as needed
+                      left: 20, // Adjust the left position as needed
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 32),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            CommonText(
+                              'Flat 25% OFF',
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
+                            CommonText(
+                              'for 6 Months',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                  color: Colors.white),
+                            ),
+                            Container(
+                              height: 23,
+                              width: 65,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(3),
+                                  color: Colors.deepOrange),
+                              child: Center(
+                                child: CommonText(
+                                  'JOIN NOW',
+                                  style: TextStyle(
+                                      fontSize: 9,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                            CommonText(
+                              '#FL25GYM',
+                              style:
+                                  TextStyle(fontSize: 14, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
