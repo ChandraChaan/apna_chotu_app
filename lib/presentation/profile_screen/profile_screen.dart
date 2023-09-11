@@ -23,6 +23,7 @@ class ProfileScreen extends StatelessWidget {
                 leading: Icon(
                   Icons.arrow_back_ios,
                   size: 25,
+                  color: Colors.black,
                 ),
                 title: SizedBox(
                   width: 100,

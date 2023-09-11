@@ -293,15 +293,25 @@ class CartScreen extends StatelessWidget {
               Divider(thickness: 2),
               SizedBox(height: 7),
               Container(
-                height: 40,
-                width: 167,
-                child: RoundedButton(
-                  onPressed: () {},
-                  name: '',
-                  child: Text(
-                    'Proceed to Pay',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
+                height: 121,
+                decoration: BoxDecoration(
+                  color: Color(0xFFF3F3F3),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.money),
+                        CommonText(
+                          'Tip your delivery partner',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 12),
+                        ),
+                      ],
+                    ),
+                    CommonText('It means a lot that you are kind. Your delivery partner will receive your entire gratuity.')
+                  ],
                 ),
               )
             ],
