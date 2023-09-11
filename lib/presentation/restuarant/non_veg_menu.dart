@@ -22,31 +22,217 @@ class _NonVegMenuState extends State<NonVegMenu> {
   bool non_veg = false;
   List non_veg_list = [
     {
-      "name": "chicken biryani",
-      "price": "180",
-      "image": "assets/images/group_12.png"
-    },
-    {
-      "name": "chicken biryani",
-      "price": "180",
-      "image": "assets/images/group_12.png"
-    },
-    {
-      "name": "chicken biryani",
-      "price": "180",
-      "image": "assets/images/group_12.png",
-      "description": "ok",
+      //img 1
+      "image": "assets/images/image_23.png",
+      "name": "chicken Biryani",
+      "description":
+          "Biryani served with 1 chicken piece chest or leg, mirchi ka salan and raita.",
       "open_close": "closes soon",
-      "rating": "4",
-      "orders_count": "122"
-    }
+      "price": "180",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
+    {
+      //img 2
+      "image": "assets/images/image_24.png",
+      "name": "Tandoori Chicken",
+      "description":
+          "Biryani served with 1 chicken piece chest or leg, mirchi ka salan and raita.",
+      "open_close": "Open",
+      "price": "280",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
+    {
+      // img 3
+      "image": "assets/images/mask_group.png",
+      "name": "chicken Biryani Handi",
+      "description":
+          "Biryani served with 1 chicken piece chest or leg, mirchi ka salan and raita.",
+      "open_close": "closes soon",
+      "price": "399",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
+    {
+      //img 4
+      "image": "assets/images/image_25.png",
+      "name": "chicken biryani Jumbo Pack",
+      "description":
+          "Biryani served with 1 chicken piece chest or leg, mirchi ka salan and raita.",
+      "open_close": "closes soon",
+      "price": "880",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
+    {
+      //img5
+      "image": "assets/images/image_23.png",
+      "name": "chicken biryani",
+      "description":
+          "Biryani served with 1 chicken piece chest or leg, mirchi ka salan and raita.",
+      "open_close": "Open",
+      "price": "180",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
+    {
+      //img6
+      "image": "assets/images/image_26.png",
+      "name": "Chicken Tikka",
+      "description":
+          "Chicken Tikka Kebab is a delicious appetizer that is packed with flavor.",
+      "open_close": "Open",
+      "price": "249",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
+    {
+      //img7
+      "image": "assets/images/image_27.png",
+      "name": "Pot Chicken Biryani",
+      "description":
+          "Biryani served with 1 chicken piece chest or leg, mirchi ka salan and raita.",
+      "open_close": "closes soon",
+      "price": "329",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
+    {
+      //img8
+      "image": "assets/images/image_28.png",
+      "name": "Tandoori Chicken Wings",
+      "description":
+          "Tandoori chicken wings, marinated in Indian spices and yogurt and grilled to perfection, will blow your mind away!",
+      "open_close": "closes soon",
+      "price": "180",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
+    {
+      //img9
+      "image": "assets/images/image_29.png",
+      "name": "Coconut Chicken Curry",
+      "description":
+          "Easy & healthy Indian Coconut Chicken Curry made in an Instant Pot in just 20 minutes!",
+      "open_close": "closes soon",
+      "price": "280",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
+    {
+      //img10
+      "image": "assets/images/image_30.png",
+      "name": "Chilli Chicken",
+      "description":
+          "Boneless chicken is marinated in flavorful sauces, fried until crispy, this is stir fried with lots of ginger, garlic, onions, bell peppers and sauces.",
+      "open_close": "closes soon",
+      "price": "229",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
   ];
   List veg_list = [
     {
-      "name": "veg biryani",
-      "price": "90",
-      "image": "assets/images/group_13.png"
-    }
+      "image": "assets/images/veg_1.png",
+      "name": "Aloo Gobi Biryani",
+      "description":
+          "Aloo Gobi Biryani served with Aloo mixed gobi, mirchi ka salan and raita",
+      "open_close": "Open",
+      "price": "199",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
+    {
+      "image": "assets/images/veg_2.png",
+      "name": "Palak Panner Biryani",
+      "description":
+          "Palak Panner Biryani served with pure panner with palak, mirchi ka salan and raita",
+      "open_close": "Open",
+      "price": "280",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
+    {
+      "image": "assets/images/veg_3.png",
+      "name": "Mushroom Biryani Handi",
+      "description":
+          "Mushroom Biryani served with full handi fresh of Mushroom, mirchi ka salan and raita",
+      "open_close": "Open",
+      "price": "429",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
+    {
+      "image": "assets/images/veg_4.png",
+      "name": "Veg Biryani",
+      "description":
+          "Biryani served with 1 veg piece panner or corn, mirchi ka salan and raita",
+      "open_close": "Open",
+      "price": "880",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
+    {
+      "image": "assets/images/veg_5.png",
+      "name": "Panner Biryani",
+      "description":
+          "Biryani served with panner piece mushroom or gobi, mirchi ka salan and raita",
+      "open_close": "Open",
+      "price": "180",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
+    {
+      "image": "assets/images/veg_6.png",
+      "name": "Panner Tikka",
+      "description":
+          "Panner Tikka Kebab is a delicious appetizer that is packed with flavor.",
+      "open_close": "Open",
+      "price": "249",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
+    {
+      "image": "assets/images/veg_7.png",
+      "name": "Pot Biryani",
+      "description":
+          "Biryani served with 1 chicken piece chest or leg, mirchi ka salan and raita",
+      "open_close": "Open",
+      "price": "329",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
+    {
+      "image": "assets/images/veg_8.png",
+      "name": "Veg Fried Rice",
+      "description":
+          "Veg fried rice, marinated in Indian spices and yogurt and grilled to perfection, will blow your mind away!",
+      "open_close": "Open",
+      "price": "180",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
+    {
+      "image": "assets/images/veg_9.png",
+      "name": "Coconut Panner Curry",
+      "description":
+          "Easy & healthy Indian Coconut Chicken Curry made in an Instant Pot in just 20 minutes!",
+      "open_close": "Open",
+      "price": "280",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
+    {
+      "image": "assets/images/veg_10.png",
+      "name": "Chilli Gobi Fry",
+      "description":
+          "Chilli Gobi is marinated in flavorful sauces, fried until crispy, this is stir fried with lots of ginger, garlic, onions, bell peppers and sauces.",
+      "open_close": "Open",
+      "price": "229",
+      "rating": "4.0",
+      "orders_count": "(122)"
+    },
   ];
 
   @override
@@ -60,7 +246,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
               ListTile(
                 minLeadingWidth: 0,
                 minVerticalPadding: 2,
-                horizontalTitleGap: 0,
+                horizontalTitleGap: -10,
                 contentPadding: const EdgeInsets.all(0),
                 leading: Column(
                   children: [
@@ -85,14 +271,14 @@ class _NonVegMenuState extends State<NonVegMenu> {
                       CommonText(
                         'Palamuru Grill',
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
                 ),
                 subtitle: CommonText(
                   'Opposite Meridian School,Ayyappa society, \nMadhapur,100 Feet Rd,Hyderabad, Telangana 500081',
-                  style: TextStyle(fontSize: 13),
+                  style: TextStyle(fontSize: 10),
                 ),
                 trailing: Padding(
                   padding: const EdgeInsets.all(8.0),

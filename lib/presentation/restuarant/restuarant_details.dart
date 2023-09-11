@@ -30,25 +30,30 @@ class _RestaurantDetailsState extends State<RestaurantDetails> {
                   'assets/images/rectangle_215.png',
                 ),
               )),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.white,
-                        size: 33,
-                      ),
-                    ),
-                    CommonText(
-                      'T-Grill',
-                      style: TextStyle(fontSize: 42, color: Colors.white),
-                    ),
-                  ],
+              child: ListTile(
+                minVerticalPadding: 0,
+                minLeadingWidth: 0,
+                horizontalTitleGap: -2,
+                contentPadding: EdgeInsets.all(0),
+                leading: Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.white,
+                  size: 25,
+                ),
+                title: CommonText(
+                  'T-Grill',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+                subtitle: CommonText(
+                  'CBI Colony, Hi-tech City, Hyderabad',
+                  style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
               ),
             ),
@@ -60,36 +65,40 @@ class _RestaurantDetailsState extends State<RestaurantDetails> {
                         topRight: Radius.circular(15),
                         topLeft: Radius.circular(15))),
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 10),
+                  padding: const EdgeInsets.all(10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       MenuTabs(),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8, top: 22),
-                        child: Container(
-                          height: 20,
-                          width: 75,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(15),
+                      SizedBox(height: 20),// common function
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: 20,
+                            width: 75,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(14),
+                                ),
+                                border: Border.all(color: Colors.green),
+                                color: Colors.white),
+                            child: Center(
+                              child: CommonText(
+                                'Popular',
+                                style: TextStyle(color: Colors.green),
                               ),
-                              border: Border.all(color: Colors.green),
-                              color: Colors.white),
-                          child: Center(
-                            child: CommonText(
-                              'Popular',
-                              style: TextStyle(color: Colors.green),
                             ),
                           ),
-                        ),
+                          Icon(Icons.favorite_outline)
+                        ],
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 8, top: 18),
                         child: CommonText(
                           'T-Grill',
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
+                              fontWeight: FontWeight.bold, fontSize: 16),
                         ),
                       ),
                       SizedBox(height: 15),

@@ -87,54 +87,32 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                ListTile(
+                  minLeadingWidth: 0,
+                  minVerticalPadding: 0,
+                  horizontalTitleGap: -2,
+                  contentPadding: EdgeInsets.all(0),
+                  leading: Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.black,
+                  ),
+                  title: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(6.0),
-                            child: IconButton(
-                              onPressed: () {
-                                Get.back();
-                              },
-                              icon: Icon(
-                                Icons.arrow_back_ios,
-                                size: 25.0,
-                              ),
-                            ),
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              CommonText(
-                                'Hello,Vinay',
-                                style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.bold),
-                              ),
-                              CommonText(
-                                'What do you want to eat?',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 12,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
+                      CommonText(
+                        'Hello, Vinay',
+                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                       ),
-                      Icon(
-                        Icons.notifications_none,
-                        size: 25.0,
-                      ),
+                      Icon(Icons.notifications)
                     ],
+                  ),
+                  subtitle: CommonText(
+                    'What do you want to eat?',
+                    style: TextStyle(fontSize: 10, color: Colors.black),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.only(bottom: 10),
                   child: TextField(
                       // autocorrect: true,
                       decoration: InputDecoration(

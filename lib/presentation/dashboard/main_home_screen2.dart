@@ -196,16 +196,62 @@ class FoodScreen extends StatelessWidget {
                 SizedBox(
                   height: 12,
                 ),
-                Container(
-                  height: 140,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[600],
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    image: DecorationImage(
-                      image: AssetImage("assets/images/Group_7.png"),
-                      fit: BoxFit.cover,
+                Stack(
+                  children: [
+                    Container(
+                      height: 140,
+                      decoration: BoxDecoration(
+                        color: Colors.grey[600],
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        image: DecorationImage(
+                          image: AssetImage("assets/images/group_7.png"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
-                  ),
+                    Positioned(
+                      top: 20,
+                      left: 20,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                          left: 230,
+                          top: 28,
+                        ),
+                        child: Column(
+                          children: [
+                            CommonText(
+                              'Best selling',
+                              style: TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.bold),
+                            ),
+                            CommonText(
+                              'on Groceries',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Container(
+                              height: 23,
+                              width: 82,
+                              decoration: BoxDecoration(
+                                  color: Colors.deepOrange,
+                                  borderRadius: BorderRadius.circular(3)),
+                              child: Center(
+                                child: CommonText(
+                                  'Upto 30% OFF',
+                                  style: TextStyle(
+                                      fontSize: 9,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
                 ), //image second
                 SizedBox(
                   height: 10,
@@ -244,33 +290,35 @@ class FoodScreen extends StatelessWidget {
                                   fontSize: 14,
                                   color: Colors.white),
                             ),
+                            SizedBox(height: 3),
                             Row(
                               children: [
-                                Container(
-                                  height: 23,
-                                  width: 65,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(3),
-                                      color: Colors.deepOrange),
-                                  child: Center(
-                                    child: CommonText(
-                                      'RIDE NOW',
-                                      style: TextStyle(
-                                          fontSize: 9,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold),
+                                TextButton(
+                                  child: Container(
+                                    height: 23,
+                                    width: 65,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(3),
+                                        color: Colors.deepOrange),
+                                    child: Center(
+                                      child: CommonText(
+                                        'RIDE NOW',
+                                        style: TextStyle(
+                                            fontSize: 9,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold),
+                                      ),
                                     ),
                                   ),
+                                  onPressed: () {},
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: CommonText(
-                                    '#FL25ACP',
-                                    style: TextStyle(
-                                        fontSize: 9,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
+                                SizedBox(width: 3),
+                                CommonText(
+                                  '#FL25ACP',
+                                  style: TextStyle(
+                                      fontSize: 9,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
                                 )
                               ],
                             ),
@@ -330,22 +378,26 @@ class FoodScreen extends StatelessWidget {
                                             fontSize: 14,
                                             color: Colors.white),
                                       ),
-                                      Container(
-                                        height: 23,
-                                        width: 65,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(3),
-                                            color: Colors.deepOrange),
-                                        child: Center(
-                                          child: CommonText(
-                                            'BOOK NOW',
-                                            style: TextStyle(
-                                                fontSize: 9,
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold),
+                                      SizedBox(height: 3),
+                                      TextButton(
+                                        child: Container(
+                                          height: 23,
+                                          width: 65,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(3),
+                                              color: Colors.deepOrange),
+                                          child: Center(
+                                            child: CommonText(
+                                              'BOOK NOW',
+                                              style: TextStyle(
+                                                  fontSize: 9,
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
                                           ),
                                         ),
+                                        onPressed: () {},
                                       ),
                                     ],
                                   ),
@@ -399,22 +451,26 @@ class FoodScreen extends StatelessWidget {
                                           fontSize: 14,
                                           color: Colors.white),
                                     ),
-                                    Container(
-                                      height: 23,
-                                      width: 65,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(3),
-                                          color: Colors.deepOrange),
-                                      child: Center(
-                                        child: CommonText(
-                                          'BOOK NOW',
-                                          style: TextStyle(
-                                              fontSize: 9,
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold),
+                                    SizedBox(height: 3),
+                                    TextButton(
+                                      child: Container(
+                                        height: 23,
+                                        width: 65,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(3),
+                                            color: Colors.deepOrange),
+                                        child: Center(
+                                          child: CommonText(
+                                            'BOOK NOW',
+                                            style: TextStyle(
+                                                fontSize: 9,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
                                       ),
+                                      onPressed: () {},
                                     ),
                                   ],
                                 ),
@@ -445,7 +501,7 @@ class FoodScreen extends StatelessWidget {
                       top: 20, // Adjust the top position as needed
                       left: 20, // Adjust the left position as needed
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 32),
+                        padding: const EdgeInsets.only(top: 28, left: 206),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -463,26 +519,31 @@ class FoodScreen extends StatelessWidget {
                                   fontSize: 14,
                                   color: Colors.white),
                             ),
-                            Container(
-                              height: 23,
-                              width: 65,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(3),
-                                  color: Colors.deepOrange),
-                              child: Center(
-                                child: CommonText(
-                                  'JOIN NOW',
-                                  style: TextStyle(
-                                      fontSize: 9,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
+                            SizedBox(height: 3),
+                            TextButton(
+                              child: Container(
+                                height: 23,
+                                width: 65,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(3),
+                                    color: Colors.deepOrange),
+                                child: Center(
+                                  child: CommonText(
+                                    'JOIN NOW',
+                                    style: TextStyle(
+                                        fontSize: 9,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                 ),
                               ),
+                              onPressed: () {},
                             ),
+                            SizedBox(height: 3),
                             CommonText(
                               '#FL25GYM',
                               style:
-                                  TextStyle(fontSize: 14, color: Colors.white),
+                                  TextStyle(fontSize: 9, color: Colors.white),
                             )
                           ],
                         ),
