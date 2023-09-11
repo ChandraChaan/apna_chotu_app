@@ -20,6 +20,34 @@ class NonVegMenu extends StatefulWidget {
 class _NonVegMenuState extends State<NonVegMenu> {
   int selected = 1;
   bool non_veg = false;
+  List non_veg_list = [
+    {
+      "name": "chicken biryani",
+      "price": "180",
+      "image": "assets/images/group_12.png"
+    },
+    {
+      "name": "chicken biryani",
+      "price": "180",
+      "image": "assets/images/group_12.png"
+    },
+    {
+      "name": "chicken biryani",
+      "price": "180",
+      "image": "assets/images/group_12.png",
+      "description": "ok",
+      "open_close": "closes soon",
+      "rating": "4",
+      "orders_count": "122"
+    }
+  ];
+  List veg_list = [
+    {
+      "name": "veg biryani",
+      "price": "90",
+      "image": "assets/images/group_13.png"
+    }
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -192,7 +220,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
                 ),
               ),
               ListView.builder(
-                itemCount: 15,
+                itemCount: non_veg ? non_veg_list.length : veg_list.length,
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (BuildContext context, int index) {
@@ -219,8 +247,8 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                 child: Container(
                                   child: Image.asset(
                                     non_veg
-                                        ? 'assets/images/biryani2.png'
-                                        : 'assets/images/gobi_biryani.png',
+                                        ? non_veg_list[index]['image']
+                                        : veg_list[index]['image'],
                                     fit: BoxFit
                                         .cover, // Use BoxFit.cover to maintain aspect ratio and cover the space
                                   ),
@@ -240,8 +268,8 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                     children: [
                                       CommonText(
                                         non_veg
-                                            ? 'Chicken Biryani'
-                                            : 'Veg biryani',
+                                            ? non_veg_list[index]['name']
+                                            : veg_list[index]['name'],
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: Colors.deepOrange,
@@ -251,7 +279,8 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                       CommonText(
                                         'Biryani served with 1 chicken piece chest or leg, mirchi ka salan and raita',
                                         style: TextStyle(fontSize: 12),
-                                      ),SizedBox(height: 8),
+                                      ),
+                                      SizedBox(height: 8),
                                       CommonText(
                                         index.isOdd ? 'Closes soon' : 'Open',
                                         style: TextStyle(
@@ -265,8 +294,14 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
+                                          Icon(
+                                            Icons.currency_rupee,
+                                            size: 15,
+                                          ),
                                           CommonText(
-                                            '\$180',
+                                            non_veg
+                                                ? non_veg_list[index]['price']
+                                                : veg_list[index]['price'],
                                             style: TextStyle(
                                               // color: Colors.b,
                                               fontWeight: FontWeight.bold,
