@@ -20,8 +20,8 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
   List<Map<String, dynamic>> listItems = [
     {
       "image": "assets/images/image_2.png",
-      "name": "Flechazo Madhapur",
       "likes": "10292",
+      "name": "Flechazo Madhapur",
       "subTitle": "HUDA Texhno ENclage, Madhapur",
       "km": "15.5 Km, 1hour"
     },
@@ -101,9 +101,11 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                     children: [
                       CommonText(
                         'Hello, Vinay',
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
                       ),
-                      Icon(Icons.notifications)
+                      IconButton(
+                          onPressed: () {}, icon: Icon(Icons.notifications))
                     ],
                   ),
                   subtitle: CommonText(

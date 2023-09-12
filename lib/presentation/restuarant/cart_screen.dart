@@ -2,6 +2,7 @@ import 'package:apna_chotu_app/common/app_text.dart';
 import 'package:apna_chotu_app/common/container_lineargradient.dart';
 import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../utils/constant.dart';
 
@@ -25,14 +26,17 @@ class _CartScreenState extends State<CartScreen> {
               ListTile(
                 minLeadingWidth: 0,
                 minVerticalPadding: 0,
-                horizontalTitleGap: -15,
+                horizontalTitleGap: -10,
+                contentPadding: EdgeInsets.all(0),
                 leading: IconButton(
                   icon: Icon(
                     Icons.arrow_back_ios,
                     size: 25,
                     color: Colors.black,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.back();
+                  },
                 ),
                 title: CommonText(
                   'Checkout',
@@ -370,7 +374,15 @@ class _CartScreenState extends State<CartScreen> {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.money),
+                        Container(
+                          height: 20,
+                          width: 20,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/tip.png'),
+                            ),
+                          ),
+                        ),
                         CommonText(
                           'Tip your delivery partner',
                           style: TextStyle(
@@ -388,15 +400,20 @@ class _CartScreenState extends State<CartScreen> {
         ),
       ),
       bottomSheet: Container(
-        height: 100,
-        // color: Colors.black,
+        height: 80,
+        width: 194,
         child: Padding(
           padding: const EdgeInsets.all(18.0),
           child: Center(
-              child: RoundedButton(
-            name: 'Proceed to Pay',
-            onPressed: () {},
-          )),
+            child: RoundedButton(
+              name: '',
+              child: CommonText(
+                'Proceed to Pay',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              onPressed: () {},
+            ),
+          ),
         ),
       ),
     );

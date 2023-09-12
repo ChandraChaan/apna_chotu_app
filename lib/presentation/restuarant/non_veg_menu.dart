@@ -1,3 +1,4 @@
+import 'package:apna_chotu_app/presentation/restuarant/cart_screen.dart';
 import 'package:apna_chotu_app/utils/menu_tabs.dart';
 import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
@@ -424,6 +425,10 @@ class _NonVegMenuState extends State<NonVegMenu> {
                           onTap: () {
                             setState(() {
                               selected = index;
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => CartScreen()));
                             });
                           },
                           child: Row(
