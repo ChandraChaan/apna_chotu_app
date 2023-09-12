@@ -87,31 +87,32 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ListTile(
-                  minLeadingWidth: 0,
-                  minVerticalPadding: 0,
-                  horizontalTitleGap: -2,
-                  contentPadding: EdgeInsets.all(0),
-                  leading: Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.black,
-                  ),
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CommonText(
-                        'Hello, Vinay',
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ListTile(
+                        minLeadingWidth: 0,
+                        minVerticalPadding: 0,
+                        horizontalTitleGap: -2,
+                        contentPadding: EdgeInsets.all(0),
+                        leading: Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.black,
+                        ),
+                        title: CommonText(
+                          'Hello, Vinay',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: CommonText(
+                          'What do you want to eat?',
+                          style: TextStyle(fontSize: 10, color: Colors.black),
+                        ),
                       ),
-                      IconButton(
-                          onPressed: () {}, icon: Icon(Icons.notifications))
-                    ],
-                  ),
-                  subtitle: CommonText(
-                    'What do you want to eat?',
-                    style: TextStyle(fontSize: 10, color: Colors.black),
-                  ),
+                    ),
+                    IconButton(padding: const EdgeInsets.all(0),
+                        onPressed: () {}, icon: Icon(Icons.notifications)),
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
