@@ -18,61 +18,69 @@ class RestaurantListScreen extends StatefulWidget {
 
 class _RestaurantListScreenState extends State<RestaurantListScreen> {
   List<Map<String, dynamic>> listItems = [
-    {
+    {//img 1
       "image": "assets/images/image_2.png",
       "likes": "10292",
       "name": "Flechazo Madhapur",
       "subTitle": "HUDA Texhno ENclage, Madhapur",
-      "km": "15.5 Km, 1hour"
+      "km": "15.5 Km, 1hour",
+      "rating":"4.o"
     },
-    {
+    {//img 2
       "image": "assets/images/image_3.png",
-      "name": "Flechazo Madhapur",
       "likes": "8938",
+      "name": "Palamuru Grill",
       "subTitle": "Ayyappa society, Madhapur",
-      "km": "12.2 Km, 55 mins"
+      "km": "12.2 Km, 55 mins",
+    "rating":"3.9",
     },
-    {
+    {//img 3
       "image": "assets/images/image_4.png",
-      "name": "Flechazo Madhapur",
       "likes": "3759",
-      "subTitle": "Colony, Madhapur",
-      "km": "10.5 Km, 55 mins"
+      "name": "T-Grill",
+      "subTitle": "CBI Colony, Madhapur",
+      "km": "10.5 Km, 55 mins",
+      "rating":"3.8"
     },
-    {
+    {//img 4
       "image": "assets/images/image_5.png",
-      "name": "Flechazo Madhapur",
       "likes": "10292",
+      "name": "Aazebo-The Royal",
       "subTitle": "Sri Sai Nagar, Madhapur",
-      "km": "12.2 Km, 55 mins"
+      "km": "12.2 Km, 55 mins",
+      "rating":"3.8"
     },
-    {
+    {//img 5
       "image": "assets/images/image_6.png",
-      "name": "Flechazo Madhapur",
       "likes": "2901",
+      "name": "GUDGUDEE Restaurant",
       "subTitle": "Inorbit Mall,Street No-2,Madhapur",
-      "km": "11.8 Km, 45 mins"
+      "km": "11.8 Km, 45 mins",
+      "rating":"3.7"
     },
-    {
+    {//img 6
       "image": "assets/images/image_7.png",
-      "name": "Flechazo Madhapur",
       "likes": "10292",
+      "name": "The5inest Restaurant",
       "subTitle": "Arunodaya Colony,Madhapur",
-      "km": "11.8 Km, 45 mins"
+      "km": "11.8 Km, 45 mins",
+      "rating":"3.7"
     },
-    {
+    {//img 7
       "image": "assets/images/image_8.png",
-      "name": "Flechazo Madhapur",
       "likes": "2325",
+      "name": "Lassi Bistro Madhapur",
       "subTitle": "Sri Sai Nagar, Madhapur",
-      "km": "12.0 Km, 52 mins"
+      "km": "12.0 Km, 52 mins",
+      "rating":"3.7"
     },
-    {
+    {//img 8
       "image": "assets/images/image_9.png",
-      "name": "Flechazo Madhapur",
       "likes": "3782",
+      "name": "Bluefox Madhapur",
       "subTitle": "HUDA Techno Enclave, Madhapur",
-      "km": "12.2 Km, 55 mins"
+      "km": "12.2 Km, 55 mins",
+      "rating":"3.8"
     },
   ];
 
@@ -211,15 +219,6 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                   physics: NeverScrollableScrollPhysics(),
                   children: [
                     for (int a = 0; a < listItems.length; a++)
-                      // InkWell(
-                      //   onTap: () {
-                      //     Navigator.push(
-                      //       context,
-                      //       MaterialPageRoute(
-                      //           builder: (context) => RestaurantListScreen()),
-                      //     );
-                      //   },
-                      // ),
                       InkWell(
                         onTap: () {
                           Navigator.push(
@@ -597,7 +596,8 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                       size: 14,
                     ),
                     CommonText(
-                      'in Sanga Reddy, Telangana, India.',
+                      'in Sanga Reddy, Telangana, '
+                          'India.',
                       style: TextStyle(fontSize: 13),
                     )
                   ],

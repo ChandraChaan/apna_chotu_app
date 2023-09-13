@@ -7,19 +7,27 @@ class PrivacyPolicy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          ListTile(
-            minVerticalPadding: 0,
-            minLeadingWidth: 0,
-            horizontalTitleGap: -10,
-            leading: Icon(Icons.arrow_back_ios),
-            title: CommonText(
-              'Privacy Policy',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+      body: SafeArea(
+        child: Column(
+          children: [
+            ListTile(
+              minVerticalPadding: 0,
+              minLeadingWidth: 0,
+              horizontalTitleGap: -6,
+              leading: Icon(
+                Icons.arrow_back_ios,
+                color: Colors.black,
+              ),
+              title: CommonText(
+                'Privacy Policy',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              ),
             ),
-          ),
-        ],
+            Container(
+              child: ,
+            )
+          ],
+        ),
       ),
     );
   }

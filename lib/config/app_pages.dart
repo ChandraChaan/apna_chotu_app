@@ -1,7 +1,9 @@
 import 'package:apna_chotu_app/presentation/dashboard/main_home_screen1.dart';
 import 'package:apna_chotu_app/presentation/dashboard/main_home_screen2.dart';
 import 'package:apna_chotu_app/presentation/extra/no%20_use_delete.dart';
+import 'package:apna_chotu_app/presentation/locations_screens/address_not_found.dart';
 import 'package:apna_chotu_app/presentation/order_history/privacy_policy.dart';
+import 'package:apna_chotu_app/presentation/payment_method/payment_options.dart';
 import 'package:apna_chotu_app/presentation/profile_screen/edit_profile_screen.dart';
 import 'package:apna_chotu_app/presentation/restuarant/cart_screen.dart';
 import 'package:apna_chotu_app/presentation/restuarant/resturant_list_screen.dart';
@@ -32,7 +34,7 @@ import '../presentation/locations_screens/select_location_screen.dart';
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.restaurantListScreen;
+  static const initial = Routes.privacyPolicy;
   static final routes = [
     GetPage(
         name: Routes.intro,
@@ -135,6 +137,14 @@ class AppPages {
     GetPage(
         name: Routes.privacyPolicy,
         page: () => PrivacyPolicy(),
+        binding: MainBinding()),
+    GetPage(
+        name: Routes.paymentOptions,
+        page: () => PaymentOptions(),
+        binding: MainBinding()),
+    GetPage(
+        name: Routes.addressNotFound,
+        page: () => AddressNotFound(),
         binding: MainBinding()),
   ];
 }

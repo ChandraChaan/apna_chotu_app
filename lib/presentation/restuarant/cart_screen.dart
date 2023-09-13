@@ -19,14 +19,14 @@ class _CartScreenState extends State<CartScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.only(left: 8, right: 8),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ListTile(
                 minLeadingWidth: 0,
                 minVerticalPadding: 0,
-                horizontalTitleGap: -10,
+                horizontalTitleGap: -12,
                 contentPadding: EdgeInsets.all(0),
                 leading: IconButton(
                   icon: Icon(
@@ -45,7 +45,7 @@ class _CartScreenState extends State<CartScreen> {
                 subtitle: CommonText('2 items, Total: ₹ 225'),
               ),
               Container(
-                height: 93,
+                height: 60,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -62,14 +62,14 @@ class _CartScreenState extends State<CartScreen> {
                         children: [
                           Icon(
                             Icons.brightness_1_outlined,
-                            size: 18,
+                            size: 14,
                             color: Colors.white,
                           ),
-                          SizedBox(width: 10),
+                          SizedBox(width: 5),
                           CommonText(
                             'Palamuru Grill | ',
                             style: TextStyle(
-                                fontSize: 15,
+                                fontSize: 11,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
                           ),
@@ -81,19 +81,19 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.only(left: 8,top: 5),
                       child: Row(
                         children: [
                           Icon(
                             Icons.brightness_1_outlined,
-                            size: 18,
+                            size: 14,
                             color: Colors.white,
                           ),
-                          SizedBox(width: 10),
+                          SizedBox(width: 5),
                           CommonText(
                             'Office | Q2, 6th Floor, Cyber Tower, Hitech City',
                             style: TextStyle(
-                                fontSize: 15,
+                                fontSize: 11,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
                           )
@@ -153,11 +153,11 @@ class _CartScreenState extends State<CartScreen> {
                     height: 40,
                     width: 120,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(15),
-                      ),
-                      border: Border.all(color: Colors.deepOrange),
-                    ),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(15),
+                        ),
+                        border: Border.all(color: Colors.deepOrange),
+                        color: Color(0xFFFFDFC6)),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -399,20 +399,18 @@ class _CartScreenState extends State<CartScreen> {
           ),
         ),
       ),
-      bottomSheet: Container(
-        height: 80,
-        width: 194,
-        child: Padding(
-          padding: const EdgeInsets.all(18.0),
-          child: Center(
-            child: RoundedButton(
-              name: '',
-              child: CommonText(
-                'Proceed to Pay',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              onPressed: () {},
+      bottomSheet: Padding(
+        padding: const EdgeInsets.only(bottom: 8,left: 220),
+        child: Container(
+          height: 40,
+          width: 167,
+          child: RoundedButton(
+            name: '',
+            child: CommonText(
+              'Proceed to Pay',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
+            onPressed: () {},
           ),
         ),
       ),

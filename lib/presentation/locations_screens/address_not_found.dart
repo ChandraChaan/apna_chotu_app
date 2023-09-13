@@ -3,14 +3,9 @@ import 'package:flutter/material.dart';
 
 import '../../common/app_text.dart';
 
-class AddressNotFound extends StatefulWidget {
+class AddressNotFound extends StatelessWidget {
   const AddressNotFound({super.key});
 
-  @override
-  State<AddressNotFound> createState() => _AddressNotFoundState();
-}
-
-class _AddressNotFoundState extends State<AddressNotFound> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +15,7 @@ class _AddressNotFoundState extends State<AddressNotFound> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Container(
-            height: 370,
+            height: 350,
             width: double.infinity,
             decoration: BoxDecoration(
               color: Colors.white,
@@ -33,39 +28,54 @@ class _AddressNotFoundState extends State<AddressNotFound> {
               padding: const EdgeInsets.only(top: 20),
               child: Column(
                 children: [
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    Container(
-                      height: 144,
-                      child: Image.asset('assets/images/motel.png'),
-                    ),
-                    IconButton(
-                        onPressed: () {}, icon: Icon(Icons.highlight_off))
-                  ]),
                   Padding(
-                    padding: const EdgeInsets.only(left: 10, right: 10),
-                    child: Column(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        CommonText('Apna Chotu service is not available in this city',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 22)),
-                        SizedBox(height: 6),
-                        CommonText(
-                          'But, When we are available in your city,we will notify you',
-                          style: TextStyle(fontSize: 17),
+                        InkWell(
+                          child: Icon(
+                            Icons.highlight_off,
+                            color: Colors.deepOrange,
+                          ),
+                          onTap: () {},
                         ),
-                        SizedBox(height: 20),
-                        RoundedButton(
-                            height: 40,
-                            width: 210,
-                            onPressed: () {},
-                            name: 'Change Location')
                       ],
                     ),
                   ),
+                  Center(
+                    child: Container(
+                      height: 144,
+                      child: Image.asset('assets/images/motel.png'),
+                    ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      CommonText(
+                          'Apna Chotu service is not available in this city',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16)),
+                      SizedBox(height: 6),
+                      CommonText(
+                        'But, When we are available in your city,we will notify you',
+                        style: TextStyle(fontSize: 12),
+                      ),
+
+                    ],
+                  ),
+                  SizedBox(height: 40),
+                  RoundedButton(
+                      height: 40,
+                      width: 210,
+                      onPressed: () {},
+                      name: 'Change Location')
                 ],
               ),
             ),
           ),
+
         ],
       ),
     );

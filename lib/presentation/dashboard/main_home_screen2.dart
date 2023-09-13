@@ -74,7 +74,10 @@ class FoodScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.notifications),
+                        InkWell(
+                          child: Icon(Icons.notifications),
+                          onTap: () {},
+                        ),
                         CircleAvatar(
                           backgroundImage:
                               AssetImage('assets/images/profile_picture.png'),
@@ -137,7 +140,7 @@ class FoodScreen extends StatelessWidget {
                       autoPlayAnimationDuration: Duration(milliseconds: 800),
                       autoPlayCurve: Curves.fastOutSlowIn,
                       enlargeCenterPage: false,
-                      enlargeFactor: 0.8,
+                      enlargeFactor: 0.7,
                       onPageChanged: (num, str) {},
                       scrollDirection: Axis.horizontal,
                     )),
@@ -220,32 +223,28 @@ class FoodScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             CommonText(
-                              'Best selling',
+                              'Best selling\non Groceries',
                               style: TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.bold),
                             ),
-                            CommonText(
-                              'on Groceries',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Container(
-                              height: 23,
-                              width: 82,
-                              decoration: BoxDecoration(
-                                  color: Colors.deepOrange,
-                                  borderRadius: BorderRadius.circular(3)),
-                              child: Center(
-                                child: CommonText(
-                                  'Upto 30% OFF',
-                                  style: TextStyle(
-                                      fontSize: 9,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                            InkWell(
+                              child: Container(
+                                height: 23,
+                                width: 82,
+                                decoration: BoxDecoration(
+                                    color: Colors.deepOrange,
+                                    borderRadius: BorderRadius.circular(3)),
+                                child: Center(
+                                  child: CommonText(
+                                    'Upto 30% OFF',
+                                    style: TextStyle(
+                                        fontSize: 9,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white),
+                                  ),
                                 ),
                               ),
+                              onTap: () {},
                             ),
                           ],
                         ),
@@ -277,23 +276,16 @@ class FoodScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             CommonText(
-                              'Flat 25% OFF',
+                              'Flat 25% OFF\nfor 1st 3 RIDES',
                               style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            ),
-                            CommonText(
-                              'for 1st 3 RIDES',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
                                   color: Colors.white),
                             ),
                             SizedBox(height: 3),
                             Row(
                               children: [
-                                TextButton(
+                                InkWell(
                                   child: Container(
                                     height: 23,
                                     width: 65,
@@ -310,7 +302,7 @@ class FoodScreen extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  onPressed: () {},
+                                  onTap: () {},
                                 ),
                                 SizedBox(width: 3),
                                 CommonText(
@@ -358,28 +350,14 @@ class FoodScreen extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       CommonText(
-                                        'Call for',
+                                        'Call for\nPETS\nCONTROL',
                                         style: TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white),
-                                      ),
-                                      CommonText(
-                                        'PETS',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 14,
-                                            color: Colors.white),
-                                      ),
-                                      CommonText(
-                                        'CONTROL',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 14,
                                             color: Colors.white),
                                       ),
                                       SizedBox(height: 3),
-                                      TextButton(
+                                      InkWell(
                                         child: Container(
                                           height: 23,
                                           width: 65,
@@ -397,7 +375,7 @@ class FoodScreen extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-                                        onPressed: () {},
+                                        onTap: () {},
                                       ),
                                     ],
                                   ),
@@ -431,28 +409,14 @@ class FoodScreen extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     CommonText(
-                                      'Flat 15%',
+                                      'Flat 15%\nOFF for\n1st Booking',
                                       style: TextStyle(
                                           fontSize: 14,
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    ),
-                                    CommonText(
-                                      'OFF for',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 14,
-                                          color: Colors.white),
-                                    ),
-                                    CommonText(
-                                      '1st Booking',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 14,
                                           color: Colors.white),
                                     ),
                                     SizedBox(height: 3),
-                                    TextButton(
+                                    InkWell(
                                       child: Container(
                                         height: 23,
                                         width: 65,
@@ -470,7 +434,7 @@ class FoodScreen extends StatelessWidget {
                                           ),
                                         ),
                                       ),
-                                      onPressed: () {},
+                                      onTap: () {},
                                     ),
                                   ],
                                 ),
@@ -506,21 +470,14 @@ class FoodScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             CommonText(
-                              'Flat 25% OFF',
+                              'Flat 25% OFF\nfor 6 Months',
                               style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            ),
-                            CommonText(
-                              'for 6 Months',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
                                   color: Colors.white),
                             ),
                             SizedBox(height: 3),
-                            TextButton(
+                            InkWell(
                               child: Container(
                                 height: 23,
                                 width: 65,
@@ -537,7 +494,7 @@ class FoodScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              onPressed: () {},
+                              onTap: () {},
                             ),
                             SizedBox(height: 3),
                             CommonText(
