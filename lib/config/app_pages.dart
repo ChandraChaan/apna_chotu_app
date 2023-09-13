@@ -1,6 +1,8 @@
+import 'package:apna_chotu_app/checkforCreate.dart';
 import 'package:apna_chotu_app/presentation/dashboard/main_home_screen1.dart';
 import 'package:apna_chotu_app/presentation/dashboard/main_home_screen2.dart';
 import 'package:apna_chotu_app/presentation/extra/no%20_use_delete.dart';
+import 'package:apna_chotu_app/presentation/extra/second.dart';
 import 'package:apna_chotu_app/presentation/locations_screens/address_not_found.dart';
 import 'package:apna_chotu_app/presentation/order_history/privacy_policy.dart';
 import 'package:apna_chotu_app/presentation/payment_method/payment_options.dart';
@@ -34,7 +36,7 @@ import '../presentation/locations_screens/select_location_screen.dart';
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.privacyPolicy;
+  static const initial = Routes.helpScreen;
   static final routes = [
     GetPage(
         name: Routes.intro,
@@ -146,5 +148,6 @@ class AppPages {
         name: Routes.addressNotFound,
         page: () => AddressNotFound(),
         binding: MainBinding()),
+
   ];
 }

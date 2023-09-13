@@ -35,10 +35,15 @@ class _RestaurantDetailsState extends State<RestaurantDetails> {
                 minLeadingWidth: 0,
                 horizontalTitleGap: -2,
                 contentPadding: EdgeInsets.all(0),
-                leading: Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.white,
-                  size: 25,
+                leading: InkWell(
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.white,
+                    size: 25,
+                  ),
+                  onTap: (){
+                    Get.back();
+                  },
                 ),
                 title: CommonText(
                   'T-Grill',

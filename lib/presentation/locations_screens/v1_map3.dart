@@ -10,7 +10,8 @@
 // nbp.urLocation = result["formatted_address"];
 // notifyListeners();
 // // Future.delayed(const Duration(seconds: 0), () {
-// Navigator.pushAndRemoveUntil(
+// Navigator.
+// pushAndRemoveUntil(
 // context,
 // MaterialPageRoute(builder: (context) => NewBookingScreen(lat:result["geometry"]["location"]["lat"],long:result["geometry"]["location"]["lng"],yourLocation:nbp.urLocation,)),
 // (route) => false,

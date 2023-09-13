@@ -4,9 +4,15 @@ import 'package:get/get.dart';
 
 import '../../common/app_text.dart';
 
-class HelpScreen extends StatelessWidget {
+class HelpScreen extends StatefulWidget {
   const HelpScreen({super.key});
 
+  @override
+  State<HelpScreen> createState() => _HelpScreenState();
+}
+
+class _HelpScreenState extends State<HelpScreen> {
+  bool sendQuery = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,13 +103,19 @@ class HelpScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 17),
-              Center(
-                child: Container(
-                  height: 40,
-                  width: 220,
-                  child: RoundedButton(
-                    onPressed: () {},
-                    name: 'Submit Your Query',
+              InkWell(
+                onTap: (){setState(() {
+                  sendQuery = true;
+                });
+                },
+                child: Center(
+                  child: Container(
+                    height: 40,
+                    width: 220,
+                    child: RoundedButton(
+                      onPressed: () {},
+                      name: 'Submit Your Query',
+                    ),
                   ),
                 ),
               ),
