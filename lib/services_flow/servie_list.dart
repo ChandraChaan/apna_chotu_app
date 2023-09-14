@@ -1,117 +1,20 @@
-import 'package:apna_chotu_app/Config/app_pages.dart';
-import 'package:apna_chotu_app/presentation/restuarant/non_veg_menu.dart';
-import 'package:apna_chotu_app/presentation/restuarant/restuarant_details.dart';
+import 'package:apna_chotu_app/services_flow/service_list_bath.dart';
 import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../common/app_text.dart';
 import '../../common/buttom_navigation_bar.dart';
-import '../../utils/menu_tabs.dart';
 
-class RestaurantListScreen extends StatefulWidget {
-  const RestaurantListScreen({Key? key}) : super(key: key);
+class ServiceListMain extends StatefulWidget {
+  const ServiceListMain({Key? key}) : super(key: key);
 
   @override
-  State<RestaurantListScreen> createState() => _RestaurantListScreenState();
+  State<ServiceListMain> createState() => _ServiceListMainState();
 }
 
-class _RestaurantListScreenState extends State<RestaurantListScreen> {
-  List<Map<String, dynamic>> listItems = [
-    {
-      //img 1
-      "image": "assets/images/image_2.png",
-      "likes": "10292",
-      "name": "Flechazo Madhapur",
-      "subTitle": "HUDA Texhno ENclage, Madhapur",
-      "km": "15.5 Km, 1hour",
-      "rating": "4.o"
-    },
-    {
-      //img 2
-      "image": "assets/images/image_3.png",
-      "likes": "8938",
-      "name": "Palamuru Grill",
-      "subTitle": "Ayyappa society, Madhapur",
-      "km": "12.2 Km, 55 mins",
-      "rating": "3.9",
-    },
-    {
-      //img 3
-      "image": "assets/images/image_4.png",
-      "likes": "3759",
-      "name": "T-Grill",
-      "subTitle": "CBI Colony, Madhapur",
-      "km": "10.5 Km, 55 mins",
-      "rating": "3.8"
-    },
-    {
-      //img 4
-      "image": "assets/images/image_5.png",
-      "likes": "10292",
-      "name": "Aazebo-The Royal",
-      "subTitle": "Sri Sai Nagar, Madhapur",
-      "km": "12.2 Km, 55 mins",
-      "rating": "3.8"
-    },
-    {
-      //img 5
-      "image": "assets/images/image_6.png",
-      "likes": "2901",
-      "name": "GUDGUDEE Restaurant",
-      "subTitle": "Inorbit Mall,Street No-2,Madhapur",
-      "km": "11.8 Km, 45 mins",
-      "rating": "3.7"
-    },
-    {
-      //img 6
-      "image": "assets/images/image_7.png",
-      "likes": "10292",
-      "name": "The5inest Restaurant",
-      "subTitle": "Arunodaya Colony,Madhapur",
-      "km": "11.8 Km, 45 mins",
-      "rating": "3.7"
-    },
-    {
-      //img 7
-      "image": "assets/images/image_8.png",
-      "likes": "2325",
-      "name": "Lassi Bistro Madhapur",
-      "subTitle": "Sri Sai Nagar, Madhapur",
-      "km": "12.0 Km, 52 mins",
-      "rating": "3.7"
-    },
-    {
-      //img 8
-      "image": "assets/images/image_9.png",
-      "likes": "3782",
-      "name": "Bluefox Madhapur",
-      "subTitle": "HUDA Techno Enclave, Madhapur",
-      "km": "12.2 Km, 55 mins",
-      "rating": "3.8"
-    },
-  ];
-  List<Map<String, dynamic>> listitemsscroll = [
-    {
-      "image":"assets/images/rectangle_2.png",
-      "name":"THE JOINT AL-MANDI",
-      "subTitle":"Arunodaya Housing Colony,Madhapur",
-      "discount_price":"RS 299/-",
-      "orignal_pice":"499/-"
-
-    },
-    {
-      "image":"assets/images/rectangle_2.png",
-      "name":"THE JOINT AL-MANDI",
-      "subTitle":"Arunodaya Housing Colony,Madhapur",
-      "discount_price":"RS 299/-",
-      "orignal_pice":"499/-"
-
-    }
-  ];
-
+class _ServiceListMainState extends State<ServiceListMain> {
   //services list
-  List<Map<String, dynamic>> services_List = [
+  List<Map<String, dynamic>> serve_List = [
     {
       "image": "assets/images/service_1.png",
       "likes": "10292",
@@ -221,26 +124,26 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: TextField(
-                      // autocorrect: true,
-                      decoration: InputDecoration(
-                    hintText: 'search"Biryani"',
-                    prefixIcon: Icon(
-                      Icons.search,
+                    // autocorrect: true,
+                    decoration: InputDecoration(
+                      hintText: 'search"Biryani"',
+                      prefixIcon: Icon(
+                        Icons.search,
+                      ),
+                      suffixIcon: Icon(
+                        Icons.mic,
+                        color: Colors.deepOrange,
+                      ),
+                      hintStyle: TextStyle(color: Colors.grey),
+                      filled: true,
+                      // fillColor: Colors.white70,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                        // borderSide: BorderSide(color: Colors.grey, width: 2),
+                      ),
                     ),
-                    suffixIcon: Icon(
-                      Icons.mic,
-                      color: Colors.deepOrange,
-                    ),
-                    hintStyle: TextStyle(color: Colors.grey),
-                    filled: true,
-                    // fillColor: Colors.white70,
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                      // borderSide: BorderSide(color: Colors.grey, width: 2),
-                    ),
-                  )),
+                  ),
                 ),
-                MenuTabs(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -314,13 +217,13 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
                   children: [
-                    for (int a = 0; a < listItems.length; a++)
+                    for (int a = 0; a < serve_List.length; a++)
                       InkWell(
                         onTap: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => NonVegMenu()));
+                                  builder: (context) => ServiceList()));
                         },
                         child: Container(
                           height: 170,
@@ -348,7 +251,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                     ),
                                     image: DecorationImage(
                                         image: AssetImage(
-                                          '${listItems[a]['image']}',
+                                          '${serve_List[a]['image']}',
                                         ),
                                         fit: BoxFit.fitWidth),
                                   ),
@@ -365,7 +268,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                         height: 5,
                                       ),
                                       CommonText(
-                                        '${listItems[a]['likes']}',
+                                        '${serve_List[a]['likes']}',
                                         style: TextStyle(
                                             fontSize: 13,
                                             fontWeight: FontWeight.bold,
@@ -388,7 +291,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           CommonText(
-                                            '${listItems[a]['name']}',
+                                            '${serve_List[a]['name']}',
                                             style: TextStyle(
                                                 fontSize: 13,
                                                 fontWeight: FontWeight.bold),
@@ -409,7 +312,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                         ],
                                       ),
                                       CommonText(
-                                        '${listItems[a]['subTitle']}',
+                                        '${serve_List[a]['subTitle']}',
                                         style: TextStyle(
                                             fontSize: 11,
                                             fontWeight: FontWeight.bold),
@@ -419,7 +322,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          CommonText('${listItems[a]['km']}',
+                                          CommonText('${serve_List[a]['km']}',
                                               style: TextStyle(fontSize: 11)),
                                           // SizedBox(width: 75),
                                           Row(
@@ -493,13 +396,13 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                             image: DecorationImage(
                                 image:
-                                    AssetImage('assets/images/rectangle_2.png'),
+                                AssetImage('assets/images/service_9.png'),
                                 fit: BoxFit.fill)),
                         child: Column(
                           children: [
                             Padding(
                               padding:
-                                  const EdgeInsets.only(left: 199, top: 18),
+                              const EdgeInsets.only(left: 199, top: 18),
                               child: Container(
                                 height: 30,
                                 width: 111,
@@ -525,7 +428,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                   height: 55,
                                   decoration: BoxDecoration(
                                       borderRadius:
-                                          BorderRadius.all(Radius.circular(11)),
+                                      BorderRadius.all(Radius.circular(11)),
                                       color: Color(0xFFFFFFFF)),
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
@@ -534,14 +437,14 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                         Row(
                                           children: [
                                             CommonText(
-                                              'THE JOINT AL-MANDI',
+                                              'Bathroom Cleaning Services',
                                               style: TextStyle(
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.bold),
                                             ),
-                                            SizedBox(width: 65),
+                                            SizedBox(width: 50),
                                             CommonText(
-                                              'RS 299/-',
+                                              'RS 499/-',
                                               style: TextStyle(
                                                   fontSize: 19,
                                                   fontWeight: FontWeight.bold,
@@ -552,12 +455,12 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                         Row(
                                           children: [
                                             CommonText(
-                                              'Arunodaya Housing Colony, Madhapur',
+                                              'All type of bathroom services available',
                                               style: TextStyle(fontSize: 10),
                                             ),
-                                            SizedBox(width: 49),
+                                            SizedBox(width: 30),
                                             CommonText(
-                                              '499/-',
+                                              '899/-',
                                               style: TextStyle(
                                                   fontSize: 13,
                                                   fontWeight: FontWeight.bold,
@@ -582,7 +485,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                             image: DecorationImage(
                                 image:
-                                    AssetImage('assets/images/rectangle_2.png'),
+                                    AssetImage('assets/images/service_9.png'),
                                 fit: BoxFit.fill)),
                         child: Column(
                           children: [
@@ -623,14 +526,14 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                         Row(
                                           children: [
                                             CommonText(
-                                              'THE JOINT AL-MANDI',
+                                              'Bathroom Cleaning Services',
                                               style: TextStyle(
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.bold),
                                             ),
-                                            SizedBox(width: 65),
+                                            SizedBox(width: 50),
                                             CommonText(
-                                              'RS 299/-',
+                                              'RS 499/-',
                                               style: TextStyle(
                                                   fontSize: 19,
                                                   fontWeight: FontWeight.bold,
@@ -641,12 +544,12 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                         Row(
                                           children: [
                                             CommonText(
-                                              'Arunodaya Housing Colony, Madhapur',
+                                              'All type of bathroom services available',
                                               style: TextStyle(fontSize: 10),
                                             ),
-                                            SizedBox(width: 49),
+                                            SizedBox(width: 30),
                                             CommonText(
-                                              '499/-',
+                                              '899/-',
                                               style: TextStyle(
                                                   fontSize: 13,
                                                   fontWeight: FontWeight.bold,
@@ -666,38 +569,6 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 25),
-                CommonText(
-                  'Live\nLove\nLaugh',
-                  style: TextStyle(
-                      fontSize: 60,
-                      color: Colors.deepOrange,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 7),
-                CommonText(
-                  'Always with you.',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-                ),
-                SizedBox(height: 8),
-                Row(
-                  children: [
-                    CommonText(
-                      'Crafted with',
-                      style: TextStyle(fontSize: 12),
-                    ),
-                    Icon(
-                      Icons.favorite,
-                      color: Colors.deepOrange,
-                      size: 14,
-                    ),
-                    CommonText(
-                      'in Sanga Reddy, Telangana, '
-                      'India.',
-                      style: TextStyle(fontSize: 13),
-                    )
-                  ],
-                )
               ],
             ),
           ),

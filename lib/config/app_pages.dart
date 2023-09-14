@@ -25,6 +25,8 @@ import 'package:apna_chotu_app/presentation/restuarant/non_veg_menu.dart';
 import 'package:apna_chotu_app/presentation/otp_screen.dart';
 import 'package:apna_chotu_app/presentation/restuarant/restuarant_details.dart';
 import 'package:apna_chotu_app/presentation/restuarant/veg_menu.dart';
+import 'package:apna_chotu_app/services_flow/service_list_bath.dart';
+import 'package:apna_chotu_app/services_flow/servie_list.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../Application/Binding/main_binding.dart';
@@ -36,7 +38,7 @@ import '../presentation/locations_screens/select_location_screen.dart';
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.helpScreen;
+  static const initial = Routes.serviceListMain;
   static final routes = [
     GetPage(
         name: Routes.intro,
@@ -148,6 +150,13 @@ class AppPages {
         name: Routes.addressNotFound,
         page: () => AddressNotFound(),
         binding: MainBinding()),
-
+    GetPage(
+        name: Routes.serviceList,
+        page: () => ServiceList(),
+        binding: MainBinding()),
+    GetPage(
+        name: Routes.serviceListMain,
+        page: () => ServiceListMain(),
+        binding: MainBinding()),
   ];
 }

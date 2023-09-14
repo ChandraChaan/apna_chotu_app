@@ -29,5 +29,7 @@ abstract class Routes {
   static const editProfileScreen = '/editProfileScreen';
   static const privacyPolicy = '/privacyPolicy';
   static const paymentOptions = '/paymentOptions';
+  static const serviceList = '/serviceList';
+  static const serviceListMain = '/serviceListMain';
 
 }
