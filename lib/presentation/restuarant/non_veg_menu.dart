@@ -22,6 +22,7 @@ class NonVegMenu extends StatefulWidget {
 class _NonVegMenuState extends State<NonVegMenu> {
   int selected = 1;
   bool non_veg = false;
+  bool sever = false; //signup phone nbr one page to other page
   List non_veg_list = [
     {
       //img 1
@@ -405,7 +406,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                 CommonText(
                                   'Non Veg',
                                   style: TextStyle(fontWeight: FontWeight.bold),
-                                )
+                                ),
                               ],
                             ),
                           ),
@@ -446,9 +447,11 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                 flex: 4,
                                 child: Container(
                                   child: Image.asset(
-                                    non_veg
+                                   //services?(sevices):
+                                   (non_veg
                                         ? non_veg_list[index]['image']
-                                        : veg_list[index]['image'],
+                                        : veg_list[index]['image']),
+
                                     fit: BoxFit
                                         .cover, // Use BoxFit.cover to maintain aspect ratio and cover the space
                                   ),
