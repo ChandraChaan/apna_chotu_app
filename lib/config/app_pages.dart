@@ -1,8 +1,5 @@
-import 'package:apna_chotu_app/checkforCreate.dart';
 import 'package:apna_chotu_app/presentation/dashboard/main_home_screen1.dart';
 import 'package:apna_chotu_app/presentation/dashboard/main_home_screen2.dart';
-import 'package:apna_chotu_app/presentation/extra/no%20_use_delete.dart';
-import 'package:apna_chotu_app/presentation/extra/second.dart';
 import 'package:apna_chotu_app/presentation/locations_screens/address_not_found.dart';
 import 'package:apna_chotu_app/presentation/order_history/privacy_policy.dart';
 import 'package:apna_chotu_app/presentation/payment_method/payment_options.dart';
@@ -17,7 +14,6 @@ import 'package:apna_chotu_app/presentation/order_history/order_details_screen.d
 import 'package:apna_chotu_app/presentation/order_history/order_history.dart';
 import 'package:apna_chotu_app/presentation/order_history/rate_your_meal.dart';
 import 'package:apna_chotu_app/presentation/order_history/review_screeen.dart';
-import 'package:apna_chotu_app/presentation/payment_method/add_new_card.dart';
 import 'package:apna_chotu_app/presentation/payment_method/order_success.dart';
 import 'package:apna_chotu_app/presentation/profile_screen/profile_screen.dart';
 import 'package:apna_chotu_app/presentation/restuarant/non_veg_closesoon.dart';
@@ -26,17 +22,17 @@ import 'package:apna_chotu_app/presentation/otp_screen.dart';
 import 'package:apna_chotu_app/presentation/restuarant/restuarant_details.dart';
 import 'package:apna_chotu_app/presentation/restuarant/veg_menu.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
-
 import '../Application/Binding/main_binding.dart';
 import '../Presentation/auth_screen.dart';
 import '../Presentation/intro_screen.dart';
 import '../presentation/locations_screens/location_screen.dart';
 import '../presentation/locations_screens/select_location_screen.dart';
+import '../presentation/payu/payu_payment.dart';
 
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.helpScreen;
+  static const initial = Routes.payuPayment;
   static final routes = [
     GetPage(
         name: Routes.intro,
@@ -148,6 +144,9 @@ class AppPages {
         name: Routes.addressNotFound,
         page: () => AddressNotFound(),
         binding: MainBinding()),
-
+    GetPage(
+        name: Routes.payuPayment,
+        page: () => PayuPayment(),
+        binding: MainBinding()),
   ];
 }

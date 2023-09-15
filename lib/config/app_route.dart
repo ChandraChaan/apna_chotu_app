@@ -29,5 +29,6 @@ abstract class Routes {
   static const editProfileScreen = '/editProfileScreen';
   static const privacyPolicy = '/privacyPolicy';
   static const paymentOptions = '/paymentOptions';
+  static const payuPayment = '/payuPayment';
 
 }
