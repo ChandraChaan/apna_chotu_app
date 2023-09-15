@@ -1,8 +1,5 @@
 import 'package:apna_chotu_app/Config/app_pages.dart';
-import 'package:apna_chotu_app/utils/constant.dart';
-import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -172,7 +169,7 @@ class FoodScreen extends StatelessWidget {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Color(0xff8f8f8f).withOpacity(0.3),
+                          color: Color(0xFF8F8F8F).withOpacity(0.3),
                           borderRadius: BorderRadius.all(Radius.circular(20)),
                         ),
                         child: Column(
