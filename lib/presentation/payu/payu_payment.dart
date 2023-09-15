@@ -97,7 +97,7 @@ class _PayuPaymentState extends State<PayuPayment> implements PayUCheckoutProPro
 }
 
 class PayUTestCredentials {
-  static const merchantKey = "smsplus";//TODO: Add Merchant Key
+  static const merchantKey = "8522235";//TODO: Add Merchant Key
   //Use your success and fail URL's.
 
   static const iosSurl = "https://payu.herokuapp.com/ios_success";//TODO: Add Success URL.
@@ -117,8 +117,8 @@ class PayUParams {
       PayUSIParamsKeys.isFreeTrial: true,
       PayUSIParamsKeys.billingAmount: '1',              //Required
       PayUSIParamsKeys.billingInterval: 1,              //Required
-      PayUSIParamsKeys.paymentStartDate: '2023-04-20',  //Required
-      PayUSIParamsKeys.paymentEndDate: '2023-04-30',    //Required
+      PayUSIParamsKeys.paymentStartDate: '2023-09-15',  //Required
+      PayUSIParamsKeys.paymentEndDate: '2023-09-15',    //Required
       PayUSIParamsKeys.billingCycle:                    //Required
       'daily', //Can be any of 'daily','weekly','yearly','adhoc','once','monthly'
       PayUSIParamsKeys.remarks: 'Test SI transaction',
@@ -159,9 +159,9 @@ class PayUParams {
       PayUPaymentParamKey.key: PayUTestCredentials.merchantKey,
       PayUPaymentParamKey.amount: "1",
       PayUPaymentParamKey.productInfo: "Info",
-      PayUPaymentParamKey.firstName: "Abc",
-      PayUPaymentParamKey.email: "test@gmail.com",
-      PayUPaymentParamKey.phone: "9999999999",
+      PayUPaymentParamKey.firstName: "apnachotu",
+      PayUPaymentParamKey.email: "ceo@apnachotu.com",
+      PayUPaymentParamKey.phone: "9849953848",
       PayUPaymentParamKey.ios_surl: PayUTestCredentials.iosSurl,
       PayUPaymentParamKey.ios_furl: PayUTestCredentials.iosFurl,
       PayUPaymentParamKey.android_surl: PayUTestCredentials.androidSurl,

@@ -1,15 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-class ClockInOutApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: ClockInOutScreen(),
-    );
-  }
-}
-
 class ClockInOutScreen extends StatefulWidget {
   @override
   _ClockInOutScreenState createState() => _ClockInOutScreenState();
@@ -58,6 +48,14 @@ class _ClockInOutScreenState extends State<ClockInOutScreen> {
               Text(
                 'Clock Out Time: ${clockOutTime?.toString()}',
                 style: TextStyle(fontSize: 16),
+              ),
+            Text(
+              'Latitude: ${17.3850?.toString()}',
+              style: TextStyle(fontSize: 16),
+            ),
+                  Text(
+                      'Longitude: ${78.4867?.toString()}',
+                      style: TextStyle(fontSize: 16)
               ),
             SizedBox(height: 20),
             if (!clockedIn)
