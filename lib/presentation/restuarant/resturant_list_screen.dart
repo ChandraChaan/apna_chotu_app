@@ -197,9 +197,14 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                         minVerticalPadding: 0,
                         horizontalTitleGap: -2,
                         contentPadding: EdgeInsets.all(0),
-                        leading: Icon(
-                          Icons.arrow_back_ios,
-                          color: Colors.black,
+                        leading: InkWell(
+                          onTap: (){
+                            Get.back();
+                          },
+                          child: Icon(
+                            Icons.arrow_back_ios,
+                            color: Colors.black,
+                          ),
                         ),
                         title: CommonText(
                           'Hello, Vinay',

@@ -76,8 +76,8 @@ class _CurrentLocationState extends State<CurrentLocation> {
                           Get.back();
                         },
                         icon: Icon(
-                          Icons.chevron_left,
-                          size: 28,
+                          Icons.arrow_back_ios,
+                          size: 25,
                         )),
                     CommonText(
                       'Select a Location',

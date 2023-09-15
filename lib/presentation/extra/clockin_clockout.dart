@@ -9,6 +9,8 @@ class _ClockInOutScreenState extends State<ClockInOutScreen> {
   bool clockedIn = false;
   DateTime? clockInTime;
   DateTime? clockOutTime;
+  double? latitude;
+  double? longitude;
 
   void clockIn() {
     setState(() {
@@ -50,23 +52,25 @@ class _ClockInOutScreenState extends State<ClockInOutScreen> {
                 style: TextStyle(fontSize: 16),
               ),
             Text(
-              'Latitude: ${17.3850?.toString()}',
+              'Latitude: ${latitude?.toString() ?? 'N/A'}',
               style: TextStyle(fontSize: 16),
             ),
-                  Text(
-                      'Longitude: ${78.4867?.toString()}',
-                      style: TextStyle(fontSize: 16)
-              ),
+            Text(
+              'Longitude: ${longitude?.toString() ?? 'N/A'}',
+              style: TextStyle(fontSize: 16),
+            ),
             SizedBox(height: 20),
             if (!clockedIn)
-              ElevatedButton(
+              IconButton(
+                icon: Icon(Icons.access_alarm), // Icon for Clock In
                 onPressed: clockIn,
-                child: Text('Clock In'),
+                tooltip: 'Clock In',
               ),
             if (clockedIn)
-              ElevatedButton(
+              IconButton(
+                icon: Icon(Icons.access_alarm), // Icon for Clock Out
                 onPressed: clockOut,
-                child: Text('Clock Out'),
+                tooltip: 'Clock Out',
               ),
           ],
         ),

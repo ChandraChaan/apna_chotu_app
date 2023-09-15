@@ -1,5 +1,6 @@
 import 'package:apna_chotu_app/common/app_text.dart';
 import 'package:apna_chotu_app/common/container_lineargradient.dart';
+import 'package:apna_chotu_app/presentation/payment_method/payment_options.dart';
 import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -81,7 +82,7 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 8,top: 5),
+                      padding: const EdgeInsets.only(left: 8, top: 5),
                       child: Row(
                         children: [
                           Icon(
@@ -122,30 +123,39 @@ class _CartScreenState extends State<CartScreen> {
                         ),
                       ),
                       SizedBox(width: 10),
-                      Column(
-                        children: [
-                          CommonText(
-                            'Chicken Biryani',
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.deepOrange),
-                          ),
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.currency_rupee,
-                                size: 14,
-                              ),
-                              CommonText(
-                                '225',
-                                style: TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(width: 70),
-                            ],
-                          )
-                        ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => PaymentOptions()));
+                        },
+                        child: Column(
+                          children: [
+                            CommonText(
+                              'Chicken Biryani',
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.deepOrange),
+                            ),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.currency_rupee,
+                                  size: 14,
+                                ),
+                                CommonText(
+                                  '225',
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(width: 70),
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -400,7 +410,7 @@ class _CartScreenState extends State<CartScreen> {
         ),
       ),
       bottomSheet: Padding(
-        padding: const EdgeInsets.only(bottom: 8,left: 220),
+        padding: const EdgeInsets.only(bottom: 8, left: 220),
         child: Container(
           height: 40,
           width: 167,

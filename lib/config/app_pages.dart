@@ -34,7 +34,7 @@ import '../presentation/payu/payu_payment.dart';
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.nonVegMenu;
+  static const initial = Routes.intro;
   static final routes = [
     GetPage(
         name: Routes.intro,
