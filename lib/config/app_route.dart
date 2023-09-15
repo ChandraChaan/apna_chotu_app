@@ -31,5 +31,6 @@ abstract class Routes {
   static const paymentOptions = '/paymentOptions';
   static const serviceList = '/serviceList';
   static const serviceListMain = '/serviceListMain';
+  static const clockInOutApp = '/clockInOutApp';
 
 }

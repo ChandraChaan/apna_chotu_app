@@ -38,7 +38,7 @@ import '../presentation/locations_screens/select_location_screen.dart';
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.serviceListMain;
+  static const initial = Routes.clockInOutApp;
   static final routes = [
     GetPage(
         name: Routes.intro,
@@ -157,6 +157,10 @@ class AppPages {
     GetPage(
         name: Routes.serviceListMain,
         page: () => ServiceListMain(),
+        binding: MainBinding()),
+    GetPage(
+        name: Routes.clockInOutApp,
+        page: () => ClockInOutApp(),
         binding: MainBinding()),
   ];
 }

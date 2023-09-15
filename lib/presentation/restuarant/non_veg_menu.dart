@@ -871,38 +871,47 @@ class CheckOutsScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 5),
-                      Container(
-                        height: 40,
-                        width: 167,
-                        child: RoundedButton(
-                          onPressed: () {},
-                          name: '',
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  CommonText(
-                                    '2 items',
-                                    style: TextStyle(fontSize: 9),
-                                  ),
-                                  Icon(
-                                    Icons.currency_rupee,
-                                    size: 9,
-                                  ),
-                                  CommonText(
-                                    '255',
-                                    style: TextStyle(fontSize: 9),
-                                  )
-                                ],
-                              ),
-                              CommonText(
-                                'Check Out',
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
-                              )
-                            ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => CartScreen()));
+                        },
+                        child: Container(
+                          height: 40,
+                          width: 167,
+                          child: RoundedButton(
+                            onPressed: () {},
+                            name: '',
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    CommonText(
+                                      '2 items',
+                                      style: TextStyle(fontSize: 9),
+                                    ),
+                                    Icon(
+                                      Icons.currency_rupee,
+                                      size: 9,
+                                    ),
+                                    CommonText(
+                                      '255',
+                                      style: TextStyle(fontSize: 9),
+                                    )
+                                  ],
+                                ),
+                                CommonText(
+                                  'Check Out',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       )
