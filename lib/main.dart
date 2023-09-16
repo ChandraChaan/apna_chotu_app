@@ -13,6 +13,7 @@ class MyHttpOverrides extends HttpOverrides {
     HttpClient httpClient = super.createHttpClient(context)
       ..badCertificateCallback = (X509Certificate cert, String host, int port) {
         return true;
+        // setup completed on mac
       };
     return httpClient;
   }
