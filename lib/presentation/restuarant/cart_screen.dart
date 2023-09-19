@@ -1,4 +1,5 @@
 import 'package:apna_chotu_app/common/app_text.dart';
+import 'package:apna_chotu_app/presentation/payu/payu_payment.dart';
 import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -224,18 +225,20 @@ class _CartScreenState extends State<CartScreen> {
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Icon(Icons.circle),
+                                SizedBox(
+                                  height: 25,
+                                  child: Image.asset(
+                                    'assets/images/coupon.png',
+                                    color: Colors.black,
+                                  ),
+                                ),
                                 SizedBox(
                                   width: 10,
                                 ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    SizedBox(
-                                      height: 1,
-                                    ),
                                     CommonText(
                                       'Coupon Corner',
                                       style: TextStyle(
@@ -361,7 +364,6 @@ class _CartScreenState extends State<CartScreen> {
                   )
                 ],
               ),
-              SizedBox(height: 5),
               Divider(thickness: 2),
               SizedBox(height: 7),
               Container(
@@ -383,6 +385,7 @@ class _CartScreenState extends State<CartScreen> {
                             ),
                           ),
                         ),
+                        SizedBox(width: 5),
                         CommonText(
                           'Tip your delivery partner',
                           style: TextStyle(
@@ -392,7 +395,7 @@ class _CartScreenState extends State<CartScreen> {
                     ),
                     CommonText(
                         'It means a lot that you are kind. Your delivery partner will receive your entire gratuity.'),
-                    SizedBox(height: 12),
+                    SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -481,16 +484,22 @@ class _CartScreenState extends State<CartScreen> {
               ),
               SizedBox(height: 5),
               Container(
-                height: 80,
+                height: 91,
                 color: Color(0xFFF3F3F3),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Icon(Icons.cancel_outlined),
+                    SizedBox(width: 2),
                     Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CommonText('Cancellation Policy'),
+                        CommonText(
+                          'Cancellation Policy',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(height: 7),
                         Column(
                           children: [
                             CommonText(
@@ -507,8 +516,7 @@ class _CartScreenState extends State<CartScreen> {
         ),
       ),
       bottomSheet: Padding(
-        padding: const EdgeInsets.all(8
-        ),
+        padding: const EdgeInsets.all(8),
         child: Container(
           height: 40,
           //width: 167,
@@ -541,10 +549,13 @@ class _CartScreenState extends State<CartScreen> {
                 ),
               ),
               Container(
-               height: 40,
+                height: 40,
                 width: 167,
                 child: RoundedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => PayuPayment()));
+                  },
                   name: '',
                   child: CommonText(
                     'Proceed to Pay',

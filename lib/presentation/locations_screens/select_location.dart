@@ -118,21 +118,15 @@ class _CurrentLocationState extends State<CurrentLocation> {
               ListTile(
                 minLeadingWidth: 0,
                 onTap: () {
-                  Get.toNamed(Routes.mapScreen);
+                  Get.toNamed(Routes.dashBoardScreen);
                 },
                 leading: const Icon(
                   Icons.near_me,
                   color: Colors.deepOrange,
                 ),
-                title: InkWell(
-                  child: const CommonText(
-                    'Use My Current Location',
-                    style: TextStyle(color: Colors.deepOrange, fontSize: 14),
-                  ),
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => FoodScreen()));
-                  },
+                title: const CommonText(
+                  'Use My Current Location',
+                  style: TextStyle(color: Colors.deepOrange, fontSize: 14),
                 ),
                 // subtitle: const CommonText('Rahimpur, Dattatreya Nagar, Hyderabad'),
               ),

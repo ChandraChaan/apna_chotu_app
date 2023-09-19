@@ -1,5 +1,6 @@
 import 'package:apna_chotu_app/Config/app_pages.dart';
 import 'package:apna_chotu_app/presentation/locations_screens/select_location.dart';
+import 'package:apna_chotu_app/presentation/profile_screen/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
@@ -45,8 +46,10 @@ class FoodScreen extends StatelessWidget {
                       color: Colors.deepOrange,
                     ),
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => CurrentLocation()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CurrentLocation()));
                     },
                   ),
                   title: SizedBox(
@@ -60,7 +63,6 @@ class FoodScreen extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 25, fontWeight: FontWeight.bold),
                         ),
-
                       ],
                     ),
                   ),
@@ -78,10 +80,18 @@ class FoodScreen extends StatelessWidget {
                           child: Icon(Icons.notifications),
                           onTap: () {},
                         ),
-                        CircleAvatar(
-                          backgroundImage:
-                              AssetImage('assets/images/profile_picture.png'),
-                          radius: 23,
+                        InkWell(
+                          child: CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/images/profile_picture.png'),
+                            radius: 23,
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ProfileScreen()));
+                          },
                         ),
                       ],
                     ),

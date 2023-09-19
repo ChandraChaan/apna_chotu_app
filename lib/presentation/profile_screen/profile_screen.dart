@@ -20,12 +20,12 @@ class ProfileScreen extends StatelessWidget {
               ListTile(
                 minLeadingWidth: 0,
                 minVerticalPadding: 0,
-                horizontalTitleGap: 10,
+                horizontalTitleGap: -10,
                 contentPadding: const EdgeInsets.all(4),
-                leading: Icon(
-                  Icons.arrow_back_ios,
-                  size: 25,
+                leading: IconButton(
+                  icon: Icon(Icons.arrow_back_ios),
                   color: Colors.black,
+                  onPressed: () {Get.back();},
                 ),
                 title: SizedBox(
                   width: 100,
