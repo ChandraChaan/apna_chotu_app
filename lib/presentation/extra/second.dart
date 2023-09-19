@@ -1,56 +1,44 @@
 import 'package:flutter/material.dart';
 
-class SecondDart extends StatelessWidget {
+void main() {
+  runApp(HotelTipsApp());
+}
+
+class HotelTipsApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Hotel Tips',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: HotelTipsScreen(),
+    );
+  }
+}
+
+class HotelTipsScreen extends StatelessWidget {
+  final List<String> tips = [
+    "Tip 1: Pack your essentials in a carry-on bag.",
+    "Tip 2: Check hotel reviews before booking.",
+    "Tip 3: Use a luggage tag with your contact information.",
+    "Tip 4: Explore local cuisine and restaurants.",
+    "Tip 5: Don't forget to bring a power adapter.",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bottom Sheet Example'),
+        title: Text('Hotel Tips'),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            // Show the bottom sheet when the button is pressed
-            showModalBottomSheet(
-              context: context,
-              builder: (BuildContext context) {
-                return Container(
-                  // You can customize the content of the bottom sheet here
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      ListTile(
-                        leading: Icon(Icons.share),
-                        title: Text('Share'),
-                        onTap: () {
-                          // Handle the share action
-                          Navigator.pop(context);
-                        },
-                      ),
-                      ListTile(
-                        leading: Icon(Icons.link),
-                        title: Text('Copy Link'),
-                        onTap: () {
-                          // Handle the copy link action
-                          Navigator.pop(context);
-                        },
-                      ),
-                      ListTile(
-                        leading: Icon(Icons.delete),
-                        title: Text('Delete'),
-                        onTap: () {
-                          // Handle the delete action
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ],
-                  ),
-                );
-              },
-            );
-          },
-          child: Text('Open Bottom Sheet'),
-        ),
+      body: ListView.builder(
+        itemCount: tips.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(tips[index]),
+          );
+        },
       ),
     );
   }

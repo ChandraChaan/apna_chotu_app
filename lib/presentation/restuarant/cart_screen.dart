@@ -1,6 +1,4 @@
 import 'package:apna_chotu_app/common/app_text.dart';
-import 'package:apna_chotu_app/common/container_lineargradient.dart';
-import 'package:apna_chotu_app/presentation/payment_method/payment_options.dart';
 import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,6 +11,7 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
+  List<int> tip = [10, 20, 30, 40];
   int quantity = 1;
 
   @override
@@ -110,7 +109,7 @@ class _CartScreenState extends State<CartScreen> {
                   Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 30, left: 30),
+                        padding: const EdgeInsets.only(top: 10),
                         child: Container(
                           height: 48,
                           width: 48,
@@ -123,39 +122,30 @@ class _CartScreenState extends State<CartScreen> {
                         ),
                       ),
                       SizedBox(width: 10),
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => PaymentOptions()));
-                        },
-                        child: Column(
-                          children: [
-                            CommonText(
-                              'Chicken Biryani',
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.deepOrange),
-                            ),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.currency_rupee,
-                                  size: 14,
-                                ),
-                                CommonText(
-                                  '225',
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(width: 70),
-                              ],
-                            )
-                          ],
-                        ),
+                      Column(
+                        children: [
+                          CommonText(
+                            'Chicken Biryani',
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.deepOrange),
+                          ),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.currency_rupee,
+                                size: 14,
+                              ),
+                              CommonText(
+                                '225',
+                                style: TextStyle(
+                                    fontSize: 14, fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(width: 70),
+                            ],
+                          )
+                        ],
                       ),
                     ],
                   ),
@@ -193,7 +183,7 @@ class _CartScreenState extends State<CartScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 5),
               Container(
                 height: 43,
                 decoration: BoxDecoration(
@@ -213,7 +203,7 @@ class _CartScreenState extends State<CartScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 5),
               Container(
                 height: 95,
                 decoration: BoxDecoration(
@@ -401,26 +391,168 @@ class _CartScreenState extends State<CartScreen> {
                       ],
                     ),
                     CommonText(
-                        'It means a lot that you are kind. Your delivery partner will receive your entire gratuity.')
+                        'It means a lot that you are kind. Your delivery partner will receive your entire gratuity.'),
+                    SizedBox(height: 12),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        for (int a = 0; a < tip.length; a++)
+                          SizedBox(
+                            width: 70,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                // Add your button click logic here
+                              },
+                              style: ElevatedButton.styleFrom(
+                                foregroundColor: Colors.deepOrange,
+                                backgroundColor: Colors.white,
+                                // Change this color as needed
+                                elevation: 0,
+                                // You can adjust the elevation as needed
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(
+                                      8.0), // You can adjust the border radius as needed
+                                ),
+                              ),
+                              child: Container(
+                                height: 43,
+                                //width: ,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.currency_rupee,
+                                      // color: Colors.deepOrange,
+                                      size: 17,
+                                    ),
+                                    Text(
+                                      '${tip[a]}',
+                                      style: TextStyle(
+                                        color: Colors.deepOrange,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        SizedBox(
+                          width: 70,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Add your button click logic here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor: Colors.deepOrange,
+                              backgroundColor: Colors.white,
+                              // Change this color as needed
+                              elevation: 0,
+                              // You can adjust the elevation as needed
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    8.0), // You can adjust the border radius as needed
+                              ),
+                            ),
+                            child: Container(
+                              height: 43,
+                              width: 60,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    '+',
+                                    style: TextStyle(
+                                      color: Colors.deepOrange,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 24,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ],
                 ),
-              )
+              ),
+              SizedBox(height: 5),
+              Container(
+                height: 80,
+                color: Color(0xFFF3F3F3),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(Icons.cancel_outlined),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CommonText('Cancellation Policy'),
+                        Column(
+                          children: [
+                            CommonText(
+                                '100% cancellation fee will be applicable if you\ndecide to cancel the order anytime after order\nplacement. Avoid cancellation as it leads to food \nwastage'),
+                          ],
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
       ),
       bottomSheet: Padding(
-        padding: const EdgeInsets.only(bottom: 8, left: 220),
+        padding: const EdgeInsets.all(8
+        ),
         child: Container(
           height: 40,
-          width: 167,
-          child: RoundedButton(
-            name: '',
-            child: CommonText(
-              'Proceed to Pay',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            onPressed: () {},
+          //width: 167,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(Icons.currency_rupee),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CommonText(
+                          '381.00',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        CommonText(
+                          'View Detailed Bill',
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.deepOrange,
+                              fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+               height: 40,
+                width: 167,
+                child: RoundedButton(
+                  onPressed: () {},
+                  name: '',
+                  child: CommonText(
+                    'Proceed to Pay',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
