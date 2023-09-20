@@ -1,3 +1,4 @@
+import 'package:apna_chotu_app/presentation/profile_screen/profile_screen.dart';
 import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -113,7 +114,10 @@ class _HelpScreenState extends State<HelpScreen> {
                     height: 40,
                     width: 220,
                     child: RoundedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfileScreen()));
+
+                      },
                       name: 'Submit Your Query',
                     ),
                   ),

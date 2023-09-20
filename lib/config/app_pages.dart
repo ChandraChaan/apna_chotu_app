@@ -9,7 +9,6 @@ import 'package:apna_chotu_app/presentation/restuarant/resturant_list_screen.dar
 import 'package:apna_chotu_app/presentation/locations_screens/address_new_other_address.dart';
 import 'package:apna_chotu_app/presentation/order_history/help_screen.dart';
 import 'package:apna_chotu_app/presentation/order_history/invite_friends.dart';
-import 'package:apna_chotu_app/presentation/order_history/logout_screen.dart';
 import 'package:apna_chotu_app/presentation/order_history/order_details_screen.dart';
 import 'package:apna_chotu_app/presentation/order_history/order_history.dart';
 import 'package:apna_chotu_app/presentation/order_history/rate_your_meal.dart';
@@ -32,7 +31,7 @@ import '../presentation/payu/payu_payment.dart';
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.intro;
+  static const initial = Routes.profileScreen;
   static final routes = [
     GetPage(
         name: Routes.intro,

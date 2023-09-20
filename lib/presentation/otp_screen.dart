@@ -321,7 +321,7 @@ class _OTPScreenState extends State<OTPScreen> {
                         Get.defaultDialog(
                           confirmTextColor: Colors.white,
                           title: '',
-                          middleText: 'Please Enter OTP',
+                          middleText: 'Please Enter Valid OTP',
                           onConfirm: () {
                             Get.back();
                           },

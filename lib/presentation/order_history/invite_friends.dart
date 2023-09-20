@@ -45,30 +45,49 @@ class InviteFriends extends StatelessWidget {
                 'Let’s invite friends to try Apna Chotu',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 15,
+                    fontSize: 14,
                     color: Colors.deepOrange),
               ),
               SizedBox(height: 5),
               CommonText(
                 'So they can benefit by experiencing Apna Chotu and its perks, just like you!',
-                style: TextStyle(fontSize: 12),
+                style: TextStyle(fontSize: 10),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 15),
               Center(
                 child: Container(
                   height: 40,
-                  width: 180,
+                  width: 130,
                   child: RoundedButton(
-                    name: 'Invite Friends',
+                    name: '',
+                    child: CommonText(
+                      'Invite Friends',
+                      style:
+                          TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+                    ),
                     onPressed: () {},
                   ),
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 15),
               CommonText(
                 'Hey have you tried Apna Chotu App? It really helps me save time and energy.',
-                style: TextStyle(fontSize: 12),
-              )
+                style: TextStyle(fontSize: 10),
+              ),SizedBox(height: 15),
+              Container(
+                height: 80,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/invite.png'))),
+              ),
+              Divider(thickness: 2),
+              SizedBox(height: 15),
+              Container(
+                height: 68,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/whatsup.png'))),
+              ),
             ],
           ),
         ),
