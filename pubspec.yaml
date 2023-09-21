@@ -49,7 +49,7 @@ dependencies:
   google_maps_flutter: ^2.4.0
   geolocator: ^10.0.0
   geocoding: ^2.0.0
-  payu_checkoutpro_flutter: ^1.0.4
+  flutter_payu_unofficial: ^1.0.3
 
 dev_dependencies:
   flutter_test:
