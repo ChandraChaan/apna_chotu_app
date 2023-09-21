@@ -1,6 +1,6 @@
 import 'package:apna_chotu_app/presentation/dashboard/main_home_screen1.dart';
 import 'package:apna_chotu_app/presentation/dashboard/main_home_screen2.dart';
-import 'package:apna_chotu_app/presentation/extra/clockin_clockout.dart';
+// import 'package:apna_chotu_app/presentation/extra/clockin_clockout.dart';
 import 'package:apna_chotu_app/presentation/extra/second.dart';
 import 'package:apna_chotu_app/presentation/locations_screens/address_not_found.dart';
 import 'package:apna_chotu_app/presentation/order_history/privacy_policy.dart';
@@ -28,7 +28,8 @@ import '../Application/Binding/main_binding.dart';
 import '../Presentation/auth_screen.dart';
 import '../Presentation/intro_screen.dart';
 import '../presentation/locations_screens/location_screen.dart';
-import '../presentation/locations_screens/select_location_screen.dart';
+import '../presentation/locations_screens/select_location.dart';
+// import '../presentation/locations_screens/select_location_screen.dart';
 import '../presentation/payu/payu_payment.dart';
 
 part 'app_route.dart';
@@ -150,13 +151,13 @@ class AppPages {
         name: Routes.payuPayment,
         page: () => PayuPayment(),
         binding: MainBinding()),
-    GetPage(
-        name: Routes.clockInOutScreen,
-        page: () => ClockInOutScreen(),
-        binding: MainBinding()),
-    GetPage(
-        name: Routes.secondDart,
-        page: () => SecondDart(),
-        binding: MainBinding()),
+    // GetPage(
+    //     name: Routes.clockInOutScreen,
+    //     page: () => ClockInOutScreen(),
+    //     binding: MainBinding()),
+    // GetPage(
+    //     name: Routes.secondDart,
+    //     page: () => SecondDart(),
+    //     binding: MainBinding()),
   ];
 }
