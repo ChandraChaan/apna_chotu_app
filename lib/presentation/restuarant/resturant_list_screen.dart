@@ -93,20 +93,18 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
   ];
   List<Map<String, dynamic>> listitemsscroll = [
     {
-      "image":"assets/images/rectangle_2.png",
-      "name":"THE JOINT AL-MANDI",
-      "subTitle":"Arunodaya Housing Colony,Madhapur",
-      "discount_price":"RS 299/-",
-      "orignal_pice":"499/-"
-
+      "image": "assets/images/rectangle_2.png",
+      "name": "THE JOINT AL-MANDI",
+      "subTitle": "Arunodaya Housing Colony,Madhapur",
+      "discount_price": "RS 299/-",
+      "orignal_pice": "499/-"
     },
     {
-      "image":"assets/images/rectangle_2.png",
-      "name":"THE JOINT AL-MANDI",
-      "subTitle":"Arunodaya Housing Colony,Madhapur",
-      "discount_price":"RS 299/-",
-      "orignal_pice":"499/-"
-
+      "image": "assets/images/rectangle_2.png",
+      "name": "THE JOINT AL-MANDI",
+      "subTitle": "Arunodaya Housing Colony,Madhapur",
+      "discount_price": "RS 299/-",
+      "orignal_pice": "499/-"
     }
   ];
 
@@ -197,9 +195,14 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                         minVerticalPadding: 0,
                         horizontalTitleGap: -2,
                         contentPadding: EdgeInsets.all(0),
-                        leading: Icon(
-                          Icons.arrow_back_ios,
-                          color: Colors.black,
+                        leading: InkWell(
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: Icon(
+                            Icons.arrow_back_ios,
+                            color: Colors.black,
+                          ),
                         ),
                         title: CommonText(
                           'Hello, Vinay',
@@ -224,6 +227,8 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                       // autocorrect: true,
                       decoration: InputDecoration(
                     hintText: 'search"Biryani"',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)),
                     prefixIcon: Icon(
                       Icons.search,
                     ),
@@ -234,10 +239,10 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                     hintStyle: TextStyle(color: Colors.grey),
                     filled: true,
                     // fillColor: Colors.white70,
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                      // borderSide: BorderSide(color: Colors.grey, width: 2),
-                    ),
+                    // enabledBorder: OutlineInputBorder(
+                    //   borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                    //   // borderSide: BorderSide(color: Colors.grey, width: 2),
+                    // ),
                   )),
                 ),
                 MenuTabs(),

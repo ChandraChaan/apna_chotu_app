@@ -1,4 +1,6 @@
 import 'package:apna_chotu_app/Config/app_pages.dart';
+import 'package:apna_chotu_app/presentation/locations_screens/select_location.dart';
+import 'package:apna_chotu_app/presentation/profile_screen/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
@@ -37,10 +39,18 @@ class FoodScreen extends StatelessWidget {
                   minVerticalPadding: 0,
                   horizontalTitleGap: 10,
                   contentPadding: const EdgeInsets.all(0),
-                  leading: Icon(
-                    Icons.location_on,
-                    size: 38,
-                    color: Colors.deepOrange,
+                  leading: InkWell(
+                    child: Icon(
+                      Icons.location_on,
+                      size: 38,
+                      color: Colors.deepOrange,
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CurrentLocation()));
+                    },
                   ),
                   title: SizedBox(
                     width: 100,
@@ -53,11 +63,6 @@ class FoodScreen extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 25, fontWeight: FontWeight.bold),
                         ),
-                        IconButton(
-                            onPressed: () {
-                              Get.toNamed(Routes.currentLocation);
-                            },
-                            icon: Icon(Icons.expand_more))
                       ],
                     ),
                   ),
@@ -75,10 +80,18 @@ class FoodScreen extends StatelessWidget {
                           child: Icon(Icons.notifications),
                           onTap: () {},
                         ),
-                        CircleAvatar(
-                          backgroundImage:
-                              AssetImage('assets/images/profile_picture.png'),
-                          radius: 23,
+                        InkWell(
+                          child: CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/images/profile_picture.png'),
+                            radius: 23,
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ProfileScreen()));
+                          },
                         ),
                       ],
                     ),

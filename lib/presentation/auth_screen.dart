@@ -250,7 +250,7 @@ class _AuthScreenState extends State<AuthScreen> {
                               Get.defaultDialog(
                                   confirmTextColor: Colors.white,
                                   // modify error msg
-                                  title: 'Please correct enter phone number',
+                                  title: 'Please enter valid mobile number',
                                   middleText: '',
                                   onConfirm: () {
                                     Get.back();

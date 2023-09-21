@@ -1,4 +1,5 @@
 import 'package:apna_chotu_app/Config/app_pages.dart';
+import 'package:apna_chotu_app/presentation/dashboard/main_home_screen2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -6,7 +7,6 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import '../../common/app_text.dart';
-import '../../utils/rounded_button.dart';
 
 class CurrentLocation extends StatefulWidget {
   const CurrentLocation({super.key});
@@ -16,19 +16,20 @@ class CurrentLocation extends StatefulWidget {
 }
 
 class _CurrentLocationState extends State<CurrentLocation> {
-
   void editAddress(int index) {
-        // Handle edit action for the address at the given index
-        // You can navigate to an edit screen or perform other actions here
-        // Example: navigate to the edit screen with the selected address
-        Get.toNamed(Routes.othersAddress, arguments: addressList[index]);
+    // Handle edit action for the address at the given index
+    // You can navigate to an edit screen or perform other actions here
+    // Example: navigate to the edit screen with the selected address
+    Get.toNamed(Routes.othersAddress, arguments: addressList[index]);
 
     // Define the edit address action here
     // You can navigate to an edit address screen or perform other actions
   }
+
   List<dynamic> addressList = [];
 
   final LocalDb = GetStorage();
+
   void fetchAddress() async {
     final url = 'https://openteqdev.com/Apnachotu_dev/api/user/fecth_address';
 
@@ -76,8 +77,8 @@ class _CurrentLocationState extends State<CurrentLocation> {
                           Get.back();
                         },
                         icon: Icon(
-                          Icons.chevron_left,
-                          size: 28,
+                          Icons.arrow_back_ios,
+                          size: 25,
                         )),
                     CommonText(
                       'Select a Location',
@@ -117,7 +118,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
               ListTile(
                 minLeadingWidth: 0,
                 onTap: () {
-                  Get.toNamed(Routes.mapScreen);
+                  Get.toNamed(Routes.dashBoardScreen);
                 },
                 leading: const Icon(
                   Icons.near_me,
@@ -185,13 +186,14 @@ class _CurrentLocationState extends State<CurrentLocation> {
                   title: CommonText(
                     addressList[a]['locality'],
                   ),
-                  subtitle: CommonText(addressList[a]['address_name']),trailing: InkWell(
-                  onTap: () => editAddress(a),
-                  child: Icon(
-                    Icons.edit,
-                    color: Colors.deepOrange,
+                  subtitle: CommonText(addressList[a]['address_name']),
+                  trailing: InkWell(
+                    onTap: () => editAddress(a),
+                    child: Icon(
+                      Icons.edit,
+                      color: Colors.deepOrange,
+                    ),
                   ),
-                ),
                 ),
               if (addressList.isNotEmpty) Divider(thickness: 1),
               const SizedBox(

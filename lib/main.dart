@@ -5,7 +5,7 @@ import 'package:get_storage/get_storage.dart';
 import 'Config/app_pages.dart';
 import 'Network/logger.dart';
 import 'lang/translation_service.dart';
-
+//hii
 
 class MyHttpOverrides extends HttpOverrides {
   @override
@@ -13,6 +13,7 @@ class MyHttpOverrides extends HttpOverrides {
     HttpClient httpClient = super.createHttpClient(context)
       ..badCertificateCallback = (X509Certificate cert, String host, int port) {
         return true;
+        // setup completed on mac
       };
     return httpClient;
   }

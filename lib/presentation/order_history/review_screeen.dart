@@ -1,3 +1,6 @@
+import 'package:apna_chotu_app/presentation/order_history/order_details_screen.dart';
+import 'package:apna_chotu_app/presentation/order_history/order_history.dart';
+import 'package:apna_chotu_app/presentation/profile_screen/profile_screen.dart';
 import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -103,7 +106,9 @@ class ReviewScreen extends StatelessWidget {
                 width: 250,
                 child: RoundedButton(
                   name: 'Submit Your Feedback',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderHistoryScreen()));
+                  },
                 ),
               ),
             )
