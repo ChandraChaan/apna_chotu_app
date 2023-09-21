@@ -110,7 +110,7 @@ class _PayuPaymentState extends State<PayuPayment> {
           body: Center(
             child: RoundedButton(
               onPressed: pay,
-              name: 'pay yar',
+              name: 'PayU',
             ),
           )),
     );

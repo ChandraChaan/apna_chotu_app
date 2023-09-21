@@ -35,7 +35,7 @@ import '../presentation/payu/payu_payment.dart';
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.payuPayment;
+  static const initial = Routes.cartScreen;
   static final routes = [
     GetPage(
         name: Routes.intro,
