@@ -23,9 +23,8 @@ class _CartScreenState extends State<CartScreen> {
 
   Future<void> pay() async {
     PaymentParams _paymentParam = PaymentParams(
-      merchantID: 'Wn0jYR',
-      merchantKey:
-          'MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDFGZ1veYHrq/9uUT58e+4Nz7lHjyJ8aPB6TL0qM/fCCdAH0siCHkD7l6ENHnojMmhYq9QjdnJ6q0zeQSi86YUl7f/CGIvyL8AwsNTrW+Di8jWum8fj170ZlvOIxaYr6lmVIWtWRumf4VBE3YXHmQeJaJijl0cSJeD2jDqImPeFnGtHEaZ6CRgLeiO4rXX9pX09DUFW4K5MldgqyYJSSXi+kepViADM4tzFvt+kvO4frUKuQ9RakdovYVpnWTEkw9T4qZj85liiBWK/JWPAhiK1bpzLfIK6B8WqzMtOaoFnoN7G87SafRIV4r8eN3jeLio0rDFOQifaI4WEXd9JisNXAgMBAAECggEAEG4FMKCpUtLglPqSwd+2xVH2eN+N+WmVZKDXfOIPF6CqO0wqIwcqBA/Hf0RdqvhbWS+yk/osEh49XZr4Ew+yZgIfxH4I8ZQ1P1qlljNkdPZLuZ+/ciX3zBV5u8qz8GjgyX8RV7FBMPMHOgtEze9PdtqGeeqaxXkUy1BvhDfNV7dJii6YmILtqi0nQpf3n+fSmr5gvz5JacNW/id0yhJL6Tzz/6DkT7lzwRl1c7AoRON/mXj9473yltOCCPrZ1R3e+PMLDD4g9Kq1XZo7WgXFC4Ag5iEQu0ckNHYTJ6cnnGG3EgAFOK+ukncmNeTT3prZ8KTb3nqjNPrZxw1GA59zB2AQKBgQDhgTBEJcXuzhLJcbET2VT/xflngygjgusa7X05IswZXwm152IjpgvJomzQIVM1RzOvAGF+/hhAiFOcFgrxstkJRY9iqeysfweZEf7VFPQ4nG8DV3ZlrNAazHPqPrpnZGeo243H3s4ggbt3S2t4BbXmXOBlykRttkcnBDo4+ekSVwKBgQDfwRRtsr3ziIWsfOZESMO3uehp8fgkQRxJiCFLOtfVqF0UIbdfdgz5BHKcw2jwFMsi3S0WpKBiDMBusWrDcInJxEFoYSp3k5LCVwIYrXzP3b+I/Co4U3l6BHObPbHa4ZENvR8CmIgUUu6X+TZtfZK+rNCmQaMyq2Ba5p74lDc3AQKBgQCXwaEBu4ngk74A4woQGYoiNtEI4DL68vfVP02uTcScrmCSkgxxgSUdpLklt8ePa0NU2iTCma0ogJYDzLHAxmNY4f8EnuYvj61FTd749wkDsALldM6wzgOehUjcsyouulsoP9jCUSbWqXfHaHICa5VmWcqJtf0m+CwaDbZA8a3wMQKBgQCzbZe+KBme0xmuqjHVDCy2hkRTwQ/lsrjGVn2sYDF4Shzp6eesi3P3tJNcFm9uJp6HBKoFgFqEhglCOs+MjhBQVirFUzXE0fhcE33A4E44OnA/n0cUCAxfxnYWRTD8fundBI17fWmSMrbV86irwIkOknJ3ACeomDkaa9mLKP/mAQKBgAsbu6uelB6kKcNU0NYQz4CQQ7LhiAIhDOQbkR7T+T6CbwsZtp2nfuPFu5SiZhaZz884QKFbP539jOFnOjkHM2n10wYueys2w1WGZJoq7K5viYuEMalnPg1kndtl6LmJqaSu6CWCSnluAqWQ6X/jn9tzAgnhLUtdGpmfeXjjMS/X',
+      merchantID: '8522235',
+      merchantKey: 'Wn0jYR',
       salt: 'T73QXre5AkYRnB1EgPVukwUCZiffmwjv',
       amount: '100',
       transactionID: DateTime.now().millisecondsSinceEpoch.toString(),
@@ -45,9 +44,10 @@ class _CartScreenState extends State<CartScreen> {
       udf8: "",
       udf9: "",
       udf10: "",
-      hash: "",
+      hash:
+          "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDFGZ1veYHrq/9uUT58e+4Nz7lHjyJ8aPB6TL0qM/fCCdAH0siCHkD7l6ENHnojMmhYq9QjdnJ6q0zeQSi86YUl7f/CGIvyL8AwsNTrW+Di8jWum8fj170ZlvOIxaYr6lmVIWtWRumf4VBE3YXHmQeJaJijl0cSJeD2jDqImPeFnGtHEaZ6CRgLeiO4rXX9pX09DUFW4K5MldgqyYJSSXi+kepViADM4tzFvt+kvO4frUKuQ9RakdovYVpnWTEkw9T4qZj85liiBWK/JWPAhiK1bpzLfIK6B8WqzMtOaoFnoN7G87SafRIV4r8eN3jeLio0rDFOQifaI4WEXd9JisNXAgMBAAECggEAEG4FMKCpUtLglPqSwd+2xVH2eN+WmVZKDXfOIPF6CqO0wqIwcqBA/Hf0RdqvhbWS+yk/osEh49XZr4Ew+yZgIfxH4I8ZQ1P1qlljNkdPZLuZ+/ciX3zBV5u8qz8GjgyX8RV7FBMPMHOgtEze9PdtqGeeqaxXkUy1BvhDfNV7dJii6YmILtqi0nQpf3n+fSmr5gvz5JacNW/id0yhJL6Tzz/6DkT7lzwRl1c7AoRON/mXj9473yltOCCPrZ1R3e+PMLDD4g9Kq1XZo7WgXFC4Ag5iEQu0ckNHYTJ6cnnGG3EgAFOK+ukncmNeTT3prZ8KTb3nqjNPrZxw1GA59zB2AQKBgQDhgTBEJcXuzhLJcbET2VT/xflngygjgusa7X05IswZXwm152IjpgvJomzQIVM1RzOvAGF+/hhAiFOcFgrxstkJRY9iqeysfweZEf7VFPQ4nG8DV3ZlrNAazHPqPrpnZGeo243H3s4ggbt3S2t4BbXmXOBlykRttkcnBDo4+ekSVwKBgQDfwRRtsr3ziIWsfOZESMO3uehp8fgkQRxJiCFLOtfVqF0UIbdfdgz5BHKcw2jwFMsi3S0WpKBiDMBusWrDcInJxEFoYSp3k5LCVwIYrXzP3b+I/Co4U3l6BHObPbHa4ZENvR8CmIgUUu6X+TZtfZK+rNCmQaMyq2Ba5p74lDc3AQKBgQCXwaEBu4ngk74A4woQGYoiNtEI4DL68vfVP02uTcScrmCSkgxxgSUdpLklt8ePa0NU2iTCma0ogJYDzLHAxmNY4f8EnuYvj61FTd749wkDsALldM6wzgOehUjcsyouulsoP9jCUSbWqXfHaHICa5VmWcqJtf0m+CwaDbZA8a3wMQKBgQCzbZe+KBme0xmuqjHVDCy2hkRTwQ/lsrjGVn2sYDF4Shzp6eesi3P3tJNcFm9uJp6HBKoFgFqEhglCOs+MjhBQVirFUzXE0fhcE33A4E44OnA/n0cUCAxfxnYWRTD8fundBI17fWmSMrbV86irwIkOknJ3ACeomDkaa9mLKP/mAQKBgAsbu6uelB6kKcNU0NYQz4CQQ7LhiAIhDOQbkR7T+T6CbwsZtp2nfuPFu5SiZhaZz884QKFbP539jOFnOjkHM2n10wYueys2w1WGZJoq7K5viYuEMalnPg1kndtl6LmJqaSu6CWCSnluAqWQ6X/jn9tzAgnhLUtdGpmfeXjjMS/X",
       //Hash is required will initialise with empty string now to set actuall hash later
-      isDebug: true, // true for Test Mode, false for Production
+      isDebug: false, // true for Test Mode, false for Production
     );
 
     //Generating local hash
@@ -146,7 +146,8 @@ class _CartScreenState extends State<CartScreen> {
                             ),
                             CommonText(
                               'Delivery in: 33 mins',
-                              style: TextStyle(fontSize: 11, color: Colors.white),
+                              style:
+                                  TextStyle(fontSize: 11, color: Colors.white),
                             ),
                           ],
                         ),
@@ -211,7 +212,8 @@ class _CartScreenState extends State<CartScreen> {
                                 CommonText(
                                   '225',
                                   style: TextStyle(
-                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 SizedBox(width: 70),
                               ],
@@ -268,8 +270,8 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                       CommonText(
                         'Add more items',
-                        style:
-                            TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 12),
                       )
                     ],
                   ),
@@ -306,7 +308,8 @@ class _CartScreenState extends State<CartScreen> {
                                     width: 10,
                                   ),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       CommonText(
@@ -421,7 +424,8 @@ class _CartScreenState extends State<CartScreen> {
                   children: [
                     CommonText(
                       'Paid Via Credit Card',
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(width: 198),
                     Icon(
