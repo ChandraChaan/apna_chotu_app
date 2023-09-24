@@ -26,8 +26,11 @@ class _CartScreenState extends State<CartScreen> {
   final _formKey = GlobalKey<FormState>();
 
   String? txnid, amount, productinfo, firstname, email;
-  String generateHash(String key, String txnid, String amount, String productinfo, String firstname, String email, String salt) {
-    final rawData = '$key|$txnid|$amount|$productinfo|$firstname|$email|||||||||||$salt';
+
+  String generateHash(String key, String txnid, String amount,
+      String productinfo, String firstname, String email, String salt) {
+    final rawData =
+        '$key|$txnid|$amount|$productinfo|$firstname|$email|||||||||||$salt';
     final bytes = utf8.encode(rawData);
     final digest = sha512.convert(bytes);
     return digest.toString();
@@ -37,7 +40,8 @@ class _CartScreenState extends State<CartScreen> {
     EasyLoading.show(status: 'loading...');
     final key = 'Wn0jYR';
     final salt = 'T73QXre5AkYRnB1EgPVukwUCZiffmwjvs';
-    final hash = generateHash(key, txnid!, amount!, productinfo!, firstname!, email!, salt);
+    final hash = generateHash(
+        key, txnid!, amount!, productinfo!, firstname!, email!, salt);
 
     final response = await http.post(
       Uri.parse('https://secure.payu.in/_payment'),
@@ -52,14 +56,18 @@ class _CartScreenState extends State<CartScreen> {
         'firstname': firstname,
         'email': email,
         'hash': hash,
+        'surl': 'https://apiplayground-response.herokuapp.com/',
+        'furl': 'https://apiplayground-response.herokuapp.com/'
         // Add other fields as necessary
       },
     );
     if (response.statusCode == 200) {
       EasyLoading.dismiss();
       // This is a simplification. In reality, you'll need to parse the response to get the redirection URL or check if the payment initiation was successful.
-      final redirectionUrl = response.body;  // Adjust based on actual response structure
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => PaymentWebView(initialUrl: redirectionUrl)));
+      final redirectionUrl =
+          response.body; // Adjust based on actual response structure
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => PaymentWebView(initialUrl: redirectionUrl)));
     } else {
       EasyLoading.dismiss();
 
@@ -111,7 +119,6 @@ class _CartScreenState extends State<CartScreen> {
       ),
     );
   }
-
 }
 
 //   List<int> tip = [10, 20, 30, 40];
