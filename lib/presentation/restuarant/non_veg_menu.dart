@@ -21,6 +21,7 @@ class NonVegMenu extends StatefulWidget {
 }
 
 class _NonVegMenuState extends State<NonVegMenu> {
+  int _value = 1;
   int selected = 1;
   int quantity = 1;
   bool non_veg = false;
@@ -595,37 +596,46 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                           ),
                                           SizedBox(height: 6),
                                           Row(
-                                            children: [
-                                              Icon(Icons.radio_button_off),
-                                              SizedBox(width: 5),
-                                              CommonText('Single(serve 1)'),
-                                              SizedBox(width: 200),
-                                              Row(
-                                                children: [
-                                                  Icon(
-                                                    Icons.currency_rupee,
-                                                    size: 15,
-                                                  ),
-                                                  CommonText(
-                                                    '180',
-                                                    style:
-                                                        TextStyle(fontSize: 15),
-                                                  )
-                                                ],
-                                              )
-                                            ],
-                                          ),
+                                              children: [
+                                            SizedBox(width: 5),
+                                            Radio(
+                                                value: 1,
+                                                groupValue: _value,
+                                                onChanged: (value) {
+                                                  setState(() {
+                                                    _value = value!;
+                                                  });
+                                                }),
+                                                CommonText('Single(serve 1)'),
+                                                SizedBox(width: 200),
+                                            Row(children: [
+                                              Icon(
+                                                Icons.attach_money,
+                                                size: 15,
+                                              ),
+                                              CommonText('180',
+                                                  style:
+                                                      TextStyle(fontSize: 15))
+                                            ])
+                                          ]),
                                           SizedBox(height: 6),
                                           Row(
                                             children: [
-                                              Icon(Icons.radio_button_off),
                                               SizedBox(width: 5),
+                                              Radio(
+                                                  value: 2,
+                                                  groupValue: _value,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      _value = value!;
+                                                    });
+                                                  }),
                                               CommonText('Single(serve 2)'),
                                               SizedBox(width: 200),
                                               Row(
                                                 children: [
                                                   Icon(
-                                                    Icons.currency_rupee,
+                                                    Icons.attach_money,
                                                     size: 15,
                                                   ),
                                                   CommonText(
