@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'dart:io';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -32,6 +33,7 @@ class ApnaChotuApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      builder: EasyLoading.init(),
       debugShowCheckedModeBanner: false,
       title: 'Apna Chotu app',
       logWriterCallback: Logger.write,

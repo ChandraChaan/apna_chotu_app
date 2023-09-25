@@ -39,7 +39,7 @@ class _CartScreenState extends State<CartScreen> {
   void initiatePayment() async {
     EasyLoading.show(status: 'loading...');
     final key = 'Wn0jYR';
-    final salt = 'T73QXre5AkYRnB1EgPVukwUCZiffmwjvs';
+    final salt = 'T73QXre5AkYRnB1EgPVukwUCZiffmwjv';
     final hash = generateHash(
         key, txnid!, amount!, productinfo!, firstname!, email!, salt);
 
