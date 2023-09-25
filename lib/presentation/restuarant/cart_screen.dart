@@ -70,7 +70,8 @@ class _CartScreenState extends State<CartScreen> {
       'surl': 'https://apiplayground-response.herokuapp.com/',
       'furl': 'https://apiplayground-response.herokuapp.com/'
     };
-    print('the full body was' + body.toString());
+    print('Sending POST request with body: ' + body.toString());
+
     final response = await http.post(
       Uri.parse('https://secure.payu.in/_payment'),
       headers: {
@@ -85,28 +86,45 @@ class _CartScreenState extends State<CartScreen> {
 
     EasyLoading.dismiss();
 
-    if (response.statusCode == 200) {
-      final redirectionUrl =
-          response.body; // Adjust based on actual response structure
-      print('Navigating to PaymentWebView with URL: $redirectionUrl');
-      Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => PaymentWebView(initialUrl: redirectionUrl)));
+    if (response.statusCode == 302) {
+      final redirectionUrl = response.headers['location'];
+      if (redirectionUrl != null) {
+        print('Received 302 status. Redirecting to: $redirectionUrl');
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => PaymentWebView(initialUrl: redirectionUrl)));
+      } else {
+        showErrorDialog('Redirection URL not found in the response headers.');
+      }
+    } else if (response.statusCode == 200) {
+      final redirectionData = json.decode(response.body);
+      if (redirectionData['url'] != null) {
+        final redirectionUrl = redirectionData['url'];
+        print('Navigating to PaymentWebView with URL: $redirectionUrl');
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => PaymentWebView(initialUrl: redirectionUrl)));
+      } else {
+        showErrorDialog('Redirection URL not found in the response.');
+      }
     } else {
       print('Error encountered. Showing error dialog.');
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text('Payment Error'),
-          content: Text('Error initiating payment: ${response.body}'),
-          actions: <Widget>[
-            TextButton(
-              child: Text('OK'),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
-          ],
-        ),
-      );
+      showErrorDialog('Error initiating payment: ${response.body}');
     }
+  }
+
+  void showErrorDialog(String errorMessage) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Payment Error'),
+        content: Text(errorMessage),
+        actions: <Widget>[
+          TextButton(
+            child: Text('OK'),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
