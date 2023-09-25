@@ -3,21 +3,39 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class PaymentWebView extends StatelessWidget {
-  final String initialUrl;
+class PaymentWebView extends StatefulWidget {
+  final String? initialUrl;
 
-  PaymentWebView({required this.initialUrl});
-  var htmlContent = """
-      <html>
-      <head>
-        <title>Sample HTML Page</title>
-      </head>
-      <body>
-        <h1>Welcome to the Sample HTML Page</h1>
-        <p>This is a simple paragraph.</p>
-      </body>
-      </html>
-    """;
+  PaymentWebView({this.initialUrl});
+
+  @override
+  _PaymentWebViewState createState() => _PaymentWebViewState();
+}
+
+class _PaymentWebViewState extends State<PaymentWebView> {
+  late String contentToLoad;
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (widget.initialUrl == null || widget.initialUrl!.isEmpty) {
+      contentToLoad = """
+        <html>
+        <head>
+          <title>Sample HTML Page</title>
+        </head>
+        <body>
+          <h1>Welcome to the Sample HTML Page</h1>
+          <p>This is a simple paragraph.</p>
+        </body>
+        </html>
+      """;
+    } else {
+      contentToLoad = widget.initialUrl!;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,12 +43,9 @@ class PaymentWebView extends StatelessWidget {
         title: Text('Complete Payment'),
       ),
       body: WebView(
-        initialUrl: Uri.dataFromString(
-            initialUrl,
-            mimeType: 'text/html',
-            encoding: Encoding.getByName('utf-8')
-        ).toString(),
-        // initialUrl: initialUrl,
+        initialUrl: Uri.dataFromString(contentToLoad,
+                mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
+            .toString(),
         javascriptMode: JavascriptMode.unrestricted,
         navigationDelegate: (NavigationRequest request) {
           // Here you can handle specific URLs or actions, like detecting payment success or failure
