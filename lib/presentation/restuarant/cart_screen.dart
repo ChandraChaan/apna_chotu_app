@@ -17,6 +17,12 @@ import 'package:http/http.dart' as http;
 import '../../utils/constant.dart';
 import '../payu/payment_webview.dart';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:crypto/crypto.dart';
+
 class CartScreen extends StatefulWidget {
   @override
   State<CartScreen> createState() => _CartScreenState();
@@ -25,7 +31,13 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   final _formKey = GlobalKey<FormState>();
 
-  String? txnid, amount, productinfo, firstname, email;
+  // Pre-defined data
+  final String phone = '9849953848';
+  final String txnid = DateTime.now().millisecondsSinceEpoch.toString();
+  final String amount = '100.0';
+  final String productinfo = 'iPhone';
+  final String firstname = 'AC';
+  final String email = 'ceo@apnachotu.com';
 
   String generateHash(String key, String txnid, String amount,
       String productinfo, String firstname, String email, String salt) {
@@ -37,42 +49,63 @@ class _CartScreenState extends State<CartScreen> {
   }
 
   void initiatePayment() async {
-    EasyLoading.show(status: 'loading...');
+    print('Starting the payment process...');
+    EasyLoading.show(status: 'Initiating Payment...');
+
     final key = 'Wn0jYR';
     final salt = 'T73QXre5AkYRnB1EgPVukwUCZiffmwjv';
-    final hash = generateHash(
-        key, txnid!, amount!, productinfo!, firstname!, email!, salt);
+    final hash =
+        generateHash(key, txnid, amount, productinfo, firstname, email, salt);
 
+    print('Generated hash: $hash');
+    Map body = {
+      'key': key,
+      'txnid': txnid,
+      'amount': amount,
+      'productinfo': productinfo,
+      'firstname': firstname,
+      'email': email,
+      'phone': phone,
+      'hash': hash,
+      'surl': 'https://apiplayground-response.herokuapp.com/',
+      'furl': 'https://apiplayground-response.herokuapp.com/'
+    };
+    print('the full body was' + body.toString());
     final response = await http.post(
       Uri.parse('https://secure.payu.in/_payment'),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: {
-        'key': key,
-        'txnid': txnid,
-        'amount': amount,
-        'productinfo': productinfo,
-        'firstname': firstname,
-        'email': email,
-        'hash': hash,
-        'surl': 'https://apiplayground-response.herokuapp.com/',
-        'furl': 'https://apiplayground-response.herokuapp.com/'
-        // Add other fields as necessary
-      },
+      body: body,
     );
+
+    print(
+        'HTTP POST to PayU completed with status code: ${response.statusCode}');
+    print('Response body: ${response.body}');
+
+    EasyLoading.dismiss();
+
     if (response.statusCode == 200) {
-      EasyLoading.dismiss();
-      // This is a simplification. In reality, you'll need to parse the response to get the redirection URL or check if the payment initiation was successful.
       final redirectionUrl =
           response.body; // Adjust based on actual response structure
+      print('Navigating to PaymentWebView with URL: $redirectionUrl');
       Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => PaymentWebView(initialUrl: redirectionUrl)));
     } else {
-      EasyLoading.dismiss();
-
-      // Handle the error, maybe show a message to the user
-      print('Error initiating payment: ${response.body}');
+      print('Error encountered. Showing error dialog.');
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('Payment Error'),
+          content: Text('Error initiating payment: ${response.body}'),
+          actions: <Widget>[
+            TextButton(
+              child: Text('OK'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ],
+        ),
+      );
     }
   }
 
@@ -82,39 +115,14 @@ class _CartScreenState extends State<CartScreen> {
       appBar: AppBar(title: Text('PayU Demo')),
       body: Form(
         key: _formKey,
-        child: ListView(
-          padding: EdgeInsets.all(16.0),
-          children: [
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Transaction ID'),
-              onSaved: (value) => txnid = value,
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Amount'),
-              onSaved: (value) => amount = value,
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Product Info'),
-              onSaved: (value) => productinfo = value,
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'First Name'),
-              onSaved: (value) => firstname = value,
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Email'),
-              onSaved: (value) => email = value,
-            ),
-            ElevatedButton(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Center(
+            child: ElevatedButton(
               child: Text('Pay Now'),
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState!.save();
-                  initiatePayment();
-                }
-              },
+              onPressed: initiatePayment,
             ),
-          ],
+          ),
         ),
       ),
     );
