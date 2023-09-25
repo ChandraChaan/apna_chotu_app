@@ -43,9 +43,7 @@ class _PaymentWebViewState extends State<PaymentWebView> {
         title: Text('Complete Payment'),
       ),
       body: WebView(
-        initialUrl: Uri.dataFromString(contentToLoad,
-                mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
-            .toString(),
+        initialUrl: widget.initialUrl,
         javascriptMode: JavascriptMode.unrestricted,
         navigationDelegate: (NavigationRequest request) {
           // Here you can handle specific URLs or actions, like detecting payment success or failure
