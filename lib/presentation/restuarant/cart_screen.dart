@@ -1,15 +1,10 @@
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
 import 'package:apna_chotu_app/common/app_text.dart';
-import 'package:apna_chotu_app/presentation/payu/payu_payment.dart';
 import 'package:apna_chotu_app/utils/rounded_button.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:flutter_payu_unofficial/flutter_payu_unofficial.dart';
-import 'package:flutter_payu_unofficial/models/payment_params_model.dart';
-import 'package:flutter_payu_unofficial/models/payment_result.dart';
-import 'package:flutter_payu_unofficial/models/payment_status.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import '../../utils/constant.dart';
@@ -24,7 +19,7 @@ class _CartScreenState extends State<CartScreen> {
   // Pre-defined data
   final String phone = '9849953848';
   final String txnid = DateTime.now().millisecondsSinceEpoch.toString();
-  final String amount = '100.0';
+  final String amount = '2.0';
   final String productinfo = 'iPhone';
   final String firstname = 'AC';
   final String email = 'ceo@apnachotu.com';
