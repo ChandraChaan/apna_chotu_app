@@ -28,15 +28,15 @@ class _AuthScreenState extends State<AuthScreen> {
   String decodedOTP = "";
   bool isLoading = false; // Added for loader control
 
-  Future<void> fetchUserData() async {
-    setState(() {
+  Future fetchUserData() async {
+    setState(() {  //optional to show
       isLoading = true; // Show loader when API call starts
     });
 
     print("Fetching user data...");
 
-    try {
-      final response = await http.post(
+    try {        // optional
+      final response = await http.post(   //
         Uri.parse(
             '${Helpers.baseUrl}${signup ? Helpers.signup : Helpers.login}'),
         body: {
@@ -94,7 +94,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
         throw Exception('Failed to load data');
       }
-    } catch (e) {
+    } catch (e) {   // optional
       setState(() {
         isLoading = false;
       });

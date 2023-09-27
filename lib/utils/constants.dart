@@ -14,7 +14,9 @@ class Constants {
   static const loginUrl = '$baseUrl/login';
   static const verifyOtp = '$baseUrl/verify_otp';
   static const signupUrl = '$baseUrl/register';
+  static const categeoryUrl = '$baseUrl/register';
 
+//https://openteqdev.com/Apnachotu_dev/api/vendor/fetch_categories
   // Other Constants
   static const apiKey = 'api_key';
   static const version = '1.0.0';

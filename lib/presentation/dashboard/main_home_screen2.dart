@@ -523,11 +523,11 @@ class FoodScreen extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.deepOrange,
-        child: Icon(Icons.add),
-        onPressed: () {},
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   backgroundColor: Colors.deepOrange,
+      //   child: Icon(Icons.add),
+      //   onPressed: () {},
+      // ),
     );
   }
 

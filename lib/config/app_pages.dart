@@ -9,7 +9,6 @@ import 'package:apna_chotu_app/presentation/restuarant/resturant_list_screen.dar
 import 'package:apna_chotu_app/presentation/locations_screens/address_new_other_address.dart';
 import 'package:apna_chotu_app/presentation/order_history/help_screen.dart';
 import 'package:apna_chotu_app/presentation/order_history/invite_friends.dart';
-import 'package:apna_chotu_app/presentation/order_history/logout_screen.dart';
 import 'package:apna_chotu_app/presentation/order_history/order_details_screen.dart';
 import 'package:apna_chotu_app/presentation/order_history/order_history.dart';
 import 'package:apna_chotu_app/presentation/order_history/rate_your_meal.dart';
@@ -28,12 +27,11 @@ import '../Presentation/intro_screen.dart';
 import '../presentation/locations_screens/location_screen.dart';
 import '../presentation/locations_screens/select_location.dart';
 // import '../presentation/locations_screens/select_location_screen.dart';
-import '../presentation/payu/payu_payment.dart';
 
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.reviewScreen;
+  static const initial = Routes.cartScreen;
   static final routes = [
     GetPage(
         name: Routes.intro,
@@ -141,18 +139,6 @@ class AppPages {
         name: Routes.addressNotFound,
         page: () => AddressNotFound(),
         binding: MainBinding()),
-    GetPage(
-        name: Routes.helloText,
-        page: () => HelloText(),
-        binding: MainBinding()),
 
-    // GetPage(
-    //     name: Routes.clockInOutScreen,
-    //     page: () => ClockInOutScreen(),
-    //     binding: MainBinding()),
-    // GetPage(
-    //     name: Routes.secondDart,
-    //     page: () => SecondDart(),
-    //     binding: MainBinding()),
   ];
 }

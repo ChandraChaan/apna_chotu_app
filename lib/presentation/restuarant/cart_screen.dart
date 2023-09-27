@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:apna_chotu_app/Config/app_pages.dart';
 import 'package:crypto/crypto.dart';
 import 'package:apna_chotu_app/common/app_text.dart';
 import 'package:apna_chotu_app/utils/rounded_button.dart';
@@ -19,7 +20,7 @@ class _CartScreenState extends State<CartScreen> {
   // Pre-defined data
   final String phone = '9849953848';
   final String txnid = DateTime.now().millisecondsSinceEpoch.toString();
-  final String amount = '10.0';
+  final String amount = '1.0';
   final String productinfo = 'iPhone';
   final String firstname = 'AC';
   final String email = 'ceo@apnachotu.com';
@@ -81,15 +82,16 @@ class _CartScreenState extends State<CartScreen> {
         showErrorDialog('Redirection URL not found in the response headers.');
       }
     } else if (response.statusCode == 200) {
-      final redirectionData = json.decode(response.body);
-      if (redirectionData['url'] != null) {
-        final redirectionUrl = redirectionData['url'];
-        print('Navigating to PaymentWebView with URL: $redirectionUrl');
-        Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => PaymentWebView(initialUrl: redirectionUrl)));
-      } else {
-        showErrorDialog('Redirection URL not found in the response.');
-      }
+      Get.toNamed(Routes.orderSuccess);
+      // final redirectionData = json.decode(response.body);
+      // if (redirectionData['url'] != null) {
+      //   final redirectionUrl = redirectionData['url'];
+      //   print('Navigating to PaymentWebView with URL: $redirectionUrl');
+      //   Navigator.of(context).push(MaterialPageRoute(
+      //       builder: (context) => PaymentWebView(initialUrl: redirectionUrl)));
+      // } else {
+      //   showErrorDialog('Redirection URL not found in the response.');
+      // }
     } else {
       print('Error encountered. Showing error dialog.');
       showErrorDialog('Error initiating payment: ${response.body}');
