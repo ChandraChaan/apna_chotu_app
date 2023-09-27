@@ -27,8 +27,7 @@ abstract class Routes {
   static const logoutScreen = '/logoutScreen';
   static const cartScreen = '/cartScreen';
   static const editProfileScreen = '/editProfileScreen';
-  static const privacyPolicy = '/privacyPolicy';
   static const paymentOptions = '/paymentOptions';
-  static const payuPayment = '/payuPayment';
+  static const helloText = '/helloText';
 
 }

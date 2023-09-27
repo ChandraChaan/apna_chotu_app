@@ -598,14 +598,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                           Row(
                                               children: [
                                             SizedBox(width: 5),
-                                            Radio(
-                                                value: 1,
-                                                groupValue: _value,
-                                                onChanged: (value) {
-                                                  setState(() {
-                                                    _value = value!;
-                                                  });
-                                                }),
+                                            Icon(Icons.radio_button_on),
                                                 CommonText('Single(serve 1)'),
                                                 SizedBox(width: 200),
                                             Row(children: [
@@ -622,14 +615,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                           Row(
                                             children: [
                                               SizedBox(width: 5),
-                                              Radio(
-                                                  value: 2,
-                                                  groupValue: _value,
-                                                  onChanged: (value) {
-                                                    setState(() {
-                                                      _value = value!;
-                                                    });
-                                                  }),
+                                              Icon(Icons.radio_button_on),
                                               CommonText('Single(serve 2)'),
                                               SizedBox(width: 200),
                                               Row(

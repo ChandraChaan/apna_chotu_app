@@ -18,22 +18,20 @@ class RateYourMeal extends StatelessWidget {
               ListTile(
                 minLeadingWidth: 0,
                 minVerticalPadding: 0,
-                horizontalTitleGap: 10,
+                horizontalTitleGap: -10,
                 contentPadding: const EdgeInsets.all(0),
                 leading: IconButton(
                   onPressed: () {
                     Get.back();
                   },
-                  icon: Icon(Icons.chevron_left, size: 38),
+                  icon: Icon(Icons.chevron_left, size: 25,color: Colors.black,),
                 ),
                 title: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    CommonText(
-                      'Rate Your Meal',
-                      style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    Text16BlackBld(
+                      'Rate Your Meal'
                     ),
                   ],
                 ),
@@ -41,8 +39,8 @@ class RateYourMeal extends StatelessWidget {
               Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 55),
-                    child: CommonText('#163728282738, Delivered, 1 Item, ₹ 1235'),
+                    padding: const EdgeInsets.only(left: 35),
+                    child: Text10Black('#163728282738, Delivered, 1 Item, ₹ 1235'),
                   ),
                 ],
               ),
@@ -51,16 +49,12 @@ class RateYourMeal extends StatelessWidget {
               Column(
                 children: [
                   Center(
-                    child: CommonText(
-                      'Grand Hotel',
-                      style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.deepOrange,
-                          fontWeight: FontWeight.bold),
+                    child: Text14OrangeBld(
+                      'Grand Hotel'
                     ),
                   ),
-                  SizedBox(height: 17),
-                  CommonText(
+                  SizedBox(height: 10),
+                  Text10Black(
                     'Opposite Big Bazaar, Abids Road, Hyderabad',
                   ),
                   SizedBox(height: 21),

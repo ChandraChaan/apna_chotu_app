@@ -19,7 +19,7 @@ class _CartScreenState extends State<CartScreen> {
   // Pre-defined data
   final String phone = '9849953848';
   final String txnid = DateTime.now().millisecondsSinceEpoch.toString();
-  final String amount = '2.0';
+  final String amount = '10.0';
   final String productinfo = 'iPhone';
   final String firstname = 'AC';
   final String email = 'ceo@apnachotu.com';

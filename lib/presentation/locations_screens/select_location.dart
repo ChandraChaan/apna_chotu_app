@@ -80,11 +80,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
                           Icons.arrow_back_ios,
                           size: 25,
                         )),
-                    CommonText(
-                      'Select a Location',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    )
+                    Text16BlackBld('Select a Location')
                   ],
                 ),
               ),
@@ -121,13 +117,10 @@ class _CurrentLocationState extends State<CurrentLocation> {
                   Get.toNamed(Routes.dashBoardScreen);
                 },
                 leading: const Icon(
-                  Icons.near_me,
+                  Icons.near_me,size: 16,
                   color: Colors.deepOrange,
                 ),
-                title: const CommonText(
-                  'Use My Current Location',
-                  style: TextStyle(color: Colors.deepOrange, fontSize: 14),
-                ),
+                title: const Text10OrangeBld('Use My Current Location'),
                 // subtitle: const CommonText('Rahimpur, Dattatreya Nagar, Hyderabad'),
               ),
               const Divider(thickness: 1),
@@ -137,12 +130,11 @@ class _CurrentLocationState extends State<CurrentLocation> {
                   Get.toNamed(Routes.mapScreen);
                 },
                 leading: const Icon(
-                  Icons.add_sharp,
+                  Icons.add_sharp,size: 16,
                   color: Colors.deepOrange,
                 ),
-                title: const CommonText(
+                title: const Text10OrangeBld(
                   'Add New Address',
-                  style: TextStyle(color: Colors.deepOrange),
                 ),
               ),
               const Divider(thickness: 1),
@@ -174,10 +166,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
               if (addressList.isNotEmpty)
                 Padding(
                   padding: EdgeInsets.only(left: 13),
-                  child: CommonText(
-                    'Recent Location',
-                    style: TextStyle(color: Colors.deepOrange),
-                  ),
+                  child: Text10OrangeBld('Recent Location'),
                 ),
               for (int a = 0; a < addressList.length; a++)
                 ListTile(

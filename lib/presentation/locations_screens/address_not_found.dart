@@ -53,16 +53,12 @@ class AddressNotFound extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      CommonText(
-                          'Apna Chotu service is not available in this city',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 16)),
-                      SizedBox(height: 6),
-                      CommonText(
-                        'But, When we are available in your city,we will notify you',
-                        style: TextStyle(fontSize: 12),
+                      Text16BlackBld(
+                          'Apna Chotu service is not available in this city'
                       ),
-
+                      SizedBox(height: 6),
+                      Text12Black(
+                        'But, When we are available in your city,we will notify you'),
                     ],
                   ),
                   SizedBox(height: 40),
@@ -75,7 +71,6 @@ class AddressNotFound extends StatelessWidget {
               ),
             ),
           ),
-
         ],
       ),
     );

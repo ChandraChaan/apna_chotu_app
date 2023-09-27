@@ -26,23 +26,20 @@ class _HelpScreenState extends State<HelpScreen> {
               ListTile(
                 minLeadingWidth: 0,
                 minVerticalPadding: 0,
-                horizontalTitleGap: 10,
+                horizontalTitleGap: -10,
                 contentPadding: const EdgeInsets.all(0),
                 leading: IconButton(
                   onPressed: () {
                     Get.back();
                   },
-                  icon: Icon(Icons.chevron_left, size: 38),
+                  icon: Icon(Icons.arrow_back_ios, size: 25,color: Colors.black,),
                 ),
                 title: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    CommonText(
-                      'Invite Friends',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
+                    Text16BlackBld(
+                      'Invite Friends'),
                   ],
                 ),
               ),
@@ -52,21 +49,20 @@ class _HelpScreenState extends State<HelpScreen> {
                 children: [
                   TextButton(
                     onPressed: () {},
-                    child: CommonText(
-                      'Send a Query',
-                      style: TextStyle(color: Colors.deepOrange, fontSize: 15),
+                    child: Text14OrangeBld(
+                      'Send a Query'
                     ),
                   ),
                   TextButton(
                     onPressed: () {},
-                    child: CommonText(
-                      'Call to Customer Care',
-                      style: TextStyle(fontSize: 15, color: Colors.black),
+                    child: Text14BlackBld(
+                      'Call to Customer Care'
                     ),
                   ),
                 ],
               ),
               Container(
+                height: 44,
                 //padding: const EdgeInsets.all(10),
                 child: TextField(
                   decoration: InputDecoration(
@@ -75,8 +71,9 @@ class _HelpScreenState extends State<HelpScreen> {
                       hintText: 'Name'),
                 ),
               ),
-              SizedBox(height: 17),
+              SizedBox(height: 5),
               Container(
+                height: 44,
                 child: TextField(
                   decoration: InputDecoration(
                       hintText: '+91 Mobile Number',
@@ -84,8 +81,9 @@ class _HelpScreenState extends State<HelpScreen> {
                           borderRadius: BorderRadius.circular(5))),
                 ),
               ),
-              SizedBox(height: 17),
+              SizedBox(height: 5),
               Container(
+                height: 44,
                 child: TextField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -93,7 +91,7 @@ class _HelpScreenState extends State<HelpScreen> {
                       hintText: 'Email ID'),
                 ),
               ),
-              SizedBox(height: 17),
+              SizedBox(height: 5),
               Container(
                 child: TextField(
                   maxLines: 4,

@@ -1,9 +1,7 @@
 import 'package:apna_chotu_app/presentation/dashboard/main_home_screen1.dart';
 import 'package:apna_chotu_app/presentation/dashboard/main_home_screen2.dart';
-// import 'package:apna_chotu_app/presentation/extra/clockin_clockout.dart';
-import 'package:apna_chotu_app/presentation/extra/second.dart';
+import 'package:apna_chotu_app/presentation/extra/third.dart';
 import 'package:apna_chotu_app/presentation/locations_screens/address_not_found.dart';
-import 'package:apna_chotu_app/presentation/order_history/privacy_policy.dart';
 import 'package:apna_chotu_app/presentation/payment_method/payment_options.dart';
 import 'package:apna_chotu_app/presentation/profile_screen/edit_profile_screen.dart';
 import 'package:apna_chotu_app/presentation/restuarant/cart_screen.dart';
@@ -35,7 +33,7 @@ import '../presentation/payu/payu_payment.dart';
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.cartScreen;
+  static const initial = Routes.reviewScreen;
   static final routes = [
     GetPage(
         name: Routes.intro,
@@ -136,10 +134,6 @@ class AppPages {
         page: () => EditProfileScreen(),
         binding: MainBinding()),
     GetPage(
-        name: Routes.privacyPolicy,
-        page: () => PrivacyPolicy(),
-        binding: MainBinding()),
-    GetPage(
         name: Routes.paymentOptions,
         page: () => PaymentOptions(),
         binding: MainBinding()),
@@ -148,9 +142,10 @@ class AppPages {
         page: () => AddressNotFound(),
         binding: MainBinding()),
     GetPage(
-        name: Routes.payuPayment,
-        page: () => PayuPayment(),
+        name: Routes.helloText,
+        page: () => HelloText(),
         binding: MainBinding()),
+
     // GetPage(
     //     name: Routes.clockInOutScreen,
     //     page: () => ClockInOutScreen(),

@@ -24,13 +24,13 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
               ListTile(
                 minLeadingWidth: 0,
                 minVerticalPadding: 0,
-                horizontalTitleGap: 10,
+                horizontalTitleGap: -10,
                 contentPadding: const EdgeInsets.all(0),
                 leading: IconButton(
                   onPressed: () {
                     Get.back();
                   },
-                  icon: Icon(Icons.chevron_left, size: 38),
+                  icon: Icon(Icons.arrow_back_ios, size: 25,color: Colors.black,),
                 ),
                 title: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -39,7 +39,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                     CommonText(
                       'Order Details',
                       style: TextStyle(
-                          fontSize: 25, fontWeight: FontWeight.bold),
+                          fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -47,8 +47,8 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
               Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 55),
-                    child: CommonText('#163728282738, Delivered, 1 Item, ₹ 1235'),
+                    padding: const EdgeInsets.only(left: 39),
+                    child: Text10Black('#163728282738, Delivered, 1 Item, ₹ 1235'),
                   ),
                 ],
               ),
@@ -57,93 +57,83 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 children: [
                   Icon(Icons.brightness_1_outlined, color: Colors.deepOrange),
                   SizedBox(width: 5),
-                  CommonText(
-                    'Grand Hotel',
-                    style: TextStyle(
-                        fontSize: 17,
-                        color: Colors.deepOrange,
-                        fontWeight: FontWeight.bold),
+                  Text14OrangeBld(
+                    'Grand Hotel'
                   )
                 ],
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 30),
-                child: CommonText('Opposite Big Bazaar, Abids Road, Hyderabad'),
+                child: Text10Black('Opposite Big Bazaar, Abids Road, Hyderabad'),
               ),
-              SizedBox(height: 22),
+              SizedBox(height: 15),
               Row(
                 children: [
                   Icon(Icons.brightness_1_outlined, color: Colors.deepOrange),
                   SizedBox(width: 5),
-                  CommonText(
-                    'Home',
-                    style: TextStyle(
-                        fontSize: 17,
-                        color: Colors.deepOrange,
-                        fontWeight: FontWeight.bold),
+                  Text14OrangeBld(
+                    'Home'
                   )
                 ],
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 30),
-                child: CommonText('Rahimpura, Puranapul, Hyderabad'),
+                child: Text10Black('Rahimpura, Puranapul, Hyderabad'),
               ),
-              SizedBox(height: 17),
+              SizedBox(height: 5),
               Divider(thickness: 2),
-              SizedBox(height: 17),
-              CommonText(
-                'Chicken Jumbo Pack Biryani (2)',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 17),
+              SizedBox(height: 5),
+              Text12BlackBld(
+                'Chicken Jumbo Pack Biryani (2)'),
+              SizedBox(height: 5),
               Row(
                 children: [
-                  CommonText('item Total'),
+                  Text10Black('item Total'),
                   SizedBox(width: 250),
                   Icon(Icons.currency_rupee, size: 18),
-                  CommonText('1234.00')
+                  Text10Black('1234.00')
                 ],
               ),
-              SizedBox(height: 17),
+              SizedBox(height: 5),
               Row(
                 children: [
-                  CommonText('Delivery Partner Fee'),
-                  SizedBox(width: 185),
+                  Text10Black('Delivery Partner Fee'),
+                  SizedBox(width: 204),
                   Icon(Icons.currency_rupee, size: 18),
-                  CommonText('51.00')
+                  Text10Black('51.00')
                 ],
               ),
-              SizedBox(height: 17),
+              SizedBox(height: 5),
               Row(
                 children: [
-                  CommonText('Delivery Tip'),
-                  SizedBox(width: 238),
+                  Text10Black('Delivery Tip'),
+                  SizedBox(width: 242),
                   Icon(Icons.currency_rupee, size: 18),
-                  CommonText('50.00')
+                  Text10Black('50.00')
                 ],
               ),
-              SizedBox(height: 17),
+              SizedBox(height: 5),
               Row(
                 children: [
-                  CommonText('Taxes'),
-                  SizedBox(width: 275),
+                  Text10Black('Taxes'),
+                  SizedBox(width: 268),
                   Icon(Icons.currency_rupee, size: 18),
-                  CommonText('55.00')
+                  Text10Black('55.00')
                 ],
               ),
               Divider(thickness: 2),
-              SizedBox(height: 17),
+              SizedBox(height: 5),
               Row(
                 children: [
-                  CommonText('Paid via Credit Card'),
-                  SizedBox(width: 184),
+                  Text10Black('Paid via Credit Card'),
+                  SizedBox(width: 203),
                   Icon(Icons.currency_rupee, size: 18),
-                  CommonText('1,391.00')
+                  Text10Black('1,391.00')
                 ],
               ),
-              SizedBox(height: 17),
+              SizedBox(height: 5),
               Divider(thickness: 2),
-              SizedBox(height: 180,),
+              SizedBox(height: 100,),
               Center(
                 child: Container(
                   height: 40,

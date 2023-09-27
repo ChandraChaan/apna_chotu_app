@@ -36,17 +36,13 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                     },
                     icon: Icon(
                       Icons.arrow_back_ios,
-                      size: 28,
+                      size: 25,
                       color: Colors.black,
                     ),
                   ),
                   title: SizedBox(
                     width: 100,
-                    child: CommonText(
-                      'Order Details',
-                      style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                    ),
+                    child: Text16BlackBld('Order Details'),
                   ),
                 ),
                 Divider(thickness: 2),
@@ -59,38 +55,29 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                             MaterialPageRoute(
                                 builder: (context) => OrderDetailsScreen()));
                       },
-                      child: CommonText(
-                        'Grand Hotel',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17,
-                            color: Colors.deepOrange),
-                      ),
+                      child: Text14OrangeBld('Grand Hotel'),
                     ),
-                    SizedBox(width: 200),
+                    SizedBox(width: 250),
                     Icon(
                       Icons.verified,
+                      size: 14,
                       color: Colors.green,
                     ),
-                    CommonText('Delivered')
+                    Text10Black('Delivered')
                   ],
                 ),
-                CommonText('Koti'),
-                SizedBox(height: 15),
-                CommonText(
-                  'Chicken Jumbo Pack Biryani(2)',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                ),
-                CommonText('June 20,2023'),
-                SizedBox(height: 18),
+                Text10Black('Koti'),
+                SizedBox(height: 5),
+                Text12BlackBld('Chicken Jumbo Pack Biryani(2)'),
+                Text10Black('June 20,2023'),
+                SizedBox(height: 10),
                 Row(
                   children: [
-                    Icon(Icons.currency_rupee, size: 18),
-                    CommonText(
+                    Icon(Icons.currency_rupee, size: 13),
+                    Text14BlackBld(
                       '1234',
-                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(width: 130),
+                    SizedBox(width: 203),
                     InkWell(
                         onTap: () {
                           Navigator.push(
@@ -98,21 +85,26 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                               MaterialPageRoute(
                                   builder: (context) => ReviewScreen()));
                         },
-                        child: Icon(Icons.star, color: Colors.deepOrange)),
-                    CommonText('Rate Order'),
+                        child: Icon(
+                          Icons.star,
+                          color: Colors.deepOrange,
+                          size: 14,
+                        )),
+                    Text10Black('Rate Order'),
                     SizedBox(width: 4),
                     Container(
-                      height: 40,
-                      width: 115,
+                      height: 32,
+                      width: 77,
                       child: RoundedButton(
                         onPressed: () {},
-                        name: 'Reorder',
+                        name: '',
+                        child: Text13WhitekBld('Reorder'),
                       ),
                     )
                   ],
                 ),
                 Divider(thickness: 1.5),
-                SizedBox(height: 6),
+                SizedBox(height: 5),
                 Row(
                   children: [
                     InkWell(
@@ -122,55 +114,47 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                             MaterialPageRoute(
                                 builder: (context) => OrderDetailsScreen()));
                       },
-                      child: CommonText('Shree Santosh Family Dhaba',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.deepOrange,
-                              fontSize: 18)),
+                      child: Text14OrangeBld(
+                        'Shree Santosh Family Dhaba'
+                      ),
                     ),
-                    SizedBox(width: 63),
+                    SizedBox(width: 145),
                     Icon(
                       Icons.verified,
+                      size: 14,
                       color: Colors.green,
                     ),
-                    CommonText('Delivered'),
+                    Text10Black('Delivered'),
                   ],
                 ),
-                CommonText('madhapur'),
+                Text10Black('madhapur'),
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    CommonText(
-                      'Butter Non (4), kadai panner(Full,1),',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                      //
-                    ),
+                    Text14BlackBld('Butter Non (4), kadai panner(Full,1),'
+                        //
+                        ),
                     SizedBox(
                       width: 100,
                     ),
-                    Icon(Icons.currency_rupee, size: 18),
-                    CommonText(
-                      '960',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
+                    Icon(Icons.currency_rupee, size: 15),
+                    Text14BlackBld('960'),
                   ],
                 ),
-                CommonText(
+                Text14BlackBld(
                   'Panner Fried Rice(Full,2, Baby Corn\nMajestic(Full,1)',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                 ),
                 SizedBox(height: 3),
-                CommonText('June 02,2023'),
-                SizedBox(height: 6),
+                Text10Black('June 02,2023'),
+                SizedBox(height: 5),
                 Row(
                   children: [
                     Icon(
                       Icons.currency_rupee,
-                      size: 18,
+                      size: 15,
                     ),
-                    CommonText('1234'),
-                    SizedBox(width: 130),
+                    Text14BlackBld('1234'),
+                    SizedBox(width: 200),
                     InkWell(
                         onTap: () {
                           Navigator.push(
@@ -178,21 +162,26 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                               MaterialPageRoute(
                                   builder: (context) => ReviewScreen()));
                         },
-                        child: Icon(Icons.star, color: Colors.deepOrange)),
-                    CommonText('Rate Order'),
+                        child: Icon(
+                          Icons.star,
+                          color: Colors.deepOrange,
+                          size: 14,
+                        )),
+                    Text10Black('Rate Order'),
                     SizedBox(width: 4),
                     Container(
-                      height: 40,
-                      width: 115,
+                      height: 32,
+                      width: 77,
                       child: RoundedButton(
                         onPressed: () {},
-                        name: 'Reorder',
+                        name: '',
+                        child: Text13WhitekBld('Reorder'),
                       ),
                     ),
                   ],
                 ), // Cafe Bahar
                 Divider(thickness: 2),
-                SizedBox(height: 6),
+                SizedBox(height: 5),
                 Row(
                   children: [
                     InkWell(
@@ -202,51 +191,42 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                             MaterialPageRoute(
                                 builder: (context) => OrderDetailsScreen()));
                       },
-                      child: CommonText('Cafe Bahar',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.deepOrange,
-                              fontSize: 18)),
+                      child: Text14OrangeBld('Cafe Bahar'),
                     ),
-                    SizedBox(width: 200),
+                    SizedBox(width: 260),
                     Icon(
                       Icons.verified,
+                      size: 15,
                       color: Colors.green,
                     ),
-                    CommonText('Delivered'),
+                    Text10Black('Delivered'),
                   ],
                 ),
-                CommonText('Himayath Nagar'),
+                Text10Black('Himayath Nagar'),
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    CommonText(
-                      'Butter Naan(5), Chicken Curry (Full,1)',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                      //
-                    ),
+                    Text14BlackBld('Butter Naan(5), Chicken Curry (Full,1)'
+                        //
+                        ),
                     SizedBox(
                       width: 100,
                     ),
-                    Icon(Icons.currency_rupee, size: 18),
-                    CommonText(
-                      '395',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
+                    Icon(Icons.currency_rupee, size: 15),
+                    Text14BlackBld('395'),
                   ],
                 ),
                 SizedBox(height: 3),
-                CommonText('June 02,2023'),
+                Text10Black('June 02,2023'),
                 SizedBox(height: 6),
                 Row(
                   children: [
                     Icon(
                       Icons.currency_rupee,
-                      size: 18,
+                      size: 15,
                     ),
-                    CommonText('1234'),
-                    SizedBox(width: 130),
+                    Text14BlackBld('1234'),
+                    SizedBox(width: 200),
                     InkWell(
                         onTap: () {
                           Navigator.push(
@@ -254,21 +234,23 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                               MaterialPageRoute(
                                   builder: (context) => ReviewScreen()));
                         },
-                        child: Icon(Icons.star, color: Colors.deepOrange)),
-                    CommonText('Rate Order'),
+                        child: Icon(Icons.star,
+                            size: 15, color: Colors.deepOrange)),
+                    Text10Black('Rate Order'),
                     SizedBox(width: 4),
                     Container(
-                      height: 40,
-                      width: 115,
+                      height: 32,
+                      width: 77,
                       child: RoundedButton(
                         onPressed: () {},
-                        name: 'Reorder',
+                        name: '',
+                        child: Text13WhitekBld('Reorder'),
                       ),
                     ),
                   ],
                 ),
                 Divider(thickness: 2),
-                SizedBox(height: 6),
+                SizedBox(height: 5),
                 Row(
                   children: [
                     InkWell(
@@ -278,51 +260,40 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                             MaterialPageRoute(
                                 builder: (context) => OrderDetailsScreen()));
                       },
-                      child: CommonText('Food Zone 2',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.deepOrange,
-                              fontSize: 18)),
+                      child: Text14OrangeBld('Food Zone 2'),
                     ),
-                    SizedBox(width: 190),
+                    SizedBox(width: 253),
                     Icon(
                       Icons.cancel,
+                      size: 15,
                       color: Colors.deepOrange,
                     ),
-                    CommonText('Canceled'),
+                    Text10Black('Canceled'),
                   ],
                 ),
-                CommonText('Hi-tech City'),
-                SizedBox(height: 6),
+                Text10Black('Hi-tech City'),
+                SizedBox(height: 5),
                 Row(
                   children: [
-                    CommonText(
-                      'Butter Naan(5), Chicken Curry(Full,1)',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                      //
-                    ),
+                    Text14BlackBld('Butter Naan(5), Chicken Curry(Full,1)'),
                     SizedBox(
                       width: 100,
                     ),
-                    Icon(Icons.currency_rupee, size: 18),
-                    CommonText(
-                      '395',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
+                    Icon(Icons.currency_rupee, size: 15),
+                    Text14BlackBld('395'),
                   ],
                 ),
                 SizedBox(height: 3),
-                CommonText('June 02,2023'),
+                Text10Black('June 02,2023'),
                 SizedBox(height: 6),
                 Row(
                   children: [
                     Icon(
                       Icons.currency_rupee,
-                      size: 18,
+                      size: 15,
                     ),
-                    CommonText('1234'),
-                    SizedBox(width: 130),
+                    Text14BlackBld('1234'),
+                    SizedBox(width: 200),
                     InkWell(
                         onTap: () {
                           Navigator.push(
@@ -330,21 +301,23 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                               MaterialPageRoute(
                                   builder: (context) => ReviewScreen()));
                         },
-                        child: Icon(Icons.star, color: Colors.deepOrange)),
-                    CommonText('Rate Order'),
+                        child: Icon(Icons.star,
+                            size: 15, color: Colors.deepOrange)),
+                    Text10Black('Rate Order'),
                     SizedBox(width: 4),
                     Container(
-                      height: 40,
-                      width: 115,
+                      height: 32,
+                      width: 77,
                       child: RoundedButton(
                         onPressed: () {},
-                        name: 'Reorder',
+                        name: '',
+                        child: Text13WhitekBld('Reorder'),
                       ),
                     ),
                   ],
                 ),
                 Divider(thickness: 2),
-                SizedBox(height: 6),
+                SizedBox(height: 5),
                 Row(
                   children: [
                     InkWell(
@@ -354,25 +327,22 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                             MaterialPageRoute(
                                 builder: (context) => OrderDetailsScreen()));
                       },
-                      child: CommonText('Paradise Madhapur',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.deepOrange,
-                              fontSize: 18)),
+                      child: Text14OrangeBld('Paradise Madhapur'),
                     ),
-                    SizedBox(width: 130),
+                    SizedBox(width: 207),
                     Icon(
                       Icons.verified,
+                      size: 15,
                       color: Colors.green,
                     ),
-                    CommonText('Delivered'),
+                    Text10Black('Delivered'),
                   ],
                 ),
-                CommonText('madhapur'),
-                SizedBox(height: 6),
+                Text10Black('madhapur'),
+                SizedBox(height: 5),
                 Row(
                   children: [
-                    CommonText(
+                    Text14BlackBld(
                       'Chicken Biryani(Full 2)',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
@@ -387,10 +357,10 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                   children: [
                     Icon(
                       Icons.currency_rupee,
-                      size: 18,
+                      size: 15,
                     ),
-                    CommonText('1234'),
-                    SizedBox(width: 130),
+                    Text14BlackBld('1234'),
+                    SizedBox(width: 200),
                     InkWell(
                         onTap: () {
                           Navigator.push(
@@ -398,67 +368,58 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                               MaterialPageRoute(
                                   builder: (context) => ReviewScreen()));
                         },
-                        child: Icon(Icons.star, color: Colors.deepOrange)),
-                    CommonText('Rate Order'),
+                        child: Icon(Icons.star,
+                            size: 15, color: Colors.deepOrange)),
+                    Text10Black('Rate Order'),
                     SizedBox(width: 4),
                     Container(
-                      height: 40,
-                      width: 115,
+                      height: 32,
+                      width: 77,
                       child: RoundedButton(
                         onPressed: () {},
-                        name: 'Reorder',
+                        name: '',
+                        child: Text13WhitekBld('Reorder'),
                       ),
                     ),
                   ],
                 ),
                 Divider(thickness: 2),
-                SizedBox(height: 6),
+                SizedBox(height: 5),
                 Row(
                   children: [
-                    CommonText('Food Zone 2',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.deepOrange,
-                            fontSize: 18)),
-                    SizedBox(width: 190),
+                    Text14OrangeBld('Food Zone 2'),
+                    SizedBox(width: 250),
                     Icon(
                       Icons.cancel,
+                      size: 15,
                       color: Colors.deepOrange,
                     ),
-                    CommonText('Canceled'),
+                    Text10Black('Canceled'),
                   ],
                 ),
-                CommonText('Hi-tech City'),
-                SizedBox(height: 6),
+                Text10Black('Hi-tech City'),
+                SizedBox(height: 5),
                 Row(
                   children: [
-                    CommonText(
-                      'Butter Naan(5), Chicken Curry(Full,1)',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                      //
-                    ),
+                    Text14BlackBld('Butter Naan(5), Chicken Curry(Full,1)'),
                     SizedBox(
                       width: 100,
                     ),
                     Icon(Icons.currency_rupee, size: 18),
-                    CommonText(
-                      '395',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
+                    Text14BlackBld('395'),
                   ],
                 ),
                 SizedBox(height: 3),
-                CommonText('June 02,2023'),
-                SizedBox(height: 6),
+                Text10Black('June 02,2023'),
+                SizedBox(height: 5),
                 Row(
                   children: [
                     Icon(
                       Icons.currency_rupee,
-                      size: 18,
+                      size: 15,
                     ),
-                    CommonText('1234'),
-                    SizedBox(width: 130),
+                    Text14BlackBld('1234'),
+                    SizedBox(width: 200),
                     InkWell(
                         onTap: () {
                           Navigator.push(
@@ -466,21 +427,22 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                               MaterialPageRoute(
                                   builder: (context) => ReviewScreen()));
                         },
-                        child: Icon(Icons.star, color: Colors.deepOrange)),
-                    CommonText('Rate Order'),
+                        child: Icon(Icons.star,
+                            size: 15, color: Colors.deepOrange)),
+                    Text10Black('Rate Order'),
                     SizedBox(width: 4),
                     Container(
-                      height: 40,
-                      width: 115,
+                      height: 32,
+                      width: 77,
                       child: RoundedButton(
                         onPressed: () {},
-                        name: 'Reorder',
+                        name: '',child: Text13WhitekBld('Reorder'),
                       ),
                     ),
                   ],
                 ),
                 Divider(thickness: 2),
-                SizedBox(height: 6),
+                SizedBox(height: 5),
                 Row(
                   children: [
                     InkWell(
@@ -490,43 +452,36 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                             MaterialPageRoute(
                                 builder: (context) => OrderDetailsScreen()));
                       },
-                      child: CommonText('Food Zone 2',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.deepOrange,
-                              fontSize: 18)),
+                      child: Text14OrangeBld('Food Zone 2'),
                     ),
-                    SizedBox(width: 190),
+                    SizedBox(width: 250),
                     Icon(
-                      Icons.cancel,
+                      Icons.cancel,size: 15,
                       color: Colors.deepOrange,
                     ),
-                    CommonText('Canceled'),
+                    Text10Black('Canceled'),
                   ],
                 ),
-                CommonText('Hi-tech City'),
-                SizedBox(height: 6),
+                Text10Black('Hi-tech City'),
+                SizedBox(height: 5),
                 Row(
                   children: [
-                    CommonText(
-                      'Butter Naan(5), Chicken Curry(Full,1)',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                      //
+                    Text14BlackBld(
+                      'Butter Naan(5), Chicken Curry(Full,1)'
                     ),
                   ],
                 ),
                 SizedBox(height: 3),
-                CommonText('June 02,2023'),
-                SizedBox(height: 6),
+                Text10Black('June 02,2023'),
+                SizedBox(height: 5),
                 Row(
                   children: [
                     Icon(
                       Icons.currency_rupee,
-                      size: 18,
+                      size: 15,
                     ),
-                    CommonText('1234'),
-                    SizedBox(width: 130),
+                    Text14BlackBld('1234'),
+                    SizedBox(width: 200),
                     InkWell(
                         onTap: () {
                           Navigator.push(
@@ -534,21 +489,23 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                               MaterialPageRoute(
                                   builder: (context) => ReviewScreen()));
                         },
-                        child: Icon(Icons.star, color: Colors.deepOrange)),
-                    CommonText('Rate Order'),
+                        child: Icon(Icons.star,
+                            size:15,
+                            color: Colors.deepOrange)),
+                    Text10Black('Rate Order'),
                     SizedBox(width: 4),
                     Container(
-                      height: 40,
-                      width: 115,
+                      height: 32,
+                      width: 77,
                       child: RoundedButton(
                         onPressed: () {},
-                        name: 'Reorder',
+                        name: '',child: Text13WhitekBld('Reorder'),
                       ),
                     ),
                   ],
                 ),
                 Divider(thickness: 2),
-                SizedBox(height: 6),
+                SizedBox(height: 5),
                 Row(
                   children: [
                     InkWell(
@@ -558,43 +515,36 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                             MaterialPageRoute(
                                 builder: (context) => OrderDetailsScreen()));
                       },
-                      child: CommonText('Absolute Barbecue',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.deepOrange,
-                              fontSize: 18)),
+                      child: Text14OrangeBld('Absolute Barbecue'),
                     ),
-                    SizedBox(width: 130),
+                    SizedBox(width: 207),
                     Icon(
-                      Icons.cancel,
+                      Icons.cancel,size: 15,
                       color: Colors.deepOrange,
                     ),
-                    CommonText('Cancelled'),
+                    Text10Black('Cancelled'),
                   ],
                 ),
-                CommonText('Gachibowli'),
-                SizedBox(height: 6),
+                Text10Black('Gachibowli'),
+                SizedBox(height: 5),
                 Row(
                   children: [
-                    CommonText(
-                      'Chicken Wings(6), Chicken Curry(Full,1)',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                      //
+                    Text14BlackBld(
+                      'Chicken Wings(6), Chicken Curry(Full,1)'
                     ),
                   ],
                 ),
                 SizedBox(height: 3),
-                CommonText('June 02,2023'),
-                SizedBox(height: 6),
+                Text10Black('June 02,2023'),
+                SizedBox(height: 5),
                 Row(
                   children: [
                     Icon(
                       Icons.currency_rupee,
-                      size: 18,
+                      size: 15,
                     ),
-                    CommonText('865'),
-                    SizedBox(width: 130),
+                    Text14BlackBld('865'),
+                    SizedBox(width: 209),
                     InkWell(
                         onTap: () {
                           Navigator.push(
@@ -602,22 +552,22 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                               MaterialPageRoute(
                                   builder: (context) => ReviewScreen()));
                         },
-                        child: Icon(Icons.star, color: Colors.deepOrange)),
-                    CommonText('Rate Order'),
+                        child: Icon(Icons.star,size: 15, color: Colors.deepOrange)),
+                    Text10Black('Rate Order'),
                     SizedBox(width: 4),
                     Container(
-                      height: 40,
-                      width: 115,
+                      height: 32,
+                      width: 77,
                       child: RoundedButton(
                         onPressed: () {},
-                        name: 'Reorder',
+                        name: '',child: Text13WhitekBld('Reorder'),
                       ),
                     ),
                   ],
                 ),
 
                 Divider(thickness: 2),
-                SizedBox(height: 6),
+                SizedBox(height: 5),
                 Row(
                   children: [
                     InkWell(
@@ -634,44 +584,37 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                               MaterialPageRoute(
                                   builder: (context) => OrderDetailsScreen()));
                         },
-                        child: CommonText('Food Zone 2',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.deepOrange,
-                                fontSize: 18)),
+                        child: Text14OrangeBld('Food Zone 2'),
                       ),
                     ),
-                    SizedBox(width: 190),
+                    SizedBox(width: 250),
                     Icon(
-                      Icons.cancel,
+                      Icons.cancel,size: 15,
                       color: Colors.deepOrange,
                     ),
-                    CommonText('Canceled'),
+                    Text10Black('Canceled'),
                   ],
                 ),
-                CommonText('Hi-tech City'),
+                Text10Black('Hi-tech City'),
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    CommonText(
-                      'Butter Naan(5), Chicken Curry(Full,1)',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                      //
+                    Text14BlackBld(
+                      'Butter Naan(5), Chicken Curry(Full,1)'
                     ),
                   ],
                 ),
                 SizedBox(height: 3),
-                CommonText('June 02,2023'),
-                SizedBox(height: 6),
+                Text10Black('June 02,2023'),
+                SizedBox(height: 5),
                 Row(
                   children: [
                     Icon(
                       Icons.currency_rupee,
                       size: 18,
                     ),
-                    CommonText('395'),
-                    SizedBox(width: 130),
+                    Text14BlackBld('395'),
+                    SizedBox(width: 206),
                     InkWell(
                         onTap: () {
                           Navigator.push(
@@ -679,17 +622,17 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
                               MaterialPageRoute(
                                   builder: (context) => ReviewScreen()));
                         },
-                        child: Icon(Icons.star, color: Colors.deepOrange)),
-                    CommonText('Rate Order'),
+                        child: Icon(Icons.star,size: 15, color: Colors.deepOrange)),
+                    Text10Black('Rate Order'),
                     SizedBox(width: 4),
                     Container(
-                      height: 40,
-                      width: 115,
+                      height: 32,
+                      width: 77,
                       child: RoundedButton(
                         onPressed: () {
                           // Navigator.push(context, MaterialPageRoute(builder: (context)=>showBottomSheet(context: context, builder: builder)))
                         },
-                        name: 'Reorder',
+                        name: '',child: Text13WhitekBld('Reorder'),
                       ),
                     ),
                   ],

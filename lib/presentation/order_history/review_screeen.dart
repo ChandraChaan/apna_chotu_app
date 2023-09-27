@@ -21,43 +21,31 @@ class ReviewScreen extends StatelessWidget {
             ListTile(
               minLeadingWidth: 0,
               minVerticalPadding: 0,
-              horizontalTitleGap: 10,
+              horizontalTitleGap: -10,
               contentPadding: const EdgeInsets.all(0),
               leading: IconButton(
                 onPressed: () {
                   Get.back();
                 },
-                icon: Icon(Icons.chevron_left, size: 38),
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  size: 25,
+                  color: Colors.black,
+                ),
               ),
               title: Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  CommonText(
-                    'Meal from Grand Hotel',
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                  ),
+                  Text16BlackBld('Meal from Grand Hotel'),
                 ],
               ),
-            ),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 55),
-                  child: CommonText('#163728282738, Delivered, 1 Item, ₹ 1235'),
-                ),
-              ],
+              subtitle: Text10Black('#163728282738, Delivered, 1 Item, ₹ 1235'),
             ),
             Divider(thickness: 2),
-            SizedBox(height: 17),
+            SizedBox(height: 5),
             Center(
-              child: CommonText(
-                'Average',
-                style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.deepOrange),
-              ),
+              child: Text14OrangeBld('Average'),
             ),
             SizedBox(height: 17),
             Row(
@@ -81,14 +69,11 @@ class ReviewScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 22),
-            Center(
-              child: CommonText(
-                'Please Add a Review',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ),
             SizedBox(height: 20),
+            Center(
+              child: Text14BlackBld('Please Add a Review'),
+            ),
+            SizedBox(height: 17),
             Container(
               //padding: const EdgeInsets.all(10),
               child: TextField(
@@ -103,11 +88,15 @@ class ReviewScreen extends StatelessWidget {
             Center(
               child: Container(
                 height: 40,
-                width: 250,
+                width: 213,
                 child: RoundedButton(
-                  name: 'Submit Your Feedback',
+                  name: '',
+                  child: Text13WhitekBld('Submit Your Feedback'),
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderHistoryScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => OrderHistoryScreen()));
                   },
                 ),
               ),

@@ -85,19 +85,16 @@ class OthersAddressState extends State<OthersAddress> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            leading: IconButton(
-              icon:
-                  const Icon(Icons.chevron_left, color: Colors.black, size: 45),
-              onPressed: () {
-                Get.back();
-              },
-            ),
-            title: CommonText(
-              'Add New Address',
-              style: TextStyle(color: Colors.black),
-            )),
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          leading: IconButton(
+            icon: const Icon(Icons.chevron_left, color: Colors.black, size: 45),
+            onPressed: () {
+              Get.back();
+            },
+          ),
+          title: Text16Black('Add New Address'),
+        ),
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -106,14 +103,8 @@ class OthersAddressState extends State<OthersAddress> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Padding(
-                  padding: EdgeInsets.only(left: 18, top: 15),
-                  child: CommonText(
-                    'Who are you ordering for?',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                        color: Colors.deepOrange),
-                  ),
+                  padding: EdgeInsets.only(left: 18),
+                  child: Text10OrangeBld('Who are you ordering for?'),
                 ),
                 Row(
                   children: [
@@ -127,7 +118,7 @@ class OthersAddressState extends State<OthersAddress> {
                             // print('this is updated value');
                           });
                         }),
-                    const CommonText('Myself', style: TextStyle(fontSize: 15)),
+                    const Text10Black('Myself'),
                     Radio(
                         value: 2,
                         groupValue: _value,
@@ -138,19 +129,13 @@ class OthersAddressState extends State<OthersAddress> {
                             // print('this is updated value');
                           });
                         }),
-                    const CommonText('Others', style: TextStyle(fontSize: 15)),
+                    const Text10Black('Others'),
                   ],
                 ),
                 if (_value == 2) ...[
                   const Padding(
-                    padding: EdgeInsets.only(left: 18, top: 15),
-                    child: CommonText(
-                      'The address type was?',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                          color: Colors.deepOrange),
-                    ),
+                    padding: EdgeInsets.only(left: 18),
+                    child: Text10BlackBld('The address type was?'),
                   ),
                   Row(
                     children: [
@@ -164,7 +149,7 @@ class OthersAddressState extends State<OthersAddress> {
                               // print('this is updated value');
                             });
                           }),
-                      const CommonText('Home', style: TextStyle(fontSize: 15)),
+                      const Text10Black('Home'),
                       Radio(
                           value: 2,
                           groupValue: _addressValue,
@@ -175,10 +160,11 @@ class OthersAddressState extends State<OthersAddress> {
                               // print('this is updated value');
                             });
                           }),
-                      const CommonText('Hotel', style: TextStyle(fontSize: 15)),
+                      const Text10Black('Hotel'),
                     ],
                   ),
                   Container(
+                    height: 44,
                     //padding: const EdgeInsets.all(10),
                     child: TextField(
                       decoration: InputDecoration(
@@ -188,9 +174,10 @@ class OthersAddressState extends State<OthersAddress> {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
                   Container(
+                    height: 44,
                     //padding: const EdgeInsets.all(10),
                     child: TextField(
                       decoration: InputDecoration(
@@ -200,7 +187,7 @@ class OthersAddressState extends State<OthersAddress> {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
                 ],
                 Container(
@@ -215,7 +202,7 @@ class OthersAddressState extends State<OthersAddress> {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
                 Container(
                     // padding: const EdgeInsets.all(10),
@@ -226,7 +213,7 @@ class OthersAddressState extends State<OthersAddress> {
                       hintText: 'Floor (Optional)'),
                 )),
                 SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
                 Container(
                     //padding: const EdgeInsets.all(10),
@@ -236,7 +223,7 @@ class OthersAddressState extends State<OthersAddress> {
                           borderRadius: BorderRadius.circular(10)),
                       hintText: 'Nearby Landmark (Optional)'),
                 )),
-                SizedBox(height: 20),
+                SizedBox(height: 10),
                 Center(
                   child: RoundedButton(
                     // width: MediaQuery.of(context).size.width/1.2,
