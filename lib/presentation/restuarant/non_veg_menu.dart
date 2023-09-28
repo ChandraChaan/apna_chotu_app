@@ -21,7 +21,7 @@ class NonVegMenu extends StatefulWidget {
 }
 
 class _NonVegMenuState extends State<NonVegMenu> {
-  int _value = 1;
+  int _servedValue = 1;
   int selected = 1;
   int quantity = 1;
   bool non_veg = false;
@@ -588,49 +588,91 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                             ],
                                           ),
                                           Divider(thickness: 2),
-                                          CommonText(
-                                            'Quantity',
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 12),
-                                          ),
-                                          SizedBox(height: 6),
-                                          Row(
-                                              children: [
-                                            SizedBox(width: 5),
-                                            Icon(Icons.radio_button_on),
-                                                CommonText('Single(serve 1)'),
-                                                SizedBox(width: 200),
-                                            Row(children: [
-                                              Icon(
-                                                Icons.attach_money,
-                                                size: 15,
-                                              ),
-                                              CommonText('180',
-                                                  style:
-                                                      TextStyle(fontSize: 15))
-                                            ])
-                                          ]),
-                                          SizedBox(height: 6),
-                                          Row(
+                                          // Column(
+                                          //   crossAxisAlignment: CrossAxisAlignment.start,
+                                          //   mainAxisAlignment: MainAxisAlignment.start,
+                                          //   children: [
+                                          //     CommonText(
+                                          //       'Quantity',
+                                          //       style: TextStyle(
+                                          //           fontWeight: FontWeight.bold,
+                                          //           fontSize: 12),
+                                          //     ),
+                                          //     SizedBox(height: 6),
+                                          //     Row(
+                                          //         children: [
+                                          //           SizedBox(width: 5),
+                                          //           Radio(
+                                          //               value: 1,
+                                          //               groupValue: _value,
+                                          //               onChanged: (value) {
+                                          //                 _value = value!;
+                                          //               }),
+                                          //           CommonText('Single(serve 1)'),
+                                          //           SizedBox(width: 200),
+                                          //           Row(children: [
+                                          //             Icon(
+                                          //               Icons.attach_money,
+                                          //               size: 15,
+                                          //             ),
+                                          //             CommonText('180',
+                                          //                 style:
+                                          //                 TextStyle(fontSize: 15))
+                                          //           ]),
+                                          //         ]),
+                                          //     SizedBox(height: 6),
+                                          //     Row(
+                                          //       children: [
+                                          //         SizedBox(width: 5),
+                                          //         Radio(
+                                          //             value: 1,
+                                          //             groupValue: _value,
+                                          //             onChanged: (value) {
+                                          //               _value = value!;
+                                          //             }),
+                                          //         CommonText('Single(serve 2)'),
+                                          //         SizedBox(width: 200),
+                                          //         Row(
+                                          //           children: [
+                                          //             Icon(
+                                          //               Icons.attach_money,
+                                          //               size: 15,
+                                          //             ),
+                                          //             CommonText(
+                                          //               '299',
+                                          //               style:
+                                          //               TextStyle(fontSize: 15),
+                                          //             ),
+                                          //           ],
+                                          //         ),
+                                          //       ],
+                                          //     ),
+                                          //   ],
+                                          // ),
+                                           Row(
                                             children: [
-                                              SizedBox(width: 5),
-                                              Icon(Icons.radio_button_on),
-                                              CommonText('Single(serve 2)'),
-                                              SizedBox(width: 200),
-                                              Row(
-                                                children: [
-                                                  Icon(
-                                                    Icons.attach_money,
-                                                    size: 15,
-                                                  ),
-                                                  CommonText(
-                                                    '299',
-                                                    style:
-                                                        TextStyle(fontSize: 15),
-                                                  ),
-                                                ],
-                                              ),
+                                              Radio(
+                                                  value: 1,
+                                                  groupValue: _servedValue,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      _servedValue = value!;
+                                                      // print(_value);
+                                                      // print('this is updated value');
+                                                    });
+                                                  }),
+                                              const Text10Black('Myself'),
+                                              Radio(
+                                                  value: 2,
+                                                  groupValue: _servedValue,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      _servedValue = value!;
+                                                      // print(_value);
+                                                      // print('this is updated value');
+                                                    });
+                                                  }),
+                                              const Text10Black('Others'),
                                             ],
                                           ),
                                           Divider(thickness: 2),

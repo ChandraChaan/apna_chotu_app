@@ -52,7 +52,7 @@ class _CartScreenState extends State<CartScreen> {
       'firstname': firstname,
       'email': email,
       'phone': phone,
-      'hash': hash,
+      'hash': hash,  //success text
       'surl': 'https://apiplayground-response.herokuapp.com/',
       'furl': 'https://apiplayground-response.herokuapp.com/'
     };

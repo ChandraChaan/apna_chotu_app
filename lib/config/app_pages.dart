@@ -31,7 +31,7 @@ import '../presentation/locations_screens/select_location.dart';
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.cartScreen;
+  static const initial = Routes.nonVegMenu;
   static final routes = [
     GetPage(
         name: Routes.intro,
