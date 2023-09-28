@@ -530,333 +530,326 @@ class _NonVegMenuState extends State<NonVegMenu> {
                             showModalBottomSheet(
                                 context: context,
                                 builder: (BuildContext context) {
-                                  return Container(
-                                    height: 346,
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(10),
-                                            topRight: Radius.circular(10))),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Container(
-                                                height: 37,
-                                                width: 37,
-                                                child: Image.asset(
-                                                    'assets/images/image_290.png'),
-                                              ),
-                                              SizedBox(width: 7),
-                                              CommonText(
-                                                'Chicken Biryani',
-                                                style: TextStyle(
-                                                    fontSize: 11,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.deepOrange),
-                                              ),
-                                              SizedBox(width: 199),
-                                              Row(
+                                  return StatefulBuilder(builder:
+                                      (BuildContext context,
+                                          StateSetter setState) {
+                                    return Container(
+                                      height: 390,
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(10),
+                                              topRight: Radius.circular(10))),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Container(
+                                                  height: 37,
+                                                  width: 37,
+                                                  child: Image.asset(
+                                                      'assets/images/image_290.png'),
+                                                ),
+                                                SizedBox(width: 7),
+                                                CommonText(
+                                                  'Chicken Biryani',
+                                                  style: TextStyle(
+                                                      fontSize: 11,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.deepOrange),
+                                                ),
+                                                SizedBox(width: 199),
+                                                Row(
+                                                  children: [
+                                                    InkWell(
+                                                      onTap: () {
+                                                        Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                                builder:
+                                                                    (context) =>
+                                                                        InviteFriends()));
+                                                      },
+                                                      child: Image.asset(
+                                                          'assets/images/vector_right.png'),
+                                                    ),
+                                                    SizedBox(width: 5),
+                                                    InkWell(
+                                                      onTap: () {
+                                                        Get.back();
+                                                      },
+                                                      child: Icon(
+                                                        Icons.cancel,
+                                                        color:
+                                                            Colors.deepOrange,
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                            Divider(thickness: 2),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                CommonText(
+                                                  'Quantity',
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 12),
+                                                ),
+                                                SizedBox(height: 6),
+                                                Row(children: [
+                                                  Radio(
+                                                      value: 1,
+                                                      groupValue: _servedValue,
+                                                      onChanged: (value) {
+                                                        setState(() {
+                                                          _servedValue = value!;
+                                                        });
+                                                      }),
+                                                  CommonText('Single(serve 1)'),
+                                                  SizedBox(width: 180),
+                                                  Row(children: [
+                                                    Icon(
+                                                      Icons.attach_money,
+                                                      size: 15,
+                                                    ),
+                                                    CommonText('180',
+                                                        style: TextStyle(
+                                                            fontSize: 15))
+                                                  ]),
+                                                ]),
+                                                SizedBox(height: 6),
+                                                Row(
+                                                  children: [
+                                                    SizedBox(width: 5),
+                                                    Radio(
+                                                        value: 2,
+                                                        groupValue:
+                                                            _servedValue,
+                                                        onChanged: (value) {
+                                                          setState(() {
+                                                            _servedValue =
+                                                                value!;
+                                                          });
+                                                        }),
+                                                    CommonText(
+                                                        'Single(serve 2)'),
+                                                    SizedBox(width: 170),
+                                                    Row(
+                                                      children: [
+                                                        Icon(
+                                                          Icons.attach_money,
+                                                          size: 15,
+                                                        ),
+                                                        CommonText(
+                                                          '299',
+                                                          style: TextStyle(
+                                                              fontSize: 15),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                            Divider(thickness: 2),
+                                            CommonText(
+                                              'Customise as per your taste',
+                                              style: TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            CommonText(
+                                              'biryani Addon(1/3)',
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 5),
+                                              child: Row(
                                                 children: [
-                                                  InkWell(
-                                                    onTap: () {
+                                                  Icon(Icons.check_box),
+                                                  CommonText(
+                                                    'Raitha',
+                                                    style:
+                                                        TextStyle(fontSize: 11),
+                                                  ),
+                                                  SizedBox(width: 266),
+                                                  Row(
+                                                    children: [
+                                                      Icon(Icons.currency_rupee,
+                                                          size: 15),
+                                                      CommonText(
+                                                        '25',
+                                                        style: TextStyle(
+                                                            fontSize: 15),
+                                                      )
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 5),
+                                              child: Row(
+                                                children: [
+                                                  Icon(Icons.check_box),
+                                                  CommonText(
+                                                    'Salan',
+                                                    style:
+                                                        TextStyle(fontSize: 11),
+                                                  ),
+                                                  SizedBox(width: 269),
+                                                  Row(
+                                                    children: [
+                                                      Icon(Icons.currency_rupee,
+                                                          size: 15),
+                                                      CommonText(
+                                                        '25',
+                                                        style: TextStyle(
+                                                            fontSize: 15),
+                                                      )
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 5),
+                                              child: Row(
+                                                children: [
+                                                  Icon(Icons.check_box),
+                                                  CommonText(
+                                                    'Double Ka Meetha',
+                                                    style:
+                                                        TextStyle(fontSize: 11),
+                                                  ),
+                                                  SizedBox(width: 203),
+                                                  Row(
+                                                    children: [
+                                                      Icon(Icons.currency_rupee,
+                                                          size: 15),
+                                                      CommonText(
+                                                        '45',
+                                                        style: TextStyle(
+                                                            fontSize: 15),
+                                                      )
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Container(
+                                                  height: 40,
+                                                  width: 120,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                        Radius.circular(15),
+                                                      ),
+                                                      border: Border.all(
+                                                          color: Colors
+                                                              .deepOrange),
+                                                      color: Color(0xFFFFDFC6)),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceEvenly,
+                                                    children: [
+                                                      IconButton(
+                                                        icon:
+                                                            Icon(Icons.remove),
+                                                        onPressed: () {},
+                                                      ),
+                                                      CommonText('$quantity'),
+                                                      IconButton(
+                                                        icon: Icon(Icons.add),
+                                                        onPressed: () {},
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                SizedBox(width: 5),
+                                                Container(
+                                                  height: 40,
+                                                  width: 167,
+                                                  child: RoundedButton(
+                                                    onPressed: () {
                                                       Navigator.push(
                                                           context,
                                                           MaterialPageRoute(
                                                               builder: (context) =>
-                                                                  InviteFriends()));
+                                                                  CartScreen()));
                                                     },
-                                                    child: Image.asset(
-                                                        'assets/images/vector_right.png'),
+                                                    name: '',
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            CommonText(
+                                                              '2 items',
+                                                              style: TextStyle(
+                                                                  fontSize: 9),
+                                                            ),
+                                                            Icon(
+                                                              Icons
+                                                                  .currency_rupee,
+                                                              size: 9,
+                                                            ),
+                                                            CommonText(
+                                                              '255',
+                                                              style: TextStyle(
+                                                                  fontSize: 9),
+                                                            )
+                                                          ],
+                                                        ),
+                                                        CommonText(
+                                                          'Check Out',
+                                                          style: TextStyle(
+                                                              fontSize: 16,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        )
+                                                      ],
+                                                    ),
                                                   ),
-                                                  SizedBox(width: 5),
-                                                  InkWell(
-                                                    onTap: () {
-                                                      Get.back();
-                                                    },
-                                                    child: Icon(
-                                                      Icons.cancel,
-                                                      color: Colors.deepOrange,
-                                                    ),
-                                                  )
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                          Divider(thickness: 2),
-                                          // Column(
-                                          //   crossAxisAlignment: CrossAxisAlignment.start,
-                                          //   mainAxisAlignment: MainAxisAlignment.start,
-                                          //   children: [
-                                          //     CommonText(
-                                          //       'Quantity',
-                                          //       style: TextStyle(
-                                          //           fontWeight: FontWeight.bold,
-                                          //           fontSize: 12),
-                                          //     ),
-                                          //     SizedBox(height: 6),
-                                          //     Row(
-                                          //         children: [
-                                          //           SizedBox(width: 5),
-                                          //           Radio(
-                                          //               value: 1,
-                                          //               groupValue: _value,
-                                          //               onChanged: (value) {
-                                          //                 _value = value!;
-                                          //               }),
-                                          //           CommonText('Single(serve 1)'),
-                                          //           SizedBox(width: 200),
-                                          //           Row(children: [
-                                          //             Icon(
-                                          //               Icons.attach_money,
-                                          //               size: 15,
-                                          //             ),
-                                          //             CommonText('180',
-                                          //                 style:
-                                          //                 TextStyle(fontSize: 15))
-                                          //           ]),
-                                          //         ]),
-                                          //     SizedBox(height: 6),
-                                          //     Row(
-                                          //       children: [
-                                          //         SizedBox(width: 5),
-                                          //         Radio(
-                                          //             value: 1,
-                                          //             groupValue: _value,
-                                          //             onChanged: (value) {
-                                          //               _value = value!;
-                                          //             }),
-                                          //         CommonText('Single(serve 2)'),
-                                          //         SizedBox(width: 200),
-                                          //         Row(
-                                          //           children: [
-                                          //             Icon(
-                                          //               Icons.attach_money,
-                                          //               size: 15,
-                                          //             ),
-                                          //             CommonText(
-                                          //               '299',
-                                          //               style:
-                                          //               TextStyle(fontSize: 15),
-                                          //             ),
-                                          //           ],
-                                          //         ),
-                                          //       ],
-                                          //     ),
-                                          //   ],
-                                          // ),
-                                           Row(
-                                            children: [
-                                              Radio(
-                                                  value: 1,
-                                                  groupValue: _servedValue,
-                                                  onChanged: (value) {
-                                                    setState(() {
-                                                      _servedValue = value!;
-                                                      // print(_value);
-                                                      // print('this is updated value');
-                                                    });
-                                                  }),
-                                              const Text10Black('Myself'),
-                                              Radio(
-                                                  value: 2,
-                                                  groupValue: _servedValue,
-                                                  onChanged: (value) {
-                                                    setState(() {
-                                                      _servedValue = value!;
-                                                      // print(_value);
-                                                      // print('this is updated value');
-                                                    });
-                                                  }),
-                                              const Text10Black('Others'),
-                                            ],
-                                          ),
-                                          Divider(thickness: 2),
-                                          CommonText(
-                                            'Customise as per your taste',
-                                            style: TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          CommonText(
-                                            'biryani Addon(1/3)',
-                                            style: TextStyle(
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 5),
-                                            child: Row(
-                                              children: [
-                                                Icon(Icons.check_box),
-                                                CommonText(
-                                                  'Raitha',
-                                                  style:
-                                                      TextStyle(fontSize: 11),
-                                                ),
-                                                SizedBox(width: 266),
-                                                Row(
-                                                  children: [
-                                                    Icon(Icons.currency_rupee,
-                                                        size: 15),
-                                                    CommonText(
-                                                      '25',
-                                                      style: TextStyle(
-                                                          fontSize: 15),
-                                                    )
-                                                  ],
-                                                ),
+                                                )
                                               ],
                                             ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 5),
-                                            child: Row(
-                                              children: [
-                                                Icon(Icons.check_box),
-                                                CommonText(
-                                                  'Salan',
-                                                  style:
-                                                      TextStyle(fontSize: 11),
-                                                ),
-                                                SizedBox(width: 269),
-                                                Row(
-                                                  children: [
-                                                    Icon(Icons.currency_rupee,
-                                                        size: 15),
-                                                    CommonText(
-                                                      '25',
-                                                      style: TextStyle(
-                                                          fontSize: 15),
-                                                    )
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 5),
-                                            child: Row(
-                                              children: [
-                                                Icon(Icons.check_box),
-                                                CommonText(
-                                                  'Double Ka Meetha',
-                                                  style:
-                                                      TextStyle(fontSize: 11),
-                                                ),
-                                                SizedBox(width: 203),
-                                                Row(
-                                                  children: [
-                                                    Icon(Icons.currency_rupee,
-                                                        size: 15),
-                                                    CommonText(
-                                                      '45',
-                                                      style: TextStyle(
-                                                          fontSize: 15),
-                                                    )
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Container(
-                                                height: 40,
-                                                width: 120,
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                      Radius.circular(15),
-                                                    ),
-                                                    border: Border.all(
-                                                        color:
-                                                            Colors.deepOrange),
-                                                    color: Color(0xFFFFDFC6)),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceEvenly,
-                                                  children: [
-                                                    IconButton(
-                                                      icon: Icon(Icons.remove),
-                                                      onPressed: () {},
-                                                    ),
-                                                    CommonText('$quantity'),
-                                                    IconButton(
-                                                      icon: Icon(Icons.add),
-                                                      onPressed: () {},
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              SizedBox(width: 5),
-                                              Container(
-                                                height: 40,
-                                                width: 167,
-                                                child: RoundedButton(
-                                                  onPressed: () {
-                                                    Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(
-                                                            builder: (context) =>
-                                                                CartScreen()));
-                                                  },
-                                                  name: '',
-                                                  child: Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          CommonText(
-                                                            '2 items',
-                                                            style: TextStyle(
-                                                                fontSize: 9),
-                                                          ),
-                                                          Icon(
-                                                            Icons
-                                                                .currency_rupee,
-                                                            size: 9,
-                                                          ),
-                                                          CommonText(
-                                                            '255',
-                                                            style: TextStyle(
-                                                                fontSize: 9),
-                                                          )
-                                                        ],
-                                                      ),
-                                                      CommonText(
-                                                        'Check Out',
-                                                        style: TextStyle(
-                                                            fontSize: 16,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold),
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  );
+                                    );
+                                  });
                                 });
                           },
                           child: Row(
