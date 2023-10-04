@@ -125,7 +125,7 @@ class AppPages {
         binding: MainBinding()),
     GetPage(
         name: Routes.cartScreen,
-        page: () => CartScreen(),
+        page: () => CartScreen(item: null,),
         binding: MainBinding()),
     GetPage(
         name: Routes.editProfileScreen,
