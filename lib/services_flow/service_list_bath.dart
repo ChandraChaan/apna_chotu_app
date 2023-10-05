@@ -188,9 +188,9 @@ class _ServiceListState extends State<ServiceList> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CommonText('Delicious',
+                      CommonText('Bathroom',
                           style: TextStyle(color: Colors.white, fontSize: 25)),
-                      CommonText('Indian Couisine',
+                      CommonText('Cleaning Services',
                           style: TextStyle(color: Colors.white, fontSize: 32)),
                     ],
                   ),

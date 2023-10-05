@@ -46,10 +46,7 @@ class FoodScreen extends StatelessWidget {
                       color: Colors.deepOrange,
                     ),
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => CurrentLocation()));
+                      Get.toNamed(Routes.currentLocation);
                     },
                   ),
                   title: SizedBox(
@@ -63,6 +60,12 @@ class FoodScreen extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 25, fontWeight: FontWeight.bold),
                         ),
+                        SizedBox(width: 7),
+                        IconButton(
+                            onPressed: () {
+                              Get.toNamed(Routes.currentLocation);
+                            },
+                            icon: Icon(Icons.expand_more))
                       ],
                     ),
                   ),

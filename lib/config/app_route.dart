@@ -28,5 +28,8 @@ abstract class Routes {
   static const cartScreen = '/cartScreen';
   static const editProfileScreen = '/editProfileScreen';
   static const paymentOptions = '/paymentOptions';
+  static const serviceList = '/serviceList';
+  static const micServices = '/micServices';
+  static const miscOrderCreate = '/miscOrderCreate';
 
 }

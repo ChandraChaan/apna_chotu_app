@@ -240,94 +240,95 @@ class _NonVegMenuState extends State<NonVegMenu> {
       "orders_count": "(122)"
     },
   ];
-  List service_list = [
-    {
-      "image": "assets/images/bath_1.png",
-      "name": "1 Bathroom Cleaning Pack",
-      "description":
-          "Cleaning Partner arrives ar your doorstep to clean your house",
-      "price": "999",
-      "rating": "4.0",
-      "orders_count": "(122)"
-    },
-    {
-      "image": "assets/images/bath_2.png",
-      "name": "1 Bathroom Classic",
-      "description": "Get lowest price quotes for your Cleaning service",
-      "price": "280",
-      "rating": "4.0",
-      "orders_count": "(122)"
-    },
-    {
-      "image": "assets/images/bath_3.png",
-      "name": "Intense Bathroom Cleaning",
-      "description": "Deep Kitchen Cleaning Options Available. Book Now",
-      "price": "399",
-      "rating": "4.0",
-      "orders_count": "(122)"
-    },
-    {
-      "image": "assets/images/bath_4.png",
-      "name": "3 BHK Bathrooms Cleaning",
-      "description":
-          "Get A Cleaner Couch & Avail Upto 60% Discount Search Results",
-      "price": "880",
-      "rating": "4.0",
-      "orders_count": "(122)"
-    },
-    {
-      "image": "assets/images/bath_5.png",
-      "name": "1 Bathroom Classic",
-      "description":
-          "Hard water stains & dirt in tile grouting removal with scrubbing machine",
-      "price": "180",
-      "rating": "4.0",
-      "orders_count": "(122)"
-    },
-    {
-      "image": "assets/images/bath_6.png",
-      "name": "Full House Deep Cleaning",
-      "description":
-          "Bathroom cleaning services include toilet bowl cleaning.wash bain cleaning",
-      "price": "249",
-      "rating": "4.0",
-      "orders_count": "(122)"
-    },
-    {
-      "image": "assets/images/bath_7.png",
-      "name": "Villa Bathroom Cleaning",
-      "description": "Bathroom Deep Cleaning Services in hyderabad",
-      "price": "329",
-      "rating": "4.0",
-      "orders_count": "(122)"
-    },
-    {
-      "image": "assets/images/bath_8.png",
-      "name": "Bathroom Deep Cleaning",
-      "description":
-          "Expert bathroom cleaning service in Hyderabad for a clean and hygienic bathroom.",
-      "price": "180",
-      "rating": "4.0",
-      "orders_count": "(122)"
-    },
-    {
-      "image": "assets/images/bath_9.png",
-      "name": "Bathroom Cleaning",
-      "description": "Professional bathroom cleaning services in Hyderabad",
-      "price": "280",
-      "rating": "4.0",
-      "orders_count": "(122)"
-    },
-    {
-      "image": "assets/images/bath_10.png",
-      "name": "Bathroom Washing",
-      "description":
-          "Bathroom cleaning services for residential, commercial place at budget prices",
-      "price": "229",
-      "rating": "4.0",
-      "orders_count": "(122)"
-    },
-  ];
+
+  // List service_list = [
+  //   {
+  //     "image": "assets/images/bath_1.png",
+  //     "name": "1 Bathroom Cleaning Pack",
+  //     "description":
+  //         "Cleaning Partner arrives ar your doorstep to clean your house",
+  //     "price": "999",
+  //     "rating": "4.0",
+  //     "orders_count": "(122)"
+  //   },
+  //   {
+  //     "image": "assets/images/bath_2.png",
+  //     "name": "1 Bathroom Classic",
+  //     "description": "Get lowest price quotes for your Cleaning service",
+  //     "price": "280",
+  //     "rating": "4.0",
+  //     "orders_count": "(122)"
+  //   },
+  //   {
+  //     "image": "assets/images/bath_3.png",
+  //     "name": "Intense Bathroom Cleaning",
+  //     "description": "Deep Kitchen Cleaning Options Available. Book Now",
+  //     "price": "399",
+  //     "rating": "4.0",
+  //     "orders_count": "(122)"
+  //   },
+  //   {
+  //     "image": "assets/images/bath_4.png",
+  //     "name": "3 BHK Bathrooms Cleaning",
+  //     "description":
+  //         "Get A Cleaner Couch & Avail Upto 60% Discount Search Results",
+  //     "price": "880",
+  //     "rating": "4.0",
+  //     "orders_count": "(122)"
+  //   },
+  //   {
+  //     "image": "assets/images/bath_5.png",
+  //     "name": "1 Bathroom Classic",
+  //     "description":
+  //         "Hard water stains & dirt in tile grouting removal with scrubbing machine",
+  //     "price": "180",
+  //     "rating": "4.0",
+  //     "orders_count": "(122)"
+  //   },
+  //   {
+  //     "image": "assets/images/bath_6.png",
+  //     "name": "Full House Deep Cleaning",
+  //     "description":
+  //         "Bathroom cleaning services include toilet bowl cleaning.wash bain cleaning",
+  //     "price": "249",
+  //     "rating": "4.0",
+  //     "orders_count": "(122)"
+  //   },
+  //   {
+  //     "image": "assets/images/bath_7.png",
+  //     "name": "Villa Bathroom Cleaning",
+  //     "description": "Bathroom Deep Cleaning Services in hyderabad",
+  //     "price": "329",
+  //     "rating": "4.0",
+  //     "orders_count": "(122)"
+  //   },
+  //   {
+  //     "image": "assets/images/bath_8.png",
+  //     "name": "Bathroom Deep Cleaning",
+  //     "description":
+  //         "Expert bathroom cleaning service in Hyderabad for a clean and hygienic bathroom.",
+  //     "price": "180",
+  //     "rating": "4.0",
+  //     "orders_count": "(122)"
+  //   },
+  //   {
+  //     "image": "assets/images/bath_9.png",
+  //     "name": "Bathroom Cleaning",
+  //     "description": "Professional bathroom cleaning services in Hyderabad",
+  //     "price": "280",
+  //     "rating": "4.0",
+  //     "orders_count": "(122)"
+  //   },
+  //   {
+  //     "image": "assets/images/bath_10.png",
+  //     "name": "Bathroom Washing",
+  //     "description":
+  //         "Bathroom cleaning services for residential, commercial place at budget prices",
+  //     "price": "229",
+  //     "rating": "4.0",
+  //     "orders_count": "(122)"
+  //   },
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -369,10 +370,7 @@ class _NonVegMenuState extends State<NonVegMenu> {
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => RestaurantDetails()));
+                          Get.toNamed(Routes.restaurantDetails);
                         },
                       ),
                     ],
