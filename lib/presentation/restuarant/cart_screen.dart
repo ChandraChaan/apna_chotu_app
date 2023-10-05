@@ -7,6 +7,10 @@ import 'package:apna_chotu_app/utils/rounded_button.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_payu_unofficial/flutter_payu_unofficial.dart';
+import 'package:flutter_payu_unofficial/models/payment_params_model.dart';
+import 'package:flutter_payu_unofficial/models/payment_result.dart';
+import 'package:flutter_payu_unofficial/models/payment_status.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import '../../utils/constant.dart';
@@ -25,7 +29,6 @@ class _CartScreenState extends State<CartScreen> {
   // Pre-defined data
   final String phone = '9849953848';
   final String txnid = DateTime.now().millisecondsSinceEpoch.toString();
-  final String amount = '1.0';
   final String productinfo = 'iPhone';
   final String firstname = 'AC';
   final String email = 'ceo@apnachotu.com';
@@ -39,7 +42,7 @@ class _CartScreenState extends State<CartScreen> {
     return digest.toString();
   }
 
-  void initiatePayment() async {
+  void initiatePayment(String amount) async {
     print('Starting the payment process...');
     EasyLoading.show(status: 'Initiating Payment...');
 
@@ -60,6 +63,7 @@ class _CartScreenState extends State<CartScreen> {
       'hash': hash, //success text
       'surl': 'https://apiplayground-response.herokuapp.com/',
       'furl': 'https://apiplayground-response.herokuapp.com/'
+
     };
     print('Sending POST request with body: ' + body.toString());
 
@@ -102,6 +106,67 @@ class _CartScreenState extends State<CartScreen> {
       showErrorDialog('Error initiating payment: ${response.body}');
     }
   }
+
+  Future<void> pay(String amount) async {
+    final key = 'Wn0jYR';
+    final salt = 'T73QXre5AkYRnB1EgPVukwUCZiffmwjv';
+    final hash =
+    generateHash(key, txnid, amount, productinfo, firstname, email, salt);
+    PaymentParams _paymentParam = PaymentParams(
+      merchantID: '8522235',
+      merchantKey: key,
+      salt: salt,
+      amount: amount,
+      transactionID: DateTime.now().millisecondsSinceEpoch.toString(),
+      firstName: 'AC',
+      email: 'ceo@apnachotu.com',
+      productName: 'IPhone',
+      phone: "9876543210",
+      fURL: "https://www.payumoney.com/mobileapp/payumoney/failure.php",
+      sURL: "https://www.payumoney.com/mobileapp/payumoney/success.php",
+      udf1: "udf1",
+      udf2: "udf2",
+      udf3: "udf3",
+      udf4: "udf4",
+      udf5: "udf5",
+      udf6: "",
+      udf7: "",
+      udf8: "",
+      udf9: "",
+      udf10: "",
+      hash: hash,
+      //Hash is required will initialise with empty string now to set actuall hash later
+      isDebug: false, // true for Test Mode, false for Production
+    );
+
+    try {
+      PayuPaymentResult _paymentResult =
+      await FlutterPayuUnofficial.initiatePayment(
+          paymentParams: _paymentParam, showCompletionScreen: true);
+
+      //Checks for success and prints result
+
+      if (_paymentResult != null) {
+        //_paymentResult.status is String of course. Directly fetched from payU's Payment response. More statuses can be compared manually
+
+        if (_paymentResult.status == PayuPaymentStatus.success) {
+          print("Success: ${_paymentResult.response}");
+        } else if (_paymentResult.status == PayuPaymentStatus.failed) {
+          print("Failed: ${_paymentResult.response}");
+        } else if (_paymentResult.status == PayuPaymentStatus.cancelled) {
+          print("Cancelled by User: ${_paymentResult.response}");
+        } else {
+          print("Response: ${_paymentResult.response}");
+          print("Status: ${_paymentResult.status}");
+        }
+      } else {
+        print("Something's rotten here");
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
 
   void showErrorDialog(String errorMessage) {
     showDialog(
@@ -176,7 +241,7 @@ class _CartScreenState extends State<CartScreen> {
                     'Checkout',
                     style: UInormalStyle,
                   ),
-                  subtitle: CommonText('2 items, Total: ₹ 225'),
+                  subtitle: CommonText('1 item, Total: ₹ ${widget.item?.price}'),
                 ),
                 Container(
                   height: 60,
@@ -260,7 +325,7 @@ class _CartScreenState extends State<CartScreen> {
                         Column(
                           children: [
                             CommonText(
-                              'Chicken Biryani',
+                              '${widget.item?.title}',
                               style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
@@ -273,7 +338,7 @@ class _CartScreenState extends State<CartScreen> {
                                   size: 14,
                                 ),
                                 CommonText(
-                                  '225',
+                                  '${widget.item?.price}',
                                   style: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.bold),
@@ -444,7 +509,7 @@ class _CartScreenState extends State<CartScreen> {
                 Row(
                   children: [
                     CommonText('Item Total'),
-                    SizedBox(width: 250),
+                    SizedBox(width: 210),
                     Icon(Icons.currency_rupee, size: 15),
                     CommonText('${calculateTotalPrice().toStringAsFixed(2)}')
                   ],
@@ -453,7 +518,7 @@ class _CartScreenState extends State<CartScreen> {
                 Row(
                   children: [
                     CommonText('Delivery Partner Fee'),
-                    SizedBox(width: 194),
+                    SizedBox(width: 184),
                     Icon(Icons.currency_rupee, size: 15),
                     CommonText('51.00')
                   ],
@@ -462,7 +527,7 @@ class _CartScreenState extends State<CartScreen> {
                 Row(
                   children: [
                     CommonText('Delivery Tip'),
-                    SizedBox(width: 248),
+                    SizedBox(width: 238),
                     Icon(Icons.currency_rupee, size: 15),
                     CommonText('50.00')
                   ],
@@ -471,7 +536,7 @@ class _CartScreenState extends State<CartScreen> {
                 Row(
                   children: [
                     CommonText('Taxes'),
-                    SizedBox(width: 285),
+                    SizedBox(width: 265),
                     Icon(Icons.currency_rupee, size: 15),
                     CommonText('${calculateGST().toStringAsFixed(2)}')
                   ],
@@ -486,7 +551,7 @@ class _CartScreenState extends State<CartScreen> {
                       style:
                           TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(width: 198),
+                    SizedBox(width: 188),
                     Icon(
                       Icons.currency_rupee,
                       size: 15,
@@ -687,7 +752,11 @@ class _CartScreenState extends State<CartScreen> {
                 width: 167,
                 child: RoundedButton(
                   onPressed: () {
-                    initiatePayment();
+                    // modile SDK
+                    // pay('${(calculateTotalPrice() + calculateGST()).toStringAsFixed(2)}');
+
+                    // web check out
+                    initiatePayment('${(calculateTotalPrice() + calculateGST()).toStringAsFixed(2)}');
                   },
                   name: '',
                   child: CommonText(

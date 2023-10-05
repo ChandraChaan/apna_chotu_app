@@ -32,7 +32,7 @@ import '../presentation/locations_screens/select_location.dart';
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.intro;
+  static const initial = Routes.nonVegMenu;
   static final routes = [
     GetPage(
         name: Routes.intro,
@@ -126,7 +126,7 @@ class AppPages {
         binding: MainBinding()),
     GetPage(
         name: Routes.cartScreen,
-        page: () => CartScreen(item: null,),
+        page: () => CartScreen(),
         binding: MainBinding()),
     GetPage(
         name: Routes.editProfileScreen,
