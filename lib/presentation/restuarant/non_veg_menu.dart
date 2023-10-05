@@ -1,5 +1,6 @@
 import 'package:apna_chotu_app/presentation/order_history/invite_friends.dart';
 import 'package:apna_chotu_app/presentation/restuarant/cart_screen.dart';
+import 'package:apna_chotu_app/presentation/restuarant/product_model.dart';
 import 'package:apna_chotu_app/presentation/restuarant/restuarant_details.dart';
 import 'package:apna_chotu_app/utils/menu_tabs.dart';
 import 'package:apna_chotu_app/utils/rounded_button.dart';
@@ -798,8 +799,25 @@ class _NonVegMenuState extends State<NonVegMenu> {
                                                       Navigator.push(
                                                           context,
                                                           MaterialPageRoute(
-                                                              builder: (context) =>
-                                                                  CartScreen()));
+                                                              builder:
+                                                                  (context) =>
+                                                                      CartScreen(
+                                                                        item: Product(
+                                                                            id:
+                                                                                1,
+                                                                            title: non_veg
+                                                                                ? non_veg_list[index]['name']
+                                                                                : veg_list[index]['name'],
+                                                                            description: non_veg ? non_veg_list[index]['description'] : veg_list[index]['description'],
+                                                                            price: non_veg ? double.parse((non_veg_list[index]['price'].toString())) : double.parse(veg_list[index]['price'].toString()),
+                                                                            discountPercentage: 0.0,
+                                                                            rating: 4.0,
+                                                                            stock: 1,
+                                                                            brand: '',
+                                                                            category: '',
+                                                                            thumbnail: non_veg ? non_veg_list[index]['image'] : veg_list[index]['image'],
+                                                                            images: []),
+                                                                      )));
                                                     },
                                                     name: '',
                                                     child: Column(

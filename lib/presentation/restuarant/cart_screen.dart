@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:apna_chotu_app/Config/app_pages.dart';
+import 'package:apna_chotu_app/presentation/restuarant/product_model.dart';
 import 'package:crypto/crypto.dart';
 import 'package:apna_chotu_app/common/app_text.dart';
 import 'package:apna_chotu_app/utils/rounded_button.dart';
@@ -12,6 +13,10 @@ import '../../utils/constant.dart';
 import '../payu/payment_webview.dart';
 
 class CartScreen extends StatefulWidget {
+  final Product? item;
+
+  const CartScreen({super.key, this.item});
+
   @override
   State<CartScreen> createState() => _CartScreenState();
 }
@@ -52,7 +57,7 @@ class _CartScreenState extends State<CartScreen> {
       'firstname': firstname,
       'email': email,
       'phone': phone,
-      'hash': hash,  //success text
+      'hash': hash, //success text
       'surl': 'https://apiplayground-response.herokuapp.com/',
       'furl': 'https://apiplayground-response.herokuapp.com/'
     };
@@ -116,6 +121,31 @@ class _CartScreenState extends State<CartScreen> {
 
   List<int> tip = [10, 20, 30, 40];
   int quantity = 1;
+
+  void increaseQuantity() {
+    setState(() {
+      widget.item?.quantity++;
+    });
+  }
+
+  void decreaseQuantity() {
+    setState(() {
+      if (widget.item!.quantity > 1) {
+        widget.item?.quantity--;
+      }
+    });
+  }
+
+  double calculateTotalPrice() {
+    double totalPrice = 0;
+    totalPrice += (widget.item!.price * widget.item!.quantity)!;
+    return totalPrice;
+  }
+
+  double calculateGST() {
+    double totalPrice = calculateTotalPrice();
+    return totalPrice * 0.18; // Assuming GST is 18%
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -270,18 +300,14 @@ class _CartScreenState extends State<CartScreen> {
                           IconButton(
                             icon: Icon(Icons.remove),
                             onPressed: () {
-                              setState(() {
-                                if (quantity > 1) quantity--;
-                              });
+                              decreaseQuantity();
                             },
                           ),
-                          CommonText('$quantity'),
+                          CommonText('${widget.item?.quantity}'),
                           IconButton(
                             icon: Icon(Icons.add),
                             onPressed: () {
-                              setState(() {
-                                quantity++;
-                              });
+                              increaseQuantity();
                             },
                           ),
                         ],
@@ -420,7 +446,7 @@ class _CartScreenState extends State<CartScreen> {
                     CommonText('Item Total'),
                     SizedBox(width: 250),
                     Icon(Icons.currency_rupee, size: 15),
-                    CommonText('225.00')
+                    CommonText('${calculateTotalPrice().toStringAsFixed(2)}')
                   ],
                 ),
                 SizedBox(height: 7),
@@ -447,7 +473,7 @@ class _CartScreenState extends State<CartScreen> {
                     CommonText('Taxes'),
                     SizedBox(width: 285),
                     Icon(Icons.currency_rupee, size: 15),
-                    CommonText('55.00')
+                    CommonText('${calculateGST().toStringAsFixed(2)}')
                   ],
                 ),
                 SizedBox(height: 7),
@@ -466,7 +492,7 @@ class _CartScreenState extends State<CartScreen> {
                       size: 15,
                     ),
                     CommonText(
-                      '381.00',
+                      '${(calculateTotalPrice() + calculateGST()).toStringAsFixed(2)}',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     )
                   ],
@@ -641,7 +667,7 @@ class _CartScreenState extends State<CartScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CommonText(
-                          '381.00',
+                          '${(calculateTotalPrice() + calculateGST()).toStringAsFixed(2)}',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         CommonText(
