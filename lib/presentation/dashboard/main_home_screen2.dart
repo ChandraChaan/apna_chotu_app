@@ -1,5 +1,4 @@
 import 'package:apna_chotu_app/Config/app_pages.dart';
-import 'package:apna_chotu_app/presentation/locations_screens/select_location.dart';
 import 'package:apna_chotu_app/presentation/profile_screen/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';

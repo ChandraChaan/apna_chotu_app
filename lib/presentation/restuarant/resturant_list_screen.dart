@@ -17,6 +17,21 @@ class RestaurantListScreen extends StatefulWidget {
 }
 
 class _RestaurantListScreenState extends State<RestaurantListScreen> {
+  int likeCount = 0;
+  bool isLiked = false;
+
+  void toggleLike() {
+    setState(() {
+      if (isLiked) {
+        likeCount++;
+        isLiked = false;
+      } else {
+        likeCount++;
+        isLiked = true;
+      }
+    });
+  }
+
   List<Map<String, dynamic>> listItems = [
     {
       //img 1
@@ -361,18 +376,24 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
-                                      Icon(
-                                        Icons.favorite,
-                                        color: Colors.deepOrange,
-                                        size: 25,
+                                      IconButton(
+                                        icon: Icon(isLiked
+                                            ? Icons.favorite
+                                            : Icons.favorite_border),
+                                        color: isLiked
+                                            ? Colors.deepOrange
+                                            : Colors.white,
+                                        onPressed: () {
+                                          toggleLike();
+                                        },
                                       ),
                                       SizedBox(
                                         height: 5,
                                       ),
                                       CommonText(
-                                        '${listItems[a]['likes']}',
+                                        '$likeCount',
                                         style: TextStyle(
-                                            fontSize: 13,
+                                            fontSize: 15,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white),
                                       )

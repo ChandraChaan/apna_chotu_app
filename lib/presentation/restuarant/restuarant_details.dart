@@ -12,6 +12,7 @@ class RestaurantDetails extends StatefulWidget {
 }
 
 class _RestaurantDetailsState extends State<RestaurantDetails> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +42,7 @@ class _RestaurantDetailsState extends State<RestaurantDetails> {
                     color: Colors.white,
                     size: 25,
                   ),
-                  onTap: (){
+                  onTap: () {
                     Get.back();
                   },
                 ),
@@ -75,7 +76,7 @@ class _RestaurantDetailsState extends State<RestaurantDetails> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       MenuTabs(),
-                      SizedBox(height: 20),// common function
+                      SizedBox(height: 20), // common function
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

@@ -8,8 +8,14 @@ import 'package:apna_chotu_app/utils/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   ProfileScreen({super.key});
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
 
   final ExpansionTileController controller = ExpansionTileController();
 
@@ -170,56 +176,6 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
-              // Column(
-              //   children: <Widget>[
-              //     ExpansionTile(
-              //       title: Row(
-              //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //         children: [Text('Profile'), Icon(Icons.edit)],
-              //       ),
-              //       children: <Widget>[
-              //         Builder(
-              //           builder: (BuildContext context) {
-              //             return Container(
-              //               padding: const EdgeInsets.all(24),
-              //               alignment: Alignment.center,
-              //               child: const Text('Name'),
-              //             );
-              //           },
-              //         ),
-              //       ],
-              //     ),
-              //     ExpansionTile(
-              //       title: Text('My Orders'),
-              //       children: <Widget>[
-              //         Builder(
-              //           builder: (BuildContext context) {
-              //             return Container(
-              //               padding: const EdgeInsets.all(24),
-              //               alignment: Alignment.center,
-              //               child: const Text('Orders'),
-              //             );
-              //           },
-              //         ),
-              //       ],
-              //     ),
-              //     ExpansionTile(
-              //       title: Text('Refer and Earn'),
-              //       children: <Widget>[
-              //         Builder(
-              //           builder: (BuildContext context) {
-              //             return Container(
-              //               padding: const EdgeInsets.all(24),
-              //               alignment: Alignment.center,
-              //               child: const Text('Refer'),
-              //             );
-              //           },
-              //         ),
-              //       ],
-              //     ),
-              //   ],
-              // )
               SizedBox(height: 5),
               Container(
                 height: 140,
@@ -354,7 +310,8 @@ class ProfileScreen extends StatelessWidget {
               SizedBox(height: 5),
               InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>InviteFriends()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => InviteFriends()));
                 },
                 child: Container(
                   height: 32,
@@ -448,7 +405,8 @@ class ProfileScreen extends StatelessWidget {
               SizedBox(height: 5),
               InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>InviteFriends()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => InviteFriends()));
                 },
                 child: Container(
                   height: 32,
@@ -499,7 +457,8 @@ class ProfileScreen extends StatelessWidget {
               SizedBox(height: 5),
               InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HelpScreen()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HelpScreen()));
                 },
                 child: Container(
                   height: 32,

@@ -2,8 +2,6 @@ import 'package:apna_chotu_app/mic_sevices/mic_services.dart';
 import 'package:apna_chotu_app/mic_sevices/misc_order_create.dart';
 import 'package:apna_chotu_app/presentation/dashboard/main_home_screen1.dart';
 import 'package:apna_chotu_app/presentation/dashboard/main_home_screen2.dart';
-import 'package:apna_chotu_app/presentation/extra/product.dart';
-import 'package:apna_chotu_app/presentation/extra/third.dart';
 import 'package:apna_chotu_app/presentation/locations_screens/address_not_found.dart';
 import 'package:apna_chotu_app/presentation/payment_method/payment_options.dart';
 import 'package:apna_chotu_app/presentation/profile_screen/edit_profile_screen.dart';
@@ -30,12 +28,11 @@ import '../Presentation/auth_screen.dart';
 import '../Presentation/intro_screen.dart';
 import '../presentation/locations_screens/location_screen.dart';
 import '../presentation/locations_screens/select_location.dart';
-// import '../presentation/locations_screens/select_location_screen.dart';
 
 part 'app_route.dart';
 
 class AppPages {
-  static const initial = Routes.miscOrderCreate;
+  static const initial = Routes.intro;
   static final routes = [
     GetPage(
         name: Routes.intro,
