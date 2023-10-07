@@ -64,7 +64,21 @@ class _OTPScreenState extends State<OTPScreen> {
   String phone = '1234567890';
 
   Future<void> sendingOtp() async {
-    setState(() {
+    if (OtpOne.text.isEmpty &&
+        OtpTwo.text.isEmpty &&
+        OtpThree.text.isEmpty &&
+        OtpFour.text.isEmpty)
+
+      Get.defaultDialog(
+        confirmTextColor: Colors.white,
+        title: '',
+        middleText: 'Please Enter Valid OTP',
+        onConfirm: () {
+          Get.back();
+        },
+      );
+    else
+    {setState(() {
       isLoading = true; // Show loader when API call starts
     });
 
@@ -131,7 +145,7 @@ class _OTPScreenState extends State<OTPScreen> {
           Get.back();
         },
       );
-    }
+    }}
   }
 
   @override
@@ -260,7 +274,8 @@ class _OTPScreenState extends State<OTPScreen> {
                             keyboardType: TextInputType.number,
                             onChanged: (value) {
                               if (value.length == 1) {
-                                FocusScope.of(context).nextFocus();
+                                sendingOtp();
+
                               }
                             },
                             controller: OtpFour,
@@ -312,20 +327,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   const SizedBox(height: 10),
                   RoundedButton(
                     onPressed: () {
-                      if (OtpOne.text.isNotEmpty &&
-                          OtpTwo.text.isNotEmpty &&
-                          OtpThree.text.isNotEmpty &&
-                          OtpFour.text.isNotEmpty)
-                        sendingOtp();
-                      else
-                        Get.defaultDialog(
-                          confirmTextColor: Colors.white,
-                          title: '',
-                          middleText: 'Please Enter Valid OTP',
-                          onConfirm: () {
-                            Get.back();
-                          },
-                        );
+                      sendingOtp();
                     },
                     name: 'Submit',
                   ),

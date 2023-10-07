@@ -29,14 +29,17 @@ class _AuthScreenState extends State<AuthScreen> {
   bool isLoading = false; // Added for loader control
 
   Future fetchUserData() async {
-    setState(() {  //optional to show
+    setState(() {
+      //optional to show
       isLoading = true; // Show loader when API call starts
     });
 
     print("Fetching user data...");
 
-    try {        // optional
-      final response = await http.post(   //
+    try {
+      // optional
+      final response = await http.post(
+        //
         Uri.parse(
             '${Helpers.baseUrl}${signup ? Helpers.signup : Helpers.login}'),
         body: {
@@ -94,7 +97,8 @@ class _AuthScreenState extends State<AuthScreen> {
 
         throw Exception('Failed to load data');
       }
-    } catch (e) {   // optional
+    } catch (e) {
+      // optional
       setState(() {
         isLoading = false;
       });
@@ -119,177 +123,178 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return LinearBackground(
-        child: SafeArea(
-      child: Expanded(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CommonText(
-                'Apna Chotu Customer Login',
-                style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                    color: Colors.white, fontWeight: FontWeight.w400),
-              ),
-              const SizedBox(height: 8),
-              CommonText(
-                'Login access is available to customer who have registered.',
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400),
-              ),
-              const SizedBox(height: 70),
-              Center(
-                  child: SizedBox(
-                      height: 265,
-                      width: 265,
-                      child: Image.asset('assets/images/fingerprint.png'))),
-              const SizedBox(height: 35),
-              CommonText(
-                'Enter registered mobile number',
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400),
-              ),
-              const SizedBox(height: 8),
-              Row(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: DropdownButton<String>(
-                      value: selectedCountryCode,
-                      onChanged: (newValue) {
-                        setState(() {
-                          selectedCountryCode = newValue!;
-                        });
-                      },
-                      items: countryCodes.map((code) {
-                        return DropdownMenuItem<String>(
-                          value: code,
-                          child: CommonText(code),
-                        );
-                      }).toList(),
-                      underline: Container(
-                        height: 0,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: TextFormField(
-                        controller: phoneNumberController,
-                        keyboardType: TextInputType.phone,
-                        decoration: const InputDecoration(
-                          hintText: 'Enter your phone number',
-                          border: InputBorder.none,
-                          contentPadding: EdgeInsets.all(12),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              if (signup) ...[
-                const SizedBox(height: 16),
+      child: SafeArea(
+        child: Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
                 CommonText(
-                  'Email ID',
+                  'Apna Chotu Customer Login',
+                  style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                      color: Colors.white, fontWeight: FontWeight.w400),
+                ),
+                const SizedBox(height: 8),
+                CommonText(
+                  'Login access is available to customer who have registered.',
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w400),
+                ),
+                const SizedBox(height: 70),
+                Center(
+                    child: SizedBox(
+                        height: 265,
+                        width: 265,
+                        child: Image.asset('assets/images/fingerprint.png'))),
+                const SizedBox(height: 35),
+                CommonText(
+                  'Enter registered mobile number',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       color: Colors.white,
                       fontSize: 16,
                       fontWeight: FontWeight.w400),
                 ),
                 const SizedBox(height: 8),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: TextFormField(
-                    controller: emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: const InputDecoration(
-                      hintText: 'Enter your Email address',
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.all(12),
-                    ),
-                  ),
-                ),
-              ],
-              SizedBox(height: isLoading ? 32 : 16),
-              isLoading
-                  ? const Center(
-                      child: SizedBox(
-                          height: 30,
-                          width: 30,
-                          child: CircularProgressIndicator(
-                            color: Colors.orange,
-                          )))
-                  : RoundedButton(
-                      onPressed: () {
-                        if (phoneNumberController.text.trim().isNotEmpty &&
-                            phoneNumberController.text.trim().length ==
-                                10) {
-                          fetchUserData();
-                          // authController.callAPI(
-                          //     phone: phoneNumberController.text,
-                          //     email: emailController.text);
-                        } else {
-                          Get.defaultDialog(
-                              confirmTextColor: Colors.white,
-                              // modify error msg
-                              title: 'Please enter valid mobile number',
-                              middleText: '',
-                              onConfirm: () {
-                                Get.back();
-                              });
-                        }
-                      },
-                      name: signup ? 'Register' : 'Login via OTP',
-                    ),
-              const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  CommonText(
-                    signup ? 'Already have an account? ' : 'Not have an account? ',
-                    style: const TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        signup = !signup;
-                      });
-                    },
-                    child: CommonText(
-                      signup ? 'Login' : 'Create Now',
-                      style: const TextStyle(
+                Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
                         color: Colors.white,
-                        decoration: TextDecoration.underline,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      child: DropdownButton<String>(
+                        value: selectedCountryCode,
+                        onChanged: (newValue) {
+                          setState(() {
+                            selectedCountryCode = newValue!;
+                          });
+                        },
+                        items: countryCodes.map((code) {
+                          return DropdownMenuItem<String>(
+                            value: code,
+                            child: CommonText(code),
+                          );
+                        }).toList(),
+                        underline: Container(
+                          height: 0,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: TextFormField(
+                          controller: phoneNumberController,
+                          keyboardType: TextInputType.phone,
+                          decoration: const InputDecoration(
+                            hintText: 'Enter your phone number',
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.all(12),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                if (signup) ...[
+                  const SizedBox(height: 16),
+                  CommonText(
+                    'Email ID',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400),
+                  ),
+                  const SizedBox(height: 8),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: TextFormField(
+                      controller: emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: const InputDecoration(
+                        hintText: 'Enter your Email address',
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.all(12),
                       ),
                     ),
                   ),
                 ],
-              ),
-
-            ],
+                SizedBox(height: isLoading ? 32 : 16),
+                isLoading
+                    ? const Center(
+                        child: SizedBox(
+                            height: 30,
+                            width: 30,
+                            child: CircularProgressIndicator(
+                              color: Colors.orange,
+                            )))
+                    : RoundedButton(
+                        onPressed: () {
+                          if (phoneNumberController.text.trim().isNotEmpty &&
+                              phoneNumberController.text.trim().length == 10) {
+                            fetchUserData();
+                            // authController.callAPI(
+                            //     phone: phoneNumberController.text,
+                            //     email: emailController.text);
+                          } else {
+                            Get.defaultDialog(
+                                confirmTextColor: Colors.white,
+                                // modify error msg
+                                title: 'Please enter valid mobile number',
+                                middleText: '',
+                                onConfirm: () {
+                                  Get.back();
+                                });
+                          }
+                        },
+                        name: signup ? 'Register' : 'Login via OTP',
+                      ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CommonText(
+                      signup
+                          ? 'Already have an account? '
+                          : 'Not have an account? ',
+                      style: const TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          signup = !signup;
+                        });
+                      },
+                      child: CommonText(
+                        signup ? 'Login' : 'Create Now',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
-    ));
+    );
   }
 
   @override

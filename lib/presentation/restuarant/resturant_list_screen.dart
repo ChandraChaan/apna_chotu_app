@@ -23,7 +23,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
   void toggleLike() {
     setState(() {
       if (isLiked) {
-        likeCount++;
+        likeCount--;
         isLiked = false;
       } else {
         likeCount++;
@@ -37,6 +37,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
       //img 1
       "image": "assets/images/image_2.png",
       "likes": "10292",
+      "isliked": false,
       "name": "Flechazo Madhapur",
       "subTitle": "HUDA Texhno ENclage, Madhapur",
       "km": "15.5 Km, 1hour",
@@ -46,6 +47,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
       //img 2
       "image": "assets/images/image_3.png",
       "likes": "8938",
+      "isliked": true,
       "name": "Palamuru Grill",
       "subTitle": "Ayyappa society, Madhapur",
       "km": "12.2 Km, 55 mins",
@@ -55,6 +57,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
       //img 3
       "image": "assets/images/image_4.png",
       "likes": "3759",
+      "isliked": false,
       "name": "T-Grill",
       "subTitle": "CBI Colony, Madhapur",
       "km": "10.5 Km, 55 mins",
@@ -64,6 +67,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
       //img 4
       "image": "assets/images/image_5.png",
       "likes": "10292",
+      "isliked": true,
       "name": "Aazebo-The Royal",
       "subTitle": "Sri Sai Nagar, Madhapur",
       "km": "12.2 Km, 55 mins",
@@ -73,6 +77,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
       //img 5
       "image": "assets/images/image_6.png",
       "likes": "2901",
+      "isliked": false,
       "name": "GUDGUDEE Restaurant",
       "subTitle": "Inorbit Mall,Street No-2,Madhapur",
       "km": "11.8 Km, 45 mins",
@@ -82,6 +87,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
       //img 6
       "image": "assets/images/image_7.png",
       "likes": "10292",
+      "isliked": true,
       "name": "The5inest Restaurant",
       "subTitle": "Arunodaya Colony,Madhapur",
       "km": "11.8 Km, 45 mins",
@@ -91,6 +97,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
       //img 7
       "image": "assets/images/image_8.png",
       "likes": "2325",
+      "isliked": false,
       "name": "Lassi Bistro Madhapur",
       "subTitle": "Sri Sai Nagar, Madhapur",
       "km": "12.0 Km, 52 mins",
@@ -100,6 +107,7 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
       //img 8
       "image": "assets/images/image_9.png",
       "likes": "3782",
+      "isliked": true,
       "name": "Bluefox Madhapur",
       "subTitle": "HUDA Techno Enclave, Madhapur",
       "km": "12.2 Km, 55 mins",
@@ -377,13 +385,16 @@ class _RestaurantListScreenState extends State<RestaurantListScreen> {
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       IconButton(
-                                        icon: Icon(isLiked
+                                        icon: Icon(listItems[a]["isliked"]
                                             ? Icons.favorite
                                             : Icons.favorite_border),
-                                        color: isLiked
+                                        color: listItems[a]["isliked"]
                                             ? Colors.deepOrange
                                             : Colors.white,
                                         onPressed: () {
+                                          setState(() {
+                                            listItems[a]["isliked"] = !(listItems[a]["isliked"]);
+                                          });
                                           toggleLike();
                                         },
                                       ),
