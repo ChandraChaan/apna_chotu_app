@@ -30,6 +30,7 @@ abstract class Routes {
   static const paymentOptions = '/paymentOptions';
   static const serviceList = '/serviceList';
   static const micServices = '/micServices';
+  static const groceryServices = '/groceryServices';
   static const miscOrderCreate = '/miscOrderCreate';
 
 }

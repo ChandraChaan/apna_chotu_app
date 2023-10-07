@@ -172,10 +172,9 @@ class FoodScreen extends StatelessWidget {
                         if (index == 0)
                           Get.toNamed(Routes.restaurantListScreen);
                         else if (index == 1)
-                          Get.snackbar('Services are in progress', 'try again',
-                              snackPosition: SnackPosition.BOTTOM,
-                              colorText: Colors.white,
-                              backgroundColor: Colors.red);
+                          Get.toNamed(Routes.serviceList);
+                        // else if (index == 2)
+                        //   Get.toNamed(Routes.groceryServices);
                         else
                           Get.snackbar('Check with food only now', 'try again',
                               snackPosition: SnackPosition.BOTTOM,

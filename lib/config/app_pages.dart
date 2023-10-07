@@ -39,6 +39,12 @@ class AppPages {
         page: () => const IntroductionScreen(),
         binding: MainBinding()),
     GetPage(
+        name: Routes.cartScreen,
+        page: () {
+          return CartScreen();
+        },
+        binding: MainBinding()),
+    GetPage(
         name: Routes.auth,
         page: () => const AuthScreen(),
         binding: MainBinding()),
@@ -68,7 +74,15 @@ class AppPages {
         binding: MainBinding()),
     GetPage(
         name: Routes.restaurantListScreen,
-        page: () => RestaurantListScreen(),
+        page: () => RestaurantListScreen(index: 1,),
+        binding: MainBinding()),
+    GetPage(
+        name: Routes.serviceList,
+        page: () => RestaurantListScreen(index: 2,),
+        binding: MainBinding()),
+    GetPage(
+        name: Routes.groceryServices,
+        page: () => RestaurantListScreen(index: 3,),
         binding: MainBinding()),
     GetPage(
         name: Routes.nonVegMenu,
@@ -125,10 +139,6 @@ class AppPages {
         page: () => LogoutScreen(),
         binding: MainBinding()),
     GetPage(
-        name: Routes.cartScreen,
-        page: () => CartScreen(),
-        binding: MainBinding()),
-    GetPage(
         name: Routes.editProfileScreen,
         page: () => EditProfileScreen(),
         binding: MainBinding()),
@@ -140,10 +150,10 @@ class AppPages {
         name: Routes.addressNotFound,
         page: () => AddressNotFound(),
         binding: MainBinding()),
-    GetPage(
-        name: Routes.serviceList,
-        page: () => ServiceList(),
-        binding: MainBinding()),
+    // GetPage(
+    //     name: Routes.serviceList,
+    //     page: () => ServiceList(),
+    //     binding: MainBinding()),
     GetPage(
         name: Routes.micServices,
         page: () => MicServices(),
@@ -152,6 +162,5 @@ class AppPages {
         name: Routes.miscOrderCreate,
         page: () => MiscOrderCreate(),
         binding: MainBinding()),
-
   ];
 }

@@ -186,7 +186,7 @@ class _CartScreenState extends State<CartScreen> {
 
   List<int> tip = [10, 20, 30, 40];
   int quantity = 1;
-
+int deliveryTip = 0;
   void increaseQuantity() {
     setState(() {
       widget.item?.quantity++;
@@ -203,7 +203,7 @@ class _CartScreenState extends State<CartScreen> {
 
   double calculateTotalPrice() {
     double totalPrice = 0;
-    totalPrice += (widget.item!.price * widget.item!.quantity)!;
+    totalPrice += (widget.item!.price * widget.item!.quantity);
     return totalPrice;
   }
 
@@ -211,7 +211,12 @@ class _CartScreenState extends State<CartScreen> {
     double totalPrice = calculateTotalPrice();
     return totalPrice * 0.18; // Assuming GST is 18%
   }
+addToTip(int amount){
+    deliveryTip = amount;
+    setState(() {
 
+    });
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -524,14 +529,14 @@ class _CartScreenState extends State<CartScreen> {
                   ],
                 ),
                 SizedBox(height: 7),
-                Row(
+                deliveryTip > 0 ? Row(
                   children: [
                     CommonText('Delivery Tip'),
                     SizedBox(width: 238),
                     Icon(Icons.currency_rupee, size: 15),
-                    CommonText('50.00')
+                    CommonText('$deliveryTip')
                   ],
-                ),
+                ): Container(),
                 SizedBox(height: 7),
                 Row(
                   children: [
@@ -557,7 +562,7 @@ class _CartScreenState extends State<CartScreen> {
                       size: 15,
                     ),
                     CommonText(
-                      '${(calculateTotalPrice() + calculateGST()).toStringAsFixed(2)}',
+                      '${(calculateTotalPrice() + calculateGST() + deliveryTip).toStringAsFixed(2)}',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     )
                   ],
@@ -602,7 +607,7 @@ class _CartScreenState extends State<CartScreen> {
                               width: 70,
                               child: ElevatedButton(
                                 onPressed: () {
-                                  // Add your button click logic here
+                                  addToTip(tip[a]);
                                 },
                                 style: ElevatedButton.styleFrom(
                                   foregroundColor: Colors.deepOrange,
@@ -732,7 +737,7 @@ class _CartScreenState extends State<CartScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CommonText(
-                          '${(calculateTotalPrice() + calculateGST()).toStringAsFixed(2)}',
+                          '${(calculateTotalPrice() + calculateGST() + deliveryTip).toStringAsFixed(2)}',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         CommonText(
